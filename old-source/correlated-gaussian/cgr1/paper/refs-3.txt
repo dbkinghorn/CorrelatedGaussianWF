@@ -1,0 +1,17 @@
+ AUTHOR       Wolniewicz, L.
+ TITLE        Nonadiabatic energies of the ground state of the hydrogen 
+                molecule.
+  
+ APPEARS IN   Journal of Chemical Physics vol.103, no.5 (1 Aug. 1995) p1792-9.
+ PUBLISHED    (1 Aug. 1995)
+  
+ ABSTRACT     Possible sources of residual errors in the theoretical energies 
+                of the hydrogen molecule are investigated. Nonadiabatic 
+                corrections are computed for all bound, J<or=10 X/sup 1/
+
+lqqqqqqqqqqqqqqqqqqq Holdings: JOURNAL OF CHEMICAL PHYSICS qqqqqqqqqqqqqqqqqqqk
+x1 > Science    QD1 .J94             CURRENT RECORD                           x
+x   LIB HAS: SCIENCE cop.1 v.1, 1933-                                         x
+x2 > Science    QD1 .J94             102:10-104:16                            x
+x   LIB HAS: SCIENCE cop.1 v.1, 1933-                                         x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj

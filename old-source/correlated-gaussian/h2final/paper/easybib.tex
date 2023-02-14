@@ -1,0 +1,418 @@
+% keywords: bibtex latex tex bibliography references
+%
+\documentstyle[seg,manuscript]{revtex} % This line gives a manuscript style.
+%
+%\documentstyle[seg]{revtex} % Uncomment this line for a preprint style.
+%
+\def\BibTeX{\rm B{\sc ib}\TeX}
+\begin{document}
+\bibliographystyle{seg}
+
+\title{Referencing and bibliographies \\ in SEG publications made easy}
+\author{Martin Karrenbach}
+\address{Stanford Exploration Project, 366 Mitchell, Stanford, CA 94305, U.S.A.}
+\maketitle
+
+\begin{abstract}
+When preparing a paper for publication, authors usually struggle with 
+the format and style of references to related articles.
+First they have to make sure that previous publications are cited correctly
+in the body of the paper. Second they have to make sure that the complete
+list of cited publications obeys the stylistic demands of the SEG
+editor. 
+
+To make it as easy as possible for the author and also to enforce 
+stylistic consistency we require that the {\tt Bibliography} environment
+offer by \LaTeX\  is used.  SEG provides guidelines and examples 
+of citations in this article.
+\end{abstract}
+
+\section{Philosophy}
+We emphatically encourage authors to take advantage of the \BibTeX\ 
+style file that the SEG editor provides. If you are using \TeX\  and 
+\LaTeX\  already, you should also have \BibTeX\  available to you.
+If you do not, we encourage you to get hold of the latest \TeX\ 
+distribution -- \BibTeX\  is included.
+
+\BibTeX\  saves the authors of scientific articles a lot of work,
+by converting \BibTeX\  database entries into bibliographic entries
+used in  \LaTeX\ .
+Those get automatically included in your paper using the correct style.
+All references will automatically get sorted and correctly numbered if
+there are more than one paper from the same author per year.
+The appropriate style will be chosen depending on the type of citation
+such as articles, books, proceedings, theses or talks.
+
+SEG currently provides all Geophysics articles up to 1992 on CDROM,
+also in the previous year SEG published indices of Geophysics, 
+The Leading Edge, SEG Abstracts, SEG Books and the 
+publications of associated geophysical organizations.
+All those data bases can be easily converted into
+\BibTeX\  files. The Stanford Exploration Project has used this method
+since 1991 and is happy to provide SEG with those tools.
+
+You do not need to rely on outside \BibTeX\  databases, but you can 
+easily create your own \BibTeX\  files. At the end of this section
+the file {\tt segmaster.bib} is included as an example.
+For more details have a look in Lamport's \LaTeX\ guide. \cite{lamport}
+
+\section{How to use bibliographies in \LaTeX\  }
+\LaTeX\  allows to refer to published material using the 
+{\tt $\backslash$cite\{ \}} command. The SEG style file augments that
+by another command {\tt $\backslash$shortcite\{ \}}, 
+which only displays the year and not the author names.
+For example to cite the first article in the bibliography that is shown below
+\cite{lan66}, use the command \verb+\cite{lan66}+. The citation key {\tt lan66}
+is the second argument to the \verb+\bibitem[tag]{citation key}+ command.
+The second type of citation: \shortcite{lan66} can be invoked, using
+\verb+\shotcite{lan66}+.
+Those two commands govern how you want to cite material in your text.
+At the end of your paper there has to be a list of all cited articles.
+The standard way in \LaTeX\ is to have all cited entries listed in
+the {\tt thebibliography} environment.
+After the CONCLUSIONS and ACKNOWLEDGMENTS, the reference list will appear
+by typing:
+
+{\tighten
+\begin{verbatim}
+\begin{thebibliography}{0}
+\bibitem[Landes, 1966]{lan66}
+Landes, K. K., 1966, A scrutiny of the abstract, {II}: AAPG Bull., {\bf 50}, 
+1992.
+\bibitem[Lindsey, 1993]{lindsey94}
+Lindsey, J. P, Jr., Instructions to authors: Geophysics, {\bf 58}, 2-9.
+\end{thebibliography}
+\end{verbatim}
+}
+
+The result will be the following:
+{\tighten
+\begin{thebibliography}{0}
+\bibitem[Landes, 1966]{lan66}
+Landes, K. K., 1966, A scrutiny of the abstract, {II}: AAPG Bull., {\bf 50}, 
+1992.
+
+\bibitem[Lindsey, 1993]{lindsey94}
+Lindsey, J. P, Jr., Instructions to authors: Geophysics, {\bf 58}, 2-9.
+
+\end{thebibliography}
+}
+This requires the author to type in all cited articles. Possibly repeating
+it for other publications which require slight style changes. 
+An alternative way with \BibTeX\  is shown in the next section 
+(which avoids typing those in).
+
+
+\section{How to use {{\BibTeX\ }} to create bibliographies}
+
+In contrast to the previous section you could have put the two entries
+in the following form in a file {\tt segmaster.bib}:
+{\tighten
+\begin{verbatim}
+@ARTICLE{lan66,
+   author = {K. K. Landes},
+   journal = {AAPG Bull.},
+   title = {A scrutiny of the abstract, {II}},
+   volume = {50},
+   page= {1992}
+   year = {1966}
+}
+@ARTICLE{lindsey94,
+   author = {J. P. Jr. Lindsey},
+   journal = {Geophysics},
+   title = {Instructions to authors},
+   volume = {58},
+   pages = {2-9},
+   year = {1993}
+}
+\end{verbatim}
+}
+All entries start with some type identifier, such as {\tt @ARTICLE}, that
+will describe what kind of publication it is. The first item after that
+is the citation key {\tt lan66}. This is the key you use to refer to the
+entry and with which you cite the document in your paper (\verb+\cite{lan66}+).
+Following that are descriptive keywords, like {\tt author, title, 
+volume, etc.}.
+These keywords will vary with the type of publication.
+For more details look at Lamport's \LaTeX guide \shortcite{lamport} and the
+file {\tt segmaster.bib}, which contains examples how to write your own 
+\BibTeX\ entries.
+
+Instead of typing the bibliography into your paper (as the last section did)
+you now have merely to put a single line:
+{\bf
+\begin{verbatim}
+\bibliography{segmaster}
+\end{verbatim}
+}
+That will tell \LaTeX\ to  insert the bibliography in your paper.
+The argument to the {\bf \verb+\bibliography{...,...}+} 
+can be a single file name
+({\tt segmaster}) or a comma separated list of 
+filenames ({\tt segmaster,mybib}).
+\BibTeX\  assumes those files to have the extension {.bib}.
+
+To get all the references resolved  you have to run your paper through:
+{\tt latex}, then through {\tt bibtex}. 
+{\tt latex} creates a {\tt .aux} file.
+{\tt bibtex} uses that {\tt .aux} file and creates a {\tt .bbl} file.
+This bibliography file {\tt .bbl} contains all the entries that you would
+have originally had to type in by hand.
+The biggest advantage is however, that you do not have to worry about
+stylistic errors. It will be correct -- the SEG style file takes care of that.
+To get this stylistic behavior, your document must contain the command
+{\bf\verb+\bibliographystyle{seg}+}.
+Once you have the {\tt .bbl} file created, 
+you do not have to run {\tt bibtex} again; 
+you just use {\tt latex} the same way as usual.
+%
+You only have to rerun {\tt bibtex} again, 
+if you want to change (add or delete) cited papers in your manuscript.
+
+%
+%Look at the listings in this paper
+%if you want to know how this paper and the bibliography file was written.
+
+\section{Examples of Citations}
+
+This section shows many examples (including the ones given in 
+``Instructions to the authors'') of citing relevant published material.
+The {\tt $\backslash$cite} command takes as argument a {\tt key}, 
+that identifies a bibliography entry. It is easiest if you compare 
+the following citations
+with the original bibliography file, which is listed as an appendix.
+
+I am citing a book in the full form \cite{lamport} , 
+while here I am citing only the year of the book \shortcite{lamport}.
+I was using the command: \verb+\cite{lamport}+  and then 
+\verb+\shortcite{lamport}+.
+The entry in the \BibTeX\ file is as follow:
+
+{\tighten
+\begin{verbatim}
+@BOOK{lamport,
+   author = {L[eslie] Lamport},
+   title = {\LaTeX\  user's guide \& reference manual},
+   year = {1985},
+   publisher ={Addison-Wesley Publishing Company}
+}
+\end{verbatim}
+}
+
+Here I cite an  article the same way, once full \cite{segarticle} and 
+once just the year \shortcite{segarticle}.
+Articles with more than two authors are cited using the correct style
+\cite{magazine3}.
+%
+%Note that if you want to keep something literal in the title enclose it with
+%\{\}, that will keep it from being lowercased.
+%
+This is the citation of a  magazine article \cite{segmagazine},
+a M.Sc. thesis \cite{segms},
+a patent \cite{patent},
+a book \cite{segbook},
+an article in a book \cite{inbook},
+an  SEG paper \cite{segabstract}
+and finally an  SEG talk \cite{segtalk}.
+ Here I am citing multiple papers in one citation: 
+\cite{segtalk,segabstract}, using 
+\verb+\cite{segtalk,segabstract}+. Be sure not to leave spaces in the 
+comma separated list, \verb+\cite{segtalk,\ segabstract}+ will NOT work.
+Letters will be added automatically to the year if an author has two 
+publications in the same year, such as the articles by Claerbout 
+\shortcite{Claerbout.sep.77.245,Claerbout.sep.77.19}.
+
+To let you see all referenced articles, I put 
+\verb+\bibliography{segmaster}+ here. This bibliography contains all
+references given in the ``Instruction to the authors'', that appears
+in the first issue of each volume of Geophysics.
+
+\nocite{lamport}
+
+% uncomment the following line when using bibtex
+%\bibliography{segmaster}
+
+% comment the following lines when using bibtex
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% this is included from the easybib.bbl file that was generated by bibtex
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Anstey}{1976}]{patent}
+Anstey, N., 1976, Seismic delineation of oil and gas reservoirs using borehole
+  geophones: Canadian Patents 1 106 957 and 1 114 937.
+
+\bibitem[\protect\citeauthoryear{Baker and Carter}{1972}]{inbook}
+Baker, D.~W., and Carter, N.~L., 1972, Seismic velocity anisotropy calculated
+  for ultramafic minerals and aggregates, {\it in} Heard, H.~C., Borg, I.~V.,
+  Carter, N.~L.,  and Raleigh, C.~B., Eds., Flow and fracture of rocks: Am.
+  Geophys. Union, Geophys. Mono., 16,  157--166.
+
+\bibitem[\protect\citeauthoryear{Constable}{1986}]{segabstract}
+Constable, S.~C., 1986, Offshore electromagnetic surveying techniques: 56th
+  Ann. Internat. Mtg., Soc. Expl. Geophys., Expanded Abstracts,  81--82.
+
+\bibitem[\protect\citeauthoryear{Davis and Rabinowitz}{1975}]{segbook}
+Davis, P.~J., and Rabinowitz, P., 1975, Methods of numerical integration:
+  Academic Press Inc.
+
+\bibitem[\protect\citeauthoryear{Hubbard}{1979}]{segtalk}
+Hubbard, T.~P., 1979, Deconvolution of surface recorded data using vertical
+  seismic profiles: Presented at the 49th Ann. Internat. Mtg., Soc. Expl.
+  Geophys.
+
+\bibitem[\protect\citeauthoryear{Lamport}{1985}]{lamport}
+Lamport, L., 1985, {\LaTeX\ user's guide \& reference manual}: Addison-Wesley
+  Publishing Company.
+
+\bibitem[\protect\citeauthoryear{Landes}{1966}]{lan66}
+Landes, K.~K., 1966, A scrutiny of the abstract, {II}: AAPG Bull., {\bf 50},
+  1992.
+
+\bibitem[\protect\citeauthoryear{Lindsey}{1988}]{segmagazine}
+Lindsey, J.~P., 1988, Measuring wavelet phase from seismic data: The Leading
+  Edge, {\bf 7}, no. 7, 10--16.
+
+\bibitem[\protect\citeauthoryear{Lodha}{1974}]{segms}
+Lodha, G.~S., 1974, Quantitative interpretation of ariborne electromagnetic
+  response for a spherical model: Masters's thesis, University of Toronto.
+
+\bibitem[\protect\citeauthoryear{Loveridge \bgroup et al.\egroup
+  }{1984}]{magazine3}
+Loveridge, M.~M., Parkes, G.~E., Hatton, L.,  and Worthington, M.~H., 1984,
+  Effects of marine source array directivity on seismic data and source
+  signature deconvolution: First Break, {\bf 2}, no. 7, 16--23.
+
+\bibitem[\protect\citeauthoryear{Zonge and Wynn}{1975}]{segarticle}
+Zonge, K.~L., and Wynn, J.~C., 1975, {EM} coupling, its intrinsic value, its
+  removal, and the cultural coupling problem: Geophysics, {\bf 40}, 831--850.
+
+\bibitem[\protect\citeauthoryear{Claerbout}{1993a}]{Claerbout.sep.77.19}
+Claerbout, J.~F., 1993a, 3-d local-monoplane annihilator: Stanford Exploration
+  Project Report, {\bf 77}, 19--26.
+
+\bibitem[\protect\citeauthoryear{Claerbout}{1993b}]{Claerbout.sep.77.245}
+Claerbout, J.~F., 1993b, Steep-dip deconvolution: Stanford Exploration Project
+  Report, {\bf 77}, 245--256.
+
+\end{thebibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\section*{Listing}
+I list the complete bibliography file, that is used by this paper.
+This file could be used to create many different reference styles.
+Please compare these entries to the previous bibliographies.
+
+{\tighten
+\begin{verbatim}
+@ARTICLE{lan66,
+   author = {K[] K[] Landes},
+   journal = {AAPG Bull.},
+   title = {A scrutiny of the abstract, {II}},
+   volume = {50},
+   pages={1992},
+   year = {1966}
+}
+@ARTICLE{lindsey93,
+   author = {J. P. Jr. Lindsey},
+   journal = {Geophysics},
+   title = {Instructions to authors},
+   volume = {58},
+   pages = {2-9},
+   year = {1993}
+}
+@ARTICLE{segarticle,
+   author = {K[] L[] Zonge and J[] C[] Wynn},
+   journal = {Geophysics},
+   title = {{EM} coupling, its intrinsic value, its removal, 
+             and the cultural coupling problem},
+   volume = {40},
+   pages = {831--850},
+   year = {1975}
+}
+@ARTICLE{segmagazine,
+   author = {J[] P[] Lindsey},
+   journal = {The Leading Edge},
+   title = {Measuring wavelet phase from seismic data},
+   volume = {7},
+   number = {7},
+   pages = {10-16},
+   year = {1988}
+}
+@BOOK{segbook,
+   author = {P[] J[] Davis and P[] Rabinowitz},
+   title = {Methods of numerical integration},
+   year = {1975},
+   publisher ={Academic Press Inc.}
+}
+@INBOOK{inbook,
+    author={D. W. Baker and N. L. Carter},
+    year={1972},
+    editor={ H. C. Heard and I. V. Borg and N. L. Carter and C. B. Raleigh},
+    title={Seismic velocity anisotropy calculated for ultramafic minerals
+            and aggregates},
+    booktitle={Flow and fracture of rocks},
+    publisher={Am. Geophys. Union},
+    series={Geophys. Mono.},
+    volume={16},
+    pages={157-166}
+}
+@MASTERSTHESIS{segms,
+   author = {G[unter] S[ergei] Lodha},
+   title = {Quantitative interpretation of ariborne 
+            electromagnetic response for a spherical model},
+   school = {University of Toronto},
+   year = {1974}
+}
+@INPROCEEDINGS{segtalk,
+   author={T. P. Hubbard},
+   howpublished = {talk},
+   year=  {1979},
+   title ={Deconvolution of surface recorded data using 
+           vertical seismic profiles},
+   meeting={49th Ann. Internat. Mtg.},
+   publisher={Soc. Expl. Geophys.},
+}
+@INPROCEEDINGS{segabstract,
+   author={S[ullivan] C[lay] Constable},
+   year=  {1986},
+   title ={Offshore electromagnetic surveying techniques},
+   meeting={56th Ann. Internat. Mtg.},
+   booktitle={Expanded Abstracts},
+   publisher={Soc. Expl. Geophys.},
+   pages={81-82}
+}
+@ARTICLE{patent,
+  author={N. Anstey}, 
+  title={Seismic delineation of oil and gas reservoirs using 
+         borehole geophones}, 
+  year={1976}, 
+  journal={Canadian Patents 1 106 957 and 1 114 937}
+}
+@PHDTHESIS{segphd,
+   author = {J[oe] Dellinger},
+   title = {Anisotropic Wave Propagation},
+   school = {Stanford University},
+   year = {1990}
+}
+
+@ARTICLE{magazine3,
+  author={M. M.  Loveridge  and G. E.  Parkes  
+          and L.   Hatton  and M. H.  Worthington }, 
+  title={Effects of Marine Source Array Directivity on 
+         Seismic Data and Source Signature Deconvolution}, 
+  year=1984, 
+  journal={First Break}, 
+  volume=2, 
+  number=7, 
+  pages={16-23}
+}
+@BOOK{lamport,
+   author = {L[eslie] Lamport},
+   title = {{\LaTeX\  user's guide \& reference manual}},
+   year = {1985},
+   publisher ={Addison-Wesley Publishing Company}
+}
+\end{verbatim}
+}
+\end{document}

@@ -1,0 +1,23 @@
+--------------------Configuration: tor2z - Win32 Debug--------------------
+Begining build with project "C:\kinghorn\projects\tor2z\tor2z.dsp", at root.
+Active configuration is Win32 (x86) Console Application (based on Win32 (x86) Console Application)
+
+Project's tools are:
+			"Fortran 90 Compiler for 80x86" with flags "/include:"Debug/" /compile_only /nologo /debug:full /optimize:0 /warn:nofileopt /module:"Debug/" /object:"Debug/" /pdbfile:"Debug/DF50.PDB" "
+			"Win32 Resource Compiler" with flags "/l 0x409 /d "_DEBUG" "
+			"Browser Database Maker" with flags "/nologo /o"Debug/tor2z.bsc" "
+			"COFF Linker for 80x86" with flags "kernel32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/tor2z.pdb" /debug /machine:I386 /out:"Debug/tor2z.exe" /pdbtype:sept "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating temp file "C:\TEMP\RSP230.tmp" with contents </include:"Debug/" /compile_only /nologo /debug:full /optimize:0 /warn:nofileopt /module:"Debug/" /object:"Debug/" /pdbfile:"Debug/DF50.PDB" 
+"C:\kinghorn\projects\tor2z\tor2z.f"
+>
+Creating command line "link.exe kernel32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/tor2z.pdb" /debug /machine:I386 /out:"Debug/tor2z.exe" /pdbtype:sept  .\Debug\tor2z.obj .\Debug\tsttor2z.obj" 
+Compiling Fortran...
+C:\kinghorn\projects\tor2z\tor2z.f
+Linking...
+
+
+
+tor2z.exe - 0 error(s), 0 warning(s)

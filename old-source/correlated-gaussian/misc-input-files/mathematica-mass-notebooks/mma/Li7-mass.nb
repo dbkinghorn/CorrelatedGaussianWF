@@ -1,0 +1,337 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5304,        221]*)
+(*NotebookOutlinePosition[      5961,        245]*)
+(*  CellTagsIndexPosition[      5917,        241]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(me = 548579.903\ 10^\(-9\)\)], "Input"],
+
+Cell[BoxData[
+    \(0.000548579903000000079`\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(mLi7 = 7.016004049\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["7.01600404900000018`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->10]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Li7au = N[mLi7/me, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["12789.3931415128792`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(a = 137.03599944\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["137.03599944`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->11]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(be = 7.478/a^2\)], "Input"],
+
+Cell[BoxData[
+    \(0.000398213627034792505`\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(massLi7 = N[Li7au\  - \ 3\  + \ be, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["12786.393539726506`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\(\n\nmassLi6\  = \ N[6.015122281/me\  - 3\  + \ be, \ 20]\)\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["10961.8976686118084`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(massLi5\  = \ N[5.012537796/me\  - 3\  + \ be, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["9134.29793424822733`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(massLi8\  = \ N[8.022486670/me\  - 3\  + \ be, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["14621.099141400724`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(massLi9\  = \ N[9.026789122/me\  - 3\  + \ be, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["16451.8305380629143`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(massLi4\  = \ N[4.027182329/me\  - 3\  + \ be, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["7338.10477877275069`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(massLi10\  = \ N[10.035480884/me\  - 3\  + \ be, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["18290.5631574749669`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(massLi11\  = \ N[11.043796166/me\  - 3\  + \ be, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["20128.609495822145`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(massLi12\  = \ N[12.053780/me\  - 3\  + \ be, \ 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["21969.6974184323901`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[1/\((2\ massLi6)\), 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.0000456125403753489777`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[1/\((2\ massLi6/\((massLi6 + 1)\))\), 20]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.500045612540375383`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->16]], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{8, Automatic}, {107, Automatic}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 59, 1, 35, "Input"],
+Cell[1793, 54, 58, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[1888, 60, 51, 1, 35, "Input"],
+Cell[1942, 63, 120, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2099, 71, 57, 1, 35, "Input"],
+Cell[2159, 74, 120, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2316, 82, 49, 1, 35, "Input"],
+Cell[2368, 85, 113, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2518, 93, 47, 1, 35, "Input"],
+Cell[2568, 96, 58, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2663, 102, 74, 1, 35, "Input"],
+Cell[2740, 105, 119, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2896, 113, 93, 1, 77, "Input"],
+Cell[2992, 116, 120, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3149, 124, 85, 1, 35, "Input"],
+Cell[3237, 127, 120, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3394, 135, 85, 1, 35, "Input"],
+Cell[3482, 138, 119, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3638, 146, 85, 1, 35, "Input"],
+Cell[3726, 149, 120, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3883, 157, 85, 1, 35, "Input"],
+Cell[3971, 160, 120, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4128, 168, 87, 1, 35, "Input"],
+Cell[4218, 171, 120, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4375, 179, 87, 1, 35, "Input"],
+Cell[4465, 182, 119, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4621, 190, 84, 1, 35, "Input"],
+Cell[4708, 193, 120, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4865, 201, 58, 1, 35, "Input"],
+Cell[4926, 204, 125, 3, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5088, 212, 76, 1, 35, "Input"],
+Cell[5167, 215, 121, 3, 35, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

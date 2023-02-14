@@ -1,0 +1,46 @@
+This is TeX, Version 3.14159 (Web2C 7.2) (format=latex 1998.10.11)  25 FEB 1999 19:25
+**jeff-pnl.tex
+(jeff-pnl.tex
+LaTeX2e <1998/06/01>
+Babel <v3.6j> and hyphenation patterns for american, french, german, italian, n
+ohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/letter.cls
+Document Class: letter 1998/05/10 v1.2y Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/size10.clo
+File: size10.clo 1998/05/05 v1.3y Standard LaTeX file (size option)
+)
+\longindentation=\dimen102
+\indentedwidth=\dimen103
+\labelcount=\count79
+) (jeff-pnl.aux)
+\openout1 = `jeff-pnl.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 19.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 19.
+ [1
+
+] (jeff-pnl.aux) ) 
+Here is how much of TeX's memory you used:
+ 132 strings out of 10906
+ 1187 string characters out of 71921
+ 44892 words of memory out of 263001
+ 3130 multiletter control sequences out of 10000+0
+ 3640 words of font info for 14 fonts, out of 200000 for 1000
+ 15 hyphenation exceptions out of 1000
+ 23i,6n,18p,116b,191s stack positions out of 300i,100n,500p,30000b,4000s
+
+Output written on jeff-pnl.dvi (1 page, 1688 bytes).

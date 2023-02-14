@@ -1,0 +1,60 @@
+\begin{thebibliography}{10}
+
+\bibitem{Kinghorn93}
+D.~B. Kinghorn and R.~D. Poshusta,
+\newblock Physical Review A {\bf 47}, 3671 (1993).
+
+\bibitem{Kinghorn95b}
+D.~B. Kinghorn and R.~D. Poshusta,
+\newblock International Journal of Quantum Chemistry {\bf 62}, 223 (1997).
+
+\bibitem{Kozlowski93b}
+P.~Kozlowski and L.~Adamowicz,
+\newblock Physical Review A {\bf 48}, 1903 (1993).
+
+\bibitem{Kinghorn97a}
+D.~B. Kinghorn and L.~Adamowicz,
+\newblock Journal of Chemical Physics {\bf 106}, 4589 (1997).
+
+\bibitem{Varga96}
+K.~Varga and Y.~Suzuki,
+\newblock Physical Review C  (1996),
+\newblock in press.
+
+\bibitem{Kinghorn95a}
+D.~B. Kinghorn,
+\newblock International Journal of Quantum Chemistry {\bf 57}, 141 (1996).
+
+\bibitem{Poshusta83}
+R.~D. Poshusta,
+\newblock International Journal of Quantum Chemistry {\bf XXIV}, 65 (1983).
+
+\bibitem{MATLAB}
+MATLAB is a general purpose program for interactive numeric computation
+  available from: The Math Works, Inc. Cochituate Place 24 Prime Park Way
+  Natick, MA 01760 Phone: (508) 653-1415 e-mail info@mathworks.com.
+
+\bibitem{NashTN}
+S.~G. Nash,
+\newblock SIAM J. Numer. Anal. {\bf 21}, 770 (1984).
+
+\bibitem{netlib}
+netlib can be accesed by ftp at netlib@ornl.gov and netlib@research.att.com or
+  by World Wide Web access at http://www.netlib.org.
+
+\bibitem{Bishop77}
+D.~M. Bishop and L.~M. Cheung,
+\newblock Physical Review A {\bf 16}, 640 (1977).
+
+\bibitem{Kinghorn97b}
+D.~B. Kinghorn and L.~Adamowicz,
+\newblock Journal of Chemical Physics {\bf 106}, 8760 (1997).
+
+\bibitem{beowulfwww}
+see for example; {\tt http://www.beowulf.org}.
+
+\bibitem{Varga95}
+K.~Varga and Y.~Suzuki,
+\newblock Physical Review A {\bf 52}, 2885 (1995).
+
+\end{thebibliography}

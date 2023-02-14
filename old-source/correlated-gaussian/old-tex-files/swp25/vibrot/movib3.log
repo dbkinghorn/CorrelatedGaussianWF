@@ -1,0 +1,1167 @@
+This is TeX, Version 3.1415 (preloaded format=latex 95.10.5)  26 FEB 1997 08:47
+**&latex movib3.tex
+(
+LaTeX2e <1995/06/01>
+Hyphenation patterns for english, ukenglish, catalan, danish, spanish, french, 
+german, italian, latin, dutch, polish, portuguese, loaded.
+(
+File: latex209.def 1995/07/07 v0.47 Standard LaTeX file
+
+Entering LaTeX 2.09 compatibility mode.
+\footheight=\dimen102
+\@maxsep=\dimen103
+\@dblmaxsep=\dimen104
+(
+Package: tracefnt 1995/06/15 v3.0b Standard LaTeX package (font tracing)
+\tracingfonts=\count82
+LaTeX Info: Redefining \selectfont on input line 133.
+)
+\symbold=\mathgroup4
+\symsans=\mathgroup5
+\symtypewriter=\mathgroup6
+\symitalic=\mathgroup7
+\symsmallcaps=\mathgroup8
+\symslanted=\mathgroup9
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 276.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 277.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 278.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 284.
+LaTeX Info: Redefining \em on input line 294.
+ (
+Package: latexsym 1995/03/18 v2.2a Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup10
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 81.
+)
+LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 359.
+LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 361.
+LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 363.
+) ( (
+Filename: revtex.sty, v3.0 <27 October 92>
+(
+Filename: aps.sty, v3.0 <28 October 1992>
+REVTeX message: NFSS detected! Assuming NFSS.
+(
+Filename: aps10.sty, v3.0 <2 October 1992>
+(
+Compatibility mode: document class `revtex' requested, but `amsfonts' provided.
+
+
+Document Class: amsfonts 1995/02/01 v2.2b
+\@emptytoks=\toks15
+\symAMSa=\mathgroup11
+\symAMSb=\mathgroup12
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 128.
+))
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\@indentflag=\count89
+\@eqtoeqnum=\dimen105
+\c@eqletter=\count90
+\c@equation=\count91
+\@testboxa=\box26
+\@testboxb=\box27
+ (
+Filename: prabib.sty, v3.0 <9/14/92>
+\WidestRefLabelThusFar=\dimen106
+)
+\c@figure=\count92
+\c@table=\count93
+\c@tablenote=\count94
+\@Ldec=\dimen107
+\@Rdec=\dimen108
+))) (
+TCILATEX Macros for Scientific Word 2.5 <04 SEP 96>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+\@hour=\count95
+\@minute=\count96
+\GRAPHICSTYPE=\count97
+\draft=\count98
+\dispkind=\count99
+\c@chapter=\count100
+\theight=\dimen109
+Compatibility mode: definition of \rm ignored.
+Compatibility mode: definition of \sf ignored.
+Compatibility mode: definition of \tt ignored.
+Compatibility mode: definition of \bf ignored.
+Compatibility mode: definition of \it ignored.
+Compatibility mode: definition of \sl ignored.
+Compatibility mode: definition of \sc ignored.
+\c@theorem=\count101
+\c@axiom=\count102
+\c@remark=\count103
+\c@example=\count104
+\c@exercise=\count105
+\c@definition=\count106
+\intno@=\count107
+\ex@=\dimen110
+)
+No file movib3.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 32.
+(
+File: Ulasy.fd 1995/03/18 v2.2aLaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 32.
+ (
+File: Umsa.fd 1995/01/05 v2.2e AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 32.
+ (
+File: Umsb.fd 1995/01/05 v2.2e AMS font definitions
+)
+
+LaTeX Warning: Citation `Bartlett95' on page 1 undefined on input line 42.
+
+
+LaTeX Warning: Citation `Dunham32a' on page 1 undefined on input line 61.
+
+
+LaTeX Warning: Citation `Dunham32b' on page 1 undefined on input line 61.
+
+
+LaTeX Warning: Citation `Simons73' on page 1 undefined on input line 62.
+
+
+LaTeX Warning: Citation `Ogilvie81' on page 1 undefined on input line 63.
+
+
+LaTeX Warning: Citation `Thakkar75' on page 1 undefined on input line 64.
+
+
+LaTeX Warning: Citation `Huffaker76' on page 1 undefined on input line 65.
+
+
+LaTeX Warning: Citation `Morse29' on page 1 undefined on input line 65.
+
+
+LaTeX Warning: Citation `Jordan74' on page 1 undefined on input line 69.
+
+
+LaTeX Warning: Citation `Jorish79' on page 1 undefined on input line 69.
+
+
+LaTeX Warning: Citation `Sonnleitner81' on page 1 undefined on input line 69.
+
+
+LaTeX Warning: Citation `Pardo86' on page 1 undefined on input line 69.
+
+
+LaTeX Warning: Citation `Lee95a' on page 1 undefined on input line 74.
+
+
+LaTeX Warning: Citation `Dateo94' on page 1 undefined on input line 74.
+
+
+LaTeX Warning: Citation `Martin93' on page 1 undefined on input line 74.
+
+
+LaTeX Warning: Citation `Lee95b' on page 1 undefined on input line 74.
+
+
+LaTeX Warning: Citation `Martin95' on page 1 undefined on input line 75.
+
+
+LaTeX Warning: Citation `Koizumi91' on page 1 undefined on input line 76.
+
+
+LaTeX Warning: Citation `Bentley92' on page 1 undefined on input line 78.
+
+
+LaTeX Warning: Citation `Bowman75' on page 1 undefined on input line 79.
+
+
+LaTeX Warning: Citation `Connor75' on page 1 undefined on input line 79.
+
+
+LaTeX Warning: Citation `Forsythe77' on page 1 undefined on input line 82.
+
+
+LaTeX Warning: Citation `Malik80' on page 1 undefined on input line 82.
+
+
+LaTeX Warning: Citation `Sathyamurthy75' on page 1 undefined on input line 82.
+
+
+LaTeX Warning: Citation `Dunne87' on page 1 undefined on input line 82.
+
+
+LaTeX Warning: Citation `Bruehl88' on page 1 undefined on input line 82.
+
+
+LaTeX Warning: Citation `Murrell84' on page 1 undefined on input line 84.
+
+
+LaTeX Warning: Citation `Sorbie75' on page 1 undefined on input line 85.
+
+
+LaTeX Warning: Citation `Whitehead76' on page 1 undefined on input line 86.
+
+
+LaTeX Warning: Citation `Vergiri88' on page 1 undefined on input line 87.
+
+
+LaTeX Warning: Citation `Carter82' on page 1 undefined on input line 88.
+
+
+LaTeX Warning: Citation `Searles93' on page 1 undefined on input line 91.
+
+
+LaTeX Warning: Citation `Murrell84' on page 1 undefined on input line 92.
+
+
+LaTeX Warning: Citation `Mezey87' on page 1 undefined on input line 92.
+
+
+LaTeX Warning: Citation `Eckart35' on page 1 undefined on input line 103.
+
+
+LaTeX Warning: Citation `WilsonHoward36' on page 1 undefined on input line 104.
+
+
+
+LaTeX Warning: Citation `Watson68' on page 1 undefined on input line 105.
+
+
+LaTeX Warning: Citation `SutcliffeTennyson87' on page 1 undefined on input line
+ 106.
+
+
+LaTeX Warning: Citation `Jensen88' on page 1 undefined on input line 107.
+
+
+LaTeX Warning: Citation `LeRoy95' on page 1 undefined on input line 109.
+
+
+LaTeX Warning: Citation `Hutson93' on page 1 undefined on input line 110.
+
+[1
+
+]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.125 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.125 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.125 \end{equation}
+                    
+? 
+
+LaTeX Warning: Citation `Kinghorn95a' on page 2 undefined on input line 141.
+
+
+LaTeX Warning: Citation `Murrell84' on page 2 undefined on input line 149.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.193 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.193 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.193 \end{equation}
+                    
+? 
+
+LaTeX Warning: Reference `ham1' on page 2 undefined on input line 199.
+
+[2]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.224 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.224 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.224 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.238 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.238 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.238 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.259 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.259 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.259 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.267 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.267 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.267 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.284 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.284 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.284 \end{equation}
+                    
+? 
+
+LaTeX Warning: Reference `ham' on page 3 undefined on input line 289.
+
+
+LaTeX Warning: Citation `Kinghorn93' on page 3 undefined on input line 290.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 3 undefined on input line 290.
+
+
+LaTeX Warning: Citation `Poshusta83' on page 3 undefined on input line 302.
+
+
+LaTeX Warning: Citation `Kinghorn95a' on page 3 undefined on input line 302.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.306 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.306 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.306 \end{equation}
+                    
+? 
+
+LaTeX Warning: Reference `rijJ' on page 3 undefined on input line 314.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.320 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.320 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.320 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.366 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.366 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.366 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.375 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.375 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.375 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.391 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.391 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.391 \end{equation}
+                    
+? 
+
+LaTeX Warning: Reference `Atran' on page 3 undefined on input line 393.
+
+
+LaTeX Warning: Reference `Btran' on page 3 undefined on input line 393.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.404 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.404 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.404 \end{equation}
+                    
+? 
+[3]
+
+LaTeX Warning: Reference `Ntab' on page 4 undefined on input line 423.
+
+
+LaTeX Warning: Reference `phir' on page 4 undefined on input line 482.
+
+[4]
+
+LaTeX Warning: Citation `Murrell84' on page 5 undefined on input line 503.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.510 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.510 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.510 \end{equation}
+                    
+? 
+
+LaTeX Warning: Reference `MbodyV' on page 5 undefined on input line 545.
+
+[5]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.565 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.565 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.565 \end{equation}
+                    
+? 
+
+LaTeX Warning: Reference `phir' on page 6 undefined on input line 587.
+
+
+LaTeX Warning: Citation `Kinghorn95a' on page 6 undefined on input line 588.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.595 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.595 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.595 \end{equation}
+                    
+? 
+
+LaTeX Warning: Citation `Kinghorn95a' on page 6 undefined on input line 624.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 6 undefined on input line 624.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.648 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.648 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.648 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.680 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.680 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.680 \end{equation}
+                    
+? 
+[6]
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.699 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.699 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.699 \end{equation}
+                    
+? 
+
+LaTeX Warning: Reference `Ttran' on page 7 undefined on input line 700.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.711 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.711 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.711 \end{equation}
+                    
+? 
+
+LaTeX Warning: Citation `Poshusta83' on page 7 undefined on input line 715.
+
+
+LaTeX Warning: Citation `Kinghorn93' on page 7 undefined on input line 715.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 7 undefined on input line 715.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.726 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.726 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.726 \end{equation}
+                    
+? 
+
+LaTeX Warning: Reference `basisfcn' on page 7 undefined on input line 728.
+
+
+LaTeX Warning: Citation `Poshusta83' on page 7 undefined on input line 736.
+
+
+LaTeX Warning: Citation `Kinghorn93' on page 7 undefined on input line 736.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 7 undefined on input line 736.
+
+
+LaTeX Warning: Citation `Biedenharn81' on page 7 undefined on input line 738.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.748 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.748 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.748 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.755 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.755 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.755 \end{equation}
+                    
+? 
+
+LaTeX Warning: Citation `Varga95' on page 7 undefined on input line 765.
+
+
+LaTeX Warning: Citation `Kinghorn93' on page 7 undefined on input line 775.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 7 undefined on input line 775.
+
+
+LaTeX Warning: Citation `Kozlowski93b' on page 7 undefined on input line 775.
+
+
+LaTeX Warning: Citation `Kinghorn96a' on page 7 undefined on input line 775.
+
+
+LaTeX Warning: Citation `Varga96' on page 7 undefined on input line 775.
+
+[7]
+
+LaTeX Warning: Citation `Kolos65' on page 8 undefined on input line 821.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.849 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.849 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.849 \end{equation}
+                    
+? 
+
+LaTeX Warning: Citation `Mathematica' on page 8 undefined on input line 854.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.860 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.860 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.860 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.871 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.871 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.871 \end{equation}
+                    
+? 
+
+LaTeX Warning: Citation `Morse29' on page 8 undefined on input line 882.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.891 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.891 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.891 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.898 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.898 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.898 \end{equation}
+                    
+? 
+
+LaTeX Warning: Citation `Kolos65' on page 8 undefined on input line 908.
+
+[8]
+
+LaTeX Warning: Citation `Wolniewicz66' on page 9 undefined on input line 924.
+
+
+LaTeX Warning: Citation `LeRoy68' on page 9 undefined on input line 929.
+
+
+LaTeX Warning: Reference `freqtab' on page 9 undefined on input line 932.
+
+
+LaTeX Warning: Citation `Wolniewicz66' on page 9 undefined on input line 933.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.939 \end{equation}
+                    
+? 
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                      
+                                          
+l.939 \end{equation}
+                    
+? 
+! Missing } inserted.
+<inserted text> 
+                }
+l.939 \end{equation}
+                    
+? 
+
+LaTeX Warning: Citation `Kolos65' on page 9 undefined on input line 1000.
+
+[9]
+No file movib3.bbl.
+[10] ()
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+Here is how much of TeX's memory you used:
+1086 strings out of 10823
+9903 string characters out of 72203
+64745 words of memory out of 262141
+3967 multiletter control sequences out of 10000
+18490 words of font info for 71 fonts, out of 100000 for 255
+94 hyphenation exceptions out of 607
+26i,13n,24p,315b,208s stack positions out of 300i,40n,60p,4096b,4000s
+
+Output written on  (10 pages, 57536 bytes).

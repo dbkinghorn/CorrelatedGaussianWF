@@ -1,0 +1,39 @@
+*****Test input for mu2+ 2 basis function******
+  n THE NUMBER OF PSEUDO PARTICLES
+  2 
+  nb THE NUMBER OF BASIS FUNCTIONS
+  1
+  wev WHICH EIGENVALUE
+  1
+  x THE INITIAL GUESS FOR THE EXPONENTS
+    1.174803234784918     
+   3.6586899258196325E-001
+   0.413728929822708           
+   POWERS OF r1
+   8      
+   CHARGE MATRIX 
+  +1.0  0.0 
+  -1.0 -1.0
+  MASS
+  0.004836323108    0.002418161554
+  0.002418161554 0.5024181616 
+  nsym NUMBER OF SYMMETRY TERMS
+  2
+  symc SYMMETRY COEFS
+  1.0
+  1.0
+  Sym PROJECTION MATRICES
+    (1)(2)
+  1.0  0.0 
+  0.0  1.0 
+       (12)
+  -1.0  0.0 
+  -1.0  1.0 
+ If wev=1 then add evec for Rayleigh opt
+1
+.25
+.25
+.25
+.25
+
+

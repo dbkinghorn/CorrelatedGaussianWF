@@ -1,0 +1,501 @@
+% ****** Start of file rmp.sty ******
+%
+%
+%   This file is part of the APS files in the REVTeX 3.1 distribution.
+%   Version 3.1 of REVTeX, July 1, 1996.
+%
+%   Copyright (c) 1996 The American Physical Society.
+%
+%   See the REVTeX 3.1 README.rmp file for restrictions and more information.
+%
+
+%This file contains the appendix colon fix by Hamlin 5/13/94
+%The font information was changed to make the title boldface san serif
+% on 1/24/94 MTP
+%Check for NFSS added by Brinkmann (brinkmann@virginia.edu) on 1/25/95
+\def\title#1{\gdef\@title{{\Large\sf
+\ifx\selectfont\undefined			% old LaTeX
+ \@revmess{message}{NFSS not detected. Assuming OFSS.}
+ \sf\parindent0pt\rightskip0pt plus1fill
+\else						% NFSS in effect
+ \fontseries{bx}\selectfont\parindent0pt\rightskip0pt plus1fill
+\fi
+\ignorespaces#1\vskip 2.5pt}}}
+
+\def\author#1{\expandafter\def\expandafter\@authoraddress\expandafter
+{\@authoraddress %
+\ifpreprintsty\vskip0.5pc\hbox{}\fi%
+{\dimen0=-\prevdepth \advance\dimen0 by0.8cm \par\vskip-\lastskip
+\nointerlineskip\sf \parindent0pt \leftskip0.5in \rightskip0pt plus1fill
+\vrule height\dimen0 width0pt\relax\ignorespaces#1\par
+}%
+}%
+}
+
+\def\address#1{\expandafter\def\expandafter\@authoraddress\expandafter
+{\@authoraddress{%
+\ifpreprintsty\vskip0.25pc\hbox{}\fi%
+\dimen0=-\prevdepth \advance\dimen0 by0.6cm \par\vskip-\lastskip
+\small
+% next line replaces \sf, 1/24/94
+\ifx\selectfont\undefined			% old LaTeX
+ \sf
+\else						% NFSS in effect
+ \fontseries{m}\fontshape{sl}\fontfamily{cmss}\selectfont
+\fi
+\parindent0pt\leftskip0.5in\rightskip0pt plus1fill
+\vrule height\dimen0 width0pt\relax\ignorespaces#1\par
+}%
+}}
+
+\def\date#1{\gdef\@date{{\small\sf\leftskip.5in\noindent
+(\ignorespaces#1\unskip)\par}}}
+
+\def\@maketitle{%
+% next line was added for PROD --- handles frontmatter on UNIX, if the file
+% frntmttr.tex has been compiled into the format. mark pheffer 4/08/94
+\ifx\@frontmatter\undefined\else\@frontmatter\fi
+\@preprint
+\@title
+\ifdim\prevdepth=-1000pt \prevdepth0pt\fi
+\@authoraddress
+\ifpreprintsty\@date\fi
+}
+
+\def\abstract{\par
+\ifpreprintsty %
+\vskip2.5pc
+\begin{center}%
+{\large \abstractname\par}%
+\end{center}%
+\vskip.5pc
+\fi
+\bgroup
+\ifdim\prevdepth=-1000pt \prevdepth0pt\fi
+\hsize\columnwidth
+\if@twocolumn\else\leftskip=0.5in\parindent0pt\hsize5.5in\fi
+\dimen0=-\prevdepth \advance\dimen0 by0.6cm \nointerlineskip
+\footnotesize\vrule width 0pt height\dimen0 \relax \ignorespaces
+}
+
+\def\endabstract{\par\egroup\vskip2pc}
+
+\def\pacs#1{\par %
+\bgroup
+\hsize\columnwidth \parindent0pt
+\if@twocolumn\else\leftskip=0.5in \fi
+\ifdim\prevdepth=-1000pt \prevdepth0pt\fi
+\dimen0=-\prevdepth \advance\dimen0 by20pt\nointerlineskip
+\vbox to28pt{\small\vrule height\dimen0 width0pt\relax\ifdraft#1\fi\vfill}%
+\egroup
+\if@twocolumn\vskip1pc\fi
+\ifpreprintsty
+\penalty10000\vfill
+\hbox to\columnwidth{\hfil Typeset using {REV\TeX}}\newpage
+\fi
+}
+
+%The following piece was removed from the aps10.sty file MTP
+% Added to move footnotes down by .25pc 4/11/94 MTP PROD.
+
+\footnotesep 9.25pt
+\skip\footins 36pt plus 4pt minus 2pt
+\def\footnoterule{\kern-13pt\hrule width.5in\kern15.6pt}
+
+
+% Changed .5cm to .4cm for space following headings 3/21/94 mtp
+
+\def\section{\@mainheadtrue
+\@startsection {section}{1}{\z@}{0.8cm plus1ex minus
+ .2ex}{0.4cm plus1ex minus.2ex}{\reset@font\small\sf
+ \ifx\selectfont\undefined			% old LaTeX
+  \sf\raggedright\noindent
+ \else						% NFSS in effect
+  \fontseries{bx}\selectfont\raggedright\noindent
+ \fi
+}}
+\def\subsection{\@mainheadfalse
+\@startsection{subsection}{2}{\z@}{0.8cm plus1ex minus
+ .2ex}{0.4cm plus1ex minus.2ex}{\reset@font\small\sf
+ \ifx\selectfont\undefined			% old LaTeX
+  \sf\raggedright\noindent
+ \else						% NFSS in effect
+  \fontseries{bx}\selectfont\raggedright\noindent
+ \fi
+}}
+\def\subsubsection{\@mainheadfalse
+\@startsection{subsubsection}{3}{\z@}{.8cm plus1ex minus
+ .2ex}{0.4cm plus1ex minus.2ex}{\reset@font\small\sf\raggedright\noindent}}
+\def\paragraph{\@mainheadfalse
+\@startsection{paragraph}{4}{\z@}{.8cm plus1ex minus
+ .2ex}{0.4cm plus1ex minus.2ex}{\reset@font\small\sl\raggedright\noindent}}
+\def\subparagraph{\@mainheadfalse
+\@startsection{subparagraph}{4}{\parindent}{3.25ex plus1ex minus
+ .2ex}{-1em}{\reset@font\normalsize\bf}}
+
+\setcounter{tocdepth}{4}
+
+\def\thepart{\Roman{part}} %
+\def\thesection{\Roman{section}}
+\def\p@section{}
+\def\thesubsection{\Alph{subsection}}
+\def\p@subsection{\thesection.}
+\def\thesubsubsection{\arabic{subsubsection}}
+\def\p@subsubsection{\thesection.\thesubsection.}
+\def\p@paragraph{\thesection.\thesubsection.\thesubsubsection.}
+\def\theparagraph{\alph{paragraph}}
+\def\thesubparagraph{\theparagraph.\arabic{subparagraph}}
+
+\long\def\@makecaption#1#2{%
+\vbox{\hsize\@capwidth\noindent\reset@font\small\rm#1\penalty10000
+\hskip.5em plus.2em\ignorespaces#2\par}%
+\vskip 2pt} % 
+
+\newif\if@headempty
+
+\def\@sect#1#2#3#4#5#6[#7]#8{%
+\ifnum #2>\c@secnumdepth
+  \let\@svsec\@empty
+\else
+  \refstepcounter{#1}%
+  \def\@tempa{#8}%
+  \ifx\@tempa\empty %
+    \@heademptytrue
+  \else
+    \@heademptyfalse
+  \fi	       
+  \if@headempty %
+    \ifappendixon %
+      \if@mainhead %
+        \def\@tempa{APPENDIX }\def\@tempb{}%
+      \else %
+        \def\@tempa{}\def\@tempb{. }%
+      \fi
+    \else %
+      \def\@tempa{}\def\@tempb{. }%
+    \fi
+  \else %
+    \ifappendixon %
+      \if@mainhead %
+        \def\@tempa{APPENDIX }\def\@tempb{: }%
+      \else %
+        \def\@tempa{}\def\@tempb{. }%
+      \fi
+    \else %
+      \def\@tempa{}\def\@tempb{. }%
+    \fi
+  \fi
+  \edef\@svsec{\@tempa\csname the#1\endcsname\@tempb}%
+\fi
+\@tempskipa #5\relax
+\ifdim \@tempskipa>\z@
+  \begingroup #6\relax
+  {\hskip #3\relax\@svsec}{\interlinepenalty \@M
+  \if@mainhead\uppercase{#8}\else#8\fi\par}%
+  \endgroup
+  \csname #1mark\endcsname{#7}%
+  \addcontentsline{toc}%
+  {\if@mainhead\ifappendixon appendix\else#1\fi\else#1\fi}%
+  {\ifnum #2>\c@secnumdepth
+   \else
+     \protect\numberline{\if@mainhead\ifappendixon\ \fi\fi
+     \csname the#1\endcsname
+     \if@mainhead\ifappendixon\if@headempty\else:\fi\fi\fi}
+   \fi		  
+   #7}%
+\else
+  \def\@svsechd{#6\hskip #3\relax %
+  \@svsec \if@mainhead\uppercase{#8}\else#8\fi
+  \csname #1mark\endcsname{#7}%
+  \addcontentsline{toc}%
+  {\if@mainhead\ifappendixon appendix\else#1\fi\else#1\fi}%
+  {\ifnum #2>\c@secnumdepth
+  \else
+  \protect\numberline{\if@mainhead\ifappendixon\ \fi\fi
+  \csname the#1\endcsname
+  \if@mainhead\ifappendixon\if@headempty\else:\fi\fi\fi}
+  \fi	       					       
+  #7}%
+  }%
+\fi
+\@xsect{#5}}
+
+\def\@ssect#1#2#3#4#5{\@tempskipa #3\relax
+\def\@tempa{#5}%
+\ifx\@tempa\empty %
+\@heademptytrue
+\else
+\@heademptyfalse
+\fi	       
+\ifdim \@tempskipa>\z@
+  \begingroup #4{\hskip #1}{\interlinepenalty \@M
+  \ifappendixon
+  \if@mainhead %
+  \stepcounter{section}%
+  \if@headempty %
+    APPENDIX%
+  \else %
+    APPENDIX:
+  \fi
+  \fi
+  \fi
+  \if@mainhead\uppercase{#5}\else#5\fi\par}\endgroup
+\else \def\@svsechd{#4\hskip #1\relax
+  \ifappendixon
+  \if@mainhead %
+  \stepcounter{section}%
+  \if@headempty %
+  APPENDIX%
+  \else %
+  APPENDIX:
+  \fi
+  \fi
+  \fi
+  \if@mainhead\uppercase{#5}\else#5\fi}%
+\fi
+\if@mainhead
+\addcontentsline{toc}{\ifappendixon appendix\else unknown\fi}%
+{\ifappendixon \protect\numberline{\if@headempty\else:\fi}\fi#5}%
+\fi
+\@xsect{#3}}
+
+\def\appendix{\par\global\appendixontrue
+\setcounter{section}{0}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\def\thesection{\Alph{section}}
+\def\thesubsection{\arabic{subsection}}
+\def\thesubsubsection{\alph{subsubsection}}
+\def\theequation@prefix{\thesection}
+\@addtoreset{equation}{section}
+}
+
+\ifpreprintsty\else
+\def\@normalsize{\@setsize\normalsize{12pt}\xpt\@xpt
+\abovedisplayskip 10\p@ plus2\p@ minus5\p@
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip  \abovedisplayskip
+\belowdisplayshortskip \abovedisplayskip
+\let\@listi\@listI}
+\fi
+
+\def\@bibitem#1{\item\if@filesw \immediate\write\@auxout
+{\string\bibcite{#1}{}}\fi\ignorespaces}
+
+\def\cite{\@ifnextchar[{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+\let\CITE\cite
+\let\onlinecite\cite
+
+\def\@citex[#1]#2{%
+\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+\leavevmode\@cite{#2}{#1}}
+
+\def\@bylinecite{%
+\@ifnextchar[{\@tempswatrue\@CITEX}{\@tempswafalse\@CITEX[]}%
+}
+
+\def\@CITEX[#1]#2{%
+\if@filesw\immediate\write\@auxout{\string\citation{#2}}\fi
+\leavevmode\unskip$^{\scriptstyle\@CITE{#2}{#1}}$}
+
+%Parens were added to the following line in order to get
+%parens around the citation label. mtp 8/28/95
+\def\@cite#1#2{({\csname b@#1\endcsname\if@tempswa , #2\fi})} %
+\def\@CITE#1#2{{\csname b@#1\endcsname\if@tempswa , #2\fi}} %
+
+\def\@lbibitem[#1]#2{\item[\@BIBLABEL{#1}]\if@filesw
+{\def\protect##1{\string ##1\space}\immediate
+\write\@auxout{\string\bibcite{#2}{#1}}}\fi\ignorespaces}
+
+\def\@biblabel#1{{[#1]}} %
+%\def\@BIBLABEL#1{$^{#1}\m@th$} %
+%The following line was modified to eliminate the printing
+%of a superscripted reference label mtp 8/28/95
+\def\@BIBLABEL#1{\relax} %
+
+\def\references{%
+\addcontentsline{toc}{unknown}{References}%
+\ifpreprintsty
+\newpage
+\hbox to\hsize{\hss\large \refname\hss}%
+\else
+\vskip 2.5pc
+%\hrule width\hsize\relax
+\ifx\selectfont\undefined			% old LaTeX
+ \noindent\sf REFERENCES
+\else						% NFSS in effect
+ \noindent\fontseries{bx}\fontshape{n}\fontfamily{cmss}\selectfont REFERENCES
+\fi
+%\vskip 1.6cm
+%changed to 1.5pc to fix bad spacing mtp 3/21/94
+\vskip 1.5pc
+\fi
+\list{}%
+{\labelwidth\z@  \labelsep\z@ %
+\leftmargin6pt  \itemindent-6pt
+\ifdim\baselinestretch pt>1 pt %
+\parsep  4pt\relax %
+\else %
+\parsep  0pt\relax %
+\fi
+\itemsep\parsep %
+}%
+\let\newblock\relax %
+\sloppy\clubpenalty4000\widowpenalty4000
+\sfcode`\.=1000\relax
+\ifpreprintsty\else\small\fi
+}
+
+\def\endreferences{%
+\def\@noitemerr{\@warning{Empty `thebibliography' environment}}%
+\endlist
+}
+
+\def\thebibliography#1{\references}
+
+\def\endthebibliography{\endreferences}
+
+\newdimen\tocskip@section \tocskip@section\z@
+\newdimen\tocskip@subsection \tocskip@subsection\z@
+\newdimen\tocskip@subsubsection \tocskip@subsubsection\z@
+\newdimen\tocskip@paragraph \tocskip@paragraph\z@
+\newdimen\tocskip@appendix \tocskip@appendix\z@
+\newdimen\tocskip@pagenum \tocskip@pagenum\z@
+
+\def\@dotsep{5.5pt}
+\def\@pnumsep{14pt}
+
+\def\contentsline#1#2#3{%
+\checknsetmaxwd{pagenum}{#3}%
+\if\equalstrings{unknown}{#1}\else
+\def\numberline##1{%
+\egroup
+\checknsetmaxwd{#1}{##1}\@temptokena=\bgroup
+}%
+{#2}%
+\fi
+}
+
+\def\checkset#1#2{%
+\setbox0=\hbox{\footnotesize\rm #2}%
+\expandafter\ifdim\csname tocskip@#1\endcsname<\wd0
+\global\csname tocskip@#1\endcsname\wd0
+\fi
+}
+
+\def\checknsetmaxwd#1#2{%
+\if\equalstrings{pagenum}{#1}%
+\checkset{#1}{#2}%
+\else
+\if\equalstrings{appendix}{#1}%
+\checkset{appendix}{Appendix#2}%remove : following #2 mtp 5/10/94
+\else
+\checkset{#1}{#2.}%
+\fi
+\fi
+}
+
+\def\equalstrings#1#2{TT\fi\edef\@tempa{#1}\edef\@tempb{#2}\ifx\@tempa\@tempb}
+\def\l@section#1#2#3{%
+\bgroup
+\leftskip\csname tocskip@#1\endcsname \rightskip\tocskip@pagenum plus 1fil
+\noindent \parfillskip0pt \footnotesize\rm
+\def\numberline##1{\llap{\hbox to\leftskip{\hss ##1.\kern\@dotsep}}%
+\ignorespaces}%
+\ignorespaces#2\unskip\penalty10000\hfill
+\rlap{\hbox to\tocskip@pagenum{\hss\ignorespaces#3}}\par
+\egroup
+}
+
+\def\l@subsection#1#2#3{%
+\bgroup
+\leftskip\csname tocskip@#1\endcsname \rightskip\tocskip@pagenum plus 1fil
+\noindent \parfillskip0pt \footnotesize\rm
+\def\numberline##1{%
+\llap{\hbox to\leftskip{\kern\tocskip@section##1.\hfil}}%
+\ignorespaces}%
+\ignorespaces#2\unskip\penalty10000\hfill
+\rlap{\hbox to\tocskip@pagenum{\hss\ignorespaces#3}}\par
+\egroup
+}
+
+\def\l@subsubsection#1#2#3{%
+\bgroup
+\leftskip\csname tocskip@#1\endcsname \rightskip\tocskip@pagenum plus 1fil
+\noindent \parfillskip0pt \footnotesize\rm
+\def\numberline##1{%
+\llap{\hbox to\leftskip{\kern\tocskip@subsection##1.\hfil}}%
+\ignorespaces}%
+\ignorespaces#2\unskip\penalty10000\hfill
+\rlap{\hbox to\tocskip@pagenum{\hss\ignorespaces#3}}\par
+\egroup
+}
+
+\def\l@paragraph#1#2#3{%
+\bgroup
+\leftskip\csname tocskip@#1\endcsname \rightskip\tocskip@pagenum plus 1fil
+\noindent \parfillskip0pt \footnotesize\rm
+\def\numberline##1{%
+\llap{\hbox to\leftskip{\kern\tocskip@subsubsection##1.\hfil}}%
+\ignorespaces}%
+\ignorespaces#2\unskip\penalty10000\hfill
+\rlap{\hbox to\tocskip@pagenum{\hss\ignorespaces#3}}\par
+\egroup
+}
+
+\def\l@appendix#1#2#3{%
+\bgroup
+\leftskip\csname tocskip@#1\endcsname \rightskip\tocskip@pagenum plus 1fil
+\noindent \parfillskip0pt \footnotesize\rm
+\def\numberline##1{%
+\llap{\hbox to\leftskip{Appendix##1\hfil}}%
+\ignorespaces}%			   
+\ignorespaces#2\unskip\penalty10000\hfill
+\rlap{\hbox to\tocskip@pagenum{\hss\ignorespaces#3}}\par
+\egroup
+}
+
+\def\l@unknown#1#2#3{%
+\bgroup
+\rightskip\tocskip@pagenum plus 1fil
+\noindent \parfillskip0pt \footnotesize\rm
+\ignorespaces#2\unskip\penalty10000\hfill
+\rlap{\hbox to\tocskip@pagenum{\hss\ignorespaces#3}}\par
+\egroup
+}
+
+\def\tableofcontents{%
+\processtoc
+\if@filesw
+\newwrite\tf@toc \immediate\openout\tf@toc \jobname.toc\relax
+\fi
+\global\@nobreakfalse
+}
+
+\def\processtoc{%
+%\sf changed to the following to make contents bold sf mtp 2/28/94
+\par{\noindent
+\ifx\selectfont\undefined			% old LaTeX
+ \sf CONTENTS\vskip1pc
+\else						% NFSS in effect
+ \fontseries{bx}\fontshape{n}\fontfamily{cmss}\selectfont CONTENTS\vskip1pc
+\fi
+}%
+\begingroup
+%The next def is for the leading change in the toc 2/28/94 mtp
+\let\biglead=\footnotesize
+\def\footnotesize{\biglead\baselineskip 10.5pt}
+\@input{\jobname.toc}%
+\advance\tocskip@section by\@dotsep
+\advance\tocskip@subsection by\tocskip@section
+\advance\tocskip@subsection by\@dotsep
+\advance\tocskip@subsubsection by\tocskip@subsection
+\advance\tocskip@subsubsection by\@dotsep
+\advance\tocskip@paragraph by\tocskip@subsubsection
+\advance\tocskip@paragraph by\@dotsep
+\advance\tocskip@appendix by\@dotsep
+\advance\tocskip@pagenum by\@pnumsep
+\def\contentsline##1##2##3{\csname l@##1\endcsname{##1}{##2}{##3}}
+\@input{\jobname.toc}%
+\endgroup
+}

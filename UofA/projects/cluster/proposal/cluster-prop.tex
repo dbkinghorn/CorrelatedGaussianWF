@@ -1,0 +1,228 @@
+%% This document created by Scientific Word (R) Version 3.0
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Sat Jan 30 20:06:11 1999}
+%TCIDATA{LastRevised=Mon Feb 01 12:15:57 1999}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Journal Articles\Standard LaTeX Article">}
+%TCIDATA{Language=American English}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\begin{document}
+
+
+\title{Proposal for a workgroup ``Beowulf'' class super computer}
+\author{Donald B. Kinghorn\\The University of Arizona\\Department of Chemistry \\Tucson, Arizona}
+\maketitle
+\begin{abstract}
+We propose the construction of a high performance / low cost parallel cluster
+for our workgroup computing needs. The cluster consists of commodity PC
+components running the Linux operating system connected with switched fast
+ethernet. Background information is given along with component specifications
+and cost estimates.
+\end{abstract}
+
+
+
+\section{Introduction}
+
+The performance of commodity personal computer (PC) components has been
+steadily increasing while at the same time prices for these components have
+been decreasing. Today it's possible to construct a computer with off the
+shelf components for under \$1000 that will out perform a \$40,000 workstation
+of just a few years ago. The availability of high quality, no cost, open
+source, network operating system components and tools for parallel software
+development together with high performance low cost PC components coupled with
+inexpensive high speed networking hardware has made PC clustering, by far, the
+most cost effective means of ``super computing''.
+
+The most widespread implementation of this type of PC clustering originated
+with the ``Beowulf Project''( http://beowulf.gsfc.nasa.gov/beowulf.html ) at
+the Center of Excellence in Space Data and Information Sciences (CESDIS) in
+1994 ( http://cesdis.gsfc.nasa.gov/ ). Since then the Beowulf project
+development has spread to research labs and universities around the world.
+Today the term Beowulf cluster loosely refers to any PC clustering based on
+the freely available, open source, Linux operating system. The software tools,
+information and expertise for building Beowulf class PC clusters is readably
+available from numerous sites on the web. A few good starting points are:
+http://www.beowulf.org, http://www.linux.org/, http://www.redhat.com, and for
+parallel computing in general the IEEE Computer Society's ParaScope site http://www.computer.org/parascope/.
+
+\section{Proposed system}
+
+The parallel computing cluster we are proposing will utilize high end PC
+components running RedHat Linux with Beowulf kernel modifications and network
+drivers together with tools for parallel software development. The compute
+nodes will communicate over a private, switched, 100Mb ethernet LAN connected
+to a cluster master node via 1000Mb ethernet. The master node will server as
+the primary network gateway. The compute nodes will each contain two cpu's and
+the networking hardware will allow us to scale the cluster in units of 12 or
+24 nodes for a maximum of 192 nodes ( 284 cpu's ). We are initially planning
+on building a 24 node system.
+
+The quantum chemistry programs we have developed (and are developing) readily
+lend themselves to coarse grained parallelism which scales well and is ideally
+suited for implementation on large parallel clusters. We are currently running
+large, high accuracy calculations which require weeks or months of cpu time
+with well optimized efficient algorithms. Our only logical recourse to
+increase productivity is to go parallel. We have recently assembled a small 4
+cpu test system and are currently working on parallel implementations of our
+quantum chemistry codes. Our experiences so far are very encouraging and have
+given use great motivation for this project. We are now confident that we have
+the human resources necessary to build and fully utilize the system we are proposing.
+
+The specifications for our system will now be given along with cost estimates.
+It should be noted that PC components are commodities and prices fluctuate
+with supply and demand, and new technology. However, the trend is for prices
+to move downward while quality and performance increase. Therefore, the
+specifications will likely change by the time you read this, and, this change
+will most likely be for higher performance components at the same total system cost.
+
+Note that components are chosen not on the basis of lowest cost but rather
+highest reliability and performance. Component failure in the cluster is
+minimized by paying attention to the details.%
+
+\begin{tabular}
+[c]{|c|c|}\hline\hline
+\multicolumn{2}{|c|}{Compute Nodes}\\\hline\hline
+Item & Cost\\\cline{1-1}%
+\multicolumn{1}{|l|}{California PC Products ATX Deskside Steel Chassis Model
+8C8A00} & \multicolumn{1}{|l|}{\$160}\\\cline{1-1}%
+\multicolumn{1}{|l|}{SPI 300W, Rev 2.01 ATX Power Supply} &
+\multicolumn{1}{|l|}{\$80}\\\cline{1-1}%
+\multicolumn{1}{|l|}{(2) 80mm Cooling Fan} & \multicolumn{1}{|l|}{\$40}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{Teac 1.44MB Floppy} & \multicolumn{1}{|l|}{\$30}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{S3 Video Card} & \multicolumn{1}{|l|}{\$25}\\\cline{1-1}%
+\multicolumn{1}{|l|}{3.2 GB Ultra DMA Hard Disk} & \multicolumn{1}{|l|}{\$120}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{ASUS P2B-D Motherboard} & \multicolumn{1}{|l|}{\$320}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{(2) Intel PII-450 512K} & \multicolumn{1}{|l|}{\$1160}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{Pentium II Fan, Heat Sink, grease} &
+\multicolumn{1}{|l|}{\$30}\\\hline
+\multicolumn{1}{|l|}{128MB Fast PC100 SDRAM CAS-2} &
+\multicolumn{1}{|l|}{\$230}\\\hline
+\multicolumn{1}{|l|}{DEC Tulip 100Mb Fast Ethernet NIC} &
+\multicolumn{1}{|l|}{\$25}\\\hline
+\multicolumn{1}{|l|}{Shipping} & \multicolumn{1}{|l|}{\$130}\\\hline
+\multicolumn{1}{|r|}{SubTotal} & \multicolumn{1}{|l|}{\$2350}\\\hline
+\multicolumn{1}{|r|}{24Units} & \multicolumn{1}{|l|}{\$56400}\\\hline
+\end{tabular}
+\newline 
+
+\bigskip%
+
+\begin{tabular}
+[c]{|c|c|}\hline\hline
+\multicolumn{2}{|c|}{Master Node}\\\hline\hline
+Item & Cost\\\cline{1-1}%
+\multicolumn{1}{|l|}{California PC Products ATX Deskside Steel Chassis Model
+8C8A00} & \multicolumn{1}{|l|}{\$160}\\\cline{1-1}%
+\multicolumn{1}{|l|}{Zippy/Emacs 400W Power Supply} &
+\multicolumn{1}{|l|}{\$140}\\\cline{1-1}%
+\multicolumn{1}{|l|}{(2) 80mm Cooling Fan} & \multicolumn{1}{|l|}{\$40}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{Teac 1.44MB Floppy} & \multicolumn{1}{|l|}{\$30}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{Millennium G200 8MB SGRAM AGP} &
+\multicolumn{1}{|l|}{\$150}\\\cline{1-1}%
+\multicolumn{1}{|l|}{IBM 9.1GB HammerHead 10,00RPM Ultra2 Wide LVD SCSI,
+5.6ms, Hard Disk} & \multicolumn{1}{|l|}{\$790}\\\cline{1-1}%
+\multicolumn{1}{|l|}{Ultra2 Wide LVD SCSI Cable} & \multicolumn{1}{|l|}{\$35}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{ASUS P2B-DS Motherboard with Integrated Ultra2 Wide SCSI}%
+& \multicolumn{1}{|l|}{\$520}\\\cline{1-1}%
+\multicolumn{1}{|l|}{4/8GB Internal SCSI Travin Tape Drive} &
+\multicolumn{1}{|l|}{\$390}\\\cline{1-1}%
+\multicolumn{1}{|l|}{Yamaha CDR-4260t 6X Read / 4x Write CD-R / 2x ReWrite.
+SCSI} & \multicolumn{1}{|l|}{\$320}\\\cline{1-1}%
+\multicolumn{1}{|l|}{(2) Intel PII-450 512K} & \multicolumn{1}{|l|}{\$1160}%
+\\\cline{1-1}%
+\multicolumn{1}{|l|}{Pentium II Fan, Heat Sink, grease} &
+\multicolumn{1}{|l|}{\$30}\\\hline
+\multicolumn{1}{|l|}{256MB Fast PC100 SDRAM CAS-2} &
+\multicolumn{1}{|l|}{\$460}\\\hline
+\multicolumn{1}{|l|}{DEC Tulip 100Mb Fast Ethernet Card} &
+\multicolumn{1}{|l|}{\$25}\\\hline
+\multicolumn{1}{|l|}{Netgear Gigabit Ethernet Card} &
+\multicolumn{1}{|l|}{\$315}\\\hline
+\multicolumn{1}{|l|}{DigiView 19'' Monitor} & \multicolumn{1}{|l|}{\$500}%
+\\\hline
+\multicolumn{1}{|l|}{Keytronics keyboard} & \multicolumn{1}{|l|}{\$35}\\\hline
+\multicolumn{1}{|l|}{Logitech Mouse Man Ergonomic 3-button Mouse} &
+\multicolumn{1}{|l|}{\$25}\\\hline
+\multicolumn{1}{|l|}{Shipping} & \multicolumn{1}{|l|}{\$175}\\\hline
+\multicolumn{1}{|r|}{Total} & \multicolumn{1}{|l|}{\$5300}\\\hline
+\end{tabular}
+\newline
+\begin{tabular}
+[c]{|c|c|}\hline\hline
+\multicolumn{2}{|c|}{Network Hardware}\\\hline\hline
+Item & Cost\\
+\multicolumn{1}{|l|}{BayStack 450-24T Switch (24 100Base-TX ports + 1 MDA and
+Cascade slot} & \multicolumn{1}{|l|}{\$2325}\\
+\multicolumn{1}{|l|}{BayStack 450-1SX-port 1000Base-SX Single PHY MDA} &
+\multicolumn{1}{|l|}{\$980}\\
+\multicolumn{1}{|l|}{Multimode Fiber Optic Duplex Cable 5ft} &
+\multicolumn{1}{|l|}{\$40}\\
+\multicolumn{1}{|l|}{CAT-5 Cables (24)} & \multicolumn{1}{|l|}{\$120}\\\hline
+\multicolumn{1}{|l|}{Shipping} & \multicolumn{1}{|l|}{\$80}\\\hline
+\multicolumn{1}{|r|}{Total} & \multicolumn{1}{|l|}{\$3545}\\\hline
+\end{tabular}
+
+\bigskip%
+\begin{tabular}
+[c]{|c|c|}\hline\hline
+\multicolumn{2}{|c|}{Software}\\\hline\hline
+Item & Cost\\
+\multicolumn{1}{|l|}{Linux operating system distribution with Beowulf
+modifications} & \multicolumn{1}{|l|}{\$0}\\
+\multicolumn{1}{|l|}{DQS Distributed Que System for resource allocation and
+job scheduling} & \multicolumn{1}{|l|}{\$0}\\
+\multicolumn{1}{|l|}{MPICH and PVM message passing libraries} &
+\multicolumn{1}{|l|}{\$0}\\
+\multicolumn{1}{|l|}{ScLAPACK, PAPACK parallel subroutene libraries} &
+\multicolumn{1}{|l|}{\$0}\\
+\multicolumn{1}{|l|}{C, C++, F77 compilers} & \multicolumn{1}{|l|}{\$0}%
+\\\hline
+\multicolumn{1}{|l|}{Misc. cluster management and performance monitoring
+tools} & \multicolumn{1}{|l|}{\$0}\\\hline
+\multicolumn{1}{|l|}{HPF/F90 compiler (multiple licences and parallel suport)}%
+& \multicolumn{1}{|l|}{\$4000}\\\hline
+\multicolumn{1}{|r|}{Total} & \multicolumn{1}{|l|}{\$4000}\\\hline
+\end{tabular}
+
+\bigskip
+
+Total cost for 24 node (48 processor) cluster \$69245
+\end{document}

@@ -1,0 +1,21 @@
+test input file for rij2cart
+number of atoms n
+4
+number of distances nrij
+6
+distance list rijlst (nrij x 1)
+2.55472278878458
+2.78806079768367
+2.15484849034999
+3.13598250439421
+1.20223218302526
+3.54903897808251
+index list for distances rijindx (nrij x 4) last 2 col = 0
+1,2,0,0
+1,3,0,0
+1,4,0,0
+2,3,0,0
+2,4,0,0
+3,4,0,0
+
+    

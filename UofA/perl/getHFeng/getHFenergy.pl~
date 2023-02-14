@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+# print out the HF energy from gaussian output file
+
+while(<>){
+  if( m/\\HF=(-?\d*\.?\d+)/o ){
+    print "$1 \n";
+  }
+ # $num = $1 ;
+}
+#print "$num";
+#print "\n";

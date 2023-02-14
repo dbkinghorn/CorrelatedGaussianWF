@@ -1,0 +1,206 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      3556,        134]*)
+(*NotebookOutlinePosition[      4193,        157]*)
+(*  CellTagsIndexPosition[      4149,        153]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(mH\  = \ 1836.152693; \nmLi = 12786.39354; \nme = 1; \)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muLL = N[mLi\ mLi/\((2\ mLi)\), \ 12]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["6393.19676999999941`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->12]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[1/\((2\ muLL)\), 12]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.0000782081356147591399`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->12]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[1/\((2\ mLi)\), 12]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.0000391040678073795699`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->12]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muLH = N[mLi\ mH/\((\ mLi\  + \ mH)\), \ 12]\)], "Input"],
+
+Cell[BoxData[
+    \(General::"spell1" \( : \ \) 
+      "Possible spelling error: new symbol name \"\!\(muLH\)\" is similar to \
+existing symbol \"\!\(muLL\)\"."\)], "Message"],
+
+Cell[BoxData[
+    StyleBox["1605.58705427406556`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->12]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[1/\((2\ muLH)\), 12]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.000311412575648889466`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->12]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muLe = N[mLi\ me/\((\ mLi\  + \ me)\), \ 12]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.999921797980419313`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->12]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[1/\((2\ muLe)\), 12]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.500039104067807382`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->12]], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{142, Automatic}, {Automatic, 33}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 86, 1, 59, "Input"],
+
+Cell[CellGroupData[{
+Cell[1820, 54, 70, 1, 27, "Input"],
+Cell[1893, 57, 120, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2050, 65, 55, 1, 27, "Input"],
+Cell[2108, 68, 125, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2270, 76, 54, 1, 27, "Input"],
+Cell[2327, 79, 125, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2489, 87, 77, 1, 27, "Input"],
+Cell[2569, 90, 175, 3, 39, "Message"],
+Cell[2747, 95, 120, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2904, 103, 55, 1, 27, "Input"],
+Cell[2962, 106, 124, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3123, 114, 77, 1, 27, "Input"],
+Cell[3203, 117, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3361, 125, 55, 1, 27, "Input"],
+Cell[3419, 128, 121, 3, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

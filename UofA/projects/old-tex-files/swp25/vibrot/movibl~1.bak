@@ -1,0 +1,110 @@
+%% This document created by Scientific Word (R) Version 2.0
+%% Starting shell: tcilett
+
+
+\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lettopti,sw20let1}
+
+%TCIDATA{TCIstyle=Letter/letter.lat,let1,tcilett}
+
+%TCIDATA{Created=Fri Jun 07 11:28:36 1996}
+%TCIDATA{LastRevised=Tue Feb 18 21:10:34 1997}
+%TCIDATA{Language=American English}
+
+\input tcilatex
+\begin{document}
+
+
+\begin{letterfrom}
+\end{letterfrom}
+
+\begin{letterfromcompany}
+\end{letterfromcompany}
+
+\begin{letterfromaddr}
+Department of Chemistry,
+
+University of Arizona,
+
+Tucson, AZ 85721\newline
+
+phone: (520)621-6761
+
+e-mail: \texttt{kinghorn@u.arizona.edu}
+
+Fax: (520) 621-6761
+\end{letterfromaddr}
+
+\begin{letterdate}
+Jan. 7, 1997
+\end{letterdate}
+
+\begin{letterto}
+\end{letterto}
+
+\begin{lettertoaddr}
+John Light, Editor, The Journal of Chemical Physics
+
+Dept. of Chemistry,
+
+5735 S. Ellis Ave.,
+
+The University of Chicago
+
+Chicago, IL 60637
+\end{lettertoaddr}
+
+\begin{letterattention}
+Editorial Office, The Journal of Chemical Physics
+\end{letterattention}
+
+\begin{lettersubj}
+Revised Manuscript A7.01.047
+\end{lettersubj}
+
+\begin{letterclosing}
+Best regards,
+\end{letterclosing}
+
+\begin{lettersign}
+Donald B. Kinghorn
+\end{lettersign}
+
+\begin{letterps}
+\end{letterps}
+
+\begin{letterinitials}
+\end{letterinitials}
+
+\begin{lettercc}
+\end{lettercc}
+
+\begin{letterencl}
+Corrected Manuscript(3 copies), Original with errors marked
+\end{letterencl}
+
+\begin{letteropening}
+Dear Prof. Light:
+\end{letteropening}
+
+I have made the corrections requested by the referee for the manuscript 
+\textbf{A New N-Body Potential and Basis Set for Adiabatic and Non-Adiabatic
+Variational Energy Calculations} by Donald B. Kinghorn and Ludwik Adamowicz.
+My apologies for letting the paper out the door without proper proofing.
+There were indeed many spelling and punctuation errors. I am returning the
+original copy with errors marked and three copies of the corrected
+manuscript.
+
+
+I would prefer that the manuscript appear in the *** section.
+
+Please keep one of the pre-prints for your own use (with my complements). I
+am very excited about this new basis set and believe it will lead to
+significant new results for both adiabatic and non-adiabatic calculations.
+Unfortunately my post-doc funding ran out and I have taken a temporary job
+writing web pages for the next six months (still at the U of A). I hope to
+get back to work on the implementation of the basis set as soon as more
+funding comes our way.
+
+\end{document}

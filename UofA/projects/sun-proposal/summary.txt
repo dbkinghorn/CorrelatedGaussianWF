@@ -1,0 +1,28 @@
+For details of the scientific aspects of this proposal please see,
+http://www.chem.arizona.edu/theochem/protein_prop/index.html
+Summary:
+
+Advances in computer technology and developments in
+software design and implementation open possibilities
+of predicting properties and structures of larger 
+molecules and clusters using methods of quantum chemistry 
+with accuracy which matches that of experimental procedures 
+at much lower cost.
+This request for a hardware grant is aimed to provide a
+scalable high-performance computing and code development
+platform for an international team of collaborators  performing 
+large scale chemical modeling calculations on the interactions of
+nucleic acids and protein fragments.
+The team of researchers includes theoreticians and experimentalists
+drawn from  faculty, staff, and students from five countries.
+It is proposed that the hardware obtained for this project
+will be maintained and supported by the Department of Chemistry, 
+University of Arizona and accessed by the members of the 
+research team via the Internet. 
+The project will modify existing programs and develop new parallel
+computational chemistry programs which by their nature are 
+ideally suited for implementation on clusters of high performance
+SMP/MPP nodes. The project should provide an excellent demonstration
+of what can be achieved with this parallel architecture.
+
+

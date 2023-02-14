@@ -1,0 +1,6 @@
+#! /usr/bin/perl
+
+while(<>){
+  $val = $_ + 4;
+  print "$val \n";
+}

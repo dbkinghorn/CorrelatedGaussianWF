@@ -1,0 +1,44 @@
+This is TeX, Version 3.14159 (C version 6.1) (format=latex 98.5.7)  11 JAN 1999 17:32
+**cgr1-ltr2.tex
+(cgr1-ltr2.tex
+LaTeX2e <1996/12/01> patch level 1
+Babel <v3.6h> and hyphenation patterns for american, german, loaded.
+(/usr/lib/texmf/texmf/tex/latex/base/letter.cls
+Document Class: letter 1997/01/07 v1.2w Standard LaTeX document class
+(/usr/lib/texmf/texmf/tex/latex/base/size10.clo
+File: size10.clo 1996/10/31 v1.3u Standard LaTeX file (size option)
+)
+\longindentation=\dimen102
+\indentedwidth=\dimen103
+\labelcount=\count79
+) (cgr1-ltr2.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 24.
+ [1
+
+] [2]
+(cgr1-ltr2.aux) ) 
+Here is how much of TeX's memory you used:
+ 153 strings out of 10906
+ 1333 string characters out of 72188
+ 45429 words of memory out of 262141
+ 3103 multiletter control sequences out of 9500
+ 4735 words of font info for 18 fonts, out of 150000 for 255
+ 14 hyphenation exceptions out of 607
+ 23i,7n,18p,214b,201s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on cgr1-ltr2.dvi (2 pages, 2372 bytes).

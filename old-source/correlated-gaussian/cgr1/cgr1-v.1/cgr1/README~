@@ -1,0 +1,100 @@
+
+The directory 'paper' contains the file 'cgr1-2.dvi' which is a dvi file
+for the paper titled 
+
+"A correlated basis set for non-adiabatic energy calculations
+on diatomic molecules"
+
+as submitted to J. Chem. Phys..  Nov. 13, 1998
+
+The directory 'src' contains the source code for the program 'cgr1' 
+which is described in in the paper above.
+
+'sample-input' contains sample input files for H2+, H2 and LiH.
+
+The code is for research purposes and should be used at your own risk.
+Also, check the input files to be sure you are computing what you expect.
+
+There is a makefile in the source directory that can be modified for your site.
+
+Feel free to modify and use the code in any way you see fit.
+However, if you do anything with this code please let me know.
+
+Dr. Donald B. Kinghorn
+University of Arizona
+Dept. of Chemistry
+Tucson AZ 85721
+
+kinghorn@u.arizona.edu  
+
+Enjoy!
+
+ls -lR ...
+total 8
+-rw-rw-r--   1 kinghorn kinghorn     4117 Dec 15 11:54 README
+drwxrwxr-x   2 kinghorn kinghorn     1024 Dec 15 11:55 paper
+drwxrwxr-x   5 kinghorn kinghorn     1024 Dec 15 10:56 sample-input
+drwxrwxr-x   2 kinghorn kinghorn     1024 Dec 15 11:05 src
+
+paper:
+total 94
+-rw-rw-r--   1 kinghorn kinghorn    94308 Dec 15 11:55 cgr1-2.dvi
+
+sample-input:
+total 3
+drwxrwxr-x   2 kinghorn kinghorn     1024 Dec 15 10:58 H2
+drwxrwxr-x   2 kinghorn kinghorn     1024 Dec 15 10:58 H2p
+drwxrwxr-x   2 kinghorn kinghorn     1024 Dec 15 10:57 LiH
+
+sample-input/H2:
+total 77
+-rw-rw-r--   1 kinghorn kinghorn    21909 Dec 15 10:56 h2-128.in1
+-rw-r--r--   1 kinghorn kinghorn    35911 Dec 15 10:56 h2-192.in1
+-rw-r--r--   1 kinghorn kinghorn      933 Dec 15 10:56 h2-2.in1
+-rw-r--r--   1 kinghorn kinghorn     1083 Dec 15 10:56 h2-4.in1
+-rw-r--r--   1 kinghorn kinghorn    13270 Dec 15 10:56 h2-64.in1
+
+sample-input/H2p:
+total 41
+-rw-rw-r--   1 kinghorn kinghorn    15277 Dec 15 10:57 h2p-128rc.in1
+-rw-rw-r--   1 kinghorn kinghorn     2580 Dec 15 10:57 h2p-16rc.in1
+-rw-rw-r--   1 kinghorn kinghorn      618 Dec 15 10:57 h2p-1rc.in1
+-rw-rw-r--   1 kinghorn kinghorn      720 Dec 15 10:57 h2p-2rc.in1
+-rw-rw-r--   1 kinghorn kinghorn     4094 Dec 15 10:57 h2p-32rc.in1
+-rw-rw-r--   1 kinghorn kinghorn      898 Dec 15 10:57 h2p-4rc.in1
+-rw-rw-r--   1 kinghorn kinghorn     8407 Dec 15 10:57 h2p-64bstn3.in1
+-rw-rw-r--   1 kinghorn kinghorn     4562 Dec 15 10:57 h2p-64rc.in1
+-rw-rw-r--   1 kinghorn kinghorn     1023 Dec 15 10:57 h2p-8rc.in1
+
+sample-input/LiH:
+total 126
+-rw-rw-r--   1 kinghorn kinghorn     4543 Dec 15 10:57 lih-1.in1
+-rw-rw-r--   1 kinghorn kinghorn     9868 Dec 15 10:57 lih-16.in1
+-rw-rw-r--   1 kinghorn kinghorn     4853 Dec 15 10:57 lih-2.in1
+-rw-r--r--   1 kinghorn kinghorn    13936 Dec 15 10:57 lih-32.in1
+-rw-rw-r--   1 kinghorn kinghorn     5793 Dec 15 10:57 lih-4.in1
+-rw-r--r--   1 kinghorn kinghorn    30745 Dec 15 10:57 lih-64.in1
+-rw-rw-r--   1 kinghorn kinghorn     6998 Dec 15 10:57 lih-8.in1
+-rw-rw-r--   1 kinghorn kinghorn    46068 Dec 15 10:57 lih-96.in1
+
+src:
+total 703
+-rw-rw-r--   1 kinghorn kinghorn    10428 Dec 15 10:50 cgr1.f90
+-rw-rw-r--   1 kinghorn kinghorn    69941 Dec 15 10:50 constants.f90
+-rw-rw-r--   1 kinghorn kinghorn   229744 Dec 15 10:50 constants.mod
+-rw-rw-r--   1 kinghorn kinghorn     3321 Dec 15 10:50 energy.f90
+-rw-rw-r--   1 kinghorn kinghorn     3465 Dec 15 10:50 energyrc.f90
+-rw-rw-r--   1 kinghorn kinghorn     5768 Dec 15 10:50 engrad.f90
+-rw-rw-r--   1 kinghorn kinghorn     5961 Dec 15 10:50 engradrc.f90
+-rw-rw-r--   1 kinghorn kinghorn     2394 Dec 15 10:50 globalvars.f90
+-rw-rw-r--   1 kinghorn kinghorn    17337 Dec 15 10:50 globalvars.mod
+-rw-rw-r--   1 kinghorn kinghorn    65335 Dec 15 10:50 gm1-40.dat
+-rw-rw-r--   1 kinghorn kinghorn    62180 Dec 15 10:50 gm11-40.dat
+-rw-rw-r--   1 kinghorn kinghorn     1667 Dec 15 10:50 gm2-40.dat
+-rw-rw-r--   1 kinghorn kinghorn     1376 Dec 15 10:50 gm3-40.dat
+-rw-rw-r--   1 kinghorn kinghorn      987 Dec 15 11:05 makefile
+-rw-rw-r--   1 kinghorn kinghorn      954 Dec 15 11:00 makefile~
+-rw-rw-r--   1 kinghorn kinghorn    22615 Dec 15 10:50 melklmn.f90
+-rw-rw-r--   1 kinghorn kinghorn    57172 Dec 15 10:50 tn.f
+-rw-rw-r--   1 kinghorn kinghorn   142341 Dec 15 10:50 uncmnd.f
+

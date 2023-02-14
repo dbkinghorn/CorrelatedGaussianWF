@@ -1,0 +1,44 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- Updated 3:50 PM on 4/15/97                              -->
+<!-- *******************************************************-->
+
+<HEAD>
+
+<TITLE>Course Top frame</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#CAE4FF" TOPMARGIN="0">
+
+<TABLE BORDER="0" CELLSPACING="0" WIDTH="100%">
+    <TR>
+        <TD VALIGN="TOP"><IMG SRC="../../images/cwlogo_small.gif" WIDTH="122" HEIGHT="36"></TD>
+        <TD ALIGN="CENTER" >
+	<FORM NAME="menu">
+              <SELECT NAME="menu_select" SIZE="1"
+	onChange="parent.frames[1].location=menu.menu_select.options[menu.menu_select.selectedIndex].value">
+              <!--announcements-->  
+	<OPTION SELECTED VALUE="cw_Announcements.html">announcements</OPTION>
+<!--beginOptions-->
+<OPTION VALUE="geninfo.html">General Information</OPTION>
+<OPTION VALUE="syllabus.html">Syllabus</OPTION>
+<OPTION VALUE="lecture.html">Lecture Notes</OPTION>
+<OPTION VALUE="guides.html">Study Guides</OPTION>
+<OPTION VALUE="homework.html">Homework</OPTION>
+<OPTION VALUE="http://caucus.arizona.edu">Discussion Area</OPTION>
+<!--endOptions-->
+              </SELECT> 
+        	</FORM>
+        </TD>
+        <TH><FONT FACE="Arial"><B><!--courseLabel--></B></FONT></TH>
+    </TR>
+</TABLE>
+</BODY>
+</HTML>

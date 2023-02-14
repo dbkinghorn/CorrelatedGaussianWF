@@ -1,0 +1,842 @@
+%% This document created by Scientific Word (R) Version 2.0
+%% Starting shell: mathart1
+
+
+\documentclass[12pt,thmsa]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{sw20aip}
+\usepackage{doublesp}
+
+%TCIDATA{Created=Mon Apr 15 10:38:32 1996}
+%TCIDATA{LastRevised=Fri Nov 15 10:37:59 1996}
+%TCIDATA{Language=American English}
+
+\input tcilatex
+\begin{document}
+
+\author{Donald B. Kinghorn and Ludwik Adamowicz \\
+%EndAName
+Department of Chemistry, \\
+University of Arizona \\
+Tucson, AZ 85721, U.S.A.}
+\title{The Electron Affinity of Hydrogen, Deuterium, and Tritium: A Non-adiabatic
+Variational Calculation Using Explicitly Correlated Gaussian Basis Functions}
+\date{November 14, 1996}
+\maketitle
+
+\begin{abstract}
+Non-adiabatic variational calculations for energies, mass shifts, and
+electron affinities of Hydrogen, Deuterium and Tritium are reported.
+Electron affinities values are 6083.0994$cm^{-1}$, 6086.7137$cm^{-1}$, and
+6087.9168$cm^{-1}$ for Hydrogen, Deuterium and Tritium, respectively. These
+results were obtained using a basis of explicitly correlated Gaussians.
+Exact nonrelativistic energy bounds are carefully predicted: $E\left(
+H^{-}\right) =-.5274458811,\,\,E\left( D^{-}\right) =-.5275983247$ and $%
+E\left( T^{-}\right) =-.5276490482$ in hartree energy units. It is shown
+that these new bounds cannot be obtained using the infinite nuclear mass
+approximation plus Rydberg scaling and the usual first order mass
+polarization correction.
+\end{abstract}
+
+\section{Introduction}
+
+The use of explicitly correlated Gaussian basis functions can provide a
+means of obtaining high accuracy energy results for few particle systems,
+especially when there use is combined with a non-adiabatic approach.
+Calculations using this basis are hampered by the formidable task of
+optimizing the many non-linear parameters need for a reasonable expansion of
+the wave function. Past calculations were often left only partially
+optimized suggesting much slower convergence than this basis is capable of.
+Recent development and implementation of compact formulas for analytic
+gradients with this basis has greatly reduced optimization costs\cite
+{Kinghorn95a,Kinghorn95b}. The present highly accurate (errors less than $%
+10^{-3}cm^{-1}$) non-adiabatic calculations for $H^{-},\,\,D^{-},\,\,$and $%
+T^{-}$ reflect these recent improvements in the utilization of this basis.
+
+Experimental values for the electron affinity of Hydrogen have been steadily
+improving. In the mid 70's a value of 6081$\pm 16cm^{-1}$ was reported by
+Feldmann\cite{Feldmann75} and independently by McCulloh and Walker\cite
+{McCulloh74}. Greater accuracy was then achieved by Chupka, Dehmer and Jivery%
+\cite{Chupka75} giving 6083$\left( +11,-3\right) cm^{-1}$. In 1979 Scherk%
+\cite{Scherk79} reported a value of 6085.5$\pm 3.3cm^{-1}$. Then in 1991
+Lykke, Murray and Lineberger\cite{Lykke91} achieved a 20 fold improvement in
+accuracy obtaining 6082.99$\pm 0.15cm^{-1}$ and 6086.2$\pm 0.6cm^{-1}$ for
+the electron affinity of Hydrogen and Deuterium respectively. Recent
+conversation with Professor Lineberger suggested that improved error limits
+especially for Deuterium may be possible. In anticipation of these improved
+experimental results the present work gives highly accurate theoretical
+predictions for the electron affinity of Hydrogen, Deuterium and Tritium.
+
+There have been several highly accurate ground state energy calculations for
+the negative Hydrogen ion\cite
+{Pekeris62,Frankowski66,Drake88,Baker90,Thakkar94,Ackermann95}. The most
+accurate of these calculations\cite{Drake88,Baker90,Thakkar94} appear to be
+converged to the point where the uncertainties in the calculated energies is
+less than $10^{-13}$ hartree ($10^{-8}cm^{-1}$). This uncertainty is several
+orders of magnitude less than the uncertainty in even the most accurately
+known fundamental physical constants. For example, the Rydberg constant is
+uncertain in the 10th digit\cite{Petley92} and the atomic mass of Hydrogen
+is uncertain in the 11th digit\cite{Audi93} (the electron mass is uncertain
+in the 8th digit\cite{Audi93}). As remarkable as these calculations are they
+suffer from one major shortcoming ---the computed wave functions are for a
+fictitious system with an infinitely heavy nuclear mass. It is common to add
+corrections to these computed energies. The corrections consist of scaling
+using a reduced-mass-corrected Rydberg constant, the reduced Rydberg, and
+adding a first order perturbation correction for what is usually called mass
+polarization\cite{BetheSalpeter}. These corrections to the infinite nuclear
+mass approximation are very good, however, they do not account for the
+entire energy shift due to nuclear motion. For highly accurate energy
+calculations on the systems $H^{-},\,\,D^{-},\,\,$and $T^{-}$ (and probably
+for Helium) it is necessary to use a Hamiltonian that explicitly includes
+the nuclear motion ---the non-adiabatic Hamiltonian. We demonstrate this in
+the present work by providing highly accurate variational upper bounds for
+the non-relativistic ground state energy of $H^{-}$, $D^{-}$ and $T^{-}.$
+These bounds are computed directly using the finite mass non-adiabatic
+Hamiltonian. Our $H^{-}$ energy bound is nearly 13 nano-hartree lower than
+can be achieved using the infinite nuclear mass approximation plus Rydberg
+scaling and first order mass polarization corrections, and we know from the
+essentially exact $H^{-}$ result of Drake\cite{Drake88} that the exact
+energy lowering should be closer to 18 nano-hartrees. It appears that this
+18 nano-hartrees can only be recovered rigorously using the non-adiabatic
+Hamiltonian. This is an energy correction approximately equal to that of the
+Lamb shift (17 nano-hartrees\cite{Drake88}) and thus represents a
+significant deficiency in the infinite nuclear mass approximation. We use
+our non-relativistic energy bounds together with relativistic and other
+small corrections computed by Drake\cite{Drake88} to obtain what should be
+reliable theoretical values for the electron affinity of Hydrogen, Deuterium
+and Tritium. We hope that this work will spark renewed interest in high
+accuracy electron affinity determination among both experimentalists and
+theoreticians.
+
+\section{Theory}
+
+\subsection{The Hamiltonian}
+
+In general the total Hamiltonian for a three-particle system with masses $%
+\left\{ M_1,M_2,M_3\right\} $ and charges $\left\{ Q_1,Q_2,Q_3\right\} $
+interacting under a Coulomb potential is represented (in atomic units) by 
+\begin{equation}
+H_{tot}=\frac{P_1^2}{2M_1}+\frac{P_2^2}{2M_2}+\frac{P_3^2}{2M_3}+\frac{Q_1Q_2%
+}{R_{12}}+\frac{Q_1Q_3}{R_{13}}+\frac{Q_2Q_3}{R_{23}}  \label{Htot}
+\end{equation}
+Where $R_i$, $P_i$ are position and momentum vectors for particle $i$ and $%
+R_{ij}=\left\| R_i-R_j\right\| .$ This Hamiltonian is separable into a
+Hamiltonian for the kinetic energy of the center of mass and a Hamiltonian
+describing the internal interaction energy. A transformation leading to this
+separation is given by\cite{Poshusta83} 
+\begin{equation}
+\begin{array}{llll}
+r_0=\frac{M_1R_1+M_2R_2+M_3R_3}{m_0}, & p_0=P_1+P_2+P_3, & m_0=M_1+M_2+M_{3,}
+& q_0=Q_1 \\ 
+r_1=R_2-R_1, & p_1=P_2-\frac{M_2}{m_0}p_0, & m_1=\frac{M_1M_2}{M_1+M_2}, & 
+q_1=Q_2 \\ 
+r_2=R_3-R_1, & p_2=P_3-\frac{M_3}{m_0}p_0, & m_2=\frac{M_2M_3}{M_2+M_3}, & 
+q_2=Q_3
+\end{array}
+\label{CMtran}
+\end{equation}
+Applying this transformation to the total Hamiltonian gives $%
+H_{tot}=H_{cm}+H $ where 
+\begin{equation}
+H_{cm}=\frac{p_0^2}{2m_0}
+\end{equation}
+and 
+\begin{equation}
+H=\frac{p_1^2}{2m_1}+\frac{p_2^2}{2m_2}+\frac{p_1\cdot p_2}{M_1}+\frac{q_0q_1%
+}{r_1}+\frac{q_0q_2}{r_2}+\frac{q_1q_2}{r_{12}}  \label{H1}
+\end{equation}
+The Hamiltonian in eqn.(\ref{H1}) can be viewed as representing the internal
+motions of a three-particle system or as the total energy of a two-particle
+system with fictitious masses $m_1$, $m_2$ and charges $q_1,\,q_2$
+interacting with a charge $q_0$ at the origin together with their mutual
+Coulomb interaction and a momentum dependent ``mass polarization potential''.
+
+Now, for $H^{-}$, $D^{-}$, and $T^{-}$, we assign the nucleus to particle
+one and the electrons to particles two and three giving the nonrelativistic,
+nonadiabatic, Hamiltonian used in these calculations 
+\begin{equation}
+H=-\frac{\nabla _1^2}{2\mu _1}-\frac{\nabla _2^2}{2\mu _2}-\frac{\nabla
+_1\cdot \nabla _2}{M_N}-\frac 1{r_1}-\frac 1{r_2}+\frac 1{r_{12}}
+\label{ham1}
+\end{equation}
+Here $\mu _1=\mu _2$ is the reduced electron mass, $M_N$ is the nuclear
+mass, $r_1$ and $r_2$ are relative coordinates described in the center of
+mass transformation, eqn.(\ref{CMtran}), and we have written the momentum
+operator $p$ as $-i\nabla $. For the values of the nuclear masses see table(%
+\ref{masstab}).
+
+It is possible to write eqn(\ref{ham1}) in a form that makes scaling and
+perturbation corrections to the infinite nuclear mass approximation more
+obvious\cite{Drake96}. Since for the cases being considered $\mu =\mu _1=\mu
+_2$, coordinate scaling $\rho _i=\left( \mu /m_e\right) r_i$ gives a
+Hamiltonian, 
+\begin{equation}
+H=\frac \mu {m_e}\left[ \left\{ -\frac{\nabla _{\rho _1}^2}2-\frac{\nabla
+_{\rho _2}^2}2-\frac 1{\rho _1}-\frac 1{\rho _2}+\frac 1{\rho _{12}}\right\}
+-\frac \mu {M_N}\nabla _{\rho _1}\cdot \nabla _{\rho _2}\right] .
+\label{ham2}
+\end{equation}
+that has the same eigenvalues as eqn(\ref{ham1}). The terms in braces make
+up the infinite nuclear mass Hamiltonian, thus suggesting the following
+perturbation expansion, 
+\begin{equation}
+E=\frac \mu {m_e}\left[ \varepsilon _0+\varepsilon _1\left( \frac \mu
+{M_N}\right) +\varepsilon _2\left( \frac \mu {M_N}\right) ^2+\cdots \right]
+\label{Epert}
+\end{equation}
+where, $\varepsilon _0=\left\langle H\right\rangle _\infty $ is the energy
+in the infinite nuclear mass approximation and $\varepsilon _1=-\left\langle
+\nabla _1\cdot \nabla _2\right\rangle _\infty $ is a first order mass
+polarization correction.
+
+\subsection{Wave Function}
+
+Calculations where performed using explicitly correlated Gaussian basis
+functions of the form ( $^{\prime }$ represents vector/matrix transposition
+and $\otimes $ is the Kronecker product symbol) 
+\begin{eqnarray}
+\phi _k &=&\exp \left[ -r^{\prime }\left( L_kL_k^{\prime }\otimes I_3\right)
+r\right]  \label{ECG} \\
+&=&\exp \left[ -r^{\prime }\left( A_k\otimes I_3\right) r\right]  \nonumber
+\\
+&=&\exp \left[ -\sum_{i,j}a_{ij}\left( r_i\cdot r_j\right) \right]  \nonumber
+\end{eqnarray}
+Where, in general, for an $n$ particle (pseudo-particle) system $r$ is the $%
+3n\times 1$ vector of Cartesian coordinates for the $n$ particles, $L_k$ is
+an $n\times n$ rank $n$ lower triangular matrix of nonlinear variation
+parameters, and $I_3$ is the $3\times 3$ identity matrix. The Kronecker
+product with the identity insures rotational invariance of the basis
+functions. The exponent parameters are written in Cholesky factored form, $%
+L_kL_k^{\prime },$ to insure positive definiteness of the quadratic form.
+Correlation is more obvious when one notes the relation $r_{ij}^2=r_i\cdot
+r_i+r_j\cdot r_j-2r_i\cdot r_j.$ This form of the basis is equivalent to the
+(single center) form of the basis introduced by Boys\cite{Boys} and then, in
+matrix form, by Singer\cite{Singer1} in 1960. For a more complete discussion
+of this basis and derivation of the Hamiltonian matrix elements and
+derivatives in matrix form see Kinghorn\cite{Kinghorn95a,Kinghorn95b}. For
+the particular cases we are considering in this work $r=\left( r_1^{\prime
+},\,r_2^{\prime }\right) ^{\prime }$ is the $6\times 1$ vector of relative
+coordinates defined above. The ground state spatial wave function (symmetric
+with respect to exchange of electrons) is then given as the symmetry
+projected linear combination of the $\phi _k$, 
+\begin{equation}
+\Psi =\sum_kc_k\left( \exp \left[ -r^{\prime }\left( L_kL_k^{\prime }\otimes
+I_3\right) r\right] +\exp \left[ -r^{\prime }\left( \tau ^{\prime
+}L_kL_k^{\prime }\tau \otimes I_3\right) r\right] \right)
+\end{equation}
+where $\tau $ is the permutation matrix $\left( 
+\begin{array}{cc}
+0 & 1 \\ 
+1 & 0
+\end{array}
+\right) .$
+
+\subsection{Optimization}
+
+The wave functions are optimized for the ground state energy by minimizing
+the Rayleigh quotient 
+\begin{equation}
+E\left( a;c\right) =\min_{\left\{ a,c\right\} }\frac{c^{\prime }H(a)c}{%
+c^{\prime }S(a)c}  \label{energy}
+\end{equation}
+$H\left( a\right) $ and $S\left( a\right) $ are the Hamiltonian and overlap
+matrices which are functions of the nonlinear parameters contained in the
+basis set exponent matrices $L_k$. We write $a$ for the collection of these
+nonlinear parameters. $c$ is the vector of linear coefficients in the basis
+expansion of $\Psi .$ Thus, if we let $N$ be the number of basis functions,
+the energy is, in general, a function of $Nn\left( n+1\right) /2+N$
+variables which in our particular case is $4N$ variables. Obviously a
+reduction of $N$ variables could be achieved by solving the eigen-problem
+associated with eqn. (\ref{energy}) to obtain the linear coefficients and
+then iteratively optimize the nonlinear parameters. However, we found that
+much more thorough optimization could be achieved by letting the optimizer
+simultaneously vary both the linear and nonlinear parameters.
+
+The optimization software employed was the package TN by Stephen Nash\cite
+{NashTN} --- available from netlib\cite{netlib}. TN is a truncated Newton
+method utilizing a user supplied gradient. The analytic gradient of the
+energy functional was derived using matrix differential calculus\cite
+{Kinghorn95a,Kinghorn95b}.
+
+\subsection{Mass values and other constants}
+
+The values for nuclear masses and other constants used in these calculations
+are presented in table(\ref{masstab}). The nuclear masses where computed
+using the atomic masses given in \emph{The 1993 atomic mass evaluation} of
+Audi and Wapstra\cite{Audi93}. The nuclear mass is derived from the atomic
+mass using 
+\begin{equation}
+M_N=M_A-Z\times m_e+B_e
+\end{equation}
+Here $M_A$ is the atomic mass, $Z$ the nuclear charge, $m_e$ the electron
+mass, and $B_e$ the total electron binding energy. $B_e$ is the negative of
+the ground state energy and is converted to mass units using $%
+E=mc^2=m/\alpha ^2.$ We use quantum units in this work except where
+otherwise noted. Thus, $\hbar =1,$ $m_e=1,$ energy is in hartree$\left(
+=2R_\infty \right) $, and distance in bohr. The value of the Rydberg
+constant, $R_\infty $, was taken from CODATA86\cite{codata86} and the fine
+structure constant, $\alpha $, from Kinoshita\cite{Kinoshita95}. The finite
+nuclear mass Hydrogen like atom ground state energy differs from the
+infinite nuclear mass result by the factor $\mu /m_e=1-\mu /M_N=M_N/\left(
+M_N+m_e\right) .$ This factor is used later in this work when effects of
+nuclear motion are discussed.
+
+It should be noted that the electron mass contains error in its eighth
+significant digit ($m_e=548579.903\pm 0.013$ nano-atomic units)\cite{Audi93}%
+, this, together with the error in the nuclear masses, propagates to an
+error of approximately $\pm 6\times 10^{-10}$ in the reduced masses $\mu _i$%
+. Thus, even the ``exact'' ground state energy for Hydrogen is in error in
+the 10th digit. Therefore, to reflect (at least) the uncertainties in the
+fundamental physical constants, results in this work will be presented with
+at most 10 digits.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{ll}
+\hline\hline
+$M_H=1836.152693$ & $\mu _H=.9994556794$ \\ 
+$M_D=3670.483008$ & $\mu _D=.9997276305$ \\ 
+$M_T=5496.921571$ & $\mu _T=.9998181131$ \\ \hline
+$R_\infty =109737.31534cm^{-1}$ &  \\ 
+$\alpha ^{-1}=137.03599944$ &  \\ \hline
+$E_0=-\mu /2$ &  \\ 
+$E_0\left( H\right) =-.4997278397$ &  \\ 
+$E_0\left( D\right) =-.4998638152$ &  \\ 
+$E_0\left( T\right) =-.4999090565$ &  \\ \hline\hline
+\end{tabular}
+\caption{Mass values and other constants \label{masstab}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+\section{Results}
+
+\subsection{Expectation values}
+
+Tables (\ref{Hinfexpvals}, \ref{Hexpvals},\ref{Dexpvals},\ref{Texpvals})
+contain expectation values for Hydrogen (infinite nuclear mass
+approximation), Hydrogen, Deuterium , and Tritium respectively. Results
+using wave functions with from 64 to 512 terms are included to exhibit
+convergence which we feel is surprisingly good for this basis. Included in
+the tables are expectation values for the Hamiltonian , the kinetic and
+potential energy, the virial coefficient ($\eta $), components of the
+kinetic and potential energy, integrals for $r,$ $r^2,$ and $r^{-2}$ and
+finally contact integrals.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering} }
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{lllll}
+\hline\hline
+$N$ & $64$ & $128$ & $256$ & $512$ \\ \hline
+$\left\langle H\right\rangle _\infty $ & \multicolumn{1}{r}{-.5277504812} & 
+\multicolumn{1}{r}{-.5277509852} & \multicolumn{1}{r}{-.5277510093} & 
+\multicolumn{1}{r}{-.5277510116} \\ 
+$\left\langle T\right\rangle _\infty $ & \multicolumn{1}{r}{.5277504436} & 
+\multicolumn{1}{r}{.5277509709} & \multicolumn{1}{r}{.5277510703} & 
+\multicolumn{1}{r}{.5277510096} \\ 
+$\left\langle V\right\rangle _\infty $ & \multicolumn{1}{r}{-1.0555009248} & 
+\multicolumn{1}{r}{-1.0555019562} & \multicolumn{1}{r}{-1.0555020796} & 
+\multicolumn{1}{r}{-1.0555020212} \\ 
+$\eta $ & \multicolumn{1}{r}{1.0000000355} & \multicolumn{1}{r}{1.0000000135}
+& \multicolumn{1}{r}{.9999999422} & \multicolumn{1}{r}{1.0000000019} \\ 
+$\left\langle -\nabla _1^2\right\rangle _\infty $ & \multicolumn{1}{r}{
+.5277504436} & \multicolumn{1}{r}{.5277509709} & \multicolumn{1}{r}{
+.5277510702} & \multicolumn{1}{r}{.5277510095} \\ 
+$\left\langle -\nabla _1\cdot \nabla _2\right\rangle _\infty $ & 
+\multicolumn{1}{r}{.0328798325} & \multicolumn{1}{r}{.0328797865} & 
+\multicolumn{1}{r}{.0328797911} & \multicolumn{1}{r}{.0328797798} \\ 
+$\left\langle r_1^{-1}\right\rangle _\infty $ & \multicolumn{1}{r}{
+.6832622892} & \multicolumn{1}{r}{.6832617853} & \multicolumn{1}{r}{
+.6832618093} & \multicolumn{1}{r}{.6832617605} \\ 
+$\left\langle r_{12}^{-1}\right\rangle _\infty $ & \multicolumn{1}{r}{
+.3110236535} & \multicolumn{1}{r}{.3110216145} & \multicolumn{1}{r}{
+.3110215390} & \multicolumn{1}{r}{.3110214997} \\ 
+$\left\langle r_1\right\rangle _\infty $ & \multicolumn{1}{r}{2.7101080515}
+& \multicolumn{1}{r}{2.7101737546} & \multicolumn{1}{r}{2.7101774512} & 
+\multicolumn{1}{r}{2.7101782272} \\ 
+$\left\langle r_{12}\right\rangle _\infty $ & \multicolumn{1}{r}{4.4125559666
+} & \multicolumn{1}{r}{4.4126857296} & \multicolumn{1}{r}{4.4126929713} & 
+\multicolumn{1}{r}{4.4126944006} \\ 
+$\left\langle r_1^2\right\rangle _\infty $ & \multicolumn{1}{r}{11.9117467188
+} & \multicolumn{1}{r}{11.9135603852} & \multicolumn{1}{r}{11.9136812624} & 
+\multicolumn{1}{r}{11.9136972111} \\ 
+$\left\langle r_{12}^2\right\rangle _\infty $ & \multicolumn{1}{r}{
+25.1981384317} & \multicolumn{1}{r}{25.2017491899} & \multicolumn{1}{r}{
+25.2019887841} & \multicolumn{1}{r}{25.2020204446} \\ 
+$\left\langle r_1^{-2}\right\rangle _\infty $ & \multicolumn{1}{r}{
+1.1166299163} & \multicolumn{1}{r}{1.1166554041} & \multicolumn{1}{r}{
+1.1166570728} & \multicolumn{1}{r}{1.1166583435} \\ 
+$\left\langle r_{12}^{-2}\right\rangle _\infty $ & \multicolumn{1}{r}{
+.1551216229} & \multicolumn{1}{r}{.1551059984} & \multicolumn{1}{r}{
+.1551054860} & \multicolumn{1}{r}{.1551054766} \\ 
+$\left\langle \delta \left( r_1\right) \right\rangle _\infty $ & 
+\multicolumn{1}{r}{.1635839048} & \multicolumn{1}{r}{.1640737909} & 
+\multicolumn{1}{r}{.1640744018} & \multicolumn{1}{r}{.1641346963} \\ 
+$\left\langle \delta \left( r_{12}\right) \right\rangle _\infty $ & 
+\multicolumn{1}{r}{.0028090290} & \multicolumn{1}{r}{.0027610047} & 
+\multicolumn{1}{r}{.0027593265} & \multicolumn{1}{r}{.0027596593} \\ 
+\hline\hline
+\end{tabular}
+\caption{$^{\infty}$H$^{-}$ Expectation Values \label{Hinfexpvals}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering} }
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{lllll}
+\hline\hline
+$N$ & $64$ & $128$ & $256$ & $512$ \\ \hline
+$\left\langle H\right\rangle _H$ & \multicolumn{1}{r}{-.5274453611} & 
+\multicolumn{1}{r}{-.5274458498} & \multicolumn{1}{r}{-.5274458739} & 
+\multicolumn{1}{r}{-.5274458762} \\ 
+$\left\langle T\right\rangle _H$ & \multicolumn{1}{r}{.5274453148} & 
+\multicolumn{1}{r}{.5274458206} & \multicolumn{1}{r}{.5274458565} & 
+\multicolumn{1}{r}{.5274458636} \\ 
+$\left\langle V\right\rangle _H$ & \multicolumn{1}{r}{-1.0548906759} & 
+\multicolumn{1}{r}{-1.0548916704} & \multicolumn{1}{r}{-1.0548917304} & 
+\multicolumn{1}{r}{-1.0548917398} \\ 
+$\eta $ & \multicolumn{1}{r}{1.0000000438} & \multicolumn{1}{r}{1.0000000276}
+& \multicolumn{1}{r}{1.0000000165} & \multicolumn{1}{r}{1.0000000119} \\ 
+$\left\langle -\nabla _1^2\right\rangle _H$ & \multicolumn{1}{r}{.5271403731}
+& \multicolumn{1}{r}{.5271408787} & \multicolumn{1}{r}{.5271409145} & 
+\multicolumn{1}{r}{.5271409216} \\ 
+$\left\langle -\nabla _1\cdot \nabla _2\right\rangle _H$ & 
+\multicolumn{1}{r}{.0327790347} & \multicolumn{1}{r}{.0327789973} & 
+\multicolumn{1}{r}{.0327790013} & \multicolumn{1}{r}{.0327790010} \\ 
+$\left\langle r_1^{-1}\right\rangle _H$ & \multicolumn{1}{r}{.6828538727} & 
+\multicolumn{1}{r}{.6828533936} & \multicolumn{1}{r}{.6828533723} & 
+\multicolumn{1}{r}{.6828533730} \\ 
+$\left\langle r_{12}^{-1}\right\rangle _H$ & \multicolumn{1}{r}{.3108170695}
+& \multicolumn{1}{r}{.3108151168} & \multicolumn{1}{r}{.3108150142} & 
+\multicolumn{1}{r}{.3108150062} \\ 
+$\left\langle r_1\right\rangle _H$ & \multicolumn{1}{r}{2.7120310559} & 
+\multicolumn{1}{r}{2.7120911055} & \multicolumn{1}{r}{2.7120952238} & 
+\multicolumn{1}{r}{2.7120955275} \\ 
+$\left\langle r_{12}\right\rangle _H$ & \multicolumn{1}{r}{4.4155651280} & 
+\multicolumn{1}{r}{4.4156837795} & \multicolumn{1}{r}{4.4156918099} & 
+\multicolumn{1}{r}{4.4156924114} \\ 
+$\left\langle r_1^2\right\rangle _H$ & \multicolumn{1}{r}{11.9300411389} & 
+\multicolumn{1}{r}{11.9316074492} & \multicolumn{1}{r}{11.9317345507} & 
+\multicolumn{1}{r}{11.9317438071} \\ 
+$\left\langle r_{12}^2\right\rangle _H$ & \multicolumn{1}{r}{25.2337827345}
+& \multicolumn{1}{r}{25.2368966127} & \multicolumn{1}{r}{25.2371493544} & 
+\multicolumn{1}{r}{25.2371678863} \\ 
+$\left\langle r_1^{-2}\right\rangle _H$ & \multicolumn{1}{r}{1.1153654889} & 
+\multicolumn{1}{r}{1.1153908649} & \multicolumn{1}{r}{1.1153923541} & 
+\multicolumn{1}{r}{1.1153937757} \\ 
+$\left\langle r_{12}^{-2}\right\rangle _H$ & \multicolumn{1}{r}{.1549104913}
+& \multicolumn{1}{r}{.1548959719} & \multicolumn{1}{r}{.1548954385} & 
+\multicolumn{1}{r}{.1548954516} \\ 
+$\left\langle \delta \left( r_1\right) \right\rangle _H$ & 
+\multicolumn{1}{r}{.1633128785} & \multicolumn{1}{r}{.1638020720} & 
+\multicolumn{1}{r}{.1638024979} & \multicolumn{1}{r}{.1638623602} \\ 
+$\left\langle \delta \left( r_{12}\right) \right\rangle _H$ & 
+\multicolumn{1}{r}{.0027992322} & \multicolumn{1}{r}{.0027545364} & 
+\multicolumn{1}{r}{.0027528569} & \multicolumn{1}{r}{.0027531889} \\ 
+\hline\hline
+\end{tabular}
+\caption{H$^{-}$ Expectation Values \label{Hexpvals}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering} }
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{lllll}
+\hline\hline
+$N$ & $64$ & $128$ & $256$ & $512$ \\ \hline
+$\left\langle H\right\rangle _D$ & \multicolumn{1}{r}{-.5275977894} & 
+\multicolumn{1}{r}{-.5275982934} & \multicolumn{1}{r}{-.5275983175} & 
+\multicolumn{1}{r}{-.5275983198} \\ 
+$\left\langle T\right\rangle _D$ & \multicolumn{1}{r}{.5275977498} & 
+\multicolumn{1}{r}{.5275982638} & \multicolumn{1}{r}{.5275983000} & 
+\multicolumn{1}{r}{.5275983071} \\ 
+$\left\langle V\right\rangle _D$ & \multicolumn{1}{r}{-1.0551955392} & 
+\multicolumn{1}{r}{-1.0551965573} & \multicolumn{1}{r}{-1.0551966175} & 
+\multicolumn{1}{r}{-1.0551966269} \\ 
+$\eta $ & \multicolumn{1}{r}{1.0000000375} & \multicolumn{1}{r}{1.0000000279}
+& \multicolumn{1}{r}{1.0000000164} & \multicolumn{1}{r}{1.0000000119} \\ 
+$\left\langle -\nabla _1^2\right\rangle _D$ & \multicolumn{1}{r}{.5274451065}
+& \multicolumn{1}{r}{.5274456205} & \multicolumn{1}{r}{.5274456566} & 
+\multicolumn{1}{r}{.5274456637} \\ 
+$\left\langle -\nabla _1\cdot \nabla _2\right\rangle _D$ & 
+\multicolumn{1}{r}{.0328293594} & \multicolumn{1}{r}{.0328293211} & 
+\multicolumn{1}{r}{.0328293246} & \multicolumn{1}{r}{.0328293249} \\ 
+$\left\langle r_1^{-1}\right\rangle _D$ & \multicolumn{1}{r}{.6830579287} & 
+\multicolumn{1}{r}{.6830574141} & \multicolumn{1}{r}{.6830573931} & 
+\multicolumn{1}{r}{.6830573937} \\ 
+$\left\langle r_{12}^{-1}\right\rangle _D$ & \multicolumn{1}{r}{.3109203181}
+& \multicolumn{1}{r}{.3109182709} & \multicolumn{1}{r}{.3109181688} & 
+\multicolumn{1}{r}{.3109181606} \\ 
+$\left\langle r_1\right\rangle _D$ & \multicolumn{1}{r}{2.7110671655} & 
+\multicolumn{1}{r}{2.7111329939} & \multicolumn{1}{r}{2.7111370994} & 
+\multicolumn{1}{r}{2.7111374073} \\ 
+$\left\langle r_{12}\right\rangle _D$ & \multicolumn{1}{r}{4.4140556422} & 
+\multicolumn{1}{r}{4.4141856237} & \multicolumn{1}{r}{4.4141936235} & 
+\multicolumn{1}{r}{4.4141942386} \\ 
+$\left\langle r_1^2\right\rangle _D$ & \multicolumn{1}{r}{11.9207707499} & 
+\multicolumn{1}{r}{11.9225874044} & \multicolumn{1}{r}{11.9227141243} & 
+\multicolumn{1}{r}{11.9227234416} \\ 
+$\left\langle r_{12}^2\right\rangle _D$ & \multicolumn{1}{r}{25.2157135447}
+& \multicolumn{1}{r}{25.2193293841} & \multicolumn{1}{r}{25.2195812302} & 
+\multicolumn{1}{r}{25.2196000783} \\ 
+$\left\langle r_1^{-2}\right\rangle _D$ & \multicolumn{1}{r}{1.1159970928} & 
+\multicolumn{1}{r}{1.1160225252} & \multicolumn{1}{r}{1.1160240187} & 
+\multicolumn{1}{r}{1.1160254418} \\ 
+$\left\langle r_{12}^{-2}\right\rangle _D$ & \multicolumn{1}{r}{.1550164901}
+& \multicolumn{1}{r}{.1550008728} & \multicolumn{1}{r}{.1550003393} & 
+\multicolumn{1}{r}{.1550003524} \\ 
+$\left\langle \delta \left( r_1\right) \right\rangle _D$ & 
+\multicolumn{1}{r}{.1634484158} & \multicolumn{1}{r}{.1639378072} & 
+\multicolumn{1}{r}{.1639383038} & \multicolumn{1}{r}{.1639982438} \\ 
+$\left\langle \delta \left( r_{12}\right) \right\rangle _D$ & 
+\multicolumn{1}{r}{.0028057413} & \multicolumn{1}{r}{.0027577672} & 
+\multicolumn{1}{r}{.0027560874} & \multicolumn{1}{r}{.0027564205} \\ 
+\hline\hline
+\end{tabular}
+\caption{D$^{-}$ Expectation Values \label{Dexpvals}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering} }
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{lllll}
+\hline\hline
+$N$ & $64$ & $128$ & $256$ & $512$ \\ \hline
+$\left\langle H\right\rangle _T$ & \multicolumn{1}{r}{-.5276485136} & 
+\multicolumn{1}{r}{-.5276490169} & \multicolumn{1}{r}{-.5276490410} & 
+\multicolumn{1}{r}{-.5276490433} \\ 
+$\left\langle T\right\rangle _T$ & \multicolumn{1}{r}{.5276484962} & 
+\multicolumn{1}{r}{.5276489885} & \multicolumn{1}{r}{.5276490236} & 
+\multicolumn{1}{r}{.5276490306} \\ 
+$\left\langle V\right\rangle _T$ & \multicolumn{1}{r}{-1.0552970098} & 
+\multicolumn{1}{r}{-1.0552980055} & \multicolumn{1}{r}{-1.0552980646} & 
+\multicolumn{1}{r}{-1.0552980739} \\ 
+$\eta $ & \multicolumn{1}{r}{1.0000000165} & \multicolumn{1}{r}{1.0000000268}
+& \multicolumn{1}{r}{1.0000000164} & \multicolumn{1}{r}{1.0000000120} \\ 
+$\left\langle -\nabla _1^2\right\rangle _T$ & \multicolumn{1}{r}{.5275465495}
+& \multicolumn{1}{r}{.5275470418} & \multicolumn{1}{r}{.5275470769} & 
+\multicolumn{1}{r}{.5275470838} \\ 
+$\left\langle -\nabla _1\cdot \nabla _2\right\rangle _T$ & 
+\multicolumn{1}{r}{.0328461179} & \multicolumn{1}{r}{.0328460647} & 
+\multicolumn{1}{r}{.0328460796} & \multicolumn{1}{r}{.0328460808} \\ 
+$\left\langle r_1^{-1}\right\rangle _T$ & \multicolumn{1}{r}{.6831258386} & 
+\multicolumn{1}{r}{.6831253023} & \multicolumn{1}{r}{.6831252803} & 
+\multicolumn{1}{r}{.6831252808} \\ 
+$\left\langle r_{12}^{-1}\right\rangle _T$ & \multicolumn{1}{r}{.3109546673}
+& \multicolumn{1}{r}{.3109525990} & \multicolumn{1}{r}{.3109524960} & 
+\multicolumn{1}{r}{.3109524877} \\ 
+$\left\langle r_1\right\rangle _T$ & \multicolumn{1}{r}{2.7107482436} & 
+\multicolumn{1}{r}{2.7108143219} & \multicolumn{1}{r}{2.7108183967} & 
+\multicolumn{1}{r}{2.7108187065} \\ 
+$\left\langle r_{12}\right\rangle _T$ & \multicolumn{1}{r}{4.4135568905} & 
+\multicolumn{1}{r}{4.4136872973} & \multicolumn{1}{r}{4.4136952742} & 
+\multicolumn{1}{r}{4.4136958928} \\ 
+$\left\langle r_1^2\right\rangle _T$ & \multicolumn{1}{r}{11.9177685588} & 
+\multicolumn{1}{r}{11.9195898850} & \multicolumn{1}{r}{11.9197143110} & 
+\multicolumn{1}{r}{11.9197236656} \\ 
+$\left\langle r_{12}^2\right\rangle _T$ & \multicolumn{1}{r}{25.2098664126}
+& \multicolumn{1}{r}{25.2134904549} & \multicolumn{1}{r}{25.2137388014} & 
+\multicolumn{1}{r}{25.2137576949} \\ 
+$\left\langle r_1^{-2}\right\rangle _T$ & \multicolumn{1}{r}{1.1162073447} & 
+\multicolumn{1}{r}{1.1162327408} & \multicolumn{1}{r}{1.1162342331} & 
+\multicolumn{1}{r}{1.1162356567} \\ 
+$\left\langle r_{12}^{-2}\right\rangle _T$ & \multicolumn{1}{r}{.1550507158}
+& \multicolumn{1}{r}{.1550357895} & \multicolumn{1}{r}{.1550352550} & 
+\multicolumn{1}{r}{.1550352681} \\ 
+$\left\langle \delta \left( r_1\right) \right\rangle _T$ & 
+\multicolumn{1}{r}{.1634933913} & \multicolumn{1}{r}{.1639829810} & 
+\multicolumn{1}{r}{.1639835043} & \multicolumn{1}{r}{.1640434722} \\ 
+$\left\langle \delta \left( r_{12}\right) \right\rangle _T$ & 
+\multicolumn{1}{r}{.0028046832} & \multicolumn{1}{r}{.0027588443} & 
+\multicolumn{1}{r}{.0027571630} & \multicolumn{1}{r}{.0027574964} \\ 
+\hline\hline
+\end{tabular}
+\caption{T$^{-}$ Expectation Values \label{Texpvals}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+The ground state energy of $H^{-}$ in the infinite nuclear mass
+approximation has been computed to incredible precision with the best
+results appearing to be converged to at least 13 digits. However, the
+infinite nuclear mass approximation introduces errors in expectation values
+in the 4th digit as is easily seen by comparing results in table (\ref
+{Hinfexpvals}) with table (\ref{Hexpvals}). The standard corrections to the
+energy introduced by Bethe and Salpeter\cite{BetheSalpeter}, ``reduced
+Rydberg scaling'' and mass polarization corrections, leave error in the 8th
+digit as will be demonstrated in section(\ref{nucmotian}). Even the Rydberg
+constant, $R_\infty $, which would be used for energy unit conversion is
+uncertain in the 10th digit\cite{Petley92}. With this clearly in mind we
+include table (\ref{Litdata}) listing expectation values from other infinite
+nuclear mass calculations.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{lll}
+\hline\hline
+$\left\langle H\right\rangle _\infty $ & -.5277510062954 & {\footnotesize %
+Pekeris}\cite{Pekeris62}{\footnotesize , 444 term Hylleraas type} \\ 
+& -.52775101635 & {\footnotesize Frankowski and Pekeris}\cite{Frankowski66}%
+{\footnotesize , 246 term Hylleraas + }$\ln $ \\ 
+& -.527751016544203 & {\footnotesize Drake}\cite{Drake88}{\footnotesize ,
+616 term Hylleraas with double exponents} \\ 
+& -.527751016544375 & {\footnotesize Baker et al }\cite{Baker90}%
+{\footnotesize , 476 term Hylleraas + }$\ln ,${\footnotesize \ 1/Z expansion}
+\\ 
+& -.527751016544240 & {\footnotesize Thakkar and Koga}\cite{Thakkar94}%
+{\footnotesize , 455 term modified Hylleraas type} \\ 
+& -.527751016532 & {\footnotesize Ackermann}\cite{Ackermann95}{\footnotesize %
+, 2005 point Finite Element Method} \\ 
+& -.5277510116 & {\footnotesize This work, 512 term correlated Gaussian} \\ 
+\hline
+$\left\langle -\nabla _1\cdot \nabla _2\right\rangle _\infty $ & .0328797771
+& {\footnotesize Pekeris}\cite{Pekeris62} \\ 
+& .03287978125 & {\footnotesize Drake}\cite{Drake88} \\ 
+& .0328797798 & {\footnotesize This work} \\ \hline
+$\left\langle \delta \left( r_1\right) \right\rangle _\infty $ & .164547396
+& {\footnotesize Pekeris}\cite{Pekeris62} \\ 
+& .164552873 & {\footnotesize Drake}\cite{Drake88} \\ 
+& .1641346963 & {\footnotesize This work} \\ \hline
+$\left\langle \delta \left( r_{12}\right) \right\rangle _\infty $ & 
+.002740206 & {\footnotesize Pekeris}\cite{Pekeris62} \\ 
+& .002737995 & {\footnotesize Drake}\cite{Drake88} \\ 
+& .002759659 & {\footnotesize This work} \\ \hline
+$\left\langle r_1\right\rangle _\infty $ & 2.71017831 & {\footnotesize %
+Pekeris}\cite{Pekeris62} \\ 
+& 2.710178263 & {\footnotesize Ackermann}\cite{Ackermann95} \\ 
+& 2.710178227 & {\footnotesize This work} \\ \hline
+$\left\langle r_{12}\right\rangle _\infty $ & 4.41269452 & {\footnotesize %
+Pekeris}\cite{Pekeris62} \\ 
+& 4.412694401 & {\footnotesize This work} \\ \hline
+$\left\langle r_1^2\right\rangle _\infty $ & 11.913692 & {\footnotesize %
+Pekeris}\cite{Pekeris62} \\ 
+& 11.913699235 & {\footnotesize Ackermann}\cite{Ackermann95} \\ 
+& 11.9136972111 & {\footnotesize This work} \\ \hline
+$\left\langle r_{12}^2\right\rangle _\infty $ & 25.202010 & {\footnotesize %
+Pekeris}\cite{Pekeris62} \\ 
+& 25.20202044 & {\footnotesize This work} \\ \hline\hline
+\end{tabular}
+\caption{$H^{-}$  infinite nuclear mass literature values \label{Litdata}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+\subsection{Finite Nuclear Mass Effects\label{nucmotian}\label{NMeffect}}
+
+The energy shift due to finite nuclear mass is 
+\begin{equation}
+\Delta E_{NM}=\left\langle H\right\rangle _f-\left\langle H\right\rangle
+_\infty   \label{dENM}
+\end{equation}
+Using eqn(\ref{Epert}) $\Delta E_{NM}$ can be given to very good
+approximation, for two electron systems, by 
+\begin{eqnarray}
+\widetilde{\Delta E_{NM}} &=&\frac \mu {m_e}\left[ \left\langle
+H\right\rangle _\infty -\frac \mu {M_N}\left\langle \nabla _1\cdot \nabla
+_2\right\rangle _\infty \right] -\left\langle H\right\rangle _\infty  
+\nonumber \\
+&=&\left[ \left( 1-\frac \mu {M_N}\right) \left\langle H\right\rangle
+_\infty -\frac{\mu ^2}{m_eM_N}\left\langle \nabla _1\cdot \nabla
+_2\right\rangle _\infty \right] -\left\langle H\right\rangle _\infty  
+\nonumber \\
+&=&-\frac \mu {M_N}\left( \left\langle H\right\rangle _\infty -\frac \mu
+{m_e}\left\langle \nabla _1\cdot \nabla _2\right\rangle _\infty \right) 
+\label{dNMapprox}
+\end{eqnarray}
+The first term in square brackets in eqn.(\ref{dNMapprox}) is the ``reduced
+Rydberg scaling'' which could be interpreted as the energy change that would
+result from changing units from hartree$(=2R_\infty )$ to reduced Rydberg
+units $2R_M=2(\mu /m_e)R_\infty $. The second term is a perturbation, the
+``mass polarization energy'', again in reduced Rydberg units.
+
+In table (\ref{NMtab}) values for $\Delta E_{NM}$, $\widetilde{\Delta E_{NM}}
+$ and $\Delta =\widetilde{\Delta E_{NM}}-\Delta E_{NM}$ are given using our
+infinite nuclear mass wavefunction and non-adiabatic wave functions for
+Hydrogen, Deuterium and Tritium anions.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{lll}
+\hline\hline
+$\Delta E_{NM}\left( H^{-}\right) $ & .0003051354 & 66.96948$cm^{-1}$ \\ 
+$\widetilde{\Delta E_{NM}}\left( H^{-}\right) $ & .0003051531 & 
+\multicolumn{1}{r}{66.96947$cm^{-1}$} \\ 
+$\Delta \left( H^{-}\right) $ & $1.77\times 10^{-8}$ & \multicolumn{1}{r}{
+.00389$cm^{-1}$} \\ \hline
+$\Delta E_{NM}\left( D^{-}\right) $ & .0001526918 & \multicolumn{1}{r}{
+33.51198$cm^{-1}$} \\ 
+$\widetilde{\Delta E_{NM}}\left( D^{-}\right) $ & .0001526963 & 
+\multicolumn{1}{r}{33.51296$cm^{-1}$} \\ 
+$\Delta \left( D^{-}\right) $ & $4.49\times 10^{-9}$ & \multicolumn{1}{r}{
+.00099$cm^{-1}$} \\ \hline
+$\Delta E_{NM}\left( T^{-}\right) $ & .0001019683 & \multicolumn{1}{r}{
+22.37946$cm^{-1}$} \\ 
+$\widetilde{\Delta E_{NM}}\left( T^{-}\right) $ & .0001019703 & 
+\multicolumn{1}{r}{22.37990$cm^{-1}$} \\ 
+$\Delta \left( T^{-}\right) $ & $2.01\times 10^{-9}$ & \multicolumn{1}{r}{
+.00044$cm^{-1}$} \\ \hline\hline
+\end{tabular}
+\caption{Energy shift due to finite nuclear mass\label{NMtab}}%
+%TCIMACRO{\TeXButton{E}{\end{table}} }
+%BeginExpansion
+\end{table}%
+%EndExpansion
+The first order approximation to the nuclear mass energy shift for $H^{-}$
+leaves 17 nano-hartree unaccounted for which is unacceptable for high
+accuracy calculations.
+
+Drake\cite{Drake88} has computed a total mass polarization correction given
+as 
+\begin{equation}
+\Delta E_{mp}=.03287978125\left( \mu /M\right) -.059779493\left( \mu
+/M\right) ^2.  \label{drakeEM}
+\end{equation}
+The coefficient of the first term in eqn.(\ref{drakeEM}) is $\left\langle
+\nabla _1\cdot \nabla _2\right\rangle _\infty $. The coefficient of the
+second term is derived by subtracting the leading term in eqn.(\ref{drakeEM}%
+) from the total energy shift due to mass polarization. This total mass
+polarization energy shift is computed by subtracting the infinite nuclear
+mass energy from the non-adiabatic energy of $H^{-}$ (derived from the
+Hamiltonian in eqn(\ref{ham2})). Thus, using the terms in eqn(\ref{drakeEM})
+for the second and third terms in the perturbation expansion, eqn(\ref{Epert}%
+), will, of course, give the exact result for $H^{-}$ and should give
+excellent approximation for $D^{-}$ and $T^{-}$. However, we feel that since
+the non-adiabatic energy for $H^{-}$ is used to obtain this expansion, the
+non-adiabatic energy for the other isotopes may as well be computed without
+approximation.
+
+This section is concluded with table(\ref{boundstab}) presenting the
+variational energy upper bounds computed in this work.  Table(\ref{boundstab}%
+) includes our estimation of the exact energy upper bounds. Our infinite
+nuclear mass and $H^{-}$ energy values lie 4.9 nano-hartrees above the
+essentially exact values reported by Drake\cite{Drake88} and we believe that
+our non-adiabatic calculations for $D^{-}$ and $T^{-}$contain this same
+deficiency. Therefore, we estimate the exact energy upper bounds by
+correcting our computed values for this deficiency.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{llll}
+\hline\hline
+& $H^{-}$ & $D^{-}$ & $T^{-}$ \\ 
+This work & -.5274458762 & -.5275983198 & -.5276490433 \\ 
+``Exact'' estimate & -.5274458811 & -.5275983247 & -.5276490482 \\ 
+\hline\hline
+\end{tabular}
+\caption{Energy upper bounds \label{boundstab}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+\subsection{Electron Affinity}
+
+Electron affinities for Hydrogen Deuterium and Tritium are presented in
+table (\ref{EAtab}). In the calculation of the electron affinities the
+energies for the neutral atoms are those given in table(\ref{masstab}). The
+calculations include highly accurate small corrections computed by Drake\cite
+{Drake88}. These include relativistic, relativistic recoil, Lamb shift and
+finite nuclear size corrections giving a total correction of 0.307505$cm^{-1}
+$, labeled $\Delta E_{corr}$ in table (\ref{EAtab}). We use this correction
+with Rydberg scaling for Deuterium and Tritium. The electron affinity is
+then given by 
+\begin{equation}
+EA=E_{\text{atom}}-E_{\text{anion}}-\Delta E_{corr}
+\end{equation}
+where $E_{\text{atom}}$ is the energy of the neutral atom, $E_{\text{anion}}$
+is the non-adiabatic energy of the negative ion and $\Delta E_{corr}$ is the
+correction described above. Included in table(\ref{EAtab}) are the
+computational results for Hydrogen of Pekeris\cite{Pekeris62} and of Drake%
+\cite{Drake88}, and the experimental results for Hydrogen and Deuterium of
+Lykke, Murray and Lineberger\cite{Lykke91}. Also included is our estimates
+of the exact electron affinity computed from the energy estimates given in
+table(\ref{boundstab}). The result from Pekeris in table(\ref{EAtab})
+includes only first order mass polarization correction and Drakes
+relativistic corrections $\Delta E_{corr}.$
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[tbp] \centering}}
+%BeginExpansion
+\begin{table}[tbp] \centering%
+%EndExpansion
+\begin{tabular}{llll}
+\hline\hline
+& Hydrogen & Deuterium & Tritium \\ \hline
+$E_H-E_{H^{-}}$ & 6083.4058$cm^{-1}$ & 6087.0201$cm^{-1}$ & 6088.2233$cm^{-1}
+$ \\ 
+$\Delta E_{corr}$ & .307505$cm^{-1}$ & .307589$cm^{-1}$ & .307616$cm^{-1}$
+\\ 
+$EA$ & 6083.0983$cm^{-1}$ & 6086.7126$cm^{-1}$ & 6087.9157$cm^{-1}$ \\ 
+``Exact'' estimate & 6083.0994$cm^{-1}$ & 6086.7137$cm^{-1}$ & 6087.9168$%
+cm^{-1}$ \\ \hline
+Drake\cite{Drake88} & 6083.099414$cm^{-1}$ &  &  \\ 
+Pekeris\cite{Pekeris62}(using $\Delta E_{corr}$) & 6083.0909$cm^{-1}$ &  & 
+\\ 
+Lykke\cite{Lykke91}(experiment) & 6082.99$\pm 0.15cm^{-1}$ & 6086.2$\pm
+0.6cm^{-1}$ &  \\ \hline\hline
+\end{tabular}
+\caption{Electron affinity of Hydrogen, Deuterium and Tritium. The  term $ \Delta E_{corr} $
+contains relativistic, relativistic recoil, Lamb shift and finite nuclear size corrections   \label{EAtab}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+\subsection{Conclusion}
+
+This work has provided reliable values for the electron affinity of
+Hydrogen, Deuterium and Tritium. Constructing wave functions using a
+relatively simple explicitly correlated Gaussian basis and a non-adiabatic
+Hamiltonian has provided results unattainable with the infinite nuclear mass
+approximation plus Rydberg scaling and first order mass polarization
+correction. It was shown that for $H^{-},$ 17 nano-hartrees of the energy
+shift due to nuclear motion cannot be accounted for by these corrections.
+Our energy calculations are still in error by approximately 4.9
+nano-hartrees and we hope to correct this by including products of powers of 
+$r_{ij}$ with our correlated Gaussians,
+\begin{equation}
+\phi _k=\prod_{i<j}r_{ij}^{m_{kij}}\exp \left[ -\mathbf{r}^{\prime
+}(A_k\otimes I_3)\mathbf{r}\right] .
+\end{equation}
+We expect this new correlated n-body basis to have excellent convergence
+characteristics. These results may be important for researchers testing the
+validity of QED calculations such as the Lamb shift and other small energy
+corrections and may also be significant for researchers attempting to
+compute values for fundamental physical constants. We hope that others will
+confirm and improve on our results, and that experimentalists will push the
+envelope of error bars closer to the accuracy of the theoretical
+calculations.
+
+\noindent \textbf{Acknowledgment}
+
+This work was supported by the National Science Foundation with grant
+CHE-9300497
+
+\bibliographystyle{aip}
+\bibliography{4-prefs,hmhe,mcalc}
+
+\end{document}

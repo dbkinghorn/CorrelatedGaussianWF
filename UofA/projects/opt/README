@@ -1,0 +1,6 @@
+Some optimization codes that I wanted to play with
+uncmnd.f is a finite difference gradent code
+I tryed LBFGS2.3 and found that TN seemed to work better
+... don't rember about A21vm
+toms734 is basically an updated TN written in f90 looks like it could be 
+a pain to install ???

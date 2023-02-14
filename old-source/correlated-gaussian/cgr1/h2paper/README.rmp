@@ -1,0 +1,60 @@
+  This file provides information on the initial version of a REVTeX style file
+for RMP authors.
+
+
+  If you do not have TeX, LaTeX, and REVTeX v3.1, you should first
+obtain and install these packages. If you already have these
+installed, then very little is required to use the RMP macros.
+
+
+  You should have received or acquired:
+
+    readme.rmp (this file)
+    rmp.sty (REVTeX style file for RMP style)
+
+
+  To install, just put the rmp.sty file into the directory that holds all
+of your other .sty files, or put it into the directory where you will be
+working on your RMP compuscript file. It may be better to keep the file in
+a completely separate directory since this is just the initial version, and
+may soon be superceded.
+
+
+  To use the RMP style file, simply use the documentstyle line:
+
+     \documentstyle[rmp,aps]{revtex}
+
+You should make sure that you are using REVTeX v3.1. You can use the eqsecnum
+style option with the rmp style option.
+
+
+  Here are the differences between the RMP style and the existing REVTeX styles
+for other journals:
+
+   (1) The front matter, section headings, figure and table captions,
+       references, and section cross references are all set in the
+       proper RMP styles when rmp.sty is in use.
+
+   (2) The table of contents macro has been rewritten to give RMP-style
+       output automatically.
+
+   (3) Reference citations and ordering of the reference list in the
+       RMP style must be accomplished "manually." There is no
+       automatic numbering or ordering of the references in the
+       reference list, and no automatic cross referencing (i.e., the
+       \cite{#1} command will not work). There is no BibTeX style file
+       for RMP at this time.
+
+
+  Please contact us with any questions or comments ---
+
+
+
+     REVTeX Support
+     American Physical Society 			Internet:    mis@aps.org
+     1 Research Rd. Box 9000 			Telephone:   (516) 591-4000
+     Ridge, New York 11961-9000 		Fax:         (516) 591-4141
+
+
+       
+

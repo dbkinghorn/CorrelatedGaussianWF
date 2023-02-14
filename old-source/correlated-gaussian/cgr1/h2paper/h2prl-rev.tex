@@ -1,0 +1,310 @@
+% H2 paper from cgr1 calculations
+% Donald B. Kinghorn
+% University of Arizona
+% Tue Apr 20 18:13:22 MST 1999
+
+% using revtex 3.1 template file
+
+\documentstyle[aps]{revtex}
+\linespread{1.6}
+
+\begin{document}
+
+% \draft command makes pacs numbers print
+\draft
+
+\title{Improved non-adiabatic ground-state energy upper bound for dihydrogen}
+\author{Donald B. Kinghorn and Ludwik Adamowicz}
+\address{ Department of Chemistry\\
+        University of Arizona\\
+        Tucson AZ 85721}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+A new, highly accurate, value for the non-adiabatic energy 
+of the dihydrogen ground state is reported, (-1.1640250232 hartree).
+The calculations were performed with a direct non-adiabatic variational
+approach using a new correlated {G}aussian basis set including powers of the
+the inter-nuclear distance. 
+\end{abstract}
+
+% insert suggested PACS numbers in braces on next line
+\pacs{31.15.Pf, 31.25.Nj, 31.30.-i}
+
+%\narrowtext
+
+%\section{Introduction}
+We recently introduced a new correlated Gaussian basis set suitable
+for high accuracy non-adiabatic calculations on diatomic molecules
+\cite{Kinghorn99a}.
+In that paper we gave a detailed description of the basis set including
+formulas for matrix elements and energy gradient components together with 
+information on implementation. We demonstrated the implementation by
+including accurate results for the standard reference system H$_{2}^{+}$.
+In this letter we continue the validation of this new basis by reporting
+a new variational energy upper-bound for the ground state of dihydrogen 
+molecule. This new bound should provide an accurate reference energy
+for future non-adiabatic calculations and for evaluating the quality
+of adiabatic plus non-adiabatic ``correction'' methodologies
+that are based on the Born-Oppenheimer approximation. 
+
+%\section{Non-adiabatic Hamiltonian}
+In the non-adiabatic approach all particles are treated equally utilizing
+their given masses and full interactions with all other particles. 
+Without invoking any approximations, the total Hamiltonian 
+can be separated into an operator representing the translational motion
+of the center of mass and an operator representing the internal energy.
+We perform this separation by making a transformation to an internal
+reference frame with origin at particle one,
+\begin{equation} \label{rdef}
+\mathbf{r}=\left[
+  \begin{array}[c]{c}
+    \mathbf{r}_{1}\\
+    \mathbf{r}_{2}\\
+    \mathbf{r}_{3}
+  \end{array}
+  \right]  
+  = \left[
+    \begin{array}[c]{c}
+      \mathbf{R}_{2}-\mathbf{R}_{1}\\
+      \mathbf{R}_{3}-\mathbf{R}_{1}\\
+      \mathbf{R}_{4}-\mathbf{R}_{1}\\
+    \end{array}
+  \right],
+\end{equation}
+where the $\mathbf{R}_{i}$ are the original particle coordinates.
+This transformation to  internal coordinates together with the 
+conjugate momentum transformation yields the non-adiabatic Hamiltonian
+for the internal energy of a four particle system,
+\begin{equation} \label{intham1}
+H=-\frac{1}{2}\left(  \sum_{i}^{3}\frac{1}{\mu_{i}}\nabla_{i}^{2}
+  +\sum_{i\neq j}^{3}\frac{1}{M_{1}}\nabla_{i}^{\prime}\nabla_{j} \right)
+  +\sum_{i=1}^{3}\frac{q_{0}q_{i}}{r_{i}}  
+  +\sum_{i<j}^{3}\frac{q_{i}q_{j}}{r_{ij}},
+\end{equation}
+here the $\mu_{i}$ are reduced masses, $M_{1}$ is the mass of particle 1,
+(the coordinate reference particle), and $\nabla_{i}$ is the gradient with
+respect to the $x,y,z$ coordinates $\mathbf{r}_{i}$. The potential energy is
+the same as in the total Hamiltonian but is now written using internal
+distance coordinates. The charges are mapped from the original particles as
+$\{Q_{1},Q_{2},Q_{3},Q_{4}\}\mapsto\{q_{0},q_{1},q_{2},q_{3}\}$. 
+In internal coordinates, distances are denoted,(using the standard 2-norm), 
+$r_{ij}=\left\|  \mathbf{r}_{i}-\mathbf{r}_{j}\right\|  =$ 
+$\left\|  \mathbf{R}_{i+1}-\mathbf{R}_{j+1}\right\|$ with 
+$r_{j}=\left\|  \mathbf{r}_{j}\right\|  =
+\left\|  \mathbf{R}_{j+1}-\mathbf{R}_{1}\right\|$.
+More general information on the non-adiabatic Hamiltonian and the 
+center of mass transformation can be found in the references\cite{Kinghorn99a}.
+
+%\section{Basis set} 
+The basis set consists of explicitly correlated Gaussian's multiplied by
+powers of the inter-nuclear distance. 
+The general form is, ( $^{\prime }$ represents vector/matrix transposition
+and $\otimes $ is the Kronecker product symbol) 
+\begin{equation} \label{basis}
+ \phi _k =
+  r_{1}^{m_k} \exp \left[ -\mathbf{r}^{\prime }
+      \left( L_kL_k^{\prime }\otimes I_3\right)\mathbf{r}\right],
+\end{equation}
+where, for H$_2$ $ \mathbf{r}$ is a $9\times 1$ vector of internal 
+Cartesian coordinates, $L_k$ is
+an $3\times 3$ rank $3$ lower triangular matrix of nonlinear variation
+parameters, and $I_3$ is the $3\times 3$ identity matrix. The Kronecker
+product with the identity insures rotational invariance of the basis
+functions (the $\phi _k$ are angular momentum eigen-functions with J=0). The
+exponent parameters are written in Cholesky factored form, 
+$L_kL_k^{\prime },$ 
+to insure positive definiteness of the quadratic form in the exponential
+thereby, insuring $L^2$ integrability of the basis functions.
+For a more complete discussion of
+this basis and derivation of the Hamiltonian matrix elements and derivatives
+in matrix form see reference\cite{Kinghorn99a}.
+
+Basis functions for the ground state wave function 
+are obtained by symmetry
+projecting the $\phi _k$ using a  projection operator
+$\mathcal{P}$. Thus,
+\begin{equation}
+{\mathcal{P}} \phi_{k} = \sum_{P} \chi_{P} r_{1}^{m_{k}} 
+     \exp \left[-r^{\prime} \left( \tau_{P}^{\prime} A_{k} \tau_{P}
+                                    \otimes I_{3} \right) r \right],
+\end{equation}
+where $\tau_{P} $ are the permutation matrices transforming the
+internal coordinates, 
+\begin{equation}
+\left( 
+\begin{array}{ccc}
+1 & 0 & 0 \\ 
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{array} 
+\right),
+\left( 
+\begin{array}{ccc}
+-1 & 0 & 0 \\ 
+-1 & 1 & 0 \\
+-1 & 0 & 1
+\end{array} 
+\right),
+\left( 
+\begin{array}{ccc}
+1 & 0 & 0 \\ 
+0 & 0 & 1 \\
+0 & 1 & 0
+\end{array} 
+\right),
+\left( 
+\begin{array}{ccc}
+-1 & 0 & 0 \\ 
+-1 & 0 & 1 \\
+-1 & 1 & 0
+\end{array} 
+\right).
+\end{equation}
+The coefficients $\chi_{P}$ are from the matrix elements of the irreducible
+representation for the desired state, and for the ground state are all ones.
+
+%\section{Mass values and other constants}
+The hydrogen nuclear mass was computed
+using the atomic mass given in \emph{The 1993 atomic mass evaluation} of
+Audi and Wapstra\cite{Audi93} and is given in table[\ref{results}].
+We use quantum units in this work except where
+otherwise noted. Thus, $\hbar =1,$ $m_e=1,$ energy is in hartree$\left(
+=2R_\infty \right) $, and distance is in bohr. 
+
+%\section{Implementation}
+The wave functions for the ground state is obtained by minimizing
+the Rayleigh quotient; 
+\begin{equation}
+E\left( a;c\right) =\min_{\left\{ a,c\right\} }\frac{c^{\prime }H(a)c}{
+c^{\prime }S(a)c}  \label{energy}
+\end{equation}
+where,
+$H\left( a\right) $ and $S\left( a\right) $ are the Hamiltonian and overlap
+matrices, respectively, 
+which are functions of the nonlinear parameters contained in the
+basis set exponent matrices $L_k$. We write $a$ for the collection of these
+nonlinear parameters and $c$ is the vector of linear coefficients in the basis
+expansion of the wavefunction.
+Our experience indicates that 
+much more thorough optimization can be achieved
+by letting the optimizer
+simultaneously vary both the linear and nonlinear parameters in the
+Rayleigh quotient rather than alternately solving the eigen-problem for
+the $c$'s and only letting the optimizer vary the nonlinear parameters, $a$.
+The optimization software employed was the package TN by Stephen Nash\cite
+{NashTN} --- available from netlib\cite{netlib}. TN is a truncated Newton
+method utilizing a user supplied gradient. The analytic gradient of the
+energy functional was derived using matrix 
+differential calculus\cite{Kinghorn95a,Kinghorn95b} and is given in 
+the references\cite{Kinghorn99a}.
+
+%\section{Results} 
+Table~(\ref{results})
+contains expectation values computed using our 
+optimized non-adiabatic wave function constructed from
+512 basis functions, $\phi_k$.
+Included in
+the table are expectation values for the Hamiltonian, 
+$\langle H \rangle$, the kinetic, $\langle T \rangle$, and
+potential energy, $\langle V \rangle$, the virial coefficient 
+$\eta=-\langle V \rangle /2\langle T \rangle$, the squared norm
+of the energy gradient, $\|g\|_{2}^{2}$, and
+$r_{1},$ and  $r_{1}^{2}$. 
+The values of the virial coefficient and the
+gradient norm indicate the high level of optimization
+obtained for this wave function. The energy we report for the non-adiabatic
+ground state of H$_2$ is a new rigorous variational upper-bound. 
+
+Our current development efforts involve generalizing the basis for 
+polyatomic systems and writing parallel software to handle
+the arduous task of optimizing many nonlinear parameters. 
+With this parallel implementation we will be able to perform
+direct non-adiabatic calculations on systems with more than two nuclei.
+No-one has yet carried out such calculations.
+ 
+
+\acknowledgements
+This work was supported by the National Science Foundation.
+
+
+\begin{references}
+
+\bibitem{Kinghorn99a}
+D.~B. Kinghorn and L.~Adamowicz,
+\newblock J. Chem. Phys. {\bf 110}, 7166 (1999).
+
+\bibitem{Kinghorn95a}
+D.~B. Kinghorn,
+\newblock Int. J. Quantum Chem. {\bf 57}, 141 (1996).
+
+\bibitem{Kinghorn95b}
+D.~B. Kinghorn and R.~D. Poshusta,
+\newblock Int. J. Quantum Chem. {\bf 62}, 223 (1997).
+
+\bibitem{Audi93}
+G. Audi and A.~H. Wapstra, Nucl. Phys. A {\bf 565},  1  (1993).
+
+\bibitem{NashTN}
+S.~G. Nash,
+\newblock SIAM J. Numer. Anal. {\bf 21}, 770 (1984).
+
+\bibitem{netlib}
+netlib can be accessed by ftp at netlib@ornl.gov and 
+netlib@research.att.com or by World Wide Web access at http://www.netlib.org.
+
+\bibitem{Bishop77b}
+D.~M. Bishop and L.~M. Cheung,
+\newblock Phys. Rev. A {\bf 18}, 1846 (1977).
+
+\bibitem{Chen95}
+B.~Chen and J.~B. Anderson,
+\newblock J. Chem. Phys. {\bf 102}, 2802 (1995).
+
+\bibitem{Wolniewicz95}
+L.~Wolniewicz,
+\newblock J. Chem. Phys. {\bf 103}, 1792 (1995).
+
+\end{references}
+
+\newpage
+\mediumtext
+
+\begin{table}[!pth]
+\caption{Expectation values for the dihydrogen non-adiabatic ground state
+         using a 512 term correlated {G}aussian wave function.
+         Energy in Hartree, distance in Bohr. 
+\label{results}}
+
+\begin{tabular}{lrl}
+%\hline \hline
+$\langle H \rangle$ & $-1.1640250232$ & This work (H mass$=1836.152693$a.u.)\\
+
+$\langle T \rangle$ & $ 1.1640250041$  & \\
+$\langle V \rangle$ & $-2.3280500273$  & \\
+$\eta$              & $ 1.0000000081$  & \\
+$\|g\|_{2}^{2}$     & $ 4.074 \times 10^{-15}$  & \\
+$\langle r_1 \rangle$ & $ 1.4487380001$                & \\
+$\langle r_{1}^{2} \rangle$ & $  2.1270459595$         & \\
+\hline
+\multicolumn{3}{l}{Literature values for $\langle H \rangle$}\\
+\hline
+ $-1.16402413$ &\multicolumn{2}{l}{
+        Bishop and Cheung ref. \cite{Bishop77b},(H mass$=1836.15$a.u)}\\ 
+        &\multicolumn{2}{l}{Variational, 1070 basis functions} \\
+ $-1.1640239$ &\multicolumn{2}{l}{
+        Chen and Anderson ref. \cite{Chen95},(H mass not given)}\\
+        &\multicolumn{2}{l}{Quantum Monte Carlo} \\
+ $-1.164025018$ &\multicolumn{2}{l}{
+        Wolniewicz ref. \cite{Wolniewicz95}, (H mass$=1836.1527$)}\\
+        &\multicolumn{2}{l}{
+        High accuracy adiabatic and non-adiabatic corrections}\\
+%\hline \hline
+\end{tabular}
+\end{table}
+
+\end{document}
+%
+% ****** End of file h2prl-rev.tex ******
+

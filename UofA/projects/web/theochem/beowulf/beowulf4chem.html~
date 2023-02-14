@@ -1,0 +1,242 @@
+<html>
+<head>
+<title>Beowulf article for Journal of Molecular Graphics and Modeling</title>
+</head>
+
+<h1 align=center>
+High Performance Computational Chemistry Using Parallel PC Clusters:
+An Introduction to Beowulf Clusters for Chemists
+</h1>
+
+<h5 align=center>
+Donald B. Kinghorn<br>
+University of Arizona Department of Chemistry<br>
+Theoretical and Computational Chemistry Group<br>
+Tucson AZ<br>
+kinghorn@u.arizona.edu
+</h5>
+
+<p>
+Computational Chemists have an almost insatiable appetite for
+computer resources and it is quite often the case that this large 
+demand for computing power is not accompanied by large
+budgets for computing equipment.
+Beowulf clusters offer the exciting possibility
+to achieve supercomputer performance on a workstation budget. 
+
+<p>
+<b>What is a Beowulf?</b><br>
+Here's one of several possible definitions:
+<hr>
+<blockquote>
+A Beowulf system is a collection of personal computers constructed from 
+commodity-off-the-shelf hardware components interconnected with 
+a system-area-network
+and configured to operate as a single unit, parallel computing platform, 
+using an open-source network operating system. 
+</blockquote>
+<hr>
+<p>
+A Beowulf is a dedicated parallel cluster as opposed to a 
+Network of Workstations (NOW)
+or Cluster of Workstations (COW). 
+A Beowulf is more like a Pile Of PC's (POP) with just one or two
+boxes configured as "worldly nodes" allowing user access and 
+the rest functioning as compute nodes.
+<p>
+The driving design philosophy of a Beowulf system is to achieve 
+the best possible price/performance ratio for a given computing problem.
+For many problems it's possible to achieve an order of magnitude improvement
+in price/performance compared with "conventional" parallel supercomputer
+designs.
+<p>
+Currently the two most common system designs are:
+<ul>
+<li>Intel PII/III based PC's with switched fast Ethernet running Linux</li>
+<li>High performance Alpha processor based PC's with Myrinet
+(a high speed low latency network system)[www.myri.com] 
+running Linux</li>
+</ul>
+The Intel+fast Ethernet systems are very popular and offer good performance
+for problems that have a high calculation/communication ratio 
+(coarse grained). 
+The Alpha+Myrinet based systems offer excellent performance competing 
+head on with conventional ($expensive$) supercomputers. In fact 
+HIGH PERFORMANCE TECHNOLOGIES, INC. (HPTi) [www.hpti.com]
+was recently awarded a contract to build a very large Alpha + Myrinet 
+Beowulf supercomputer
+for NOAA's Forecast Systems Laboratory (FSL)[www.fsl.noaa.gov] 
+that is expected to eventually perform
+four TeraFLOPS (four trillion arithmetic computations per second). 
+It's highly significant that they won this contract based on demonstrated 
+performance while competing with the "heavy iron" supercomputer vendors. 
+<p>
+There are other possibilities for building a Beowulf. 
+Almost any hardware can be used, there is
+even talk about using Sony-PlayStation2's running Linux to build Beowulfs! 
+The new AMD Athlon [www.amd.com] and soon to be released 
+Intel Merced (Itanium?) [www.intel.com] offer other high performance
+possibilities. Other networking technology such as ATM and GigaBit Ethernet
+can be used. Most anything is fair game. However, the most common, and thus
+the most well understood, systems are Intel or Alpha + fast Ethernet 
+or Myrinet. 
+<p>
+For the network operating system Linux is by far the most 
+popular for Beowulfs and 
+it's largely the combination of the free availability of the Linux source code
+coupled with low cost high performance PC components 
+that has spawned the Beowulf movement. (The Beowulf cluster 
+definition should probably include using the Linux operating system.)  
+Another good choice for network operating system could be 
+FreeBSD [www.freebsd.org]. 
+Also, people have used commercial operating
+systems such as Sun Solaris and Microsoft Windows NT. 
+However, the strongest support
+and most rapid development is happening in the Linux community. 
+Any  Linux distribution [www.Linuxberg.com] can 
+be used, the most popular are;
+RedHat [www.redhat.com], 
+Debian [www.debian.org] and 
+SuSE [www.SuSE.com], with RedHat being the most
+common. (I use Mandrake [www.linux-mandrake.com]
+which is based on RedHat but optimized for Pentium systems
+and updated more frequently)   
+<p>
+To establish the parallel computing environment there are 
+several freely available message passing libraries, including
+two implementations of the MPI standard 
+MPICH [www-unix.mcs.anl.gov/mpi/mpich/] and 
+Lam-mpi [www.mpi.nd.edu/lam/]. PVM [www.epm.ornl.gov/pvm/] is another
+popular choice for message passing. There are other approaches 
+to parallelism that will work on Beowulfs but the utilization
+of message passing libraries is most common.
+<p>
+There are many other system level software components
+found on Beowulf systems including batch scheduling 
+systems like PBS [pbs.mrj.com/] and Load balancing, 
+process migration and management software like MOSIX [www.cs.huji.ac.il/mosix/]
+and bproc [beowulf.gsfc.nasa.gov/software/bproc.html]. You'll find lots
+of system level and application level software in the links at the end of 
+this article.
+<p>
+A few of the parallel applications running on
+Beowulfs that are of interest to chemists include;
+<ul>
+<li>CHARMM [yuri.harvard.edu] --Molecular Mechanics-- 
+There are several sites running CHARMM on Beowulfs see
+LoBoS at NIH [www.lobos.nih.gov] and some interesting benchmarks
+at HPTi [www.hpti.com/Clusterweb]
+</li>
+<li>NAMD [www.ks.uiuc.edu] --Molecular Dynamics--
+Parallel, object-oriented molecular dynamics code designed 
+for large bio-molecular systems.
+</li>
+<li> PQS-Chem [www.pqs-chem.com] --Quantum Chemistry-- High performance 
+Quantum Chemistry software plus the hardware to run it on! A ready
+to run hardware/software combination for Quantum Chemistry. 
+<li> Gaussian98 + Linda [www.sca.com/apps.html] --Quantum Chemistry--
+Popular.
+</li>
+<li> GAMESS [www.msg.ameslab.gov] --Quantum Chemistry--
+Many groups are reporting good results with (the freely available)
+GAMESS software on Beowulfs. 
+</li>
+</ul>
+This is just a sampling of available codes. If there is some
+package you are currently using or are interested in using,
+you might want to inquire about the availability of a parallel
+version running on a Beowulf cluster. The more interest there
+is, the more development work will get done. 
+<p>
+There are lots of parallel programming projects in the works and it's
+likely that most of the future high performance computational
+chemistry codes will target (or at least be ported to) 
+Beowulf like systems. A small Beowulf system
+provides an excellent low cost parallel application development
+platform. Our group is using a 4 node 8 processor Beowulf
+for development of parallel programs for non-adiabatic molecular
+structure calculations with explicitly correlated wave functions
+and for parallel coupled cluster codes.   
+<p>
+<b>How to acquire a Beowulf</b><br>
+Since one of the main interests in Beowulf systems is the 
+excellent price/performance ratio, most of the existing Beowulfs
+have been built and configured from scratch. In fact this is one of 
+the most attractive features of a Beowulf system -- you can build
+a system specifically for the problem you want to solve. For example
+there is no need for fast low latency (expensive) networking 
+hardware if your application does little communication. There is
+an almost endless number of possible hardware combinations. Systems
+can be built using nodes constructed by your favorite PC vendor
+or built from the ground up using individual components. Our
+small Beowulf system was built from components for under $5000
+and consists of 4 dual PII400 boxes with 256MB SDRAM on each node,
+over 40GB total disk storage, 100Mb fast Ethernet nics, 
+an 8 port switch and a 17" monitor for the master node. All of the 
+system software was available free of charge.
+That's a substantial amount of computing power for under $5000.
+[Note: component prices can fluctuate dramatically from week to week] 
+<p>
+The most important ingredient for building your own system
+is someone to do it. To build from scratch requires a motivated
+individual with reasonable system and network administration
+skills, an interest in hardware, and plenty of time to 
+research what needs to be done and then to do it. Information
+on building Beowulfs is "out there" but, since most systems
+are unique in some way, it requires skill and creativity
+to take care of the details. In any case don't plan on building
+a large system without first putting together a small 2 or 4 
+node cluster.  
+<p>
+If you don't have the human resources to build your own you can 
+still get a Beowulf system with only a modest sacrifice in that
+price/performance ratio. There are very knowledgeable people
+that can build you a robust fully configured Beowulf system.
+<i>xtreme MACHINES</i> from Paralogic Inc. [www.xtreme-machines.com]
+offers fully configured Pentium III plus fast Ethernet based
+Beowulf systems. HIGH PERFORMANCE TECHNOLOGIES, INC. (HPTi) [www.hpti.com]
+offers (Compaq/DEC) Alpha plus Myrinet solutions with excellent performance.
+As mentioned earlier 
+Parallel Quantum Solutions (PQS)[www.pqs-chem.com]
+offers a fully configured hardware/software solution running 
+the PQS-Chem quantum chemistry package.  
+<p>
+<b>Finial comments</b><br>
+Beowulf, and in general, parallel cluster computing technology is
+still undergoing significant development. However, the technology
+has reached the point where it is genuinely useful for a wide
+range of problems. Enthusiasm for the technology is warranted but
+should be tempered with careful consideration for what you want 
+to accomplish. There is a wealth of information on the web but
+as with a lot of information on the web, some of it is dated
+and/or poorly maintained, but by all means explore. 
+<p>
+The following resources will get you started:
+<ul>
+<li>
+T. Sterling, J. Salmon, D. Becker, and D. Savarese,
+<i>How to Build a Beowulf,
+A Guide to the Implementation and Application of PC Clusters</i>
+MIT Press, (1999)
+</li>
+<li>
+The original Beowulf web site at NASA [www.beowulf.org]
+Among the many useful things you will find here 
+are information about joining the
+Beowulf mailing list and many links to other sites. 
+The mailing list FAQ (READ THIS!) is at, 
+[www.dnaco.net/~kragen/beowulf-faq.txt]
+</li>
+<li>
+The Beowulf Underground [www.beowulf-underground.org] provides a 
+resource for announcements, documentation and software. 
+</li>
+<li>
+SAL Scientific Applications on Linux [sal.kachinatech.com]
+This site lists over 2500 applications for Linux and has
+a section on parallel computing and a section for Chemistry
+and Biology related software.    
+</li>
+</ul> 
+
+</html>

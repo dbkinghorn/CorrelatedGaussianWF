@@ -1,0 +1,1416 @@
+% AIP ID 303915JCP
+% I used the portable latex option so this file should compile fine
+% Donald B. Kinghorn
+
+%% This document created by Scientific Word (R) Version 3.0
+
+
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{aip}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+%TCIDATA{Created=Fri Oct 23 17:38:26 1998}
+%TCIDATA{LastRevised=Fri Nov 13 11:07:17 1998}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Journal Articles\Standard LaTeX Article">}
+%TCIDATA{Language=American English}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+\doublespacing
+
+\begin{document}
+
+
+\title{A correlated basis set for non-adiabatic energy calculations on diatomic molecules}
+\author{Donald B. Kinghorn and Ludwik Adamowicz\\Department of Chemistry\\University of Arizona\\Tucson AZ 85721}
+\maketitle
+\begin{abstract}
+A new explicitly correlated basis set suitable for non-adiabatic energy
+calculation on small diatomic molecules is presented. The basis functions
+consist of correlated Gaussians multiplied by powers of the internuclear
+distance. N-body formulas for Hamiltonian matrix elements and energy gradient
+components are derived and presented along with a discussion of the
+non-adiabatic Hamiltonian and symmetry considerations. A sample calculation is
+presented for the ground state energy of the benchmark system H$_{2}^{+}$ in
+which rapid convergence to near exact results was observed.
+\end{abstract}
+
+
+
+\section{Introduction}
+
+An interesting Quantum Mechanical problem that is almost entirely untouched,
+is that of computing molecular energy levels fully non-adiabatically, without
+recourse to semi-classical constructs\textit{.} More specifically, finding
+high accuracy variational\ solutions of the stationary state Schr\"{o}denger
+equation including all electronic and nuclear degrees of freedom with
+explicitly correlated wave functions.
+
+The Born-Oppenheimer (BO) approximation is the center of the computational and
+conceptual framework of conventional quantum theory of molecular systems and
+there is no denying it's usefulness. However, the absence of a simple
+alternative has lead to the semi-classical constructs of potential energy
+hypersurface and equilibrium geometry largely supplanting the quantum
+mechanical principles of delocalization and expectation value. Additionally,
+there are times when the BO approximation fails completely.
+
+When the perturbation strength, $\kappa$, is large, BO concepts become
+inadequate. ($\kappa$ is the fourth root of the ratio of light to heavy
+particle masses). Adiabatic corrections to the zero order BO energy of
+Hydrogen containing molecules can be appreciable, ($\kappa=.15)$. Systems
+containing exotic particles such as positrons, ($\kappa=1),$ and mesons,
+($\kappa=.26),$ may not converge at all in the BO approximation. For exotic
+systems and non-rigid (floppy) molecules the BO notion of equilibrium geometry
+may be meaningless. In any case, achieving the highest possible accuracy for
+variational energy bounds requires a non-adiabatic approach with full
+correlation between all particles.
+
+The present work proposes a new explicitly correlated basis set for performing
+high accuracy non-adiabatic variational energy calculations on small
+``diatomic'' systems. The basis functions are of the form, $\phi_{k}%
+=r_{1}^{m_{k}}\exp[-\mathbf{r}^{\prime}\bar{A}_{k}\mathbf{r}]$. These basis
+functions are correlated Gaussians with a pre-multiplying factor $r_{1}%
+^{m_{k}},$ the $m$-th power of the distance between the two heavy particles,
+hence the approach is restricted to diatomics with $\sigma$ electrons. The
+exponential factor provides full correlation between all system particles.
+
+The reasoning that lead to this form of the basis functions is as follows:
+There have been several highly accurate non-adiabatic variational calculations
+on atomic and exotic few particle systems using simple correlated
+Gaussians\cite{Kinghorn93,Kinghorn95b,Kozlowski93b,Kinghorn97a,Varga96}. By
+simple we mean that they only contain the exponential part of the $\phi_{k},$
+(no $r_{1}$ pre-multipliers). However, attempts at non-adiabatic molecular
+calculations have been plagued by problems with linear dependence in the basis
+during energy optimizations. This problem occurs in calculations on atomic
+systems also, but, to a much lesser extent. We feel that we understand this
+problem and our initial trials with the new basis including pre-multiplying
+powers of $r_{1}$ has eliminated or at least drastically reduced the linear
+dependence problems. We believe the reason for the success with the new basis
+is due to the fact that in diatomics there will be large particle density away
+from the origin in relative coordinates (when one of the nuclei is taken as
+the coordinate origin). That is, the wave function will have peaks shifted
+away from the origin. There are three ways to account for this behavior in the
+wave function using correlated Gaussians; 1) use correlated Gaussians with
+shifted centers, i.e. $\exp[-\left(  \mathbf{r-s}\right)  ^{\prime
+}\bar{A}\left(  \mathbf{r-s}\right)  ],$ 2) Use near linearly dependent
+combinations of simple correlated Gaussians with large matched $\pm$ linear
+coefficients, or 3) Use pre-multiplying powers of $r_{1}$. The first option is
+unacceptable since it results in a wave function which no longer represents a
+pure angular momentum state. The second option is what we believe causes the
+linear dependence and numerical instability which we are trying to avoid. The
+third option is what we have implemented. The linear dependence that we have
+observed in our calculation using the simple correlated Gaussians looks, in
+some sense, like an attempt by the optimization to include in the wave
+function derivatives of the basis functions with respect to the non-linear
+parameters. The near linear dependent terms resemble numerical derivatives.
+Removal of these near linear dependent terms has an adverse affect on the wave
+functions, as manifested by poor energy results, but leaving them in leads to
+numerical instabilities which hinder optimization or cause complete collapse
+of the eign-solutions. Now, derivatives of simple Gaussians with respect to
+non-linear parameters, elements of the matrices $A_{k}$, bring down
+pre-multiplying (even) powers of $r_{ij}$. Thus, explicitly including
+pre-multiplying powers of $r_{ij}$ in the basis functions should add the
+needed flexibility to the basis in a numerically stable way. This is indeed
+what we have observed by including $r_{1}^{m_{k}}$ terms in our trials with
+diatomic systems.
+
+The rest of this manuscript presents our non-adiabatic method for variational
+energy calculations on diatomic systems utilizing this new basis. We begin
+with a presentation of the non-adiabatic Hamiltonian including the
+transformation to center of mass and relative coordinates. This is followed by
+a detailed examination of the basis functions. A discussion of symmetry
+considerations follows including the projection method we use for obtaining
+pure states. Formulas for Hamiltonian and overlap matrix elements are then
+presented. Energy gradient components are given since this is essential for
+thorough optimization of the many non-linear parameters contained in a
+variational trial function in this basis. We then validate the methodology by
+showing preliminary results for the benchmark system H$_{2}^{+}.$\ \ This is
+followed by conclusions and proposed future work.
+
+\section{Non-Adiabatic Hamiltonian}
+
+Consider a system of $N$ particles with masses $\{M_{1},M_{2},...,M_{N}\}$ and
+charges $\{Q_{1},Q_{2},...,Q_{N}\}$. If we take the particles to be charged
+point masses with coulombic interactions. The non-relativistic Hamiltonian has
+the familiar form,
+\begin{equation}
+H_{tot}=-\sum_{i}^{N}\frac{\nabla_{\mathbf{R}_{i}}^{2}}{2M_{i}}+\sum_{i<j}%
+^{N}\frac{Q_{i}Q_{j}}{\left\|  \mathbf{R}_{i}-\mathbf{R}_{j}\right\|
+}\,,\label{ham1}%
+\end{equation}
+where $\mathbf{R}_{i}=[X_{i}\,\,Y_{i}\,\,Z_{i}]^{\prime}$ is a column vector
+of Cartesian coordinates for particle $i$ in the external, laboratory fixed,
+frame, $\nabla_{\mathbf{R}_{i}}^{2}$ the Laplacian in the coordinates of
+$\mathbf{R}_{i}$, and $\left\|  \mathbf{R}_{i}-\mathbf{R}_{j}\right\|  $ the
+distance between particles $i$ and $j$ ($\left\|  ...\right\|  $ is the
+standard 2-norm. Also, we use a back tick, ('), to denote the matrix/vector
+transpose.) If the particles are a mixture of nuclei and electrons, the
+standard treatment is to force a separation of this Hamiltonian into nuclear
+and electronic components using the Born-Oppenheimer approximations. For the
+non-adiabatic approach no such approximations are made. All particles are
+treated equally utilizing their given masses and full interaction with all
+other particles. There is of course one simplification of the total
+Hamiltonian that does not involve any approximations, namely, the separation
+of the translational degrees of freedom.
+
+The total Hamiltonian, eqn(\ref{ham1}), is separable into an operator
+describing the translational motion of the center of mass and an operator
+describing the internal energy. This separation is realized by a
+transformation to center of mass and internal (relative) coordinates. We now
+present this transformation to establish the coordinate framework within which
+our new basis set will be utilized.
+
+Let $\mathbf{R}$ be the vector of particle coordinates in the laboratory fixed
+reference frame,
+\begin{equation}
+\mathbf{R=}\left[
+\begin{array}
+[c]{c}%
+\mathbf{R}_{1}\\
+\mathbf{R}_{2}\\
+\vdots\\
+\mathbf{R}_{N}%
+\end{array}
+\right]  =\left[
+\begin{array}
+[c]{c}%
+X_{1}\\
+Y_{1}\\
+Z_{1}\\
+\vdots\\
+Z_{N}%
+\end{array}
+\right]  .
+\end{equation}
+Center of mass and internal coordinates are given by the transformation
+$T:\mathbf{R}\mapsto\lbrack\mathbf{r}_{0}^{\prime},\mathbf{r}^{\prime
+}]^{\prime}$
+\begin{equation}
+T=\left[
+\begin{array}
+[c]{ccccc}%
+\frac{M_{1}}{m_{0}} & \frac{M_{2}}{m_{0}} & \frac{M_{3}}{m_{0}} & \cdots &
+\frac{M_{N}}{m_{0}}\\
+-1 & 1 & 0 & \cdots & 0\\
+-1 & 0 & 1 & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+-1 & 0 & 0 & \cdots & 1
+\end{array}
+\right]  \otimes I_{3},\label{Ttran}%
+\end{equation}
+where $m_{0}=\sum_{i}^{N}M_{i}$. $\mathbf{r}_{0}$ is the vector of coordinates
+for the center of mass and $\mathbf{r}$ is a length $3n=3\left(  N-1\right)  $
+vector of internal coordinates with respect to a reference frame with origin
+at particle 1
+\begin{equation}
+\mathbf{r=}\left[
+\begin{array}
+[c]{c}%
+\mathbf{r}_{1}\\
+\mathbf{r}_{2}\\
+\vdots\\
+\mathbf{r}_{n}%
+\end{array}
+\right]  =\left[
+\begin{array}
+[c]{c}%
+\mathbf{R}_{2}-\mathbf{R}_{1}\\
+\mathbf{R}_{3}-\mathbf{R}_{1}\\
+\vdots\\
+\mathbf{R}_{N}-\mathbf{R}_{1}%
+\end{array}
+\right]  .\label{rdef}%
+\end{equation}
+(The Kronecker product with the $3\times3$ identity matrix preserves the
+isotropy of the transformation. The Kronecker product,or matrix outer product,
+is defined in the references\cite{Kinghorn95a} or any advanced linear algebra
+text.)
+Using this coordinate transformation, and the
+conjugate momentum transformation, the internal Hamiltonian can be written
+as,
+\begin{equation}
+H=-\frac{1}{2}\left(  \sum_{i}^{n}\frac{1}{\mu_{i}}\nabla_{i}^{2}+\sum_{i\neq
+j}^{n}\frac{1}{M_{1}}\nabla_{i}^{\prime}\nabla_{j}\right)  +\sum_{i<j}%
+^{n}\frac{q_{i}q_{j}}{r_{ij}},\label{intham1}%
+\end{equation}
+where the $\mu_{i}$ are reduced masses, $M_{1}$ is the mass of particle 1,
+(the coordinate reference particle), and $\nabla_{i}$ is the gradient with
+respect to the $x,y,z$ coordinates $\mathbf{r}_{i}$. The potential energy is
+the same as in the total Hamiltonian but is now written using internal
+distance coordinates. The charges are mapped as $\{Q_{1},Q_{2},...,Q_{N}%
+\}\mapsto\{q_{0},q_{1},...,q_{n}\}$ and the summation in the potential is from
+$i=0$ to $n$ instead of from $1$ to $N$ as in the total Hamiltonian. Thus, in
+internal coordinates, distances are denoted, $r_{ij}=\left\|  \mathbf{r}%
+_{i}-\mathbf{r}_{j}\right\|  =$ $\left\|  \mathbf{R}_{i+1}-\mathbf{R}%
+_{j+1}\right\|  \,\,$with\thinspace$r_{0j}\equiv r_{j}=\left\|  \mathbf{r}%
+_{j}\right\|  =\left\|  \mathbf{R}_{j+1}-\mathbf{R}_{1}\right\|  .$
+
+The kinetic energy term in the internal Hamiltonian, eqn(\ref{intham1}),
+includes what is usually referred to as the mass polarization, i.e. the second
+summation in eqn(\ref{intham1}). For convenience in the integral calculations
+we write the total kinetic energy as a quadratic form in the length $3n$
+vector gradient operator, $\nabla_{\mathbf{r}},$ with respect to the length
+$3n$ vector $\mathbf{r}$ of internal coordinates. Thus we have for our
+non-adiabatic Hamiltonian,
+\begin{equation}
+H=-\nabla_{\mathbf{r}}^{\prime}\left(  M\otimes I_{3}\right)  \nabla
+_{\mathbf{r}}+\sum_{i<j}^{n}\frac{q_{i}q_{j}}{r_{ij}},\label{ham}%
+\end{equation}
+where $M$ is an $n\times n$ matrix with $1/2\mu_{i}$ on the diagonal and
+$1/2M_{1}$ for the off diagonal elements. It is also possible to write the
+potential term as a vector operator\cite{Kinghorn95a} however we have no
+compelling reason to do so here. We make no further transformations or
+approximations to this Hamiltonian. More information on the center of mass
+separation and form of the Hamiltonian, eqn(\ref{ham}), can be found in the
+references\cite{Kinghorn93,Kinghorn95b}.\qquad\ 
+
+\section{Basis Set}
+
+The Hamiltonian presented above is valid for any number of particles with any
+masses and charges. The basis set we are presenting is, however, designed for
+use in the case where exactly two particles have much larger masses than the
+rest as is the case in diatomic molecules. If we label the two heavy particles
+as one and two then the distance between these particles is given by $r_{1}=$
+$\left\|  \mathbf{R}_{1}-\mathbf{R}_{2}\right\|  $ and the basis set we are
+presenting is given by,
+\begin{equation}
+\phi_{k}=r_{1}^{m_{k}}\exp\left[  -\mathbf{r}^{\prime}\overline{A_{k}%
+}\mathbf{r}\right]  .\label{basis1}%
+\end{equation}
+It is the inclusion of the factor $r_{1}^{m_{k}}$ which gives this basis its
+stability and rapid convergence characteristics for diatomic molecules
+compared with simple correlated Gaussians. The matrix of the quadratic form in
+the exponential is denoted using an overbar to represent a Kronecker product
+with the $3\times3$ identity matrix. This matrix $\overline{A_{k}}$ is
+positive definite and symmetric to insure that the basis is square integrable,
+\textit{i.e.} admit a norm. Thus we write $\overline{A_{k}}$ in a Cholesky
+factored form as follows,\qquad%
+\begin{align}
+\overline{A_{k}} &  =\mathbf{r}^{\prime}(A_{k}\otimes I_{3})\mathbf{r}\\
+&  =L_{k}L_{k}^{\prime}\text{ ,\thinspace\thinspace\thinspace\thinspace
+\thinspace\thinspace\thinspace\thinspace}L_{k}\text{ lower triangular and rank
+}n.\nonumber
+\end{align}
+The elements of the lower triangular matrix $L_{k}$ are the non-linear
+variation parameters used to optimize the basis in energy calculations.
+
+The quadratic form in the exponential of $\phi_{k}$ may be written using
+internal distance variables, $\left\{  r_{ij}\right\}  ,$ as follows (we drop
+the subscript $k$ for convenience):
+\begin{align}
+\mathbf{r}^{\prime}(A\otimes I_{3})\mathbf{r} &  =\sum_{i,j}\mathbf{r}%
+_{i}^{\prime}\mathbf{r}_{j}\,\,A_{ij}\\
+&  =\operatorname{tr}\left[  \left(  \mathbf{r}_{i}^{\prime}\mathbf{r}%
+_{j}\right)  A\right]  \\
+&  =\operatorname{tr}\left[  \left(  r_{ij}^{2}\right)  B\right]  \\
+&  =\sum_{i,j}r_{ij}^{2}\,\,B_{ij}\,,
+\end{align}
+where $\operatorname{tr}\left[  {}\right]  $ is the matrix trace operator,
+$\left(  \mathbf{r}_{i}^{\prime}\mathbf{r}_{j}\right)  $ is the $n\times n$
+matrix of inner products of the component vectors of $\mathbf{r},$ $\left(
+r_{ij}^{2}\right)  $ is the $n\times n$ matrix of squared distance variables,
+and $B$ is a matrix with elements given, in terms of the elements of $A$, by
+the transformation,
+\begin{equation}
+B_{ij}=\left\{
+\begin{array}
+[c]{ll}%
+\frac{1}{2}%
+%TCIMACRO{\dsum \limits_{t=1}^{n}}%
+%BeginExpansion
+{\displaystyle\sum\limits_{t=1}^{n}}
+%EndExpansion
+\left(  A_{it}+A_{tj}\right)  , & i=j\\
+-\frac{1}{4}\left(  A_{ij}+A_{ji}\right)  , & i\neq j
+\end{array}
+\right.  .\label{Btran}%
+\end{equation}
+Conversely, given $B_{k}$, the transform to $A_{k},$ is given by,
+\begin{equation}
+A_{ij}=\left\{
+\begin{array}
+[c]{ll}%
+B_{ii}+%
+%TCIMACRO{\dsum \limits_{k\neq i,j}^{n}}%
+%BeginExpansion
+{\displaystyle\sum\limits_{k\neq i,j}^{n}}
+%EndExpansion
+\left(  B_{ik}+B_{kj}\right)  , & i=j\\
+-\left(  B_{ij}+B_{ji}\right)  , & i\neq j
+\end{array}
+\right.  .\label{Atran}%
+\end{equation}
+Also, $r_{1}^{m}$ can be written as the square root of a quadratic form in
+$\mathbf{r}$ using the matrix $\left(  J_{11}\otimes I_{3}\right)  $ with
+$J_{11}$ defined as an $n\times n$ matrix with 1 in the $1,1$ position, and
+0's elsewhere\cite{Poshusta83,Kinghorn95a},
+\begin{equation}
+r_{1}^{m}=\left[  \mathbf{r}^{\prime}(J_{11}\otimes I_{3})\mathbf{r}\right]
+^{m/2}.\label{rijJ}%
+\end{equation}
+\ Hence, $\phi_{k}$ can be written using distance coordinates or internal
+Cartesian coordinates,
+\begin{equation}
+\phi_{k}=r_{1}^{m_{k}}\exp\left[  -\operatorname{tr}\left[  \left(  r_{ij}%
+^{2}\right)  B_{k}\right]  \right]  ,\label{basisrij}%
+\end{equation}
+or
+\begin{equation}
+\phi_{k}=\left[  \mathbf{r}^{\prime}(J_{11}\otimes I_{3})\mathbf{r}\right]
+^{\frac{m_{k}}{2}}\exp\left[  -\mathbf{r}^{\prime}(A_{k}\otimes I_{3}%
+)\mathbf{r}\right]  .\label{basisr}%
+\end{equation}
+The form of $\phi_{k}$ in eqn(\ref{basisrij}) is perhaps more amenable to
+interpretation while the form in eqn(\ref{basisr}) is more useful for
+evaluating matrix elements.
+
+\section{Symmetry}
+
+Before moving on to integral and gradient formulas we comment briefly on the
+symmetry properties of the basis set and Hamiltonian. Any coordinate
+transformation that commutes with the Hamiltonian constitutes a symmetry
+element. The most common of these are translational, rotational and
+permutational symmetry. Translational symmetry is of no concern for the
+internal Hamiltonian. The Kronecker products with the $3\times3$ identity
+matrix $I_{3}$ in equation (\ref{basisr}) insure rotational invariance of the
+basis functions. The $\phi_{k}$ are angular momentum eigenfunctions with total
+angular momentum $J=0$. The handling of permutational symmetry is outlined
+briefly in what follows.
+
+\subsection{\bigskip Induced Symmetry Transformations}
+
+Permutations of real particles induce transformations on internal coordinates.
+Let $P$ be a permutation of real particles, then, under the center of mass
+transformation (\ref{Ttran}) the permutation $P$ induces the transformation
+$TPT^{-1}\otimes I_{3}$ on center of mass and internal coordinates. $P$
+interchanges particles with the same mass and thus leaves the center of mass
+unchanged, it follows that $TPT^{-1}\otimes I_{3}$ is a direct sum of the
+identity transformation on the center of mass and an induced transformation on
+internal coordinates
+\begin{equation}
+TPT^{-1}\otimes I_{3}=\left(  I_{1}\oplus\tau_{P}\right)  \otimes I_{3}%
+=I_{3}\oplus\left(  \tau_{P}\otimes I_{3}\right)  .\label{TPT}%
+\end{equation}
+Thus, $P$ transforms basis functions as,
+\begin{equation}
+P\phi_{k}=r_{1}^{m_{k}}\exp\left[  -r^{\prime}\left(  \tau_{P}^{\prime}%
+A_{k}\tau_{P}\otimes I_{3}\right)  r\right]  .
+\end{equation}
+Note that $r_{1}^{m_{k}}$ is invariant under any permutation on systems of
+particles for which $\phi_{k}$ is a valid basis.
+
+The $n\times n$ matrices $\tau_{P}^{^{\prime}}$ are not in general elementary
+permutation matrices for example: Consider the three particle system,
+H$_{2}^{+},$ with the two protons taken as particles 1 and 2, then, as an
+example, the permutation $P_{(12)}$ which exchanges the protons is given by,
+the permutation matrix
+\begin{equation}
+P_{(12)}=\left(
+\begin{array}
+[c]{ccc}%
+0 & 1 & 0\\
+1 & 0 & 0\\
+0 & 0 & 1
+\end{array}
+\right)  ,
+\end{equation}
+which is transformed by $T$ as
+\begin{equation}
+TP_{\left(  12\right)  }T^{-1}\otimes I_{3}=\left[
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+0 & -1 & 0\\
+0 & -1 & 1
+\end{array}
+\right]  \otimes I_{3}=I_{3}\oplus\left(  \tau_{\left(  12\right)  }\otimes
+I_{3}\right)  .
+\end{equation}
+Thus,
+\begin{equation}
+\tau_{\left(  12\right)  }=\left[
+\begin{array}
+[c]{cc}%
+-1 & 0\\
+-1 & 1
+\end{array}
+\right]
+\end{equation}
+is not an elementary permutation matrix.
+
+Energy eigenstates of the internal Hamiltonian transform irreducibly under the
+induced symmetry group. Since the basis functions, $\phi_{k},$ are explicitly
+correlated, pure state eigenfunctions are achieved by symmetry projection on
+the basis functions. Symmetry projectors on real particle coordinates are
+transformed to projectors on relative particle coordinates using the
+transformation given above. Thus, a symmetry projector, $\mathcal{P}$, for an
+irreducible representation of the permutational symmetry group of a system is
+given by,
+\begin{equation}
+\mathcal{P}=\sum_{P}\chi_{P}P\,\,\mapsto\,\,\sum_{P}\chi_{P}\tau_{P}.
+\end{equation}
+Hence, $\mathcal{P}$ acts on $\phi_{k}$ as
+\begin{equation}
+\mathcal{P}\phi_{k}=\sum_{P}\chi_{P}\,\,r_{1}^{m_{k}}\exp\left[  -r^{\prime
+}\left(  \tau_{P}^{\prime}A_{k}\tau_{P}\otimes I_{3}\right)  r\right]  .
+\end{equation}
+The coefficients $\chi_{P}$ are from the matrix elements of the irreducible
+representation for the desired state, and in the special case of one
+dimensional representations, can be taken as the characters of the representation.
+
+Computational effort for computing matrix elements with symmetry projected
+basis functions can be reduced by a factor equal to the order of the group by
+exploiting commutation of the symmetry projectors with the Hamiltonian and
+identity operators. In general
+\begin{equation}
+\left\langle \mathcal{P}\phi_{k}\right|  H\left|  \mathcal{P}\phi
+_{l}\right\rangle =\left\langle \phi_{k}\right|  H\left|  \mathcal{P}%
+^{\dagger}\mathcal{P}\phi_{l}\right\rangle
+\end{equation}
+thus, symmetry projection need only be performed on the ket. Typically
+projection operators are Hermitian and essentially idempotent: $\mathcal{P}%
+^{\dagger}\mathcal{P}\varpropto\mathcal{P}$ in any case we will simply write
+$\mathcal{P}$ for ket projector.
+
+\section{Matrix Elements}
+
+Evaluation of Hamiltonian matrix elements is the heart of this work. The
+matrix elements needed are of the form
+\[
+O_{kl}=\left\langle \phi_{k}\right|  O\left|  \mathcal{P}\phi_{l}\right\rangle
+=\sum_{P}\chi_{P}\left\langle \phi_{k}\right|  O\left|  r_{1}^{m_{k}}%
+\exp\left[  -r^{\prime}\left(  \tau_{P}^{\prime}A_{l}\tau_{P}\otimes
+I_{3}\right)  r\right]  \right\rangle \,,
+\]
+where $O$ is the identity operator, the kinetic energy operator or the
+potential energy operator. We will not write the summation over terms in the
+symmetry projector in the formulas that follow and simply note that these
+terms are accounted for by making the following substitution in the integral
+formulas.
+\begin{equation}
+A_{l}\mapsto\tau_{P}^{\prime}A_{l}\tau_{P}=\tau_{P}^{\prime}L_{l}\left(
+\tau_{P}^{\prime}L_{l}\right)  ^{\prime}%
+\end{equation}
+No other modification to the integral formulas need be made.
+
+To simplify the presentation that follows we define
+\begin{equation}
+f_{k}=\exp\left[  -\mathbf{r}^{\prime}\overline{A_{k}}\mathbf{r}\right]  .
+\end{equation}
+Integrals and derivatives in a basis consisting of $f_{k}$ have been derived
+in detail by Kinghorn\cite{Kinghorn95a,Kinghorn95b} using a powerful matrix
+differential calculus. Many of the ``tricks'' used in that work are used in
+the present work. Therefore, only the essential steps in formula derivations
+will be presented here. The reader is referred to the references given above
+for more detail. Before continuing with the integral and derivative
+derivations a few needed notational definitions are presented.
+
+\subsection{Notation}
+
+The vec operator transforms a matrix into a vector by stacking the columns of
+the matrix one underneath the other. Let $A$ be an $m\times n$ matrix and
+$\mathbf{a_{j}}$ its $j^{th}$ column, then $\,\mathrm{vec}\,A$ 
+is the $mn\times1$ vector
+\begin{equation}
+\,\mathrm{vec}\,A=\left[
+\begin{array}
+[c]{c}%
+\mathbf{a_{1}}\\
+\mathbf{a_{2}}\\
+\vdots\\
+\mathbf{a_{n}}%
+\end{array}
+\right]  .
+\end{equation}
+
+An operator similar to vec is the vech, ``vector half'', operator. Let $A$ be
+a square $n\times n$ matrix . Then $\,\mathrm{vech}\,A$ is the $n\left(
+n+1\right)  /2\times1$ vector obtained by stacking the lower triangular
+elements of $A$. For example, if $n=3$,
+\begin{equation}
+\,\mathrm{vech}\,A=\left[
+\begin{array}
+[c]{c}%
+a_{11}\\
+a_{21}\\
+a_{31}\\
+a_{22}\\
+a_{32}\\
+a_{33}%
+\end{array}
+\right]  .
+\end{equation}
+For symmetric $X$, $\,\mathrm{vech}\,X$ contains the independent elements of
+$X$.
+
+We have already defined $J_{11}$ however, in general, $J_{ij}$ is defined as
+the $n\times n$ matrix,
+\begin{equation}
+J_{ij}=\left\{
+\begin{array}
+[c]{ll}%
+E_{ii} & i=j\\
+E_{ii}+E_{jj}-E_{ij}-E_{ji} & i\neq j
+\end{array}
+\right.  \,,\label{Jij}%
+\end{equation}
+where $E_{ij}$ is the $n\times n$ matrix with $1$ in its $ij^{th}$ position
+and $0$'s elsewhere.
+
+Other notation used; $\,\mathrm{diag}\,A$ is the diagonal $n\times n$ matrix
+consisting of the diagonal elements of the square matrix $A.$ The trace of $A
+$ is denoted $\,\mathrm{tr}\,A,$ the determinant of $A$ is denoted $|A|$.
+Other notation will be introduced as needed.
+
+\subsection{Overlap matrix element}
+
+To begin let $\left(  A_{k}\otimes I_{3}\right)  +\left(  A_{l}\otimes
+I_{3}\right)  =\left(  A_{k}+A_{l}\right)  \otimes I_{3}=A_{kl}\otimes
+I_{3}=\bar{A}_{kl}$, then,
+\begin{equation}
+\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle =\pi^{3n/2}\left|
+\overline{A_{kl}}\right|  ^{-1/2}=\pi^{3n/2}\left|  A_{kl}\right|  ^{-3/2}.
+\end{equation}
+The overlap in $\phi_{k}$ can be expressed as the expectation value of
+$r_{1}^{m_{k}+m_{l}}$ in the $f_{k}$ basis,
+\begin{align}
+\left\langle \phi_{k}\right.  |\left.  \phi_{l}\right\rangle  &  =\left\langle
+f_{k}\right|  r_{1}^{m_{k}+m_{l}}\left|  f_{l}\right\rangle \label{ov1}\\
+&  =\frac{2}{\sqrt{\pi}}\,\Gamma\left(  \frac{m_{k}+m_{l}}{2}+\frac{3}%
+{2}\right)  \,\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle
+\,\,\mathrm{tr}\left[  J_{11}A_{kl}^{-1}\right]  ^{\frac{m_{k}+m_{l}}{2}%
+}\nonumber\\
+&  =\frac{2}{\sqrt{\pi}}\,\Gamma\left(  \frac{m_{k}+m_{l}}{2}+\frac{3}%
+{2}\right)  \,\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle \left(
+A_{kl}^{-1}\right)  _{11}^{\frac{m_{k}+m_{l}}{2}}.\nonumber
+\end{align}
+Note: This formula is valid for any values of $m_{k}+m_{l}$ $\geqslant-2.$
+Using this result the normalized overlap matrix element is,
+\begin{align}
+S_{kl} &  =\frac{\left\langle \phi_{k}\right.  |\left.  \phi_{l}\right\rangle
+}{\left(  \left\langle \phi_{k}\right.  |\left.  \phi_{k}\right\rangle
+\left\langle \phi_{l}\right.  |\left.  \phi_{l}\right\rangle \right)  ^{1/2}%
+}\label{Skl}\\
+&  =\gamma_{1}\left(  m_{k},m_{l}\right)  \,2^{3n/2}\left[  \left(
+\frac{\left(  A_{kl}^{-1}\right)  _{11}}{\left(  A_{k}^{-1}\right)  _{11}%
+}\right)  ^{m_{k}}\left(  \frac{\left(  A_{kl}^{-1}\right)  _{11}}{\left(
+A_{l}^{-1}\right)  _{11}}\right)  ^{m_{l}}\left(  \frac{\left\|
+L_{k}\right\|  \left\|  L_{l}\right\|  }{\left|  A_{kl}\right|  }\right)
+^{3}\right]  ^{1/2}\,,\nonumber
+\end{align}
+where, $\left\|  L_{k}\right\|  $ is the absolute value of the determinant of
+the Cholesky factor of $A_{k},$ and
+\begin{equation}
+\gamma_{1}\left(  m_{k},m_{l}\right)  =\frac{2^{\frac{m_{k}+m_{l}}{2}}%
+\,\Gamma\left(  \frac{m_{k}+m_{l}}{2}+\frac{3}{2}\right)  }{\,\left[
+\Gamma\left(  m_{k}+\frac{3}{2}\right)  \Gamma\left(  m_{l}+\frac{3}%
+{2}\right)  \right]  ^{1/2}}%
+\end{equation}
+is a constant that can be pre-computed for a range of $m$ values to avoid
+evaluating gamma functions in the inner loop of the energy code.
+
+\subsection{Kinetic Energy Matrix Element}
+
+The kinetic energy can be reduced to a sum of derivatives of overlap integrals
+when we use the gradient form of the operator;
+\begin{align}
+T_{kl} &  =\left\langle \phi_{k}\right|  -\nabla_{\mathbf{r}}^{\prime}\left(
+M\otimes I_{3}\right)  \nabla_{\mathbf{r}}\left|  \phi_{l}\right\rangle \\
+&  =\left\langle \nabla_{\mathbf{r}}^{\prime}\,r_{1}^{m_{k}}f_{k}\right|
+\overline{M}\left|  \nabla_{\mathbf{r}}\,r_{1}^{m_{l}}f_{l}\right\rangle
+.\nonumber
+\end{align}
+Now, recalling that $r_{1}^{m}=\left[  \mathbf{r}^{\prime}(J_{11}\otimes
+I_{3})\mathbf{r}\right]  ^{m/2},$ the differential of $\phi_{k}$ with respect
+to the vector $\mathbf{r}$ is, after simplification,
+\begin{equation}
+d\phi_{k}=\mathbf{r}^{\prime}\phi_{k}\left(  m_{k}r_{1}^{-2}\overline{J_{11}%
+}-2\overline{A_{k}}\right)  d\mathbf{r.}%
+\end{equation}
+Hence,
+\begin{align}
+T_{kl} &  =\left\langle \phi_{k}\right|  \mathbf{r}^{\prime}\left(  m_{k}%
+r_{1}^{-2}\overline{J_{11}}-2\overline{A_{k}}\right)  \overline{\,M}\,\left(
+m_{l}r_{1}^{-2}\overline{J_{11}}-2\overline{A_{l}}\right)  \mathbf{r}\left|
+\phi_{l}\right\rangle \\
+&  =m_{k}\,m_{l}\,M_{11}\left\langle \phi_{k}\right|  \,r_{1}^{-2}\left|
+\phi_{l}\right\rangle \nonumber\\
+&  -2m_{k}\left\langle \phi_{k}\right|  \,r_{1}^{-2}\,\mathbf{r}^{\prime
+}\overline{J_{11}}\,\overline{\,M}\,\overline{A_{l}}\mathbf{r\,}\left|
+\phi_{l}\right\rangle \nonumber\\
+&  -2m_{l}\left\langle \phi_{k}\right|  \,r_{1}^{-2}\,\mathbf{r}^{\prime
+}\overline{\,A_{k}}\,\overline{M}\,\,\overline{J_{11}}\,\mathbf{r\,}\left|
+\phi_{l}\right\rangle \nonumber\\
+&  +4\left\langle \phi_{k}\right|  \,\mathbf{r}^{\prime}\overline{\,A_{k}%
+}\,\overline{M}\,\,\,\overline{A_{l}}\mathbf{r\,}\left|  \phi_{l}\right\rangle
+.\nonumber
+\end{align}
+The quadratic forms inside theses integrals can be written as the
+$\mathrm{vec}\,\left[  \,\right]  $ of the rank one matrix $\mathbf{rr}%
+^{\prime}$ which can further be written in terms of a derivative with respect
+to $\overline{A_{kl}}$ and then moved outside of the
+integral\cite{Kinghorn95a}. For example,
+\begin{align}
+\left\langle \phi_{k}\right|  \,r_{1}^{-2}\,\mathbf{r}^{\prime}\overline
+{J_{11}}\,\overline{\,M}\,\overline{A_{l}}\mathbf{r\,}\left|  \phi
+_{l}\right\rangle  &  =\left\langle \phi_{k}\right|  \,r_{1}^{-2}%
+\,\mathrm{vec}\,\left[  \mathbf{rr}^{\prime}\right]  \mathbf{\,}\left|
+\phi_{l}\right\rangle \mathrm{vec}\,\left[  \overline{J_{11}}\,\overline
+{\,M}\,\overline{A_{l}}\right]  \\
+&  =\frac{\partial}{\partial\left(  \mathrm{vec}\overline{A_{kl}}\right)
+^{\prime}}\left\langle \phi_{k}\right|  \,r_{1}^{-2}\,\mathbf{\,}\left|
+\phi_{l}\right\rangle \mathrm{vec}\,\left[  \overline{J_{11}}\,\overline
+{\,M}\,\overline{A_{l}}\right]  .\nonumber
+\end{align}
+With the other integrals having a similar form. Then, making use of the
+overlap formula, eqn(\ref{ov1}), the derivatives with respect to
+$\mathrm{vec}\overline{A_{kl}}$ are,
+\begin{equation}
+\frac{\partial}{\partial\left(  \mathrm{vec}\overline{A_{kl}}\right)
+^{\prime}}\left\langle \phi_{k}\right|  \,r_{1}^{-2}\,\mathbf{\,}\left|
+\phi_{l}\right\rangle =\frac{1}{2}\left(  \mathrm{vec}\,\left[  \overline
+{\,A_{kl}}\,^{-1}\right]  \right)  ^{\prime}+\frac{m_{k}+m_{l}}{6}%
+\mathrm{tr}\left[  J_{11}A_{kl}^{-1}\right]  ^{-1}%
+\end{equation}
+and
+\begin{equation}
+\frac{\partial}{\partial\left(  \mathrm{vec}\overline{A_{kl}}\right)
+^{\prime}}\left\langle \phi_{k}\right.  |\left.  \phi_{l}\right\rangle
+=\frac{1}{2}\left(  \mathrm{vec}\,\left[  \overline{\,A_{kl}}\,^{-1}\right]
+\right)  ^{\prime}.
+\end{equation}
+Then after substitution, rearrangement and simplification, the kinetic energy
+matrix elements are given by,
+\begin{align}
+T_{kl} &  =6S_{kl}\,\mathrm{tr}\left[  A_{kl}^{-1}A_{k}MA_{l}\right]
++2S_{kl}\left(  A_{kl}^{-1}\right)  _{11}^{-1}\label{Tkl}\\
+&  \times\left[  \frac{m_{k}m_{l}M_{11}}{\left(  m_{k}+m_{l}+1\right)  }%
+-m_{k}\left(  A_{kl}^{-1}A_{l}MA_{l}A_{kl}^{-1}\right)  _{11}-m_{l}\left(
+A_{kl}^{-1}A_{k}MA_{k}A_{kl}^{-1}\right)  _{11}\right]  .\nonumber
+\end{align}
+
+\subsection{Potential Energy Matrix Elements}
+
+We will derive the potential energy components by finding the integral
+$R_{kl}^{ij}=\left\langle 1/r_{ij}\right\rangle .$ There are two cases,
+$m_{k}+m_{l}$ even and $m_{k}+m_{l}$ odd.
+
+First some simplifying definitions. Let,
+\begin{align}
+a &  =\mathrm{tr}\left[  J_{11}A_{kl}^{-1}\right]  \label{adef}\\
+b &  =\mathrm{tr}\left[  J_{ij}A_{kl}^{-1}\right]  \label{bdef}\\
+c &  =\mathrm{tr}\left[  J_{11}A_{kl}^{-1}J_{ij}A_{kl}^{-1}\right]
+,\label{cdef}%
+\end{align}
+which for implementation purposes can be written as,%
+
+\begin{equation}
+a=\left(  A_{kl}^{-1}\right)  _{11}%
+\end{equation}%
+\begin{equation}
+b=\left\{
+\begin{array}
+[c]{ll}%
+\left(  A_{kl}^{-1}\right)  _{ij} & i=j\\
+\left(  A_{kl}^{-1}\right)  _{ii}+\left(  A_{kl}^{-1}\right)  _{jj}-2\left(
+A_{kl}^{-1}\right)  _{ij} & i\neq j
+\end{array}
+\right.
+\end{equation}
+and
+\begin{equation}
+c=\left\{
+\begin{array}
+[c]{ll}%
+\left(  A_{kl}^{-1}\right)  _{1i}^{2} & i=j\\
+\left(  \left(  A_{kl}^{-1}\right)  _{1i}+\left(  A_{kl}^{-1}\right)
+_{j1}\right)  ^{2} & i\neq j
+\end{array}
+\right.  .
+\end{equation}
+
+\subsubsection{$m_{k}+m_{l}$ Even}
+
+Let $m_{k}+m_{l}=2p$ with $p=0,1,2,...$ then,
+\begin{align}
+R_{kl}^{ij} &  =\left\langle \phi_{k}\right|  \,1/r_{ij}\,\mathbf{\,}\left|
+\phi_{l}\right\rangle \\
+&  =\left\langle f_{k}\right|  \,r_{1}^{2p}/r_{ij}\,\mathbf{\,}\left|
+f_{l}\right\rangle .
+\end{align}
+Using an integral transformation for $1/r_{ij}\,,$%
+\begin{equation}
+R_{kl}^{ij}=\frac{2}{\sqrt{\pi}}\int_{0}^{\infty}\left\langle \phi_{k}\right|
+\,\exp\left[  -t^{2}\,\,\mathbf{r}^{\prime}\overline{J_{ij}}\,\mathbf{r}%
+\right]  \,\mathbf{\,}\left|  \phi_{l}\right\rangle \,dt,
+\end{equation}
+followed by a differential transformation for $r_{1}^{2p},$ and integration
+over $\mathbf{r}$, we have,
+\begin{align}
+R_{kl}^{ij} &  =\left.  \frac{2}{\sqrt{\pi}}\left(  -1\right)  ^{p}\int
+_{0}^{\infty}\left\langle f_{k}\right|  \,\frac{\partial^{p}}{\partial u^{p}%
+}\exp\left[  -u\,\,\mathbf{r}^{\prime}\overline{J_{11}}\,\mathbf{r}\right]
+\exp\left[  -t^{2}\,\,\mathbf{r}^{\prime}\overline{J_{ij}}\,\mathbf{r}\right]
+\,\mathbf{\,}\left|  f_{l}\right\rangle \,dt\right|  _{u=0}\nonumber\\
+&  =\left.  \frac{2}{\sqrt{\pi}}\left(  -1\right)  ^{p}\frac{\partial^{p}%
+}{\partial u^{p}}\int_{0}^{\infty}\int_{-\infty}^{\infty}\exp\left[
+-\mathbf{r}^{\prime}\left(  \overline{A_{kl}}+u\,\,\overline{J_{11}}%
+\,+t^{2}\,\,\overline{J_{ij}}\right)  \,\mathbf{r}\right]  \,\mathbf{\,}%
+\,d\mathbf{r}\,dt\right|  _{u=0}\nonumber\\
+&  =\left.  \frac{2}{\sqrt{\pi}}\left(  -1\right)  ^{p}\frac{\partial^{p}%
+}{\partial u^{p}}\,\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle
+\int_{0}^{\infty}\left|  I_{n}+u\,\,J_{11}A_{kl}^{-1}\,+t^{2}\,\,J_{ij}%
+\,A_{kl}^{-1}\right|  ^{-3/2}\mathbf{\,}\,\,dt\right|  _{u=0}.
+\end{align}
+Now, since $J_{11}$ and $J_{ij}$ are rank one, we can write the determinant in
+the integral above as a polynomial in the traces we defined at the beginning
+of this section and then integrate over $t$ yielding,
+\begin{align}
+R_{kl}^{ij} &  =\left.  \frac{2}{\sqrt{\pi}}\left(  -1\right)  ^{p}%
+\frac{\partial^{p}}{\partial u^{p}}\,\left\langle f_{k}\right.  |\left.
+f_{l}\right\rangle \int_{0}^{\infty}\left(  1+u\,a\,+t^{2}b+ut^{2}\left(
+ab-c\right)  \right)  ^{-3/2}\mathbf{\,}\,\,dt\right|  _{u=0}\nonumber\\
+&  =\left.  \frac{2}{\sqrt{\pi}}\left(  -1\right)  ^{p}\frac{\partial^{p}%
+}{\partial u^{p}}\,\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle
+\left(  1+au\right)  ^{-1}\left(  b+u\left(  ab-c\right)  \right)
+^{-1/2}\mathbf{\,}\,\,\right|  _{u=0}.
+\end{align}
+Then, differentiating $p$ times with respect to $u,$ setting $u$ to zero and
+simplifying gives the final result,
+\begin{equation}
+R_{kl}^{ij}=S_{kl}\frac{\gamma_{2}\left(  p\right)  }{\sqrt{b}}\left[
+1+\sum_{q=1}^{p}\gamma_{3}\left(  q\right)  \left(  1-\frac{c}{ab}\right)
+^{q}\right]  ,\label{Rkleven}%
+\end{equation}
+where
+\begin{equation}
+\gamma_{2}\left(  p\right)  =\frac{\Gamma\left(  p+1\right)  }{\Gamma\left(
+p+3/2\right)  }\label{gamma2}%
+\end{equation}
+and
+\begin{equation}
+\gamma_{3}\left(  q\right)  =\frac{\Gamma\left(  q+1/2\right)  }{\Gamma\left(
+q+1\right)  \Gamma\left(  1/2\right)  }.\label{gamma3}%
+\end{equation}
+
+\subsubsection{$m_{k}+m_{l}$ Odd}
+
+The odd case involves an additional integral transformation which
+unfortunately makes these terms somewhat more complicated. The integral
+evaluation is similar to that for the even case and proceeds as follows.
+
+Let $m_{k}+m_{l}=2p-1$ with $p=1,2,3,...$ then,
+\begin{align}
+R_{kl}^{ij} &  =\left\langle \phi_{k}\right|  \,1/r_{ij}\,\mathbf{\,}\left|
+\phi_{l}\right\rangle \nonumber\\
+&  =\left\langle f_{k}\right|  \,r_{1}^{2p-1}/r_{ij}\,\mathbf{\,}\left|
+f_{l}\right\rangle \nonumber\\
+&  =\left\langle f_{k}\left|  \frac{r_{1}^{2p}}{r_{1}r_{ij}}\right|
+\,\mathbf{\,}f_{l}\right\rangle .
+\end{align}
+Making transformations as for the even case, but with the addition of an extra
+integral transformation for $1/r_{1}$ we obtain,%
+\begin{align}
+R_{kl}^{ij} &  =\left(  \frac{2}{\sqrt{\pi}}\right)  ^{2}\left(  -1\right)
+^{p}\int_{0}^{\infty}\int_{0}^{\infty}\left\langle f_{k}\right|
+\,\frac{\partial^{p}}{\partial u^{p}}\exp\left[  -u\,\,\mathbf{r}^{\prime
+}\overline{J_{11}}\,\mathbf{r}\right]  \nonumber\\
+&  \times\left.  \exp\left[  -v^{2}\,\,\mathbf{r}^{\prime}\overline{J_{11}%
+}\,\mathbf{r}\right]  \exp\left[  -t^{2}\,\,\mathbf{r}^{\prime}\overline
+{J_{ij}}\,\mathbf{r}\right]  \,\mathbf{\,}\left|  f_{l}\right\rangle
+\,dv\,dt\right|  _{u=0}\nonumber\\
+&  =\frac{4}{\pi}\left(  -1\right)  ^{p}\frac{\partial^{p}}{\partial u^{p}%
+}\int_{0}^{\infty}\int_{0}^{\infty}\int_{-\infty}^{\infty}\nonumber\\
+&  \left.  \exp\left[  -\mathbf{r}^{\prime}\left(  \overline{A_{kl}%
+}+u\,\,\overline{J_{11}}\,+v^{2}\,\,\overline{J_{11}}+t^{2}\,\,\overline
+{J_{ij}}\right)  \,\mathbf{r}\right]  \,\mathbf{\,}\,d\mathbf{r}%
+\,dv\,dt\right|  _{u=0}\nonumber\\
+&  =\frac{4}{\pi}\left(  -1\right)  ^{p}\frac{\partial^{p}}{\partial u^{p}%
+}\,\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle \int_{0}^{\infty
+}\int_{0}^{\infty}\nonumber\\
+&  \left.  \left|  I_{n}+\left(  u+v^{2}\right)  \,\,J_{11}A_{kl}^{-1}%
+\,+t^{2}\,\,J_{ij}\,A_{kl}^{-1}\right|  ^{-3/2}\mathbf{\,}\,\,dv\,dt\right|
+_{u=0}.
+\end{align}
+Again, reducing the determinant to a polynomial in traces and integrating
+gives,
+\begin{align}
+R_{kl}^{ij} &  =\frac{4}{\pi}\left(  -1\right)  ^{p}\frac{\partial^{p}%
+}{\partial u^{p}}\,\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle
+\int_{0}^{\infty}\int_{0}^{\infty}\nonumber\\
+&  \left.  \left(  1+\left(  u+v^{2}\right)  \,a\,+t^{2}b+ut^{2}\left(
+ab-c\right)  \right)  ^{-3/2}\mathbf{\,}\,dv\,dt\right|  _{u=0}\nonumber\\
+&  =\frac{4}{\pi}\left(  -1\right)  ^{p}\frac{\partial^{p}}{\partial u^{p}%
+}\,\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle \int_{0}^{\infty
+}\nonumber\\
+&  \left.  \left(  1+a\left(  u+v^{2}\right)  \right)  ^{-1}\left(  b+\left(
+u+v^{2}\right)  \left(  ab-c\right)  \right)  ^{-1/2}\mathbf{\,}%
+\,\,\,dv\right|  _{u=0}\nonumber\\
+&  =\frac{4}{\pi}\left(  -1\right)  ^{p}\frac{\partial^{p}}{\partial u^{p}%
+}\,\left\langle f_{k}\right.  |\left.  f_{l}\right\rangle \left(  c\left(
+1+au\right)  \right)  ^{-1/2}\nonumber\\
+&  \left.  \times\sin^{-1}\left[  \left(  \frac{c}{a\left(  b+u\left(
+ab-c\right)  \right)  }\right)  ^{-1/2}\right]  \right|  _{u=0}\mathbf{\,}\,.
+\end{align}
+Differentiating and simplifying gives the final result,
+\begin{align}
+R_{kl}^{ij} &  =\frac{2}{\sqrt{\pi}}S_{kl}\sqrt{a}\nonumber\\
+&  \times\left[  \gamma_{3}\left(  p\right)  \frac{\sin^{-1}\left[
+\sqrt{\frac{c}{ab}}\right]  }{\sqrt{c}}+\frac{1}{2\sqrt{ab-c}}\sum_{q=1}%
+^{p}\sum_{t=0}^{q-1}\frac{1}{q}\gamma_{3}\left(  p-q\right)  \gamma_{3}\left(
+t\right)  \left(  1-\frac{c}{ab}\right)  ^{q-t}\right]  .\label{Rklodd}%
+\end{align}
+The inclusion of the arcsine and the double summation in this formula
+unfortunately complicates these odd power terms compared to the even power
+case. Our implementation required twice as long for energy calculations when
+odd $m_{k}$ were included in the basis set expansion due to the complexity of
+this formula. Furthermore, we found that variation of near optimal $m_{k}$ by
+plus or minus one had negligeable effect on energy convergence. Therefore in
+our implementation utilizing gradient formulas for energy optimization we
+excluded the odd power case.
+
+\section{Energy Gradient}
+
+The integral formulas above are sufficient for performing energy calculations
+and constructing wave functions. However, optimization of the many non-linear
+parameters contained in the exponent matrices $\ L_{k}$ demands excessive
+computational resources if an approximate numerical energy gradient is used.
+Several orders of magnitude of computational effort can be saved by utilizing
+analytic gradients. Additionally, more thorough optimization can be achieved
+due to increased accuracy of analytic gradients compared with numerical
+approximations. We feel that analytic gradient formulas are essential for
+practical utilization of the new basis functions. To this end, the energy
+gradient formulas are now presented.
+
+We begin with the derivative of the secular equation with respect to energy
+eigenvalues. For a detailed derivation and background on matrix differential
+calculus see the references\cite{Kinghorn95a,Kinghorn95b}.
+
+The secular equation,
+\begin{equation}
+\left(  H-\epsilon S\right)  c=0,
+\end{equation}
+defines the energy $\epsilon$ as an implicit function of the $N\times N$
+matrices $H$ and $S,$ where $N$ is the number of basis functions. $H$ and $S$
+are themselves functions of the $Nn\left(  n+1\right)  /2\times1$ vector
+$L=\left[  \left(  \mathrm{vech}\,L_{1}\right)  ^{\prime},\cdots,\left(
+\mathrm{vech}\,L_{N}\right)  ^{\prime}\right]  $ of nonlinear exponential
+parameters contained in the matrices $L_{k}$; recall that $A_{k}=L_{k}%
+L_{k}^{\prime}$. The energy gradient with respect to $L$ is then
+\begin{equation}
+g=\nabla_{L}\epsilon=\frac{1}{c^{\prime}Sc}\left(  \frac{\partial
+\,\mathrm{vech}\,H}{\partial L^{\prime}}-\epsilon\frac{\partial\,\mathrm{vech}%
+\,S}{\partial L^{\prime}}\right)  ^{\prime}\left(  \,\mathrm{vech}\,\left[
+2cc^{\prime}-\,\mathrm{diag}\,cc^{\prime}\right]  \right)  .\label{grad}%
+\end{equation}
+
+The matrix $\left(  \partial\,\mathrm{vech}\,H/\partial L^{\prime}%
+-\epsilon\,\,\partial\,\mathrm{vech}\,S/\partial L^{\prime}\right)
+=\partial\,\mathrm{vech}\,\left(  H-\epsilon S\right)  /\partial L^{\prime}$
+in the gradient above is sparse and has dimension $N\left(  N+1\right)
+/2\times Nn\left(  n+1\right)  /2$. This sparse matrix together with the
+eigenvector $c$ can be collapsed to a dense partitioned form with dimension
+$N\times Nn\left(  n+1\right)  /2$,
+\begin{equation}
+G=\left[
+\begin{array}
+[c]{cccc}%
+c_{1}^{2}\frac{\partial\left(  H-\epsilon S\right)  _{11}}{\partial\left(
+\,\mathrm{vech}\,L_{1}\right)  ^{\prime}} & 2c_{1}c_{2}\frac{\partial\left(
+H-\epsilon S\right)  _{12}}{\partial\left(  \,\mathrm{vech}\,L_{2}\right)
+^{\prime}} & \cdots & 2c_{1}c_{N}\frac{\partial\left(  H-\epsilon S\right)
+_{1N}}{\partial\left(  \,\mathrm{vech}\,L_{N}\right)  ^{\prime}}\\
+2c_{2}c_{1}\frac{\partial\left(  H-\epsilon S\right)  _{21}}{\partial\left(
+\,\mathrm{vech}\,L_{1}\right)  ^{\prime}} & c_{2}^{2}\frac{\partial\left(
+H-\epsilon S\right)  _{22}}{\partial\left(  \,\mathrm{vech}\,L_{2}\right)
+^{\prime}} & \cdots & 2c_{2}c_{N}\frac{\partial\left(  H-\epsilon S\right)
+_{2N}}{\partial\left(  \,\mathrm{vech}\,L_{N}\right)  ^{\prime}}\\
+\vdots & \vdots & \ddots & \vdots\\
+2c_{N}c_{1}\frac{\partial\left(  H-\epsilon S\right)  _{N1}}{\partial\left(
+\,\mathrm{vech}\,L_{1}\right)  ^{\prime}} & 2c_{N}c_{2}\frac{\partial\left(
+H-\epsilon S\right)  _{N2}}{\partial\left(  \,\mathrm{vech}\,L_{2}\right)
+^{\prime}} & \cdots &  c_{N}^{2}\frac{\partial\left(  H-\epsilon S\right)
+_{NN}}{\partial\left(  \,\mathrm{vech}\,L_{N}\right)  ^{\prime}}%
+\end{array}
+\right]  .
+\end{equation}
+With $G$ defined as above the gradient can be computed by summing over the
+rows of $G$. That is
+\[
+g_{i}=\frac{1}{c^{\prime}Sc}\sum_{j}G_{ji}%
+\]
+
+The non-zero terms in the matrices $\partial\,\mathrm{vech}\,H/\partial
+a^{\prime}$ and $\partial\,\mathrm{vech}\,S/\partial a^{\prime}$ are contained
+in the $1\times n\left(  n+1\right)  /2$ vectors $\partial\,H_{kl}%
+/\partial\left(  \,\mathrm{vech}\,L_{k}\right)  ^{\prime}$ and $\partial
+\,S_{kl}/\partial\left(  \,\mathrm{vech}\,L_{k}\right)  ^{\prime},$and also in
+$\partial\,H_{kl}/\partial\left(  \,\mathrm{vech}\,L_{l}\right)  ^{\prime}$
+and $\partial\,S_{kl}/\partial\left(  \,\mathrm{vech}\,L_{l}\right)  ^{\prime
+}$. Matrix derivatives depend on the arrangement of elements in a matrix
+variable, therefore, since symmetry projection on kets effectively reorders
+elements of the exponent matrix $L_{l},$ the formulas for derivatives with
+respect to the exponent matrices in the ket, $\,\mathrm{vech}\,\left[
+L_{l}\right]  ,$ are different than those with respect to the exponent
+matrices in the bra,$\,\mathrm{vech}\,\left[  L_{k}\right]  $. ( Recall that
+$\tau_{P}^{\prime}A_{l}\tau_{P}=\tau_{P}^{\prime}L_{l}L_{l}^{\prime}\tau
+_{P}=\tau_{P}^{\prime}L_{l}\left(  \tau_{P}^{\prime}L_{l}\right)  ^{\prime}$
+). Also, the matrix derivatives for the diagonal blocks of $G$ are complicated
+somewhat by the symmetry projection on the kets. However, they can be computed
+using the following relationship, for example,
+\begin{equation}
+\frac{\partial H_{kk}}{\partial\left(  \,\mathrm{vech}\,L_{k}\right)
+^{\prime}}=\left.  \frac{\partial H_{kl}}{\partial\left(  \,\mathrm{vech}%
+\,L_{k}\right)  ^{\prime}}\right|  _{l=k}+\left.  \frac{\partial H_{kl}%
+}{\partial\left(  \,\mathrm{vech}\,L_{l}\right)  ^{\prime}}\right|  _{l=k}.
+\end{equation}
+Thus, only two sets of formulas for the derivatives need be computed.
+
+Matrix elements are scalar valued matrix functions of the exponent matrices
+$\ L_{k}.$ Therefore, the appropriate mathematical tool for finding
+derivatives is the matrix differential calculus\cite{Kinghorn95a}. Using this,
+the derivations are non-trivial but straight forward. Since it is beyond the
+scope of this paper to give a detailed discussion of the matrix differential
+calculus, only the final results form the derivations will be presented. The
+reader wishing to derive these formulas, or other matrix derivatives, is
+referred to the paper cited above and references therein.
+
+Note: only one term in the symmetry projection will be represented. As was the
+case for the integral formulas, the symmetry terms require the substitution
+$A_{l}\mapsto\tau_{P}^{\prime}A_{l}\tau_{P}=\tau_{P}^{\prime}L_{l}\left(
+\tau_{P}^{\prime}L_{l}\right)  ^{\prime}$ or more generally, $L_{l}\mapsto
+\tau_{P}^{\prime}L_{l}.$ \ This is required for derivatives with respect to
+both $\mathrm{vech}\,\left[  L_{k}\right]  $ and $\mathrm{vech}\,\left[
+L_{l}\right]  .$ The derivatives with respect to $\mathrm{vech}\,\left[
+L_{l}\right]  $ will require further modification and this will be noted in
+the formulas below.
+
+\subsection{Overlap Derivatives}
+
+Using the normalized overlap formula, eqn(\ref{Skl}), the derivative with
+respect to the non-zero terms of the lower triangular matrix $L_{k}$ is,
+\begin{align}
+\frac{\partial S_{kl}}{\partial\left(  \,\mathrm{vech}\,L_{k}\right)
+^{\prime}}  &  =\frac{3}{2}S_{kl}\,\mathrm{vech}\,\left[  \left(  \,L_{k}%
+^{-1}\right)  ^{\prime}-2A_{kl}^{-1}L_{k}\right]  ^{\prime}\nonumber\\
+&  +S_{kl}\frac{m_{k}}{\left(  A_{k}^{-1}\right)  _{11}}\mathrm{vech}\,\left[
+\,A_{k}^{-1}J_{11}A_{k}^{-1}L_{k}\right]  ^{\prime}\nonumber\\
+&  -S_{kl}\frac{m_{k}+m_{l}}{\left(  A_{kl}^{-1}\right)  _{11}}\mathrm{vech}%
+\,\left[  \,A_{kl}^{-1}J_{11}A_{kl}^{-1}L_{k}\right]  ^{\prime}.
+\end{align}
+For the derivative with respect to the elements $\mathrm{vech}\,L_{l}$ we
+account for the symmetry terms by making a multiplication by $\tau_{P}$ \ in
+addition to the substitutions described above. Thus,
+\begin{align}
+\frac{\partial S_{kl}}{\partial\left(  \,\mathrm{vech}\,L_{l}\right)
+^{\prime}}  &  =\frac{3}{2}S_{kl}\,\mathrm{vech}\,\left[  \tau_{P}\left(
+\,L_{l}^{-1}\right)  ^{\prime}-2\tau_{P}A_{kl}^{-1}L_{l}\right]  ^{\prime
+}\nonumber\\
+&  +S_{kl}\frac{m_{l}}{\left(  A_{l}^{-1}\right)  _{11}}\mathrm{vech}\,\left[
+\,\tau_{P}A_{l}^{-1}J_{11}A_{l}^{-1}L_{l}\right]  ^{\prime}\nonumber\\
+&  -S_{kl}\frac{m_{k}+m_{l}}{\left(  A_{kl}^{-1}\right)  _{11}}\mathrm{vech}%
+\,\left[  \,\tau_{P}A_{kl}^{-1}J_{11}A_{kl}^{-1}L_{l}\right]  ^{\prime}.
+\end{align}
+
+\subsection{Kinetic Energy Derivatives}
+
+The kinetic energy gradient components are obtained by differentiating
+eqn(\ref{Tkl}) with respect to $\mathrm{vech}\,L_{k}$ and $\mathrm{vech}%
+\,L_{l}.$ First, to simplify the derivative expressions, lets define,
+\begin{equation}
+T_{2}=\frac{m_{k}m_{l}M_{11}}{\left(  m_{k}+m_{l}+1\right)  }-m_{k}\left(
+A_{kl}^{-1}A_{l}MA_{l}A_{kl}^{-1}\right)  _{11}-m_{l}\left(  A_{kl}^{-1}%
+A_{k}MA_{k}A_{kl}^{-1}\right)  _{11}\,,
+\end{equation}
+which is a component of the kinetic energy matrix element. Then,
+\begin{align}
+\frac{\partial T_{kl}}{\partial\left(  \,\mathrm{vech}\,L_{k}\right)
+^{\prime}} &  =\frac{\partial S_{kl}}{\partial\left(  \,\mathrm{vech}%
+\,L_{k}\right)  ^{\prime}}\frac{T_{kl}}{S_{kl}}+2S_{kl}\left[
+\begin{array}
+[c]{c}%
+\,\\
+\,
+\end{array}
+\right.  \nonumber\\
+&  +6\mathrm{vech}\left[  A_{kl}^{-1}A_{l}MA_{l}A_{kl}^{-1}L_{k}\right]
+^{\prime}\nonumber\\
+&  +2\left(  A_{kl}^{-1}\right)  _{11}^{-2}T_{2}\mathrm{vech}\left[
+A_{kl}^{-1}J_{11}A_{kl}^{-1}L_{k}\right]  ^{\prime}\nonumber\\
+&  -2\left(  A_{kl}^{-1}\right)  _{11}^{-1}m_{l}\mathrm{vech[}A_{kl}%
+^{-1}J_{11}A_{kl}^{-1}A_{k}MA_{l}A_{kl}^{-1}L_{k}+\nonumber\\
+&  \quad\quad\quad\,\quad A_{kl}^{-1}A_{l}MA_{k}A_{kl}^{-1}J_{11}A_{kl}%
+^{-1}L_{k}]\nonumber\\
+&  +2\left(  A_{kl}^{-1}\right)  _{11}^{-1}m_{k}\mathrm{vech[}A_{kl}%
+^{-1}J_{11}A_{kl}^{-1}A_{l}MA_{l}A_{kl}^{-1}L_{k}+\nonumber\\
+&  \quad\quad\quad\quad A_{kl}^{-1}A_{l}MA_{l}A_{kl}^{-1}J_{11}A_{kl}%
+^{-1}L_{k}]\left.
+\begin{array}
+[c]{c}%
+\,\\
+\,
+\end{array}
+\right]  ,
+\end{align}
+and the derivative with respect to $\mathrm{vech}\,L_{l}$ including the
+symmetry projector term $\tau_{P}$ is given by,
+\begin{align}
+\frac{\partial T_{kl}}{\partial\left(  \,\mathrm{vech}\,L_{l}\right)
+^{\prime}} &  =\frac{\partial S_{kl}}{\partial\left(  \,\mathrm{vech}%
+\,L_{l}\right)  ^{\prime}}\frac{T_{kl}}{S_{kl}}+2S_{kl}\left[
+\begin{array}
+[c]{c}%
+\,\\
+\,
+\end{array}
+\right.  \nonumber\\
+&  +6\mathrm{vech}\left[  \tau_{P}A_{kl}^{-1}A_{k}MA_{k}A_{kl}^{-1}%
+L_{l}\right]  ^{\prime}\nonumber\\
+&  +2\left(  A_{kl}^{-1}\right)  _{11}^{-2}T_{2}\mathrm{vech}\left[  \tau
+_{P}A_{kl}^{-1}J_{11}A_{kl}^{-1}L_{l}\right]  ^{\prime}\nonumber\\
+&  -2\left(  A_{kl}^{-1}\right)  _{11}^{-1}m_{k}\mathrm{vech[}\tau_{P}%
+A_{kl}^{-1}J_{11}A_{kl}^{-1}A_{l}MA_{k}A_{kl}^{-1}L_{l}+\nonumber\\
+&  \quad\quad\quad\,\quad\tau_{P}A_{kl}^{-1}A_{k}MA_{l}A_{kl}^{-1}J_{11}%
+A_{kl}^{-1}L_{l}]\nonumber\\
+&  +2\left(  A_{kl}^{-1}\right)  _{11}^{-1}m_{l}\mathrm{vech[}\tau_{P}%
+A_{kl}^{-1}J_{11}A_{kl}^{-1}A_{k}MA_{k}A_{kl}^{-1}L_{l}+\nonumber\\
+&  \quad\quad\quad\quad\tau_{P}A_{kl}^{-1}A_{k}MA_{k}A_{kl}^{-1}J_{11}%
+A_{kl}^{-1}L_{l}]\left.
+\begin{array}
+[c]{c}%
+\,\\
+\,
+\end{array}
+\right]  .
+\end{align}
+
+\subsection{Potential Energy Derivatives}
+
+The purpose of the gradient formulas is to enhance optimization efforts and we
+have found that well optimized wave functions utilizing a mixture of even and
+odd powers, $m_{k},$ did not produce results any better than using even powers
+only. Hence, for this, and reasons that were stated at the end of the section
+describing the potential energy matrix elements, we will not derive the
+gradient terms for the potential energy matrix elements that utilize odd
+$m_{k}.$
+
+Using the even $m_{k}$ potential energy integral formula, eqn(\ref{Rkleven}),
+the definitions for $a,\,b$ and $c$ given in eqns(\ref{adef},\ref{bdef}%
+,\ref{cdef}), and the definitions for $\gamma_{2}$ and $\gamma_{3}$ given in
+eqns(\ref{gamma2},\ref{gamma3}), the gradient terms for the potential, with
+$m_{k}+m_{l}=2p,$ are given by,
+\begin{align}
+\frac{\partial R_{kl}^{ij}}{\partial\left(  \,\mathrm{vech}\,L_{k}\right)
+^{\prime}} &  =\frac{\partial S_{kl}}{\partial\left(  \,\mathrm{vech}%
+\,L_{k}\right)  ^{\prime}}\frac{R_{kl}^{ij}}{S_{kl}}-\gamma_{2}\left(
+p\right)  \,S_{kl}\left[
+\begin{array}
+[c]{c}%
+\,\\
+\,
+\end{array}
+\right.  \nonumber\\
+&  \frac{R_{kl}^{ij}}{2b}\frac{\partial b}{\partial\left(  \,\mathrm{vech}%
+\,L_{k}\right)  ^{\prime}}-b^{-1/2}\left[
+\begin{array}
+[c]{c}%
+\,\\
+\,
+\end{array}
+\right.  \nonumber\\
+&  \sum_{q=1}^{p}\gamma_{3}\left(  q\right)  \,q\,\left(  1-\frac{c}%
+{ab}\right)  ^{q-1}\frac{c}{\left(  ab\right)  ^{2}}\nonumber\\
+&  \times\left(  \frac{\partial a}{\partial\left(  \,\mathrm{vech}%
+\,L_{k}\right)  ^{\prime}}b+a\frac{\partial b}{\partial\left(  \,\mathrm{vech}%
+\,L_{k}\right)  ^{\prime}}-\frac{ab}{c}\frac{\partial c}{\partial\left(
+\,\mathrm{vech}\,L_{k}\right)  ^{\prime}}\right)  \left.
+\begin{array}
+[c]{c}%
+\,\\
+\,
+\end{array}
+\right]  \left.
+\begin{array}
+[c]{c}%
+\,\\
+\,
+\end{array}
+\right]  ,
+\end{align}
+where
+\begin{equation}
+\frac{\partial a}{\partial\left(  \,\mathrm{vech}\,L_{k}\right)  ^{\prime}%
+}=-2\,\mathrm{vech}\,\left[  A_{kl}^{-1}J_{11}A_{kl}^{-1}L_{k}\right]  ,
+\end{equation}%
+
+\begin{equation}
+\frac{\partial b}{\partial\left(  \,\mathrm{vech}\,L_{k}\right)  ^{\prime}%
+}=-2\,\mathrm{vech}\,\left[  A_{kl}^{-1}J_{ij}A_{kl}^{-1}L_{k}\right]
+\end{equation}
+and
+\begin{align}
+\frac{\partial c}{\partial\left(  \,\mathrm{vech}\,L_{k}\right)  ^{\prime}} &
+=-2\,\mathrm{vech}\,\left[  A_{kl}^{-1}J_{11}A_{kl}^{-1}J_{ij}A_{kl}^{-1}%
+L_{k}\right]  \nonumber\\
+&  -2\,\mathrm{vech}\,\left[  A_{kl}^{-1}J_{ij}A_{kl}^{-1}J_{11}A_{kl}%
+^{-1}L_{k}\right]  .
+\end{align}
+The derivative with respect to $\mathrm{vech}\,L_{l}$ has the same form as the
+above but with $L_{k}$ replaced by $\tau_{P}^{\prime}L_{l}$ and each of the
+expressions $\mathrm{vech}\,\left[  A_{kl}^{-1}\cdots\right]  $ replaced by
+$\mathrm{vech}\,\left[  \tau_{P}A_{kl}^{-1}\cdots\right]  .$
+
+\section{Implementation and a Sample Calculation}
+
+Programming a variational energy code using our formulas for matrix elements
+and gradient components is greatly simplified by the matrix vector form of our
+derivations. This is largely due to our use of the matrix differential
+calculus without which integral and derivative evaluation would have been
+extremely difficult (if not impossible). Implementation of these formulas is
+straight forward taking advantage of the matrix intrinsics in Fortran90. The
+matrix programming language MATLAB\cite{MATLAB} has also proven to be valuable
+for testing and debugging program components since with MATLAB our formulas
+can essentially be coded as written. All formulas have been checked for
+consistency against multiple implementations and known special cases
+($m_{k}=0$). All gradient components have been verified by finite differences. 
+
+Optimization of nonlinear parameters in wavefunctions constructed from this
+new basis is essential for good results. It is the availability of our
+gradient formulas that makes use of this basis practical. The optimization
+software used for our test calculations was the package TN written by Stephen
+Nash\cite{NashTN}. TN is a truncated Newton package where the quadratic
+subproblem is solved approximately using a linear conjugate gradient method.
+(Source code available from netlib\cite{netlib}.) Performance with this
+optimization code has been good, but we are experimenting with other
+optimization methodologies including tensor methods (fourth order methods)
+various preconditioning schemes and integer programming for optimization of
+the powers $m_{k}$.
+
+There are very few non-adiabatic variational energy calculation reported in
+the literature for molecular systems. The results of Bishop and
+Chung\cite{Bishop77} for H$_{2}^{+}$ are highly accurate making this system an
+essential benchmark for new calculations of this type. To validate our
+methodology we present some preliminary calculations on this benchmark system.
+We should stress however that we are not limited to three particle systems and
+our implementation is for general N-particle diatomic systems. The practical
+limitation on the number of particles is from the number of terms needed for
+proper symmetry projection, which is on the order of $N_{e}!,$ where $N_{e}$
+\ is the number of electrons.
+
+Table (\ref{H2pRes}), present results for the non-adiabatic ground state
+energy of H$_{2}^{+}$ utilizing from 4 to 128 of our new basis functions for
+the expansion of the wave function. The values reported in the table are: the
+energy in Hartrees, the squared norm of the gradient, $g^{\prime}g$, and the
+absolute value of one minus the virial coefficient, $\left|  1-\eta\right|  $.
+The virial coefficient, $\eta=-\left\langle V\right\rangle /2\left\langle
+T\right\rangle ,$ was computed as a simple check on the scale optimally of the
+wave function. The nuclear mass was the same as that used in Bishop and
+Chung's\cite{Bishop77} calculations. Bishop and Chung's results utilized a 356
+term expansion in an elaborate correlated three particle basis set in elliptic
+coordinates and we consider this result to be exact. Results are reported to
+$1\times10^{-10}$ Hartree.
+
+Energy convergence for our new basis was much better than we had expected.
+This is evidenced by the rapid decrease in energy with the size of the
+expansion as seen in table(\ref{H2pRes}). The high level of optimization is
+indicated by the small values of the square of the gradient norms and virial
+coefficients. An expansion with only 16 terms is in error by less than a
+wavenumber, (3.36micro-Hartree = .737$cm^{-1}$). We attribute this to the high
+level of optimization attainable using our analytic gradient formulas and the
+importance of including the $r_{1}^{m_{k}}$ pre-multiplying factors.
+
+The powers $m_{k}$ were determined by trail and error with a single basis
+function calculation giving an energy minimum with $m_{k}=24$. This large
+power for $r_{1}$ was not unexpected based on our experience with adiabatic
+calculations of the vibrational levels of H$_{2}$\cite{Kinghorn97b}. For the
+larger wave function expansions the $m_{k}$ were distributed between 10 and 30
+with most values near 24.%
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering}}%
+%BeginExpansion
+\begin{table}[p] \centering
+%EndExpansion%
+\begin{tabular}
+[c]{llll}\hline\hline
+N & energy/Hartree & $g^{\prime}g$ & $\left|  1-\eta\right|  $\\\hline
+4 & -.5964107306 & $2.8\times10^{-14}$ & $3.9\times10^{-9}$\\
+16 & -.5971357056 & $4.7\times10^{-15}$ & $1.3\times10^{-8}$\\
+64 & -.5971390546 & $8.6\times10^{-13}$ & $7.7\times10^{-9}$\\
+128 & -.5971390610 & $2.2\times10^{-13}$ & $1.7\times10^{-9}$\\
+exact\cite{Bishop77} & -.5971390625 &  & \\\hline\hline
+\end{tabular}
+\caption{
+H$_{2}^{+}%
+$  non-adiabatic ground state energy calculations using from 4 to 128 basis functions.
+$g^{\prime}%
+g$, the squared norm of the gradient, is an indicator of optimization convergence and
+$\left| 1-\eta\right
+| $, the magnitude of one minus the virial coefficient, is an indicator of scale optimality
+of the wave function.
+\label{H2pRes}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}%
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+\section{Conclusion}
+
+We have presented formulas for integrals and derivatives of a new correlated
+basis set suitable for high accuracy non-adiabatic variational energy
+calculations of small diatomic molecules. These formulas together with
+consideration of the non-adiabatic Hamiltonian and symmetry concerns provides
+the foundation for implementation. We have carried out an implementation and
+demonstrated the quality of results attainable by computing high accuracy
+results for the benchmark system H$_{2}^{+}$. With our basic methodology
+validated we will refine our procedures to include additional expectation
+values and proceed with more extensive calculations on small diatomic systems.
+
+The implementation of our energy code is general for N-particle diatomic
+systems, but as stated earlier practical limits are imposed by the large
+number of terms in the symmetry projection operators for systems with more
+than a few electrons. With current computational resources we should be able
+to compute energy levels for diatomic systems with as many as five electrons.
+This offers many exciting possibilities since past non-adiabatic methods for
+diatomics have been limited to 1 and 2 electron systems.
+
+One of our successes is the high level of optimization that can be obtained
+using our gradient formulas. However, regardless of the method used, the
+optimization of large non-linear problems is formidable and often
+unpredictable. For our trail H$_{2}^{+}$ calculations optimization proceeded
+without notable difficulty. For this system it was fairly easy to generate
+good starting points for the optimization by trial and error. Optimization
+results for problems with large numbers of non-linear parameters can often
+depend greatly on the initial guess for these parameters. Poor initial guesses
+can lead to slow convergence or worse, numerical instability. A possibility
+for generating high quality initial guesses is to generate optimization
+parameters based on a superposition of the electronic wave function obtained
+in a standard BO calculation using Gaussian basis functions and the
+ro--vibrational wave function obtained from a variational calculation with a
+basis of the form\cite{Kinghorn97b} $r^{m_{k}}e^{-a^{2}r^{2}}$. \ Initial
+guesses are then generated from the collection of exponential parameters and
+$m_{k}$ values.
+
+To meet the demands for cpu time required for these large optimization
+problems we are working on a parallel implementation of our programs. The data
+structures and algorithms we use to implement our theoretical results are
+readily implementable in a data parallel fashion allowing us to take advantage
+of scalable parallelism using clusters of workstations and dedicated
+computational nodes. We have worked out the technical details for building and
+administering a ``Beowulf''\cite{beowulfwww} class parallel Linux cluster
+composed of high end PC components. The combination of high performance/low
+cost parallel hardware and data parallel algorithms will provide an excellent
+computational environment for our non-adiabatic calculations.
+
+To extend our methods beyond diatomics and to include more correlation in our
+basis set we are working on integrals and derivatives for a more general basis
+set, $\prod_{i<j}r_{ij}^{m_{kij}}\exp\left[  -\mathbf{r}^{\prime}(A_{k}\otimes
+I_{3})\mathbf{r}\right]  .$ We expect the rate of convergence to be improved
+by the inclusion of all $r_{ij}^{m}$ terms in the same way that they effect
+convergence in the Hyllerass basis. Also, Varga and Suzuki\cite{Varga95} have
+proposed a method for representing the angular dependence of the wave function
+using a single solid harmonic whose argument contains additional variational
+parameters, there appears to be several advantages in doing this and we are
+investigating the possibility of using this approach to extend our basis set
+beyond $J=0$ angular momentum states. The addition of general products of
+powers of $r_{ij}$ factors with solid harmonics for higher angular momentum
+states would give us a fully correlated basis set capable of representing
+non-adiabatically all electronic, vibrational and rotational energy levels of
+general N-body systems. The ``tricks'' learned form the present derivations
+for the diatomic case represent an important step toward this goal.
+
+%\begin{acknowledgement}
+\vspace{.25in}
+\noindent
+\large{\bf{Acknowledgement}} \normalsize \\
+This work was supported by the National Science Foundation.
+%\end{acknowledgement}
+
+\begin{thebibliography}{10}
+
+\bibitem{Kinghorn93}
+D.~B. Kinghorn and R.~D. Poshusta,
+\newblock Physical Review A {\bf 47}, 3671 (1993).
+
+\bibitem{Kinghorn95b}
+D.~B. Kinghorn and R.~D. Poshusta,
+\newblock International Journal of Quantum Chemistry {\bf 62}, 223 (1997).
+
+\bibitem{Kozlowski93b}
+P.~Kozlowski and L.~Adamowicz,
+\newblock Physical Review A {\bf 48}, 1903 (1993).
+
+\bibitem{Kinghorn97a}
+D.~B. Kinghorn and L.~Adamowicz,
+\newblock Journal of Chemical Physics {\bf 106}, 4589 (1997).
+
+\bibitem{Varga96}
+K.~Varga and Y.~Suzuki,
+\newblock Physical Review C  (1996),
+\newblock in press.
+
+\bibitem{Kinghorn95a}
+D.~B. Kinghorn,
+\newblock International Journal of Quantum Chemistry {\bf 57}, 141 (1996).
+
+\bibitem{Poshusta83}
+R.~D. Poshusta,
+\newblock International Journal of Quantum Chemistry {\bf XXIV}, 65 (1983).
+
+\bibitem{MATLAB}
+MATLAB is a general purpose program for interactive numeric computation
+  available from: The Math Works, Inc. Cochituate Place 24 Prime Park Way
+  Natick, MA 01760 Phone: (508) 653-1415 e-mail info@mathworks.com.
+
+\bibitem{NashTN}
+S.~G. Nash,
+\newblock SIAM J. Numer. Anal. {\bf 21}, 770 (1984).
+
+\bibitem{netlib}
+netlib can be accesed by ftp at netlib@ornl.gov and netlib@research.att.com or
+  by World Wide Web access at http://www.netlib.org.
+
+\bibitem{Bishop77}
+D.~M. Bishop and L.~M. Cheung,
+\newblock Physical Review A {\bf 16}, 640 (1977).
+
+\bibitem{Kinghorn97b}
+D.~B. Kinghorn and L.~Adamowicz,
+\newblock Journal of Chemical Physics {\bf 106}, 8760 (1997).
+
+\bibitem{beowulfwww}
+see for example; {\tt http://www.beowulf.org}.
+
+\bibitem{Varga95}
+K.~Varga and Y.~Suzuki,
+\newblock Physical Review A {\bf 52}, 2885 (1995).
+
+\end{thebibliography}
+
+
+\end{document}

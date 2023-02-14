@@ -1,0 +1,9 @@
+Notes for review of Analysis on the ... by Bao and Shi
+
+1) use of "dipositroniums" should be replaced by dipositronium
+
+2) there are many gramatical errors [the first sentence is particularly bad]
+
+3) any reference to geometrical concepts for this system should note that it's B.O. perturbation strength is 1. Also, as reported in reference [2], uncertanties in position expectation values are of the same order of magnitude as the expectation values themselves.
+
+4) comment should probably be made about the very short predicted lifetimes for this system

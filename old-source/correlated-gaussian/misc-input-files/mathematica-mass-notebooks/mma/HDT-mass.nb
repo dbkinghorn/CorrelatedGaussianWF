@@ -1,0 +1,509 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      7778,        342]*)
+(*NotebookOutlinePosition[      8415,        365]*)
+(*  CellTagsIndexPosition[      8371,        361]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+Cell[BoxData[
+    \(\(\nmH\  = \ 1836.152693; \nmD\  = \ 3670.483008; \n
+    mT\  = \ 5496.921571; \nme\  = \ 1; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ mH)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.000272308507841509905`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ mD)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.00013622185388414143`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ mT)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.0000909600025290228053`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muHe\  = \ N[\ mH\ me\ /\((mH + me)\)\ , \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.999455679430561083`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muHH\  = \ N[\ mH\ /2\ , \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["918.076346500000006`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muHe)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.500272308507841412`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muHH)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.000544617015683019811`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muDe\  = \ N[\ mD\ me/\((mD + me)\)\ , \ 15\ ]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.999727630497588748`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muDD\  = \ N[\ mD/2\ , \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["1835.24150400000003`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muDe)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.500136221853884155`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muDD)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.000272443707768282861`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muTe\  = \ N[\ mT\ me/\((mT + me)\)\ , \ 15\ ]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.999818113083810722`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muTT\  = \ N[\ mT\ /2\ , \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["2748.46078549999983`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muTe)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.500090960002528994`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muTT)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.00018192000505804561`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muHD\  = \ N[\ mH\ mD/\((mH + mD)\)\ , \ 15\ ]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["1223.89924187758447`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muHD)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.000408530361725651403`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muHT\  = \ N[\ mH\ mT/\((mH + mT)\)\ , \ 15\ ]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["1376.39235366148771`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muHT)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.000363268510370532649`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muDT\  = \ N[\ mD\ mT/\((mD + mT)\)\ , \ 15\ ]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["2200.87998176524779`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muDT)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.00022718185641316424`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(mBC = 1836.152746; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muBCe\  = \ N[\ mBC/\((mBC + 1)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.999455679446264078`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ mBC)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.000272308499981406226`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ 1/\((2\ muBCe)\), \ 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.500272308499981388`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(muBCBC\  = \ N[mBC/2, 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["918.07637299999989`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[1/\((2\ muBCBC)\), 15]\)], "Input"],
+
+Cell[BoxData[
+    StyleBox["0.000544616999962812453`",
+      StyleBoxAutoDelete->True,
+      PrintPrecision->15]], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{107, Automatic}, {Automatic, 39}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+Cell[1709, 49, 128, 2, 91, "Input"],
+
+Cell[CellGroupData[{
+Cell[1862, 55, 57, 1, 27, "Input"],
+Cell[1922, 58, 124, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2083, 66, 57, 1, 27, "Input"],
+Cell[2143, 69, 123, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2303, 77, 57, 1, 27, "Input"],
+Cell[2363, 80, 125, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2525, 88, 79, 1, 27, "Input"],
+Cell[2607, 91, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2765, 99, 63, 1, 27, "Input"],
+Cell[2831, 102, 120, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2988, 110, 59, 1, 27, "Input"],
+Cell[3050, 113, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3208, 121, 59, 1, 27, "Input"],
+Cell[3270, 124, 124, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3431, 132, 79, 1, 27, "Input"],
+Cell[3513, 135, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3671, 143, 61, 1, 27, "Input"],
+Cell[3735, 146, 120, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3892, 154, 59, 1, 27, "Input"],
+Cell[3954, 157, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4112, 165, 59, 1, 27, "Input"],
+Cell[4174, 168, 124, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4335, 176, 79, 1, 27, "Input"],
+Cell[4417, 179, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4575, 187, 63, 1, 27, "Input"],
+Cell[4641, 190, 120, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4798, 198, 59, 1, 27, "Input"],
+Cell[4860, 201, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5018, 209, 59, 1, 27, "Input"],
+Cell[5080, 212, 123, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5240, 220, 79, 1, 27, "Input"],
+Cell[5322, 223, 120, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5479, 231, 59, 1, 27, "Input"],
+Cell[5541, 234, 124, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5702, 242, 79, 1, 27, "Input"],
+Cell[5784, 245, 120, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5941, 253, 59, 1, 27, "Input"],
+Cell[6003, 256, 124, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6164, 264, 79, 1, 27, "Input"],
+Cell[6246, 267, 120, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6403, 275, 59, 1, 27, "Input"],
+Cell[6465, 278, 123, 3, 27, "Output"]
+}, Open  ]],
+Cell[6603, 284, 56, 1, 27, "Input"],
+
+Cell[CellGroupData[{
+Cell[6684, 289, 73, 1, 27, "Input"],
+Cell[6760, 292, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[6918, 300, 58, 1, 27, "Input"],
+Cell[6979, 303, 124, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7140, 311, 60, 1, 27, "Input"],
+Cell[7203, 314, 121, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7361, 322, 58, 1, 27, "Input"],
+Cell[7422, 325, 119, 3, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7578, 333, 57, 1, 27, "Input"],
+Cell[7638, 336, 124, 3, 27, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

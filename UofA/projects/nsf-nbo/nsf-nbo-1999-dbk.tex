@@ -1,0 +1,3321 @@
+\documentstyle[12pt,overcite]{article}
+\setlength{\textwidth}{7in}
+\setlength{\textheight}{9.35in}
+\setlength{\oddsidemargin}{-.25in}
+\setlength{\topmargin}{-.2in}
+
+
+\begin{document}
+
+\setlength{\baselineskip}{1em}
+
+%\pagestyle{empty}
+
+\noindent
+{\bf PROJECT SUMMARY}
+
+This proposal requests support for development and implementation
+of methods allowing very accurate 
+study of molecular systems without
+assuming the Born--Oppenheimer (BO) approximation regarding the
+separability of the nuclear and electronic motions. In this
+approach we will employ explicitly  
+correlated cartesian gaussian functions,
+which very effectively described 
+quantum states of systems consisting of 
+interacting particles (nuclei and electrons).
+The very high accuracy of the method to achieved
+by employing the variational method and optimizing
+both linear and non--linear parameters of the
+wave function using analytical derivatives of the
+the energy functional with respect these parameters. 
+My group has been working in the area of 
+non--Born--Oppenheimer (non--BO)
+atomic and molecular quantum mechanics 
+for several years now and, encouraged by the 
+results obtained so far, we would like to propose a
+project the development of the nBO methods
+will be extended to calculations of excited states and
+relativistic effects.
+The methodology will be applied to molecular systems
+with up to three nuclei and six electrons and
+results will be generated, whose accuracy exceeds
+the accuracy enabled by currently used techniques.
+This enhanced precision of the calculations 
+we will be able to address the disrepencies which
+still persist between the theoretical and experimental data.
+We will also generate new theoretical data
+concerning properties and systems, 
+which has not yet been experimentally investigated
+with the precision used for some smaller systems like
+H$_2^+$, H$_2$, and their isotopomers.
+Based on our preliminary results we are confident
+that the technique employing correlated gaussians
+offers a breakthrough allowing extension of the
+rigorous fully non--adiabatic approach
+to systems with more than two
+electrons. 
+Such calculations have never been accomplished.
+
+In 
+stationary bound
+quantum states of 
+systems 
+consisting of electrons and nuclei
+deviations from the BO approximation
+are rare and the non--BO effects
+are rather small. 
+In low--energy states only  
+ro--vibrational level are excited.
+In the first approximation  these levels can be
+described as different states of the motion
+of the nuclei whose interaction is described by the
+isotropic ({\it i.e.} rotationally invariant)
+potential energy hypersurface (PES).
+PES can be calculated with the desired precision using
+an electronic structure method.
+Among the electronic structure methods which we
+use are
+the state--selective, multi--reference coupled cluster (SSMRCC)
+method and the variational approach utilizing correlated gaussians.
+Both methods have been developed in our group. 
+and analytical derivatives of the variational functional with
+respect to linear and non--linear parameters of the gaussian
+expansion of the wave function.
+Both methods have been developed in our group.
+Unlike the Coulombic potential, which includes only two--body
+components, the potential given by PES has N--body character and,
+although in most cases it is dominated by two--body interactions,
+the three- and higher--body contributions can be important.
+In our non--BO calculations we will determine the
+wave functions of the ro--vibrational states using
+gaussian fits to PES, and we will use these functions
+to construct first approximations to the non--BO wave functions.
+
+
+The application of the non--BO 
+methodology 
+will focus on
+small atomic and molecular systems.
+We will start
+hydrogen molecules, and their ions,
+H$_2$, H$_3^+$, H$_3$, H$_3^-$, H$_4^+$, H$_4$, {\it etc.},
+and their isotopomers. 
+small dipole--bound anions, {\it e.g.}, LiH$^-$, LiD$^-$,
+molecular systems involving 
+helium and hydrogen atoms, {\it e.g.}, HeH$^+$, HeH$_2^+$, HeH$_2$,
+lithium--hydrogen systems, LiH$_2$ and LiH$_2^-$,
+and lithium dimer, Li$_2$.  
+The aim of these calculations will be to determine 
+electron affinities, electron detachment energies,
+ionization potentials, excitation energies and transition probabilities 
+for different ro--vibrational states.
+Very accurate measurements, which have 
+recently become
+available 
+for these systems
+present an exciting challenge for 
+the ``non--Born-Oppenheimer Molecular Quantum Mechanics."
+Also calculations of 
+higher excited states,
+where the coupling of the electronic and nuclear motions
+can be significant, 
+will be performed and the nature and magnitude of the 
+coupling will be analyzed
+
+%dbk
+It should be noted 
+that we are in no way restricted to conventional systems.
+Calculations involving ``exotic'' particles present no difficulty 
+since in general our methodology can treat collections of particles
+with any given masses and charges fully non--adiabatically.  
+%dbk
+ 
+
+Finally, it is also our goal to
+provide through the proposed program, an inspiring environment 
+for the training of graduate and undergraduate students as
+future scientists. This project, which combines elements of 
+quantum mechanics and spectroscopy has a potential to appeal
+to students who are 
+concerned with 
+fundamental properties of molecular systems.
+The proposed research will provide a unique view of molecules,
+their structures and properties without resorting to
+the clamped-nucleus model.
+
+
+\newpage
+
+
+
+\setcounter{page}{1}
+
+\begin{center}
+{\Large \bf 
+Non--Born--Oppenheimer Calculations of
+Molecular Systems with r$_{ij}$ Dependent Gaussians.}
+
+\end{center}
+
+
+\vspace{2mm}
+
+\noindent
+{\bf I. RESULTS FROM PRIOR NSF SUPPORT.}
+
+
+\noindent
+{\bf "Multi-reference State-selective Coupled-cluster Theory."
+Grant CHE-9734821, \$210,000, 5/5/98-11/4/01.} 
+
+\vspace{3mm}
+
+As of 9/10/99, the research funded by the above 
+grant has resulted in 66 publications
+\cite{A1,A2,A3,A4,A5,A6,A7,A8,%
+A9,A10,A11,A12,A13,A14,A15,%
+A16,A17,A18,%
+A19,A20,A21,A22,A23,A24,A25,%
+A26,A27,A28,A29,A30,A31,A32,A33,A34,%
+A35,A36,A37,%
+A38,A381,A382,%
+A383,A384,A385,A3851,%
+A3860,%
+A3861,A3862,A3863,A3864,A3865,%
+A3866,A3867,A3868,A3869,A3870,A3871,%
+A3872,A3873,A3874,A3875,%
+A3876,A3877,A3878,A3879,A3880,A3881}  
+62 of which
+have been already published or accepted for 
+publication and four have been submitted.
+The following research
+results have been obtained with the support 
+of the funding provided by NSF:
+The state--selective, multi--reference coupled-cluster  
+(SSMRCC) theory has been formulated based
+on the doubly--exponential and semi--linear forms 
+of the wave function.
+The reference functions in this approach 
+is either represented as 
+an exponentiated CC operator  
+acting on the formal reference determinant (Fermi vacuum)
+or as a CASSCF wave function.
+The excitations to the non--active orbital space 
+are represented by an exponential CC
+operator,
+$|\Psi\rangle  = e^{T^{\rm (ext)}} | \Phi^{\rm (int)}
+\rangle$, where $\Phi^{\rm (int)}$
+is either 
+$\Phi^{\rm (int)} = e^{T^{\rm (int)}} |0\rangle$ 
+or 
+$\Phi^{\rm (int)} = C^{\rm (int)} |0\rangle$ and
+$C^{\rm (int)} |0\rangle$ is the CASSCF wave function.
+This method,
+which is geared towards very accurate calculations of
+the potential energy surfaces for the ground and excited 
+states of molecular systems,
+has been computationally implemented at 
+the SSMRCCSD(T) and SSMRCCSD(TQ) levels. 
+  
+
+\vspace{4mm}
+
+\noindent
+{\bf II.  CONTRIBUTION TO DEVELOPMENT OF HUMAN RESOURCES.}
+
+There have been a number of collaborators who 
+have carried out the work described here. Their
+contributions to the above--cited accomplishments have 
+been immense and their involvement contributed to their
+growth as independent scientists. The collective 
+effort involving formulation of the theory, computational
+implementation and application work should be credited 
+to my five research associates, ten graduate students,
+eight visiting scientists and three undergraduate students.  
+It is due only to the devotion of these researchers that
+we have been able to create a stimulating research environment 
+conducive to teamwork and collaboration.
+
+\vspace{2mm}
+
+\noindent
+{\bf Research Associates:}
+
+Dr. {\em Piotr Piecuch}, recently appointed as an 
+assistant professor at the Michigan State University, joined us for
+one and a half year and worked on theoretical formulation and 
+computational implementation of the fully--exponential
+SSMRCC scheme and on developing improved 
+methods for converging the CC amplitude equations;  
+Dr. {\em Keya Ghose}, 
+after completing her Ph.D. degree with Prof.S.Pal in Puna, India,
+stayed for a year with my group and 
+worked on implementation of the recursively calculated
+intermediates and on the property calculations;  
+Dr. {\em  Zdenek Slanina}, 
+now a professor at the Laboratory
+of Molecular-Design Engineering,
+Toyohashi University of Technology, Japan,
+worked for a year in our group on carbon clusters, fullerenes and
+related projects;  
+Dr. {\em Genady Gutsev}, 
+currently
+at Jackson State University, 
+spent two years in our group (first year of his stay was
+funded by a grant from the CAST program) and did 
+calculations on molecular and cluster anions; 
+and Dr. {\em Don Kinghorn}, 
+%dbk 
+has worked for two and a half years in my group
+(interrupted by
+a short stay at the University of Arkansas with Prof. P. Pulay) 
+on implementations of explicitly correlated gaussian functions
+to non--BO atomic and molecular calculations and 
+to the general N--body vibrational problem and has just completed
+work on the key integral and gradient formulas for the work 
+presented here.
+%dbk
+
+\vspace{2mm}
+
+\noindent
+{\bf Graduate Students:}
+
+\noindent
+Dr. {\em Pawel Kozlowski}, currently an assistant professor
+in the Department of Chemistry, 
+University of Louisville, Kentucky,
+made a significant contribution to the conceptual
+framework of the SSMRCC theory and its implementation;
+developed the non--BO approach
+to multi--body systems and implemented explicitly
+correlated gaussian functions to perform application
+calculations for those systems;
+Dr. {\em Nevin Oliphant}, currently 
+with a computer company serving the Wall Street Stock Exchange,
+made a significant contribution to the conceptual 
+framework of the SSMRCC theory and its implementation;
+developed the non--BO approach 
+to multi--body systems and implemented explicitly
+correlated gaussian functions to perform application 
+calculations for those systems; 
+Mr. {\em Z. (John) Zhang}
+continued Pawel's work on correlated gaussians and 
+implemented analytical derivatives for optimization of the
+variational wave functions small atoms;
+Mr. {\em Yasser Elkadi}
+has been working on 
+dipole--bound anionic states of molecules and cluster
+systems; 
+Dr. {\em William McCarthy}, 
+who graduated 
+with a Ph.D. in September 1996 and moved to the Utah
+State University to join Prof. S. Aust's group,  
+developed methodology for describing
+large--amplitude vibrations in larger molecular systems; 
+Mr. {\em Vadim Alexandrov} has been working on
+development of a wave--packet time--propagation method which will
+be applied to study intra- and inter-molecular proton transfer
+reactions; 
+Mr. {\em Doug Gilmore} before moving to Law School at Concorde,
+New Hampshire,
+developed a technique for
+optimizing multi--center correlated gaussians
+based on analytical gradients; 
+Ms. {\em Dayle Smith} 
+has studied 
+intra-molecular hydrogen--bonding
+systems involving DNA bases and electron attachment to these
+systems;   
+%dbk
+Mr. {\em Maurice Cafiero} 
+and Mr. {\em Ismail Al-Jihad} are two talented and 
+enthusiastic new graduate students who
+joining my group and are starting their research. 
+%dbk
+
+\vspace{2mm}
+\noindent
+{\bf Undergraduate Students:}
+
+\noindent
+Mr. {\em Nathan Oyler}, 
+currently a graduate student at the Department of
+Chemistry, University of Washington, investigated 
+dipole--bound anionic states of nucleic acid bases; and 
+%dbk
+Mr. {\em Chris Tarsitano} currently a graduate student at the 
+University of Chicago 
+worked in  
+on three--body vibrational calculation using the methodology
+developed in our group.
+%dbk
+
+\vspace{2mm}
+\noindent
+{\bf Visiting scientists:}
+
+\noindent
+Prof. {\em Jong Lee} from Chonbuk National University,
+South Korea, spent his sabbatical year in my group 
+working on electronic excitations of chain carbon clusters; 
+Dr. {\em Johan Smets}, currently with Proctor and Gamble
+corporation in Brussels,
+visited us twice for three--month periods (his stay
+was supported by a grant from NATO) and worked 
+on assignment of IR spectra of water complexes of nucleic
+acid bases based on the theoretically predicted 
+frequencies.  
+Dr. {\em Stepan Stepanian} visited us twice
+for  six months  
+in '97 on a COBASE fellowship 
+and in '98 using  NATO funding and calculated and
+assigned experimental IR matrix--isolation 
+spectra of pyrimidine--quinone and quinone--quinone dimers
+and the spectra of some aminoacids and small peptides.
+In '97 we had a month--long visit in our group by Ms.
+{\em Kristien Schoone} and Ms. {\em Riet Ramaekers} 
+from the University of Leuven
+who worked with us on the NATO project, and a three--month visit
+of Ms. {\em Marta Fores} from University of Girona who worked
+on calculations concerning excited-state proton transfer
+reactions.
+In '98 Dr. Vladimir Ivanov from Kharkov, Ukraine, spent six
+months in my group and worked on the MRCC theory.
+
+\vspace{4mm}
+\noindent
+{\bf III.  PROJECT DESCRIPTION}
+
+\vspace{2mm}
+\noindent
+{\bf A. INTRODUCTION}
+
+\vspace{2mm}
+\noindent
+{\bf A.1 Equivalent Treatment of Nuclei and Electrons}
+
+
+
+Soon after the Schr\"{o}dinger equation was introduced in 1926
+several works appeared dealing with the fundamental problem of the
+nuclear motion in molecules 
+Very soon after the relativistic equations have been introduced
+for one and two--electron systems.
+The experiments
+on the Lamb shift stimulated derivation of the expersion
+for fine energy corrections related to mass--velocity effects,
+radiative effects, etc.. \cite{k8}
+Following this development questions were raised, whether an
+{\it ab initio} approach, in which only the values of
+fundamental constants are taken from experiments, is capable
+of reproducing experimental results with the precision
+which matches that of the experimental techniques. At first
+the questions concerned
+the accuracy of the calculations, but soon they were extended
+to testing the model of the molecular electron structure
+provided by the non--relativistic and relativistic quantum mechanics.
+
+
+In order to answer these questions accurate experimental
+and theoretical results were needed for representative
+molecular systems. Theoreticians, for obvious reasons, have
+favored very simple systems, such as the hydrogen molecular
+anion for their calculations. However, with only one electron,
+this system did not provide a proper test case for the molecular
+quantum mechanical methods due to the absence of the
+electron correlation. Therefore the two--electron hydrogen
+molecule has served as the system on which the fundamental
+laws of quantum mechanics have been first tested.
+The theoretical and computational work described  in
+this proposal will allow us to extend the set of very
+accurately calculated molecules using non--adiabatic
+and relativistic approach to systems with six electrons
+and three nuclei. Thus new ground will be opened to
+the fruitful competition and mutual stimulation of
+theory and experiment.
+
+
+
+In this proposal we discuss an approach to atomic and 
+molecular quantum--mechanical calculations without assuming 
+the clamped--nuclei approximation. Although such calculations
+are still rare, the progress
+in conceptual formulation of the theory in this area and, more
+importantly, in development of necessary computational tools
+has progressed to the point where non--Born--Oppenheimer
+calculations may soon become possible for more extended molecular
+systems. When this happens, 
+the problems of molecular spectroscopy
+which are not adequately described 
+by the concept of the Potential Energy Surface (PES)
+will open to theoretical investigations.
+It may also provide a new insight in such important notions of
+chemistry as Chemical Bonding and Molecular Structure.
+
+In an attempt to make the quantum mechanical calculations on 
+molecular systems practical and to provide a more intuitive
+interpretation of the computed results, it has long been a quest
+in the electronic structure theory of molecules 
+to establish a solid base for separating
+the motion of light electrons from the motion of heavier nuclei.
+It is believed that the original work of Born and Oppenheimer (BO)
+\cite{BO1927} initiated the discussion by the analysis
+of the diatomic case. Further works of Combes and Seiler
+\cite{CS1980}, who managed with the use of singular perturbation
+theory to resolve the problem of the diverging series which appeared
+in the BO expansion, and particularly of Klein and coworkers
+\cite{KM1992} who extended the formalism to polyatomic systems,
+have brought the consideration of the topic to a level of commonly
+accepted theory.
+
+Apart from the further refinements of 
+the BO approach
+there has been a continuing
+interest in theoretically approaching molecular systems 
+with a method which treats
+the motions of both nuclei and electrons equivalently.
+We propose to further advance this non--adiabatic methodology 
+in which treatment of the nuclear and electronic motions
+in molecules departs entirely from the PES concept. 
+It is particularly
+interesting how in this type of approach the conventional concepts
+of molecular structure and chemical bonding will be represented
+and how different these representations will be 
+from the representations
+developed based on the BO approximation. In particular the concept
+of chemical bonding, which at the BO level is an electronic 
+phenomenon, will now be described as an effect derived from
+collective dynamical behavior of both electrons and nuclei.
+
+Another motivation for developing the non--adiabatic approach to 
+describe the states of molecules stems from the realization that
+in order to reach ``spectroscopic" accuracy in quantum--mechanical
+calculations ({\it i.e.}, error less than 1 $\mu$hartree), one needs
+to account for the the coupling between
+motions of electrons and nuclei. Modern experimental techniques,
+such as gas--phase ion--beam spectroscopy, reach accuracy on the
+order of 0.001~cm$^{-1}$ (5 nano-hartree).\cite{C} 
+In order for quantum molecular mechanics
+to continue providing assistance in resolving and assigning
+experimental spectra, especially in studies of reaction dynamics,
+work has to continue on development of more refined theoretical 
+methodology, which accounts for non--adiabatic interactions.
+
+\vspace{3mm}
+\noindent
+{\bf A.2 Preliminary Non--Adiabatic Results 
+Obtained by our Research Group}
+\vspace{2mm}
+
+\vspace{2mm}
+{\bf A.2.1 H$^-$/H, D$^-$/D, T$^-$/T}
+
+Our recent calculations of electron affinities (EA) of hydrogen, deuterium
+and tritium atoms \cite{A37} can serve as example of 
+problems where very accurate experiments challenge the ability
+of accurate non--adiabatic theoretical calculations 
+to deliver high quality results. 
+We were able to provide the needed accuracy.
+Our calculated values of EAs for H and D of 6083.0983~cm$^{-1}$
+and 6086.7126~cm$^{-1}$, respectively, are in excellent
+agreement with the experimental results of Lineberger and
+coworkers of 6082.99$\pm$0.15~cm$^{-1}$ and 6086.2$\pm$0.6~cm$^{-1}$,
+respectively. Our tritium EA of 6087.9169~cm$^{-1}$ has not yet 
+been experimentally verified. 
+
+
+\vspace{2mm}
+{\bf A.2.2 Li$^-$/Li System and its Isotopomers} 
+
+
+Similar calculations as for the H$^-$/H isotopomer series
+are currently being performed for  
+for the Lithium isotopes.
+%dbk
+Our preliminary non--adiabatic 
+Li$^-$ calculations 
+with 384--term wave function
+have given new energy upper bound equal to
+-7.5007396158~hartree (this energy was calculated
+with infinite mass of the lithium nucleus), which is
+over 210~micro--hartree lower in energy than that
+given by Chung and Fullbright.\cite{Chung92} 
+For the $^7$L$^-$ isotop the with the 384--term wave function
+we get the energy equal to -7.500128967~hartree and this value 
+is the first fully non--adiabatic result on this system we 
+are aware of. (These are not final results.)
+%dbk
+
+
+\vspace{2mm}
+{\bf A.2.3 H$_2$ and its Isotopomers}
+
+In one of the recent issues of {\em Phys.Rev.Lett.}\cite{ad1} 
+we reported calculations which produce new non--adiabatic
+variational upper bound for the ground state energy of
+the H$_2$ molecule (-1.1640250232~hartree). This result
+was obtained with a 512--term wave function and is the highest
+accuracy result ever reported for this fundamental molecular system.
+We have also calculated a new non--adiabatic upper bound
+for D$_2$ equal to  -1.167168803~hartree.
+For HD with a 512--term expansion we obtained -1.165471893~hartree.
+These results affirm that the our correlated gaussian
+basis set with squared inter--particle distances included in the
+gaussian exponents and with powers of these distances included
+as pre--exponential multipliers can produce results 
+which supersede those obtained before provided that 
+non--linear besis set parameters are fully optimized.
+
+ 
+\vspace{2mm}
+{\bf A.2.3 LiH}
+
+The main advantage of our approach is that it is not
+limited to two electron homonuclear diatomics, as are the
+methods used by others. For example, using a modest--size
+wave function of 64 gaussians we have recently performed
+a non--adiabatic calculation on LiH (four--electron system).
+which resulted in the non--adiabatic energy for the 
+ground state of -8.057934~hartree.
+The fast rate of the convergence of the calculation
+indicates that a basis set of around 1000 basis functions
+should be enough to produce the non--adaibatic energy
+accurate to a few nano-hartree. 
+
+
+%\vspace{3mm}
+%\noindent
+%{\bf A.3 General Non--Adiabatic Hamiltonian
+%\vspace{2mm}
+
+
+%To model the physical systems, {\it i.e.}, 
+%write the Hamiltonian, particles are
+%considered to be non--relativistic, point masses,
+%$M_i$, interacting under
+%an isotropic potential. The total Hamiltonian then has the familiar form, 
+%\begin{equation}
+%H_{tot}=-\sum_i^N\frac{\nabla _{{\bf R}_i}^2}{2M_i}
+%+ V\left(R_{ij}, R_{ijk}, R_{ijkl}, \ldots%
+%\,;\,\,\,i<j<k<l<\ldots ,\,\,\,\,i=1...N\right).
+%\label{ham1}
+%\end{equation}
+%In the above Hamiltonian the potential can include two--particle
+%interactions, as well as effective interactions 
+%of three or more particles. 
+%In the case of the Coulomb potential, only pair interactions
+%will remain in the Hamiltonian. In ro--vibrational calculations,
+%the interaction potential between atoms, which is given by the
+%potential energy surface (PES) 
+%may require three- and higher multi--body
+%components. However, apart from the form of the potential, which
+%can have different forms in different problems,
+%the general approach to solving the Schr\"{o}dinger
+%equation remains the same since the isortopic character
+%of the potential leads to a similar approach
+%is separating the internal motion from the motion
+%of the center of mass of the system.
+%In result, the technique developed here, although formally
+%developed for nucleus--electron case with pair Coulomb
+%potentials 
+%can be extended 
+%to wider spectrum of molecular problems.
+%The first step in this direction has been described in our recent papers
+%\cite{A382,A383}.
+
+
+
+\vspace{3mm}
+\noindent
+{\bf B. Work Proposed}
+
+{\bf B.1 Explicitly Correlated Gaussian Functions}
+
+In the present work we propose to employ explicitly correlated
+gaussian functions in variational calculations of 
+non--adiabatic quantum states of systems 
+consisting of nuclei and electrons.
+The application of correlated gaussian functions in
+molecular calculations has gained momentum
+following some impressively accurate 
+works of Jeziorski, Szalewicz and
+their coworkers on small molecular systems performed
+with the use of these functions.
+\cite{sz1}
+The proposed procedure is derived from
+the non--adiabatic approach, which we have pursued in our group
+for the last few years, and based on several past applications
+of correlated gaussians in Born--Oppenheimer (BO) 
+and non--BO calculations on atomic
+and molecular systems.
+\cite{A2,A3,A6,A8,%
+A14,%
+A16,%
+A20,A21,%
+A27,%
+A37,%
+A38,A382,A383,%
+kozlowski91,kozlowski92a,kozlowski92b,kozlowski92c}.
+The procedure is also derived from the works 
+of Poshusta and Kinghorn
+concerning non--BO calculations
+%There have been several highly accurate non-adiabatic variational
+%calculations on atomic and exotic few particle systems using simple
+%correlated gaussians\cite
+\cite{Poshusta83,Kinghorn93,Kinghorn95b}
+%,Kinghorn96a}.
+Dr. Don Kinghorn was a research associate 
+in my group in 1995--1997 and a yaer ago he 
+rejoined us to continue his work on correlated
+gaussians. He has completed derivations of key integral and
+gradient formulas for the basis set presented below and has
+writen high quality code including full gradient optimizations 
+for non--adiabatic diatomic and atomic calculations. 
+
+The centerpiece of the 
+proposed methodology is the use of explicitly 
+correlated gaussian basis functions of the
+general form, 
+\begin{equation}
+\phi _k=\prod_{i<j}r_{ij}^{m_{kij}}\exp \left[ -{\bf r}^{\prime
+}(A_k\otimes I_3){\bf r}\right] .  
+\label{basisfcn}
+\end{equation}
+These functions, hereafter referred to simply as ``$\phi_k$'', 
+with addition of rotational components
+and appropriate symmetry projections, will be used as variational basis
+functions for w.f.'s describing internal non--adiabatic
+states of multi-particle systems. In $\phi_k$ 
+the term $\prod_{i<j}r_{ij}^{m_{kij}}$ is a product of ``distance''
+coordinates, $r_{ij},$ raised to powers $m_{kij}$ (positive, negative
+\cite{kpc}
+or zero).
+The exponential component is an explicitly correlated gaussian with 
+${\bf r}$ representing a length $3n$ column vector of internal (relative)
+coordinates (${\bf r}^{\prime }$ denotes the transpose of ${\bf r}$,
+{\it i.e.}, a row vector), $A_k$ is an 
+$N\times N$ symmetric matrix of exponent
+parameters (positive definite). The Kronecker product of
+$A_k$
+with the $3\times 3$ identity matrix, $I_3$, insures rotational invariance
+as will be shown in a later section. The matrix/vector form of $\phi _k$
+allows us to exploit the powerful 
+matrix differential calculus, described by
+Kinghorn\cite{Kinghorn95a}, for deriving 
+elegant and easily implementable
+mathematical forms for integrals and 
+derivatives required in variational
+calculations.
+Note that 
+the $\phi _k$ are angular momentum eigen-functions
+with eigen--value $J=0$; thus, 
+modification of the basis to $Y_M^L\phi _k$
+will yield higher angular momentum 
+eigen--states when the factor $Y_M^L$ is
+chosen as an angular momentum 
+eigen--function for the desired state.
+This is a very important property 
+allowing separation of variational calculations 
+for vibrational--electronic states 
+corresponding to different
+values of the total angular 
+momentum operator (different rotational states).
+Representation of higher angular 
+eigen--states will be discussed in 
+one of the following sections.
+
+
+
+\vspace{2mm}
+\noindent
+{\bf B.2 Coordinates and the Hamiltonian}
+
+One can express the non-relativistic Hamiltonian
+in terms of the coordinates of particles and
+their relative distances as: 
+\begin{equation}
+H_{tot}=-\sum_i^N\frac{\nabla _{{\bf R}_i}^2}{2M_i}+V\left( \left\| 
+{\bf R}_i-{\bf R}_j\right\| \,;\,\,\,i<j,\,\,\,\,i=1...N\right) .
+\label{ham2}
+\end{equation}
+The particles are numbered from $1$ to $N$ with $M_i$ the mass of particle 
+$i$, ${\bf R}_i=[X_i\,\,Y_i\,\,Z_i]^{\prime }$ a column vector of cartesian
+coordinates for particle $i$ in the external, laboratory fixed, frame, $%
+\nabla _{{\bf R}_i}^2$ the Laplacian in the coordinates 
+of ${\bf R}_i$, and $\left\| {\bf R}_i-{\bf R}_j\right\| $ 
+the distance between
+particles $i$ and $j$. The total Hamiltonian (\ref{ham2}) is, of
+course, separable into an operator describing the translational motion of
+the center--of--mass and an operator describing the internal energy. This
+separation is realized by a transformation to 
+the center--of--mass and internal
+(relative) coordinates.
+Let ${\bf R}$ be the vector of particle coordinates in the laboratory
+fixed reference frame:
+\begin{equation}
+{\bf R=}\left[ 
+\begin{array}{c}
+{\bf R}_1 \\ 
+{\bf R}_2 \\ 
+\vdots  \\ 
+{\bf R}_N
+\end{array}
+\right] =\left[ 
+\begin{array}{c}
+X_1 \\ 
+Y_1 \\ 
+Z_1 \\ 
+\vdots  \\ 
+Z_N
+\end{array}
+\right] 
+\end{equation}
+Center--of--mass and internal coordinates are given by the transformation $T:%
+{\bf R}\mapsto [{\bf r}_0^{\prime },{\bf r}^{\prime }]^{\prime }$,
+\begin{equation}
+T=\left[ 
+\begin{array}{ccccc}
+\frac{M_1}{m_0} & \frac{M_2}{m_0} & \frac{M_3}{m_0} & \cdots  & \frac{M_N}{%
+m_0} \\ 
+-1 & 1 & 0 & \cdots  & 0 \\ 
+-1 & 0 & 1 & \cdots  & 0 \\ 
+\vdots  & \vdots  & \vdots  & \ddots  & \vdots  \\ 
+-1 & 0 & 0 & \cdots  & 1
+\end{array}
+\right] \otimes I_3  \label{Ttran}
+\end{equation}
+where $m_0=\sum_i^NM_i$. ${\bf r}_0$ is the vector of coordinates for the
+center--of--mass and ${\bf r}$ is a length $3n=3\left( N-1\right) $ vector
+of internal coordinates with respect to a reference frame with origin at
+particle 1 (this particle is usually the heaviest particle in the system):
+\begin{equation}
+{\bf r=}\left[ 
+\begin{array}{c}
+{\bf r}_1 \\ 
+{\bf r}_2 \\ 
+\vdots  \\ 
+{\bf r}_n
+\end{array}
+\right] =\left[ 
+\begin{array}{c}
+{\bf R}_2-{\bf R}_1 \\ 
+{\bf R}_3-{\bf R}_1 \\ 
+\vdots  \\ 
+{\bf R}_N-{\bf R}_1
+\end{array}
+\right] .  \label{rdef}
+\end{equation}
+Using this coordinate transformation, and the conjugate momentum
+transformation, the internal Hamiltonian for the problem 
+we are considering
+can be written as \cite{Kinghorn93,Kinghorn95b}: 
+\begin{equation}
+H=-\frac 12\left( \sum_i^n\frac 1{\mu _i}\nabla _i^2+\sum_{i\neq j}^n\frac
+1{M_1}\nabla _i\cdot \nabla _j\right) +V\left(
+r_{ij};\,\,\,i<j,\,\,\,\,\,i=0...n\right)   \label{intham1}
+\end{equation}
+where the $\mu _i$ are reduced masses, $M_1$ is the mass of particle 1 (the
+coordinate reference particle), and $\nabla _i$ is the gradient with respect
+to the $x,y,z$ coordinates ${\bf r}_i$. The potential energy is still a
+function of the distance between particles but is now written using internal
+distance coordinates, $r_{ij}=\left\| {\bf r}_i-{\bf r}_j\right\| =$ $%
+\left\| {\bf R}_{i+1}-{\bf R}_{j+1}\right\| \,\,$with\thinspace $%
+r_{0j}\equiv r_j=\left\| {\bf r}_j\right\| =\left\| {\bf R}_{j+1}-%
+{\bf R}_1\right\| .$ The kinetic energy term in this Hamiltonian can be
+written as a quadratic form in the length $3n$ vector gradient operator, $%
+\nabla _{{\bf r}},$ the gradient with respect to the length $3n$ vector $%
+{\bf r}$ of internal coordinates. This gives a compact matrix/vector form
+of the Hamiltonian with the kinetic energy expressed as a quadratic form in
+the gradient operator, 
+\begin{equation}
+H=-\nabla _{{\bf r}}^{\prime }\left( M\otimes I_3\right) \nabla _{{\bf%
+r}}+V\left( r_{ij};\,\,\,i<j\,,\,\,\,\,i=0...n\right)   \label{ham}
+\end{equation}
+$M$ is an $n\times n$ matrix with $1/2\mu _i$ on the diagonal and $1/2M_1$
+for off--diagonal elements. This is the Hamiltonian we 
+will use in variational non--adiabatic calculations.
+
+
+
+\vspace{2mm}
+\noindent
+{\bf B.3 Relativistic Corrections}
+
+
+
+In the conventional approach to account for relativistic 
+effects the 
+fixed--nucleus approximation has been assumed.
+The most streighforward way to account for the 
+electronic relativisitic
+effects in the calculations is by using the perturbation theory.
+To calculate the lowest--order relativistic corrections to the
+energy one usually starts with the Breit equation,\cite{k15}
+and in the Pauli approximation one gets contributions to the 
+relativistic electronic hamiltonian ilustrated below using the
+corrections for H{_2}:
+\begin{equation}
+H^{\prime} = \sum_{j=1}^{5} H_j,
+\end{equation}
+where
+\begin{equation}
+H_1 = -(\alpha^2/8)(\Delta_1^2 + \Delta_2^2)
+\end{equation}
+is the relativistic correction due to the variation of mass with velocity,
+\begin{equation} 
+H_2 = (\alpha^2/2) r_{12} | [\Delta_1 \Delta_2 +
+r_{12}^{-2} \vec{r_{ij}} \cdot (\vec{r_{12}} \cdot \Delta_1)\Delta_2]
+\end{equation}
+is the relativistic correction to the interaction
+between the electrons (retardation),
+\begin{equation}
+H_3 = -(i \alpha^2/2) \{ [ \vec{F_1} \times \Delta_1 +
+2 r_{12}^{-3}  \vec{r_{12}} \times \Delta_2 ] \cdot \vec{s_1}
++ [\vec{F_2} \times \Delta_2 + 2 r_{12}^{-3} \vec{r_{21}}
+\times \Delta_1] \times \vec{s_2} \}
+\end{equation}
+represents the spin--orbit coupling which venishes for $\Sigma$
+states, and $\vec{F_i} = -\Delta_i V$,
+\begin{equation}
+H_4 = (\alpha / 4) (\Delta_1 \vec{F_1} + \Delta_2 \vec{F_2})
+\end{equation}
+is a term  characteristic of the Dirac tehory,
+\begin{equation}
+H_5 = \alpha^2 \{ -(8\pi/3)(\vec{s_1} \cdot \vec{s_2})
+\delta^{(3)}(\vec{r_{12}}) +
+r_{12}^{-3} [\vec{s_1} \cdot \vec{s_2} -
+3 r_{12}^{-2} (\vec{s_1} \cdot \vec{r_{12}}^{-2})
+(\vec{s_1} \cdot \vec{r_{12}} ) ] \}
+\end{equation}
+represents the spin--orbit interaction.
+
+The relativistic contribution to the energy is obtained as the 
+expectation value of $H_{rel}$ calculated with a non--relativistic
+wave function. All the above corrections are of the order of
+$\alpha^2$, where $\alpha$ is the fine structure constant.
+The esimated value for the relativistic contribution for H_{2} is 
+equal to -2.398~cm$^{-1}$ for the equilibrium distance,\cite{kk} and
+its contribution to the dissociation energy amounts to
+-0.524~cm$^{-1}$.
+
+From quantum electrodynamics high--order radiative corrections can 
+be derived and for a two--electron system one gets:\cite{k15}
+\begin{equation}
+\Delta E_{rad} = (\frac{3}{6})
+\alpha^3 Z \overline{\delta^{(3)} (\vec{r_1})}
+[{\rm log}(mc^2/K_0) + (\frac{19}{30} - {\rm log}2]
++ (\frac{28}{3} \alpha^3 \overline{\delta^{(3)}(\vec{r_{12}})}
+{\rm log} \alpha,
+\end{equation}
+where log$K_0$ is defined by:
+\begin{equation}
+[\sum_{n} \vec{p_{0n}} \cdot \vec{p_{n0}}(E_n - E_0)]
+{\rm log} (K_0 / Z^2) =
+\sum_n \vec{p_{0n}} \cdot \vec{p_{n0}} 
+(E_n - E_0) {\rm log} |(E_n - E_0)/Z^2|
+\end{equation}
+and is known as the Bethe logarithm. 
+The estimated value of the radiative corrections for H_{2} at  the 
+equilibrium internuclear separation is 0.718~cm$^{-1}$,
+and they contribute to the dissociation energy -0.174~cm$^{-1}$.
+\cite{kk}
+
+In the present approach in calculating relativistic 
+corrections we can lift the fixed--nucleus approximation
+and consider the relativistic affect using
+the fully non--adiabatic wave function. 
+In the first approximation only the electron 
+relativistic effects can be considered, but our
+approach also allows for including electron-nucleus
+contributions and purely nuclear contributions.
+The contribution to the relativistic effects from
+the coupling of the nuclear--electron motion has not been
+considered in the past is spite of the fact that the
+presence of velocity--dependent terms
+precludes the rigorous separation of electronic
+and nuclear motion (even in the absence of external field).
+This is due to the dependence of the relativistic
+effects on higher powers of $\frac{v}{c}$ - though
+this ratio is much smaller for nuclei than for
+electrons. 
+
+
+
+\vspace{2mm}
+\noindent
+{\bf B.4 Variational Wave Function}
+
+
+Our expansion for the wave function, $\prod_{i<j}r_{ij}^{m_{kij}}\exp
+\left[ -{\bf r}^{\prime }(A_k\otimes I_3){\bf r}\right] $, is written
+using the scalar ``distance'' variables $\left\{ r_{ij}\right\} $ and the
+internal coordinate vector variable ${\bf r.}$ These two sets of
+variables both completely describe the ``geometry'' of a system. To make
+this equivalence more obvious and to present alternative forms for the $\phi
+_k$, we will show the interchangeability of these two sets of variables. $%
+r_{ij}^m$ can be written as a function of ${\bf r}$ using the matrix $%
+\left( J_{ij}\otimes I_3\right) $ with $J_{ij}$ defined as an $n\times n$
+matrix with 1's in the $ii$ and $jj$ positions, -1 in the $ij$ and $ji$
+positions and 0's elsewhere\cite{Poshusta83,Kinghorn95a}, 
+\begin{equation}
+r_{ij}^m=\left[ {\bf r}^{\prime }(J_{ij}\otimes I_3){\bf r}\right]
+^{m/2}.  \label{rijJ}
+\end{equation}
+$r_{ij}^m$ can, equivalently, be written using the component vectors, $%
+{\bf r}_i$, of ${\bf r}$ 
+\begin{equation}
+r_{ij}^m = \left[ {\bf r}_i^{\prime }{\bf r}_i+{\bf r}_j^{\prime }%
+{\bf r}_j-2{\bf r}_i^{\prime }{\bf r}_j\right] ^{m/2} 
+= \left[ r_i^2+r_j^2-2{\bf r}_i^{\prime }{\bf r}_j\right] ^{m/2}.
+\end{equation}
+Thus, using eqn(\ref{rijJ}), $\phi _k$ can be written purely in terms of the
+vector variable ${\bf r}$, 
+\begin{equation}
+\phi _k=\prod_{i<j}\left[ {\bf r}^{\prime }(J_{ij}\otimes I_3){\bf r}%
+\right] ^{\frac{m_{kij}}2}\exp \left[ -{\bf r}^{\prime }(A_k\otimes I_3)%
+{\bf r}\right] .  \label{phir}
+\end{equation}
+
+Alternatively, $\phi _k$ can be expressed using the distance coordinates $%
+\left\{ r_{ij}\right\} $. The quadratic form in the exponential of $\phi _k$
+may be converted to $\left\{ r_{ij}\right\} $ variables as follows (we drop
+the subscript $k$ for convenience):
+\begin{equation}
+{\bf r}^{\prime }(A\otimes I_3){\bf r} = \sum_{i,j}{\bf r}%
+_i^{\prime }{\bf r}_j\,\,A_{ij} 
+= {\sf tr}\left[ \left( {\bf r}_i^{\prime }{\bf r}_j\right) A\right] 
+= {\sf tr}\left[ \left( r_{ij}^2\right) B\right]  
+= \sum_{i,j}r_{ij}^2\,\,B_{ij}
+\end{equation}
+where ${\sf tr}\left[ \:\: {}\right] $ 
+is the matrix trace operator, $\left( 
+{\bf r}_i^{\prime }{\bf r}_j\right) $ is the $n\times n$ matrix of dot
+products of the component vectors of ${\bf r},$ $\left( r_{ij}^2\right) $
+is the $n\times n$ matrix of squared distance variables, and $B$ is a matrix
+with elements given, in terms of the elements of an arbitrary matrix $A$, by
+the transformation, 
+\begin{equation}
+B_{ij}=\left\{ 
+\begin{array}{ll}
+\frac 12\sum_{k=1}^{n}\left( A_{ik}+A_{kj}\right) , & i=j \\ 
+-\frac 14\left( A_{ij}+A_{ji}\right) , & i\neq j
+\end{array}
+\right. .  \label{Btran}
+\end{equation}
+Hence, the $\phi _k$ can be written using only distance coordinates, 
+\begin{equation}
+\phi _k=\prod_{i<j}r_{ij}^{m_{kij}}\exp \left[ -{\sf tr}\left[ \left(
+r_{ij}^2\right) B_k\right] \right] .
+\end{equation}
+If one has $\phi _k$ in terms of $B_k$, {\it i.e.} 
+a function of $r_{ij},$ and
+wishes to transform to $A_k,$ a function of ${\bf r}$, the following
+relation can be used, 
+\begin{equation}
+A_{ij}=\left\{ 
+\begin{array}{ll}
+B_{ii}+\sum_{k\neq i,j}^{n}\left( B_{ik}+B_{kj}\right) , & i=j \\ 
+-\left( B_{ij}+B_{ji}\right) , & i\neq j
+\end{array}
+\right. .  \label{Atran}
+\end{equation}
+If $\phi _k$ is to be square integrable, 
+then $A_k$ must be positive definite. The simplest way to insure this
+condition is to write $A_k$ in Cholesky factored form, 
+\begin{equation}
+A_k=L_kL_k^{\prime }, \; \; \; \;
+L_k
+{\rm \; \; lower  \; triangular \; and \;
+rank \;}n.
+\end{equation}
+
+Let us
+consider the suitability of $\phi_k$ as an expansion function for
+the variational wave functions for the non--adiabatic calculations. 
+One can make the following observations:
+
+\begin{enumerate}
+
+
+\item  
+If $\phi_k$'s are to describe the $J=0$ state they
+should be invariant to rotations 
+of the system.
+Using the vector form, 
+eqn(\ref{phir}), it is easy to show that $\phi _k$ is
+invariant under any orthogonal transformation
+({\it e.g.} rotation).
+Let $U$ be any $3\times 3$ 
+orthogonal matrix (any proper or improper
+rotation in 3 space) then the action 
+of $U$ on $\phi_k$ is to transform the
+quadratic forms in the pre--multiplying 
+factors and exponential factor as
+(using the exponential factor as an example): 
+\begin{eqnarray}
+\left( \left( I_n\otimes U\right) {\bf r}\right) ^{\prime }(A_k\otimes
+I_3)\left( I_n\otimes U\right) {\bf r} &=&{\bf r}^{\prime }\left(
+I_n\otimes U^{\prime }\right) (A_k\otimes I_3)\left( I_n\otimes U\right) 
+{\bf r} \\
+&=&{\bf r}^{\prime }(A_k\otimes U^{\prime }U){\bf r} 
+= {\bf r}^{\prime }(A_k\otimes I_3){\bf r}
+\end{eqnarray}
+leaving $\phi_k$ invariant. Hence, any expansion in $\phi_k$ will be
+isotropic in ${\cal R}^3$.
+
+
+
+
+\item  
+The function should be differentiable.
+The $\phi_k$ are infinitely 
+differentiable. Therefore, any wave function 
+represented as linear combinations 
+of $\phi_k$ are also infinitely
+differentiable and expressible in terms 
+of the derivatives of the $\phi_k$.
+This property is extremely useful for
+variational optimization of the wave function,
+which can be greatly accelerated, if 
+the energy functional used in the optimization
+can be directly differentiated with respect
+to the non--linear parameters of the basis 
+functions.
+Easily implementable formulas for energy  gradient 
+components can be derived
+using matrix differential 
+calculus\cite{Kinghorn95a}.
+For example, using the normalized overlap formula, for the diatomic
+implementation of our basis functions, the derivative with
+respect to the elements of the lower triangular matrix $L_{k}$, 
+(the Cholesky factors of the exponent matrix) is,
+\begin{align}
+\frac{\partial S_{kl}}{\partial\left(  \,\mathrm{vech}\,L_{k}\right)
+^{\prime}}  &  =\frac{3}{2}S_{kl}\,\mathrm{vech}\,\left[  \left(  \,L_{k}%
+^{-1}\right)  ^{\prime}-2A_{kl}^{-1}L_{k}\right]  ^{\prime}\nonumber\\
+&  +S_{kl}\frac{m_{k}}{\left(  A_{k}^{-1}\right)  _{11}}\mathrm{vech}\,\left[
+\,A_{k}^{-1}J_{11}A_{k}^{-1}L_{k}\right]  ^{\prime}\nonumber\\
+&  -S_{kl}\frac{m_{k}+m_{l}}{\left(  A_{kl}^{-1}\right)  _{11}}\mathrm{vech}%
+\,\left[  \,A_{kl}^{-1}J_{11}A_{kl}^{-1}L_{k}\right]  ^{\prime}.
+\end{align}
+The complete set of formulas for matrix elements and gradient
+components can be
+found in our paper introducing the diatomic form of the basis set 
+\cite{kinghorn99a}.
+We have shown the utility of such an approach
+in algorithms for variational BO and non--BO calculations,
+where we used first and second derivatives to guide
+the Newton--Raphson optimization procedure
+\cite{A8,A14,A21,A38,kozlowski92b}. 
+
+\item  
+The expansion of the wave function in terms
+of $\phi_k$ has to properly
+reflect the permutational symmetry
+of the considered state. 
+Since the $\phi _k$'s are isotropic
+the problem of 
+how to handle
+permutational symmetry is
+taken care of by appropriate symmetry projection operators. 
+Consider a system
+of $N$ particles  
+whose permutational symmetry is given by
+the group, $G$, represented by
+a set, $\left\{ P_{\alpha \in G}\right\} ,$ of $N\times N$ permutation
+matrices. A wave function represented as an expansion in $\phi _k$ is a
+function of the $n=N-1$ component vectors of ${\bf r}$, the relative
+coordinates. The permutation $P_\alpha $ acting on the $N$ particle
+coordinates induces a transformation on the center--of--mass and relative
+coordinates given by 
+\begin{equation}
+T\bar{P}_\alpha T^{-1}=I_3\oplus \bar{\tau}_\alpha,
+\end{equation}
+where $T$ is the transformation matrix given in eqn(\ref{Ttran}). 
+The right hand side of this 
+expression is the direct sum of the identity acting on the
+center--of--mass coordinates, ${\bf r}_0$, and $\tau _\alpha ,$ which is an 
+$n\times n$ ``permutation'' matrix acting on the component vectors of the
+relative coordinate vector ${\bf r}$. The action of the permutation
+represented by $P_\alpha $ on $\phi _k$ is then, 
+\begin{equation}
+P_\alpha \phi _k=\prod_{i<j}\left[ {\bf r}^{\prime }(\tau _\alpha
+^{\prime }J_{ij}\tau _\alpha \otimes I_3){\bf r}\right] ^{\frac{m_{kij}}%
+2}\exp \left[ -{\bf r}^{\prime }(\tau _\alpha ^{\prime }A_k\tau _\alpha
+\otimes I_3){\bf r}\right] .
+\end{equation}
+The action of a representation of the group $G$ on $\phi
+_k$ is thus induced by the projector $\sum_{\alpha \in G}\tau _\alpha .$
+This method of symmetry 
+projection on correlated gaussians is discussed in
+more detail in the 
+references\cite{Kinghorn93,Kinghorn95b,Poshusta83}.
+
+
+\end{enumerate}
+
+
+In calculations of rotationally excited states
+the non--adiabatic w.f.'s will be
+expanded as symmetry projected linear combinations of the explicitly
+correlated $\phi _k$ multiplied by an angular term, $Y_{LM}^k:$ 
+\begin{equation}
+\Psi_{LM\Gamma }={\cal P}_\Gamma \sum_k c_k Y_{LM}^k\phi_k.  \label{wf}
+\label{Y1}
+\end{equation}
+Here $\phi_k$ are the explicitly correlated n-body gaussians given 
+in eqn(%
+\ref{basisfcn}), ${\cal P}_\Gamma $ is an appropriate permutational
+symmetry projection operator for the desired state, 
+$\Gamma $, and $Y_{LM}^k$
+is a product of coupled solid harmonics labeled by the total angular
+momentum quantum numbers $L$ and $M$.
+%Permutational symmetry is handled using projection methods in the same
+%manner as described for the potential expansion in the previous section.
+%Again, the reader is referred to the references for details\cite
+%{Poshusta83,Kinghorn93,Kinghorn95b}.
+
+$Y_{LM}^k$ is a vector--coupled product 
+of solid harmonics\cite{Biedenharn81}
+given by the Clebsch--Gordon expansion, 
+\begin{equation}
+Y_{LM}^k=\sum_{\,\,\begin{array}{c} {\left\{ l_j,m_j\right\} }
+\\ {m_1+\cdots
++m_n=M} \end{array}
+}\left\langle LM;k\right. |\left. l_1m_1\cdots l_nm_n\right\rangle
+%
+%Y_{LM}^k=\sum_{\,\,\QATOPD. . {\left\{ l_j,m_j\right\} }{m_1+\cdots
+%+m_n=M}}\left\langle LM;k\right. |\left. l_1m_1\cdots l_nm_n\right\rangle
+\prod_j^n{\cal Y}_{l_jm_j},
+\end{equation}
+and the solid harmonics are given by:
+\begin{equation}
+{\cal Y}_{lm}\left( {\bf r}_j\right) =\left[ \frac{2l+1}{4\pi }\left(
+l+m\right) !\,\left( l-m\right) !\right] ^{\frac 12}\sum_p\frac{\left(
+-x_j-iy_j\right) ^{p+m}\left( x_j-iy_j\right) ^pz_j^{l-2p-m}}{2^{2p+m}\left(
+p+m\right) !\,p!\,\left( l-m-2p\right) !}.
+\end{equation}
+The ${\cal Y}_{lm}\left( {\bf r}_j\right) $ are single particle
+angular momentum eigen--functions 
+in relative coordinates which transform the
+same as spherical harmonics, {\it i.e.} 
+have the same eigen--values. Since
+the $\phi _k$ are angular momentum 
+eigen--functions with zero total angular
+momentum, the product with $Y_{LM}^k$ 
+can be used in principle to obtain any
+desired angular momentum eigen--state. 
+Note the $k$ dependence of $Y_{LM}^k$;
+this is included since there are many 
+ways to couple the individual angular
+momenta, $l_j$, 
+to achieve the desired total angular momentum $L$ and it may
+be necessary to include several sets of the $l_j$ in order to obtain a
+realistic description of the w.f. Varga and Suzuki\cite{Varga95}
+have recently
+proposed representing the angular dependence of the w.f. using
+a single solid harmonic whose argument 
+contains additional variational
+parameters, ${\bf u} = (u_1, u_2, \cdots, u_n)$:
+\begin{equation}
+\Psi_{LM\Gamma } = {\cal P}_\Gamma Y_{LM}({\bf v}) \sum_k c_k \phi_k,
+\; \; {\rm with} \; \; 
+{\bf v} = \sum_{i=1}^{n} u_i {\bf r}_i.
+\label{Y2}
+\end{equation}
+There appears to be several advantages in doing this and we are
+investigating the possibility of using 
+this approach in our full N--body
+implementation.
+The strict separation of the angular and ``radial" variables in
+eqns.(\ref{Y1}) and (\ref{Y2}) allows separate consideration of
+the vibrational states with different total angular momentum
+quantum number, $L$. The magnitude of the Coriolis coupling
+for the particular $L$--state will determine whether the most
+general form, eqn.(\ref{Y1}), or more simplified form,
+eqn.(\ref{Y2}), of the total w.f. should be used. 
+
+There have been several highly accurate non--adiabatic variational
+calculations on atomic and exotic few particle systems using simple
+correlated gaussians\cite
+{Kinghorn93,Kinghorn95b,A3,A37,Varga96}.
+By simple we mean
+they only contain the exponential part of the $\phi _k,$ (no $r_{ij}$
+pre-multipliers). However, attempts at non-adiabatic molecular calculations
+have been plagued by problems with linear dependence in the basis during
+energy optimizations. This problem occurs in calculations on atomic systems
+also, but to a much lesser extent. We believe that we understand this
+phenomena and have shown\cite{kinghorn99a} that our new basis, 
+including pre-multiplying powers of $r_{ij}$
+will eliminate or at least drastically reduce the linear dependence
+problems. Our reasoning is as follows: In systems with more than one heavy
+particle ({\it e.g.}, two or more nuclei in a non-B.O. calculation,
+or two or more atoms in a ro-vibrational calculation)
+there will be a larger particle density away from the origin,
+where one of the heavy particles is placed, than near the origin.
+In the case of a system with three heavy particles, in addition
+to a reduction of the probability density of two of the particles
+when they approach the third one located at the coordinate origin,
+there will be a density reduction when the two particles when 
+they approach
+each other.
+That is, the w.f. will have peaks shifted
+away from the origin and peaks shifted away from 
+$r_{ij}$=0 points. There are three ways to account for this behavior in
+the w.f. expressed in terms of 
+correlated gaussians; 1) use correlated gaussians
+with shifted centers, {\it i.e.}, 
+$\exp [-\left( {\bf r-s}\right) ^{\prime }%
+\bar{A}\left( {\bf r-s}\right) ]$; 2) Use near linearly dependent
+combinations of simple correlated gaussians with large matched $\pm $ linear
+coefficients; or 3) Use pre-multiplying powers of $r_{ij}$. The first option
+is unacceptable since it results in a w.f. which no longer
+represents a pure angular momentum state. The second option is what we
+believe causes the linear dependence and numerical instability which we are
+trying to avoid. The third option is what we are proposing. The linear
+dependence that we have observed in our calculations using the simple
+correlated gaussians looks, in some sense, like an attempt by the
+optimization to include in the w.f. derivatives of the basis
+functions with respect to the non-linear parameters. The near linear
+dependent terms resemble numerical derivatives. Removal of these near linear
+dependent terms has an adverse affect on the w.f.'s, as manifested by
+poor energy results, but leaving them in leads to numerical instabilities
+which hinder optimization or cause complete collapse of the eigen-solutions.
+Now, derivatives of simple gaussians with respect to non-linear parameters,
+elements of the matrices $A_k$, bring down pre-multiplying (even) powers of 
+$r_{ij}$. Thus, explicitly including pre-multiplying powers of $r_{ij}$ in
+the basis functions adds the needed flexibility to the basis in a
+numerically stable way. Also, the rate of convergence is 
+improved by these pre-multiplying $r_{ij}^m$ terms in the same way that they
+effect convergence in the Hyllerass basis. The $\phi _k$ are similar to the
+Hyllerass basis functions with the Slater--type exponentials replaced by
+fully correlated gaussian type exponentials. We believe that excellent
+results for non-adiabatic calculations will be obtained using
+our new variational basis functions. 
+%We have preliminary results to support
+%the above assertions (see the next section).
+
+The proposed work requires new types of integrals to be derived
+and implemented. Over the last few years we have made several
+steps in this direction. We have derived multi--particle
+Hamiltonian integrals with N--body 
+general cartesian correlated gaussians
+\cite{kozlowski92a}, we presented integrals involving
+$J_z$ and $J^2$ operators \cite{A20}, and we recently derived
+Hamiltonian matrix elements with correlated gaussians
+containing high powers of coordinates  \cite{A382}.
+This work will continue within this project.
+
+\vspace{2mm}
+\noindent
+%{\bf B.5 Variational Wave Function for Non-Adiabatic Calculations}
+{\bf B.5 Superposition of Electronic and Ro--vibrational Wave Functions}
+The construction of the wave function for a molecule 
+to be used as an
+starting guess in variational non--adiabatic calculations
+can be based on a superposition of the electronic wave function
+obtained in a BO calculation and the ro--vibrational wave function
+obtained in calculation where a fit to the potential energy
+surface is used as the interaction potential. Let us use the H$_2^+$
+ion as an example. Using gaussians, the BO electronic wave function 
+wave function can be represented as the following expansion:
+\begin{equation}
+\Psi^{BO} = 
+\sum_i c_i^{BO} r_{ {\bf A}1}^{m_i^A} r_{ {\bf B}1}^{m_i^B}
+{\rm exp} \left[ -\alpha_i^A r_{ {\bf A}1}^2 
+- \alpha_i^B r_{ {\bf B}1}^2 \right],
+\label{BO1}
+\end{equation}
+where the bold indices indicate the centers, which are not allowed to move.
+The ro--vibrational wave function (with $J=0$), which is obtained using the
+approach described above with the ${\bf A}$ nucleus assumed to be
+the center of the internal coordinate system, has the following form
+(see the following section):
+\begin{equation}
+\Psi^{ro-vib} = 
+\sum_i c_i^{ro-vib} r_{ {\bf A}B}^{m_i^{AB}} 
+{\rm exp} \left[ -\alpha_i^{AB} r_{ {\bf A}B}^2 \right].
+\label{BO2}
+\end{equation}
+Now we construct the superposition of the two functions:
+\begin{equation}
+\Psi^{non-BO} = 
+\sum_{i,j} c_i^{ro-vib} c_j^{BO} 
+r_{ {\bf A}B}^{m_i^{AB}}
+r_{ {\bf A}1}^{m_j^A} r_{B1}^{m_j^B}
+{\rm exp} 
+\left[ -\alpha_i^{AB} r_{ {\bf A}B}^2 -\alpha_j^A r_{ {\bf A}1}^2 
+- \alpha_j^B r_{B1}^2 \right],
+\label{BO3}
+\end{equation}
+The above approach can easily be extended to systems with more particles,
+as well as to excited states
+%dbk
+and should provide good initial guesses for optimizing wave functions.
+%dbk
+
+
+
+\vspace{2mm}
+\noindent
+{\bf B.7 Proposed Applications}
+
+
+Following our previous non--adiabatic calculations of HD$^+$
+and the positronium molecule and some other model systems
+\cite{A3,A6,A16,A27,kozlowski91,%
+kozlowski92b,kozlowski92c} and more 
+recent non--adiabatic calculations
+of the electron affinities of hydrogen, deuterium and tritium
+\cite{A37},
+we will now consider the following atomic and molecular systems:
+
+
+
+\vspace{2mm}
+\noindent
+{\bf B.7.1 Hydrogen Molecule and its Isotopomers. A Test
+Case for Quantum Non--Adiabatic and Relativistic Calculations}
+
+
+
+In the first applications 
+we will consider
+hydrogen molecules and ions and their isotopomers.
+In his review entitled "Hydrogen Molecule. Test of Quantum Chemistry"
+\cite{kk} Kolos discusses to observable quantities which have
+been used to test the agreement between the experiment and theory.
+They are the dissociation energy and the ionization potential.
+For the former quantity the most recent theoretical result
+for H$_2$, which was obtained based on very accurate Born-Oppenheimer
+energies perturbatively corrected for non--adaiabatic effects
+and also corrected for the relativistic effects calculated
+ealier is equal to D$_{\rm o}$=36118.051~cm$^{-1}$. The remaining
+descrpancy with the experimental value of W.C. Stwalley\cite{k29}
+equal to 36118.6$\pm$0.5~cm$^{-1}$ is in the range of the
+experimental uncetaintity.
+However, the in the series H$_2$, HD and D$_2$ while the
+desrepancies for H$_2$ and HD are positive, the desrepancy
+with the latest experimental measurment for D$_2$ of
+Eyler\cite{k42,k42p}
+is slightly negative.
+The questions which Kolos raises
+in his paper the is a room for improvement of the theoretical
+value and he concludes that some improvments can be made
+in the following contributions:(1) the relativistic contributions,
+which were calculated 30 years ago and the wavefunction
+employed at that time was obtained in the Born--Oppenheimer
+approximation and was not very accurate according to the present
+day standards; (2) the radiative corrections whose values
+was only estimated before\cite{k16}; (3) the adiabatic corrections
+were calculated using the perturbation approach with Born--Oppenheimer
+wave function and not with a fully non--adiabatic wave function.
+
+The experimental determinations of IP have been made
+by Rydberg--series extrapolation, either of the singlet
+$np$ states or of high-l states, and this approach is still
+successfully used to improve the accuracy of experimental IP.
+Recently, however, a new approach has been introduced by Glab and
+Hess\cite{k52} and developed  Eyler and coworkers.\cite{k53}
+It is a two step procedure in which first the E, F state
+is excited and, subsequently, transitions to the
+Rydberg $np$ states are measured.  Using this approach Glab
+and Hessler\cite{k52} have reduced the experimental error, and
+McCormick {\it et al.}\cite{k53} have still increased the accuracy
+and obtained IP =124417.524$\pm$0.015~cm$^{-1}$
+In the last years the two main groups involved in experimental
+determination of H$_2$ IP are the groups at the Yale University
+and the University of Delaware (Gilligan, Eyler), and groups
+at Universite de Paris-Sud and at the National Research Council
+of Canada (Jungen, Dabrowski, Herzberg and Vervloet),\cite{k57}
+and these groups continue producing new improved experimental
+values of IP. The accuracy of the measurments is most remarkable, its
+limits, however, have still not been reached and it is
+expected\cite{k42p} that the experimental error will be reduced
+to almost 0.001~cm$^{-1}$, making IP's of H$_2$ and its
+isotopomers one of the most accuratelly measured quantity.
+Using the  calculated
+results for H$_2$, HD and D$_2$ by Kolos and Rychlewski,\cite{k12}
+and very accurate H$_2^+$ energy of Moss,\cite{k58}
+which includes the recent accurate value of the Lamb shift
+correction,\cite{k59} the following results were obtained
+for the IP's of H$_2$, HD and D$_2$, respectively:
+124417.471~cm$^{-1}$, 124558.465~cm$^{-1}$, and 124745.377~cm$^{-1}$.
+\cite{kk}
+These can be compared to the best experimental values:
+124417.484$\pm$0.017~cm$^{-1}$ and 124417.507$\pm$0.012~cm$^{-1}$
+for H2,\cite{k42,k57} 124568.481$\pm$0.012~cm$^{-1}$ for HD,\cite{k42}
+and 124745.353$\pm$0.024~cm$^{-1}$ for D$_2$.
+As one can see the agreement between the theory and the
+experiment is fair but not ideal and some discrepancy between
+the two sets are still present. These can be due to the
+non--adiabatic, relativistic and radiative corrections
+calculated with still not sufficient accuracy (particularly the
+latter two). Better calculations of the corrections using
+a fully non--adiabatic approach can produce values, which can
+be more trustworthy. This, in turn, may lead to new more refine
+measurements.
+Some room for improvement in the experimental
+values may be expected based on the analysis
+of the descrepencies between the theoretical and experimental
+results. While the discepancies for H$_2$ and HD are positive
+and equal to 0.013$\pm$0.017~cm$^{-1}$ (0.036$\pm$0.012~cm$^{-1}$)
+and 0.016$\pm$0.012~cm$^{-1}$, for $D_2$ it is negative
+and equal to -0.024$\pm$0.024~cm$^{-1}$.
+Since  a refinement of the radiative corrections are expected
+to bering a uniform improvement for all three isotopomers, if
+it improves the egreement for H$_2$ and HD it will destroy
+it for D$_2$ and {\it vice versa}. Thus, The source of the discrpency
+may be in the non--adaiabatic or/and relativistic corrections.
+Since, the smallest currently used correction to IP of H$_2$
+is about eight times larger than the present--day experimental error,
+the IP offers a very good and stringent test of the
+calculated values of the non--adiabatic, relativistic and
+radiative corrections.
+
+Spectroscopy of the hydrogen molecule has been of fundamental
+interest since the early days of quantum mechnics.
+The masses of the nuclei give rise to more noticable
+deviations from the Born-Oppeheimer approximation
+and thus this system  may serve as a test for an
+understanding of these effects. While, as described in the
+previous section the $X^1\Sigma_g^+$ ground state of H$_2$
+and its isotopomers have been calculated with an accuracy
+of 0.01~cm$^1$, this level of accuracy has not yet been
+achieved for excited states. The excited states of the
+$1\Sigma_g^+$ symmetry were investigated with increasing
+accuracy over the last decades\cite{w1,w2}
+Calculations for the lowest vibrational levels in the second adiabatic state
+of $X^1\Sigma_g^+$ symmetry, the $EF^1\Sigma_g^+$ state,
+now have reached agreement with experiment within 0.1~cm$^{-1}$.
+It can be anticipated that the non--adiabatic
+effects increase when molecule is excited, since
+the motion of the nuclei is subject to more shellow
+potentials due to more delocalized electrons.
+Excited state potentials of H$_2$ show complicated
+shapes as a function of the internuclear distance  due
+to avoiding crossings between diabatic energy curves.
+A celebrated example is a double--well potentail of the
+$EF^1\Sigma_g^+$ state. The third and fourth adiabatic states of
+the $^1\Sigma_g^+$ symmetry, denoted as $GK^1\Sigma_g^+$
+and $H\overline{H}^1\Sigma_g^+$,
+have also  pronounced double--well structures.
+None of these excited states has been ever calculated
+within a fully non--adiabatic calculations.
+
+
+The case of the HD isotopomer is qualitatively different
+from that of the symmetric H$_2$ and D$_2$ molecules;
+in the non--adiabatic approach states of {\it gerade}
+and {\it ungerade} symmetry mix, thus lowering the
+electronic symmetry from $D_{\infty h}$ to $C_{\infty v}$.
+The observation of a very weak vibrational spectrum in HD
+provided evidence for a static electric dipole moment
+and a deviation from the inversion--symmetric charge
+distribution in the ground state.
+In a recent work\cite{w28} a strong $g-u$
+symmetry breaking was reported for the $H\overline{H}^1\Sigma_g^+$
+state of HD. No fully non--adiabatic study has been
+conducted on the symmetry mixing phenomenon in HD in
+excited states.
+
+
+
+
+\vspace{2mm}
+\noindent
+{\bf B.7.2 
+H$_3^+$, H$_3$, H$_3^-$, and their Isotopomers}
+
+
+
+One of the most remarkable successes
+for theory has been the work on the $H_3^{+}$
+system. The first laboratory spectroscopic detection of  $H_3^{+}$,
+reported by Oka \cite{ref:k35} was of ro--vibrational transitions in the
+fundamental $\nu_2$ infrared band. An important ingredient in the
+identification of the spectrum was the set of vibration--rotation
+constants calculated by Carney and Porter \cite{ref:k36}. This first
+laboratory measurement prompted searches for $H_3^{+}$ in the interstellar
+medium, and several spectacular discoveries were made of the presence
+of $H_3^{+}$ in the Jovian \cite{ref:k41}, Saturn \cite{ref:k44} and
+Uranus \cite{ref:k45} aurora. There has been 
+extensive theoretical
+work on $H_3^{+}$ and its isotopomers by Tennyson and coworkers
+\cite{ref:ten2,ref:ten3,ref:ten4,ref:ten5,ref:ten6,ref:ten7,ref:ten8,%
+ref:ten9}, where a wide range of the ro--vibrational excitations were
+calculated using BO and adiabatic PES's. Some other
+more recent experiments has also appeared./cite{mccall,stark} 
+There has been also some very accurate experimental work
+done on the neutral H$_3$ and its 
+isotopomers,\cite{azinovic,muller} and on the H$_3^-$ anion./cite{rob}
+Our accurate non--adiabatic calculations of the excitation
+and fragmentation energies of the H$_3$ molecule its
+ions and isotopomers may extend the testing ground for
+sub--wavenumber theoretical--experimental approaches to 
+three atom system.
+
+
+
+\vspace{2mm}
+\noindent
+{\bf B.7.3
+LiH$^-$ Anion}
+
+LiH$-$ is the smallest stable molecular anion.
+Adiabatic electron affinities were recently reported for 
+the LiH and LiD ($^7$Li) systems with the precision
+of 0.012~eV.\cite{sarkas}
+The experimentally determined electron affinities led to
+anion dissociation energy values of 2.017$\pm$0.021~eV 
+for LiH ($^7$Li)
+and 2.034$\pm$0.021 for LiD$^-$.
+LiH$^-$ isotopomer systems will be use to study
+the non--adiabatic effects on the electron attachment
+energy.
+
+
+
+\vspace{2mm}
+\noindent
+{\bf C. Building a "Beowulf" Super COmputer}
+
+The calculations we are proposing will place heavy demands on computational
+resources. The optimization of variational wave functions with
+respect to many non--linear parameters requires large amounts of
+cpu time even when our efficient data structures and analytic gradients
+are used. However, the data structures and algorithms we use to implement
+our theoretical results are readily implementable in a data parallel fashion
+allowing us to take advantage of scalable  parallelism using clusters
+of workstations and dedicated computational nodes. We have worked out
+the technical details for building and administering
+a ``Beowulf''\cite{beowulfwww} class
+parallel Linux cluster and are currently waiting on the shipment of
+components for our prototype cluster. Each node
+will consist of a dual processor ``box'' of high end
+PC components including Pentium II 400 MHz processors and
+256MB of 8ns 100MHz memory. Communication will be over
+switched 100Mb Ethernet. Parallel clusters of this type
+scale well and we expect to greatly expand our initial setup.
+To take advantage of this parallel computing machinery we are  currently
+utilizing ``High Performance Fortran'' \cite{HPFwww}
+and PVM \cite{PVMwww} for code development. The combination of these
+robust development tools and the high performance/low cost parallel hardware
+will provide an excellent computational environment for our researchers.
+
+
+vspace{2mm}
+\noindent
+{\bf D. FINAL REMARKS}
+
+The functions $\phi _k = 
+\prod_{i<j}r_{ij}^{m_{kij}}\exp \left[ -{\bf r}^{\prime%
+}(A_k\otimes I_3){\bf r}\right]$
+are flexible enough to meet criteria necessary for global analytic
+representation of a molecular non--adiabatic wave function, {\it i.e.} 
+correct
+asymptotic behavior, differentiability, symmetry adaptation, {\it etc.}. 
+We have prototyped our procedures in the calculations mentioned before. 
+Having successfully completed testing of our general procedures, we will
+proceed with full implementation of an 
+n--body program suite. 
+Integrals needed for matrix elements in
+the variational calculations have been 
+completed and work is being done on
+more elegant methods for representing 
+high angular momentum states.
+
+There are issues in this project which cannot be definitely
+resolved at the present stage and only through further research 
+the most optimal directions to carry on the development can be
+selected. One such issue concerns non--linear optimization of the
+wave function, which will depend 
+critically on the ease and black--box
+manner this type of optimization 
+can be performed in routine applications.
+It is possible that the approach of 
+contracting gaussian functions,
+as it is done in the electron structure theory 
+or an even--tempered scheme 
+would be the most
+effective way of avoiding costly non--linear optimizations.
+Another issue concerns the lengths of the expansions for the
+wave function in terms of $\phi_k$
+functions, which can become very challenging for more degrees
+of freedom.
+
+
+
+Ours is one of the few research 
+programs focusing on the non--adiabatic 
+Atomic and Molecular Quantum Mechanics
+and, therefore, provides a unique 
+training place for scientists in this area.  
+Furthermore, the development of the techniques 
+utilizing explicitly--correlated gaussian functions
+has been carried out by only a few groups in the world.  
+In the age of parallel computing, these
+types of functions may facilitate an important 
+step towards achieving improved accuracy in 
+{\it ab initio} calculations in both conventional 
+Born--Oppenheimer and non--adiabatic 
+molecular quantum mechanics.
+However, several major breakthroughs are still needed 
+in the technology of explicitly correlated gaussians
+to achieve this goal.
+
+
+\pagebreak
+
+%\vspace{2mm}
+%\noindent
+%{\bf Literature Cited}
+%\vspace{2mm}
+
+\begin{thebibliography}{999}
+
+
+\bibitem{A1}   
+N. Oliphant and L. Adamowicz, Multi--Reference Coupled Cluster 
+Method Based on the Single
+Reference Formalism, Int. Rev. Phys. Chem. {\bf 12}, 339 (1993).
+
+\bibitem{A2}
+E. Schwegler, P.M. Kozlowski and L. Adamowicz, 
+Application of Explicitly--Correlated Gaussian
+Functions for Calculations of the 
+Ground State of the Beryllium Atom, J. Comp. Chem. {\bf 14}, 566 (1993).
+
+\bibitem{A3}   
+P.M. Kozlowski and L. Adamowicz, Non--Adiabatic 
+Variational Calculations for the Ground State of
+the Positronium Molecule, Phys. Rev. {\bf A 48}, 1903 (1993).
+
+\bibitem{A4}   P. Piecuch, N. Oliphant and L. Adamowicz, 
+State--Selective Multi--Reference Coupled Cluster Theory,
+J. Chem. Phys. {\bf 99}, 1875 (1993).
+
+\bibitem{A5}   Z. Slanina, F. Uhlik, J. Kurtz and L. Adamowicz, 
+A Classification of 200 Isomerizations among 51
+Isotopomers of $C_8$ (D2d), J. Radioanal. Nucl. Chem. {\bf 170}, 
+373 (1993).
+
+\bibitem{A6}   
+P.M. Kozlowski and L. Adamowicz, Equivalent 
+Quantum Approach to Nuclei and Electrons in
+Molecules, Chem. Rev. {\bf 93}, 2007 (1993).
+
+\bibitem{A7}   W.J. McCarthy, M.A. Roehrig, Qi-Qi Chen, 
+G.H. Henderson, L. Adamowicz and S.G. Kukolich,
+Microwave Measurements and {\it Ab-Initio} Dynamics of the Large 
+Amplitude Motion of the Ring
+Puckering in 2-Sulpholene, J. Chem. Phys. {\bf 99}, 7305 (1993).
+
+\bibitem{A8}   
+Z. Zhang, P.M. Kozlowski and L. Adamowicz, Newton-Raphson 
+Optimization of the Explicitely--Correlated 
+Gaussian Functions for Calculations of 
+the Ground State of the $He$ Atom, J. Comp. Chem.
+{\bf 15}, 54 (1994).
+
+\bibitem{A9}   
+Z. Slanina, F. Uhlik and L. Adamowicz, 
+Classification of 486 Isomerizations Among 72 $^{12}C/^{13}C$
+Isotopomers of Cyclic $C_7$, J. Radioanal. 
+Nucl. Chem. {\bf 170}, 107 (1993).
+
+\bibitem{A10}  
+Z. Slanina, S.-L. Lee, J.-P. Francois, J. Kurtz, L. Adamowicz 
+and  M. Smigel, A Non-Planar Cyclic
+Minimum-Energy Structure of Singlet $C_9$, 
+Mol. Phys. {\bf 81}, 1489 (1994).
+
+\bibitem{A11}  
+P. Piecuch and L. Adamowicz, State-Selective Multi-Reference 
+Coupled Cluster Theory Employing
+Single-Reference Formalism:  Implementation and Application 
+to the H8 Model System, J. Chem. Phys.
+{\bf 100(8)}, 1 (1994).
+
+\bibitem{A12}  
+P. Piecuch and L. Adamowicz, Solving the Single-Reference 
+Coupled-Cluster Equations Involving
+Highly Excited Clusters in Quasidegenerate Situations, 
+J. Chem. Phys. {\bf 100}, 5857 (1994).
+
+\bibitem{A13}  
+P. Piecuch and L. Adamowicz, State-Selective 
+Multi-Reference Coupled-Cluster Theory Using
+Multiconfiguration Self-Consistent Field Orbitals:  A 
+Model Study on H8, Chem. Phys. Lett. {\bf 221}, 121
+(1994).
+
+\bibitem{A14}  Z. Zhang and L. Adamowicz, Explicitly--Correlated 
+Gaussian Functions with $r_{ij}^{2n}$ Factors for Calculations
+of the Ground State of the Helium Atom, J. Comp. Chem. 
+{\bf 15}, 893 (1994).
+
+\bibitem{A15}  
+Z. Slanina, S.-L. Lee, J.-P. Francois, J. Kurtz 
+and L. Adamowicz, Inversion of the $C_8$ Non--Planar Ring,
+Chem. Phys. Lett. {\bf 223}, 397 (1994).
+
+\bibitem{A16}  P.M. Kozlowski and L. Adamowicz, Effective 
+Non--Adiabatic Calculations on $HD^{+}$ with 
+Explicitly--Correlated Gaussian Functions, 
+Int. J. Quant. Chem. {\bf 55}, 245 (1995).
+
+\bibitem{A17}  
+P. Piecuch and L. Adamowicz, Breaking 
+Bonds with the State--Selective Multi--Reference Coupled-Cluster 
+Method, J. Chem. Phys. {\bf 102}, 898 (1995).
+
+\bibitem{A18}  
+A. Sobolewski  and L. Adamowicz, {\it Ab-Initio} 
+Characterization of Electronically Excited States in
+Highly Unsaturated Hydrocarbons, J. Chem. Phys. 
+{\bf 102}, 394 (1995) .
+
+\bibitem{A19}  
+V. Alexandrov. P. Piecuch and L. Adamowicz, 
+State-Selective Multi-Reference Coupled-Cluster Theory
+Employing the Single-Reference Formalism:  Application 
+to Excited States of H8, J. Chem. Phys.
+{\bf 102(8)}, 3301 (1995).
+
+\bibitem{A20}  
+P. M. Kozlowski and L. Adamowicz, Matrix Elements 
+for  $J_z$ and $J^2$  Operators over Explicitely-Correlated
+Cartesian Gaussian Functions, 
+Int. J. Quant. Chem. {\bf 55}, 367 (1995).
+
+\bibitem{A21}  
+Z. Zhang and L. Adamowicz, Newton-Raphson Optimization 
+of the Explicitly-Correlated Gaussian
+Functions for the Ground State of the Be Atom, 
+Int. J. Quantum Chem.  {\bf 54}, 281 (1995).
+
+\bibitem{A22}  
+K.B. Ghose and L. Adamowicz, Use of Recursively 
+Generated Intermediates in State--Selective
+Multi--reference Coupled--Cluster Method:  
+A Numerical Example, J. Chem. Phys. {\bf 103}, 9324 (1995).
+
+\bibitem{A23}  
+Z. Slanina, S.-L. Lee, M. Smigel, J. Kurtz and 
+L. Adamowicz, Smaller Carbon Clusters: Linear, Cyclic,
+Polyhedral, in SCIENCE AND TECHNOLOGY OF 
+FULLERENE MATERIALS, Eds. P. Bernier, D.S.
+Bethune, L.Y. Chiang, T.W. Ebbesen, 
+R.M. Metzger and J.W. Mintmire, Materials Research Society,
+Pittsburgh, 1995, 163-168 (1995).
+
+\bibitem{A24}  
+W.J. McCarthy, L. Lapinski, M.J. Nowak and 
+L. Adamowicz, Anharmonic Contributions to the
+Inversion Vibration in 2-Aminopyrimidine, 
+J. Chem. Phys. {\bf 103}, 656 (1995).
+
+\bibitem{A25}  
+K.B. Ghose, P. Piecuch and L. Adamowicz, 
+Improved Computational Strategy for the State-Selective
+Coupled-Cluster Theory with Semi-Internal Triexcited Clusters:  
+Potential Energy Surface of HF
+Molecule, J. Chem. Phys. {\bf 103}, 9331 (1995).
+
+\bibitem{A26}  
+K.B. Ghose, P. Piecuch, S. Pal and L. Adamowicz, 
+State-Selective Multireference Coupled-Cluster
+Theory:  In pursuit of Property Calculation, 
+J. Chem. Phys. {\bf 104}, 6582 (1996).
+
+\bibitem{A27}  
+P. M. Kozlowski and L. Adamowicz, Variation 
+Calculations of the Two-Photon Annihilation Rate of the
+Positronium Molecule, J. Phys. Chem. {\bf 100}, 6266 (1996).
+
+\bibitem{A28}  
+G. Gutsev, A. Le\'{s} and L. Adamowicz, The Electronic 
+and Geometrical Structure of Aluminum Flouride
+Anions, $AlF_n, n = 1-4$, and Electron Affinities of 
+Their Neutrals, J. Chem. Phys. {\bf 100}, 8925 (1994).
+
+\bibitem{A29}  
+G.L. Gutsev and L. Adamowicz, The Structure of 
+the CF Anion and the Electron Affinity of the $CF_4$
+Molecule, J. Chem. Phys. {\bf 102}, 9309 (1995).
+
+\bibitem{A30}  
+G. Gutsev, A. Sobolewski and L. Adamowicz, 
+Theoretical Study on the Structure of Acetonitrile
+$(CH_3CH)$ and its Anion $CH_3CH^-$, Chem. Phys. 
+{\bf 196}, 1 (1995).
+
+\bibitem{A31}  
+G.L. Gutsev and L. Adamowicz, Relationship Between 
+the Dipole Moments and the Electron Affinities
+for Some Polar Organic Molecules, Chem. Phys. Lett. {\bf 235}, 
+377 (1995).
+
+\bibitem{A32}  
+G.L. Gutsev and L. Adamowicz, The Electronic and 
+Geometrical Structure of Dipole--Bound Anions
+Formed by Polar Molecules, J. Phys. Chem. 
+{\bf 99}, 13412 (1995).
+
+\bibitem{A33}  
+G.L. Gutsev and L. Adamowicz, The Valence and 
+Dipole--Bound States of the Cyanomethide Ion,
+$CH_2CN$ , Chem. Phys. Lett. 246, 245 (1995).
+
+\bibitem{A34}  
+L. Adamowicz and J.-P. Malrieu, Multi--Reference 
+Self--Consistent Size--Extensive State--Selective
+Configuration Interaction, J. Chem. Phys. 
+{\bf 105}, 9240 (1996).
+
+\bibitem{A35}  
+L. Adamowicz, R. Caballol, J.-P. Malrieu and J. Meller, 
+A General Bridge Between Configuration
+Interaction and Coupled--Cluster Methods:  A Multistate 
+Solution, Chem. Phys. Lett.
+{\bf 259}, 619 (1996).
+
+\bibitem{A36}  
+L. Adamowicz and J.-P. Malrieu, Multi-Reference Self-Consistent 
+Size--Extensive Configuration
+Interaction (CI) - A Bridge Between the Coupled-Cluster 
+Method and the CI Method, in MODERN
+IDEAS IN COUPLED-CLUSTER METHODS, R.J. Bartlett, 
+Ed., World Scientific Publishing, pp. 307-332 (1997).
+
+\bibitem{A37}  
+D.B. Kinghorn and L. Adamowicz, 
+The Electron Affinity of Hydrogen, Deuterium and Tritium:  
+A Non--Adiabatic Variational Calculation Using Explicitly-Correlated 
+Gaussian Basis Set, J. Chem. Phys.,
+{\bf 106}, 4589 (1997).
+
+\bibitem{A38}  
+D. Gilmore, P.M. Kozlowski, D.B. Kinghorn and 
+L. Adamowicz, Analytic First Derivatives for
+Explicitly-Correlated Multi-Center Gaussian Geminals, 
+Int. J. Quantum Chem. {\bf 63}, 991 (1997).
+
+\bibitem{A381}
+W.J. McCarthy, L. Lapinski, M.J. Nowak and L. Adamowicz,
+Out--of--Plane Vibrations of $NH_2$ in 2--Aminopyrimidine, 
+J.Chem.Phys., {\bf 108}, 10116 (1998).  
+
+\bibitem{A382}
+D.B. Kinghorn and L. Adamowicz,
+A New N--Body Potential and Basis Functions for
+Variational Energy Calculations,
+J.Chem.Phys., {\bf 106}, 8760 (1997).
+
+\bibitem{A383}
+D. B. Kinghorn and L. Adamowicz, in {\em Pauling's Chemical
+Bonding}, edited by Z.B. Maksic and W.J. Orville--Thomas,
+Elsevier Science, 1998, accepted for publication.
+
+\bibitem{A384}
+K.B. Ghose, L. Adamowicz and S. Pal,
+The State Selective Coupled Cluster Method with
+Restricted Sets of Triples and Quadruples:
+Some Aspects of the Theory and its Recent Applications,
+Int.J.Quantum Chemistry, submitted.
+
+\bibitem{A385}
+K.B. Ghose and L. Adamowicz,
+The State--Selective Multi--Reference Coupled Cluster
+Method with Restricted Sets of Triples and Quadruples:
+Applications for the BH, CO and C$_2$ Molecules,
+Chem.Phys.Lett., submitted.
+
+
+\bibitem{A3851}
+L. Adamowicz, P. Piecuch and K. Ghose, 
+The State--Selective Multi--Reference
+Coupled Cluster Method, Mol. Phys., 
+{\bf 94}, 225 (1998).
+
+
+
+\bibitem{A3860}
+N.A. Oyler and L. Adamowicz, Theoretical Ab--Initio
+Calculations of the Electron Affinity of 
+Thymine, Chem. Phys. Lett. {\bf 219}, 223 (1994).
+
+
+\bibitem{A3861}
+G.H. Roehrig, N.A. Oyler and L. Adamowicz, 
+Can Electron Attachment Change Tautomeric
+Equilibrium of Guanine?, Chem. Phys. Lett. {\bf 225}, 265 (1994).
+
+
+\bibitem{A3862}
+G.H. Roehrig, N.A. Olyer
+and L. Adamowicz, Electron Affinity of Adenine.  
+Theoretical Study, J. Phys. Chem. {\bf 99},
+14285 (1995). 
+
+
+\bibitem{A3863}
+J. Smets, W.J. McCarthy and 
+L. Adamowicz, Dipole--Bound Electron
+Attachment of Uracil--Water Complex.  Theoretical 
+{\it Ab--Initio} Study, 
+J. Phys. Chem., {\bf 100}, 14655 (1996).
+
+\bibitem{A3864}
+J. Smets, 
+W.J. McCarthy and L. Adamowicz, Water Molecules
+Enhances Dipole--Bound Electron Affinity of 1--Methyl--Cytosine, 
+Chem. Phys. Lett. {\bf 256}, 360 (1996).
+
+\bibitem{A3865}
+Y. Elkadi and L. Adamowicz, 
+Dipole--Bound Electron Attachment
+to Ethylene  Glycol Dimer.  Theoretical {\it Ab--Initio} 
+Study, Chem. Phys. Lett., {\bf 261}, 507 (1996).
+
+\bibitem{A3866}
+D.M.A. Smith, J. Smets, Y. Elkadi and 
+L. Adamowicz, Methylation Reduces
+Electron Affinity of Uracil.  {\it Ab--Initio} 
+Theoretical Study, J. Phys. Chem.
+{\bf 101}, 8123 (1997).
+
+\bibitem{A3867}
+J. Smets, D.M.A. Smith, Y. Elkadi 
+and L. Adamowicz, {\it Ab--Initio} Theoretical Study
+of Dipole--Bound Anions of Molecular 
+Complexes.  Water Molecule Inhibits or
+Enhances Electron Affinity of N,N-Dimethyl--Aminoadenine, 
+Pol. J. Chem., {\bf 72}, xxx (1998). 
+
+\bibitem{A3868}
+J. Smets, D.M.A. Smith, Y. Elkadi and 
+L. Adamowicz, The Search for Stable
+Anions of Uracil Water Clusters.  {\it Ab--Initio} 
+Theoretical Studies, J. Phys. Chem.
+{\bf 101}, 9152 (1997).
+
+\bibitem{A3869}
+D.M.A. Smith, J. Smets, Y. Elkadi and 
+L. Adamowicz, {\it Ab--Initio} Theoretical Study
+of Dipole--Bound Anions of Molecular 
+Complexes.  Water Trimer Anion, J. Chem.
+Phys.
+{\bf 107}, 5788 (1997).
+
+\bibitem{A3870}
+R. Ramaekers, D.M.A. Smith, Y. Elkadi and 
+L. Adamowicz, Dipole--Bound Anion
+of Hydrogen Fluoride Dimer.  Theoretical 
+{\it Ab--Initio} Study, Chem. Phys. Lett.,
+{\bf 277}, 269 (1997).
+
+\bibitem{A3871}
+R. Ramaekers, D.M.A. Smith, J. Smets 
+and L. Adamowicz, Ab--Initio Theoretical
+Study of Dipole--Bound Anions of Molecular 
+Complexes. (HF)$_3^-$ and (HF)$_4^-$ Anions,
+J. Chem. Phys.
+{\bf 107}, 9475 (1997).
+
+\bibitem{A3872}
+V. Alexandrov, L. Adamowicz, and S. Stepanian,
+Theoretical {\it Ab-initio} Study of OH Vibrational Band
+in Gas-Phase Glycine Conformers, Chem.Phys.Lett.,
+{\bf 291}, 110 (1998).
+
+\bibitem{A3873}
+D.M.A. Smith, J.Smets, Y. Elkadi, and L. Adamowicz,
+{\it Ab-initio} Theoretical Study of Dipole-Bound Anions
+of Molecular Complexes. [H$_2$O \dots HCN]$^-$ and
+[HCN $\dots$ H$_2$O]$^-$ Anions,
+Chem.Phys.Lett., {\bf 288}, 609 (1988).
+
+\bibitem{A3874}
+V. Alexandrov, D.M.A. Smith, H. Rostkowska, M.J. Nowak, 
+L. Adamowicz and W. McCarthy, 
+Theoretical Study of the OH Stretching Band in 3-Hydroxy-2-Methyl-4-Pyrone,
+J.Chem.Phys., {\bf 108}, 9685 (1998).
+
+\bibitem{A3875}
+D.M.A. Smith, J. Smeths, Y. Elkadi, and L. Adamowicz,
+{\it Ab-initio} Theoretical Study of Dipole-Bound Anions
+of Molecular COmplexes. Water Tetramer Anions,
+J.Chem.Phys., {\bf 109}, 1238 (1998).
+
+
+\bibitem{A3876}
+C. Desfran\c{o}ois, V. P\'{e}riquet, S. Carles, B.H. Bowen,
+J.P. Schermann, and L. Adamowicz,
+Neutral and Negatively-Charged Formamide, N-methyl-formamide
+and N,N-ddimethyl-formamide Clusters, Chem.Phys.,
+accepted for publication.
+
+\bibitem{A3877}
+C. Desfran\c{o}ois, V. P\'{e}riquet, Y. Bouteille, 
+L. Adamowicz, B.H. Bowen,
+nd J.P. Schermann,
+Experimental Evidence for Electron Binding to
+Quadrupolar Molecules and Clusters,
+J.Phys. B., accepted for publication.
+
+
+\bibitem{A3878}
+D.M.A. Smith, J. Smets, Y. Elkadi, and L. Adamowicz,
+{\it Ab-initio} Theoretical Study of  Dipole-Bound Anions
+of Molecular COmplexes. Formaldehyde Dimer Anion,
+Chem.Phys.Lett., submitted.
+
+
+\bibitem{A3879}
+D.M.A. Smith, J. Smets, and L. Adamowicz,
+{\it Ab-initio} Theoretical Study of Dipole-Bound Anions of
+Molecular Complexes. Water Pentamer Anion,
+J.Chem.Phys., submitted.
+
+
+\bibitem{A3880}
+J. Smets, D.M.A. Smith, and L. Adamowicz,
+{\it Ab-initio} Theoretical Study of Dipole-Bound
+Anions of Molecular Complexes. Anions of H-Bonded Hydrogen Cyanide Polymers,
+Chem.Phys.Lett., submitted.
+
+
+
+
+\bibitem{A3881}
+C. Desfran\c{o}ois, V. P\'{e}riquet, S. Carles, J.P. Schermann,
+D.M.A. Smith, and L. Adamowicz,
+Experimental and {\it Ab-initio} Theoretical Study of Electron
+Binding to Formamide, N-Methylformamide and N,N-Dimethylformamide,
+J.Chem.Phys., submitted.
+
+
+\bibitem{ad1}
+D.B. Kinghorn and L. Adamowicz,
+Improved non--adiabatic ground state energy
+upper bound for dihydrogen,
+Phys.Rev.Lett., accepted for publication.
+
+
+%\bibitem{ref:A39}  
+%L. Lapinski, M.J. Nowak, J. Fulara, A. Le\'{s} and 
+%L. Adamowicz, Experimental and Theoretical Studies
+%on the IR Spectra of 5--Methylcytosine,
+%J. Phys. Chem. {\bf 94}, 6555 (1990).  
+
+
+%\bibitem{ref:A40}  
+%M.J. Nowak, L. Lapinski, H. Rostkowska, 
+%A. Le\'{s}  and L. Adamowicz, Theoretical and Matrix-Isolation
+%Experimental Study on 2(1H)--Pyridinethione/2--Pyridinethiol, 
+%J. Phys. Chem., {\bf 94}, 7406 (1990).
+
+%\bibitem{ref:A41}  
+%M.J. Nowak, L. Lapinski, J. Fulara, A. Le\'{s}  and 
+%L. Adamowicz, Theoretical and Infrared Matrix--Isolation Study on 
+%4(3H)--Pyrimidinethione and 3(2H)--Pyridazinethione--Tautomerism and
+%Phototautomerism, J. Phys. Chem. {\bf 95}, 2404 (1991).
+
+%\bibitem{ref:A42}  
+%J. Fulara, M.J. Nowak, L. Lapinski, A. Le\'{s}  and 
+%L. Adamowicz, Theoretical and Matrix--Isolation
+%Experimental Study of the Infrared Spectra of 5--Azauracil 
+%and 6--Azauracil, Spectrochimica Acta {\bf 47A},
+%595 (1991).
+
+%\bibitem{ref:A43}  
+%M. Nowak, L. Lapinski, Jan Fulara, A. Le\'{s}  and 
+%L. Adamowicz, Matrix--Isolation IR Spectroscopy of
+%Tautomeric Systems and its Theoretical Interpretation.  
+%2--Hydroxy--Pyridine/2(1H)--Pyridinone, J. Phys.
+%Chem. {\bf 96}, 1562 (1992).
+
+%\bibitem{ref:A44}  
+%A. Le\'{s}, L. Adamowicz, M.J. Nowak and L. Lapinski, 
+%Theoretical Interpretation of the Gas Phase
+%Equilibrium of 2--Hydroxypyridine/2(1H)--Pyridinone, 
+%J. Mol. Structure {\bf 277}, 313 (1992).
+%
+%\bibitem{ref:A45}  
+%L. Lapinski, M.J. Nowak, J. Fulara, A. Le\'{s}  and 
+%L. Adamowicz, The Relation Between Structure and
+%Tautomerism in Diazinones and Diazinethiones. An 
+%Experimental Matrix--Isolation and Theoretical {\it Ab--Initio} Study, 
+%J. Phys. Chem. {\bf 96}, 6250 (1992).
+
+%\bibitem{ref:A46}  
+%A. Le\'{s}, L. Adamowicz, M.J. Nowak and L. Lapinski, 
+%Assignment of the Matrix--Isolation IR Spectra
+%of Uracil and Tymine Based on New {\it Ab-Initio} Theoretical 
+%Calculations, Spectrochim. Acta {\bf 48A} (10),
+%1385 (1992).
+
+%\bibitem{ref:A47}  
+%H. Rostkowska, M.J. Nowak, L. Lapinski, 
+%M. Bretner, T. Kulikowski, A. Le\'{s}  and L. Adamowicz,
+%Infrared Spectra of 2--Thiocytosine and 5--Fluoro--2--Thiocytosine; 
+%Experimental and {\it Ab-Initio} Studies,
+%Spectrochim. Acta Part A, {\bf 49A}, 551 (1993).
+
+%\bibitem{ref:A48}  
+%H. Rostkowska, M.J. Nowak, L. Lapinski, M. Bretner, 
+%T. Kulikowski, A. Le\'{s} and L. Adamowicz,
+%Theoretical and Matrix--Isolation Experimental Studies 
+%on 2--Thiocytosine and 5--Flouro--2--Thiocytosine,
+%Biochimica et Biophysica Acta {\bf 1172}, 239 (1993).
+
+%\bibitem{ref:A49}  
+%H. Vranken, J. Smets, L. Lapinski, M.J. Nowak, 
+%L. Adamowicz and G. Maes, Infrared Spectra and
+%Tautomerism of Isocytosine.  An {\it Ab-Initio} and Matrix--Isolation 
+%Study, Spectrochim. Acta Part A, {\bf 50A},
+%875 (1994).
+
+%\bibitem{ref:A50} 
+%L. Lapinski, M.J. Nowak, A. Le\'{s}  and L. Adamowicz, 
+%Photochemistry of Matrix--Isolated 4(3H)--Pyrimidinones, 
+%J. Am. Chem. Soc. {\bf 116}, 1461 (1994).
+
+%\bibitem{ref:A51}  
+%A. Le\'{s}, L. Adamowicz, M.J. Nowak and L. Lapinski, 
+%Concerted Biprotonic Tautomerism of 2--Hydroxypyridine, 
+%J. Mol. Structure {\bf 312}, 157 (1994).
+
+%\bibitem{ref:A52}  
+%M.J. Nowak, A. Le\'{s}  and L. Adamowicz, Application 
+%of {\it Ab-Initio} Quantum Mechanical Calculations
+%to Assign Matrix--Isolation IR Spectra of Oxopyrimidines, 
+%in Trends in Physical Chemistry, published
+%by the Council of Scientific Information, India, 137-168 (1994).
+
+%\bibitem{ref:A53}  
+%L. Lapinski, M.J. Nowak, A. Le\'{s} and L. Adamowicz, 
+%Comparison of {\it Ab--Initio} HF/6-31$G^{**}$, HF/6-31++$G^{**}$ 
+%and MP2/6-31$^{**}$ IR Spectra of 4-Pyrimidinone Tautomers with 
+%Matrix--Isolation Spectra,
+%Vibrational Spectroscopy  {\bf 8}, 331 (1995).
+
+%\bibitem{ref:A54}  
+%L. Lapinski, D. Prusinowska, M.J. Nowak, 
+%M. Bretner, K. Felczak, G. Maes and L. Adamowicz,
+%Infrared Spectra of 6--aza--Thiouraciles:  
+%An Experimental Matrix--Isolation and Theoretical {\it Ab-Initio}
+%Study, Spectrochimica Acta {\bf 52}, 645 (1996).
+
+%\bibitem{ref:A55}  
+%D. Prusinowska, L. Lapinski, M.J. Nowak and 
+%L. Adamowicz, Tautomerism, Phototautomerism and
+%Infrared Spectra of Matrix--Isolated 2--Quinolinethione, 
+%Spectrochemica Acta Part {\bf A51}, 1809 (1995).
+%
+
+%\bibitem{ref:A56}  
+%M. Van Bael, K. Schoone, L. Houben,  J. Smets, 
+%W. McCarthy, L. Adamowicz, M. Nowak and G. Maes,
+%Matrix--Isolation FT--IR studies and {\it Ab-Initio} 
+%Calculations of Hydrogen--bonded Complexes of Imidazole
+%Comparison Between Experimental Data and 
+%Different Theoretical Methods, J. Phys. Chem., submitted. 
+
+%\bibitem{ref:A561}
+%M. Rostkowska, M.J. Nowak, L. Lapinski, D. Smith, and L. Adamowicz,
+%Molecular Structure and Infrared Spectra of
+%3,4--Dihydroxy--3--Cyclobutene--1,2--Dione:
+%Experimental Matrix--Isolation and Theoretical Hartree--Fock
+%and Post Hartree--Fock Study, Spectrochimica Acta, 
+%accepted for publication.  
+
+
+%\bibitem{ref:A57}  
+%A. Sobolewski and L. Adamowicz, Theoretical 
+%Investigations of Proton Transfer Reaction in Hydrogen
+%Bonded Complexes of Cytosine and Water, 
+%J. Chem. Phys. {\bf 102}, 5708 (1995).
+
+%\bibitem{ref:A58}  
+%A. Sobolewski and L. Adamowicz, 
+%Theoretical Investigations of the Excited--State Intra--molecular
+%Proton Transfer Reaction in N--substituted--3--hydroxypyridinones, 
+%Chem. Phys. Lett. {\bf 93}, 67 (1995).
+
+%\bibitem{ref:A59}  
+%A. Sobolewski and L. Adamowicz, Theoretical 
+%Investigations of the Proton Transfer Reaction in
+%Hydrogen--Bonded Complexes of Cytosine with HNO, 
+%Chem. Phys. Lett. {\bf 234}, 94 (1995).
+
+%\bibitem{ref:A60}  
+%A. Sobolewski and L. Adamowicz, Theoretical 
+%Investigations of the Proton Transfer Reaction in the
+%Hydrogen--Bonded Complexes of 2--Pyrimidinone with Water, 
+%J. Phys. Chem. {\bf 99}, 14277 (1995).
+
+%\bibitem{ref:A61}  
+%A. Sobolewski and L. Adamowicz, 
+%Photophysics of 2--hydroxypyridine:  An {\it Ab-Initio} Study, J. Phys.
+%Chem. {\bf 100}, 3933 (1996).
+
+%\bibitem{ref:A62}  
+%A. Sobolewski and L. Adamowicz, 
+%Double--Proton Transfer in [2,2--Bipyridine]--3,3'--Diol:  
+%An {\it Ab-Initio} Study, Chem. Phys. Lett. {\bf 252}, 33 (1996)
+
+
+%\bibitem{ref:A63}  
+%H. Saint--Martin, I. Ortega--Blake, A. Le\'{s}  and 
+%L. Adamowicz, The Role of Hydration in the Hydrolysis
+%of Pyrophosphate.  A Monte--Carlo Simulation 
+%with Polarizable--type Interaction Potentials, Biochimica
+%et Biophysica Acta {\bf 1207}, 12 (1994).
+
+%\bibitem{ref:A64}  
+%A. Le\'{s} and L. Adamowicz, {\it Ab-Initio} 
+%Calculations of Biomolecules.  Proceedings of the CAM '94
+%Physics Meeting in Cancun, Mexico, AIP 
+%Conference Proceedings {\bf 342}, 190 (1995).
+
+
+\bibitem{BO1927} M. Born and J. P. Oppenheimer, 
+Zur Quantentheorie der Molekeln,
+Annalen der Physik 
+{\bf 84}, 457 (1927).
+
+\bibitem{CS1980} J.M. Cobes and R. Seiler, Quantum Dynamics of Molecules,
+ed. R. G.  Woolley, Plenum Press, New York, 1980, p. 435.
+
+\bibitem{KM1992} M. Klein, A. Martinez, R. Seiler and X. Wang, Commun.
+Math.Phys. {\bf 143}  607 (1992).
+
+\bibitem{C}
+A. Carington and R.A. Kennedy, Gas Phase Ion Chemistry;
+Ed. M.T. Bowers, Academic Press, New York, vol.3, p.393.
+
+
+\bibitem{ref:handy}
+SPECTRO, written by J.F. Gaw, A. Willetts, W.H. Green, and N.C. Handy.
+
+\bibitem{ref:ch21}
+S. Carter and N. C. Handy, 
+On the Calculation of Vibration--Rotation Energy Levels of
+Quasi--Linear Molecules,
+J.Mol.Spectrosc. {\bf 95}, 9 (1982).
+
+\bibitem{ref:bowman}
+J.M. Bowman and B. Gazdy, 
+A Truncation/Recoupling Method for Basis Set Calculations of
+Eigen-values and Eigen-functions,
+J.Chem.Phys.
+{\bf 94}, 454 (1991);
+D.A. Jelski, R.H. Halay, and J.M. Bowman,
+New Vibrational Self-Consistent Field Program
+for Large Molecules,
+J.Comp.Chem. {\bf 17}, 1645 (1996).
+
+
+%\bibitem{ref:schwenke}
+%D.W. Schwenke, 
+%On the Computation of Ro--vibrational Energy Levels of
+%Triatomic Molecules,
+%Comput.Phys.Commun. {\bf 70}, 1 (1992).
+
+
+
+%\bibitem{ref:podolski}
+%B. Podolski, Quantum--Mechanically Correct Form of
+%Hamiltonian Function for Conservative Systems,
+%Phys.Rev. {\bf 32}, 812 (1928).
+
+%\bibitem{ref:malloy}
+%T.B. Malloy, J.Mol.Struct. {\bf 44}, 504 (1972).
+
+%\bibitem{ref:wilson}
+%E.B. Wilson, J.C. Decius, and P.C. Cross, in {\em
+%Molecular Vibrations}, McGraw-Hill, New York 1972.
+
+
+%\bibitem{ref:eckard}
+%H.M. Pickett, 
+%Vibration--Rotation Interactions and the Choice of
+%Rotating Axes for Polyatomic Molecules,
+%J.Chem.Phys. {\bf 56}, 1715 (1971).
+
+
+
+%\bibitem{Bartlett95}
+%R.~J. Bartlett,
+%\newblock Coupled-cluster theory: An overview of recent developments,
+%\newblock in {\em Modern Electronic Structure Theory}, edited by D.~R. Yarkony,
+%World Scientific, Singapore, 1995.
+
+\bibitem{Eckart35}
+C.~Eckart,
+Some Studies Concerning Rotating Axes and Polyatomic
+Molecules,
+\newblock Phys.Rev. {\bf 47}, 552 (1935).
+
+\bibitem{WilsonHoward36}
+E.~B. Wilson and J.~B. Howard,
+The Vibration--Rotation Energy Levels
+of Polyatomic Molecules,
+\newblock J.Chem.Phys. {\bf 4}, 260 (1936).
+
+\bibitem{Watson68}
+J.~K.~G. Watson,
+Simlification of the Molecular Vibration-Rotation
+Hamiltonian,
+Mol.Phys. {\bf 15}, 479 (1968);
+{\it ibid.} 
+The Vibration--Rotation Hamiltonian of Linear Molecules,
+{\bf 19}, 465 (1970).
+
+
+%\bibitem{SutcliffeTennyson87}
+%B.~T. Sutcliffe and J.~Tennyson,
+%\newblock J.Chem.Soc.Faraday Trans. 2 {\bf 83}, 1663
+%(1987).
+
+\bibitem{Jensen88}
+P.~Jensen,
+A new Morse Oscillator--Rigid Bender Internal
+Dynamics (MORBID) Hamiltonian for Triatomic Molecules,
+\newblock J.Mol.Spectr. {\bf 128}, 478 (1988).
+
+\bibitem{LeRoy95}
+R.~J. Le{R}oy,
+\newblock {LEVEL 6.0} a 
+computer program for bound and quasibound levels, and
+calculating various expectation values and matrix elements,
+\newblock Technical report, University of Waterloo.
+
+\bibitem{Hutson93}
+J.~M. Hutson,
+\newblock {BOUND}: A program for calculating bound-state energies for weakly
+bound molecular complexes, version 1 (1984) to version 5 (1993),
+\newblock Computational Project No. 6 of the Science and Engineering Research
+ Council, on Heavy Particle Dynamics, 1993.
+%\newblock e-mail: J.M.Hutson@durham.ac.uk.
+
+\bibitem{ref:ten1}
+J. Tennyson, J. R. Henderson, and N. G. Fulton,
+DVR3D: For the Fully Pointwise Calculations of Ro-vibrational
+Spectra of Triatomic Molecules,
+Comp.Phys.Comm. {\bf 86}, 175 (1995).
+
+
+
+\bibitem{ref:kcn1}
+J. Tennyson and B. T. Sutcliffe, 
+{\it Ab--initio} Vibrational--Rotational Spectrum of Potasium Cyanide,
+KCN,
+Mol.Phys. {\bf 46}, 97 (1982).
+
+
+\bibitem{ref:kcn2}
+J. Tennyson and A. van der Avoird, 
+{\it Ab--initio} Vibrational--Rotational Spectrum
+of Potasium Cyanide, KCN. II. Large Amplitude Motions
+and Ro-vibrational Coupling,
+J.Chem.Phys. 
+{\bf 76}, 5710 (1982).
+
+
+\bibitem{ref:kcn3}
+J. Tennyson and B. T. Sutcliffe, 
+The {\it Ab--initio} Calculation of the 
+Vibrational--Rotational Spectrum of Triatomic Systems in the  
+Close--Coupling Approach with KCN and H$_2$Ne as Examples,
+J.Chem.Phys. {\bf 77}, 4061 (1982).
+
+
+\bibitem{ref:ch22}
+B. T. Sutcliffe and J. Tennyson, 
+Variational Methods for the Calculation of Ro-vibrational Energy
+Levels of Small Molecules,
+J.Chem.Soc.Faraday Trans. 2, 
+{\bf 83}, 1663 (1987).
+
+
+\bibitem{ref:ch23}
+J. S. Lee and D. Secrest, 
+A Calculation of the Rotation--Vibration States of He$_2$H$^+$,
+J.Chem.Phys. {\bf 85}, 6565 (1986).
+
+\bibitem{ref:j22}
+C.-L. Chen, B. Maessen, and M. Wolfsberg, 
+Variational Calculations of Rotational--Vibrational Energy
+Levels of Water,
+J.Chem.Phys. {\bf 83}, 1795 
+(1985).
+
+\bibitem{ref:j26}
+B. T. Sutcliffe, in {\em Current Aspects of Quantum Chemistry}
+(R. Carbo, ed.), Studies in Theoretical Chemistry, Vol. 21,
+pp 99-125, Elsevier, New York (1982).
+
+\bibitem{ref:j27}
+N. C. Handy, 
+The Derivation of Vibration Kinetic Energy
+operator in Internal Coordinates,
+Mol.Phys. {\bf 61}, 207 (1987).
+
+\bibitem{ref:j32}
+B. T. Sutcliffe and J. Tennyson, 
+A Generalized Approach to the Calculation of Ro--vibrational Spectra
+of Triatomic Molecules,
+Mol.Phys. {\bf 58}, 1053 (1986).
+
+\bibitem{ref:j33}
+D. Estes and D. Secrest, 
+The Vibration--Rotation Hamiltonian; A Unified
+Treatment of Linear and Non--Linear Molecules,
+Mol.Phys. {\bf 59}, 569 (1986).
+
+\bibitem{ref:j34}
+J. Makarewicz, 
+Ro-vibrational Hamiltonian of a Triatomic Molecule in 
+Local and Collective Internal Coordinates,
+J.Phys. B: At.Mol.Opt.Phys. {\bf 21}, 1803 (1988).
+
+\bibitem{ref:j35}
+J. Makarewicz and W. Lodyga, 
+Self--Consistent Internal Axes for a Rotating-Vibrating
+Triatomic Molecules,
+Mol.Phys. {\bf 64}, 899 (1988).
+
+\bibitem{ref:j36}
+J. M. Bowman, J. Zuniga, and A. Wierzbicki, 
+Investigations of Transformed Mass--Selected Jacobi Coordinates
+for Vibrations of Polyatomic Molecules with Applications to H$_2$O,
+J.Chem.Phys. {\bf 90}, 2708 (1989).
+
+\bibitem{ref:j37}
+B. T. Sutcliffe and J. Tennyson, 
+A General Treatment of Vibrational--Rotational Coordinates
+For Triatomic Molecules,
+Int.J.Quantum Chem. {\bf 39},
+183 (1991).
+
+\bibitem{ref:j25}
+R. M. Whitnell and J. C. Light, J.Chem.Phys. 
+Efficient Pointwise Representations for
+Vibrational Wave Functions: Eigen-functions of H$_3^+$,
+{\bf 90}, 1774 (1989).
+
+\bibitem{ref:j45}
+Z. Ba\u{c}i\'{c} and J. C. Light, 
+Theoretical Methods for Ro-vibrational States of Floppy 
+Molecules,
+Ann.Rev.Phys.Chem. {\bf 40}, 
+469 (1989).
+
+\bibitem{ref:j46}
+S. E. Choi and J. C. Light, 
+Determination of the Bound and Quasibound States of Ar--HCl
+van--der--Waals Complex:
+Discrete Variable Representation Method,
+J.Chem.Phys. {\bf 92}, 2129 (1990).
+
+\bibitem{ref:j50}
+J. Tennyson and B. T. Sutcliffe, 
+Highly Rotationally Excited
+States of Floppy Molecules: H$_2$D$^+$ with $J \leq 20$,
+Mol. Phys. {\bf 58}, 1067 (1986).
+
+
+\bibitem{Dunham32a}
+J.~L. Dunham,
+The Wentzel--Brillouin--Kramers Method of Solving
+the Wave Equation,
+\newblock Phys.Rev. {\bf 41}, 713 (1932).
+
+\bibitem{Dunham32b}
+J.~L. Dunham,
+The Energy Levels of a Rotating Vibrator,
+\newblock Phys.Rev. {\bf 41}, 721 (1932).
+
+\bibitem{Simons73}
+G.~Simons, R.~G. Parr, and J.~M. Finlan,
+New Alternative to the Dunham Potential for Diatomic Molecules,
+\newblock J.Chem.Phys. {\bf 59}, 3229 (1973).
+
+\bibitem{Ogilvie81}
+J.~F. Ogilvie,
+A General Potential Energy Function for Diatomic Molecules,
+\newblock Proc.Royal Soc. London A {\bf 378}, 287 (1981).
+
+\bibitem{Thakkar75}
+A.~Thakkar,
+A New Generalized Expansion for the Potential Energy 
+Curves of Diatomic Molecules,
+\newblock J.Chem.Phys. {\bf 62}, 1693 (1975).
+
+\bibitem{Huffaker76}
+J.~N. Huffaker,
+Diatomic Molecules as Morse Oscillators. 1. Energy Levels,
+\newblock J.Chem.Phys. {\bf 64}, 3175 (1976).
+
+\bibitem{Morse29}
+P.~M. Morse,
+Diatomic Molecules According to the Wave Mechanics. II. 
+Vibrational Levels.
+\newblock Phys.Rev. {\bf 34}, 57 (1929).
+
+\bibitem{Jordan74}
+K.~D. Jordan, J.~L. Kinsey, and R.~Silbey,
+Use of Pade' Approximants in the Construction of 
+Diabatic Potential Energy Curves for Ionic Molecules,
+\newblock J.Chem.Phys. {\bf 61}, 911 (1974).
+
+%\bibitem{Jorish79}
+%V.~S. Jorish and N.~B. Shcherbak,
+%\newblock Chem.Phys.Lett. {\bf 67}, 160 (1979).
+
+\bibitem{Sonnleitner81}
+S.~A. Sonnleitner, C.~L. Beckel, A.~J. Colucci, and E.~R. Scaggs,
+Rational Fraction Representation of Diatomic 
+Vibrational Potentials. V. The $^{3} \Sigma_g^+ $ State of H$_2^+$,
+\newblock J.Chem.Phys. {\bf 75}, 2018 (1981).
+
+\bibitem{Pardo86}
+A.~Pardo, J.~J. Camacho, and J.~M.~L. Poyato,
+The Pade' Approximant Method and its Applications to the Construction of
+Potential Energy Curves for the Lithium Hydride Molecule,
+\newblock Chem.Phys.Lett. {\bf 131}, 490 (1986).
+
+
+\bibitem{Jorish79}
+J.M.L. Martin, T.J. Lee, and P.R. Taylor,
+An Accurate {\it Ab-initio} Quadratic Force Field for
+Formaldehyde and its Isotopomers,
+J.Mol.Spectr. {\bf 160}, 105 (1993).
+
+%\bibitem{ref:t2}
+%J.M.L. Martin, P.R. Taylor, J.T. Yustein, T.R. Burkholder, and L. Andrews,
+%Pulsed Laser Evaporation of Boron/Carbon pellets:
+%Infrared Spectra and Quantum Chemical Structures and Frequencies for 
+%$BC_2$,
+%J.Chem.Phys. {\bf 99}, 12 (1993).
+%
+%\bibitem{ref:t3}
+%T.J. Lee, C.E. Dateo, B. Gazdy and J.M. Bowman,
+%Accurate Quartic Force Fields and Vibrational Frequencies for HCN and HNC,
+%J.Phys.Chem. {\bf 97}, 8937 (1993).
+
+\bibitem{Dateo94}
+C.E. Dateo, T.J. Lee, and D.W. Schwenke,
+An Accurate Quartic Force Field and Vibrational Frequencies
+for $HNO$ and $DNO$,
+J.Chem.Phys. {\bf 101}, 5853 (1994).
+
+%\bibitem{ref:t5}
+%J.M.L. Martin and P.R. Taylor,
+%{\it Ab-initio} Study of the Isoelectronic Molecules
+%$BCN$, $BNC$, and $C_3$ Including Anharmonicity,
+%J.Phys.Chem. {\bf 98}, 6105 (1994).
+
+%\bibitem{ref:t6}
+%J.M.L. Martin and P.R. Taylor,
+%{\it Ab-initio} Study of the Molecules $BC$ and $B_2C$,
+%J.Chem.Phys, {\bf 100}, 9002 (1994).
+
+%\bibitem{ref:t7}
+%J.M.L. Martin, P.R. Taylor,
+%J.P. Fran\c{c}ois and R. Gijbels,
+%{\it Ab-initio} Study of the Spectroscopy and Thermochemistry
+%of the $C_2N$ and $CN_2$ molecules.
+%Chem.Phys.Lett. {\bf 226}, 475 (1994).
+
+%\bibitem{ref:t8}
+%J.M.L. Martin, P.R. Taylor,
+%J.P. Fran\c{c}ois and R. Gijbels,
+%{\it Ab-initio} Study of the Spectroscopy, Kinetics and 
+%Thermochemistry
+%of the $BN_2$ molecule,
+%Chem.Phys.Lett. {\bf 222}, 517 (1994).
+
+\bibitem{Lee95a}
+T.J. Lee, J.M.L. Martin and P.R. Taylor,
+An Accurate {\it Ab-initio} Quartic Force Field and Vibrational
+Frequencies for $CH_4$ and Isotopomers,
+J.Chem.Phys. {\bf 102}, 254 (1995).
+
+\bibitem{Martin95}
+J.M.L. Martin, T.J. Lee, P.R. Taylor,
+and J.P. Fran\c{c}ois,
+The Anharmonic Force Field of Ethylene, $C_2H_4$, by Means of
+Accurate {\it Ab-initio} Calculations,
+J.Chem.Phys. {\bf 103}, 2589 (1995).
+
+\bibitem{Lee95b}
+T.J. Lee,
+J.M.L. Martin, C.E. Dateo, and P.R. Taylor,
+Accurate {\it Ab-initio} Quartic Force Fields,
+Vibrational Frequencies, and Heats of Formation
+for $FCN$, $FNC$, $ClCN$, and $ClNC$,
+J.Phys.Chem. {\bf 99}, 15858 (1995).
+
+\bibitem{ref:t12}
+J.M.L. Martin and P.R. Taylor,
+The Geometry, Vibrational Frequencies, and Total Atomization
+Energy of Ethylene. A Calibration Study,
+Chem.Phys.Lett. {\bf 248}, 336 (1996).
+
+\bibitem{ref:t13}
+J.M.L. Martin, D.W. Schwenke, T.J. Lee, and P.R. Taylor,
+Is There Evidence for Detection of Cyclic $C_4$ in IR spectra?
+An Accurate {\it ab-initio} Computed Quartic Force Field,
+J.Chem.Phys. {\bf 104}, 4657 (1996).
+
+\bibitem{ref:t14}
+J.M.L. Martin and P.R. Taylor,
+Structure and Vibrations of Small Carbon Clusters from 
+Coupled--Cluster Calculations,
+J.Phys.Chem. {\bf 100}, 6047 (1996).
+
+%\bibitem{Lee95a}
+%T.~J. Lee, J.~M.~L. Martin, and P.~R. Taylor,
+%\newblock J.Chem.Phys. {\bf 102}, 254 (1995).
+
+%\bibitem{Dateo94}
+%C.~E. Dateo, T.~J. Lee, and D.~W. Schwenke,
+%\newblock J.Chem.Phys. {\bf 101}, 5853 (1994).
+
+%\bibitem{Martin93}
+%J.~M.~L. Martin and T.~J. Lee,
+%\newblock J.Mol.Spectr. {\bf 160}, 105 (1993).
+
+%\bibitem{Lee95b}
+%T.~J. Lee, J.~M.~L. Martin, C.~E. Dateo, and P.~R. Taylor,
+%\newblock J.Phys.Chem. {\bf 99}, 15858 (1995).
+
+%\bibitem{Martin95}
+%J.~M.~L. Martin, T.~J. Lee, P.~R. Taylor, and J.-P. Fran\c{c}ois,
+%\newblock J.Chem.Phys. {\bf 103}, 2589 (1995).
+
+\bibitem{Koizumi91}
+H.~Koizumi and G.~C. Schatz,
+A Coupled Channel Study of HN$_2$ Unimolecular Decay Based on a
+Global {\it Ab-initio} Potential Surface,
+\newblock J.Chem.Phys. {\bf 95}, 4130 (1991).
+
+\bibitem{Bentley92}
+J.~A. Bentley, J.~M. Bowman, and B.~Gazdy,
+A Global {\it ab--initio} Potential for HCN/HNC,
+exact vibrational energies, and comparison to experiment,
+\newblock Chem.Phys.Lett. {\bf 198}, 563 (1992).
+
+\bibitem{Bowman75}
+J.~M. Bowman and A.~Kuppermann,
+A Semi-Numerical Approach to the Construction and Fitting of Triatomic 
+Potential Energy Surfaces,
+\newblock Chem.Phys.Lett. {\bf 34}, 523 (1975).
+
+\bibitem{Connor75}
+J.~N.~L. Connor, W.~Jakubetz, and J.~Manz,
+Exact Quantum Transition Probabilities by the State Path Sum Method:
+Collinear F + H$_2$ Reaction,
+\newblock Mol.Phys. {\bf 29}, 347 (1975).
+
+\bibitem{Forsythe77}
+G.~E. Forsythe,
+\newblock {\em Computer methods for mathematical computations},
+\newblock Prentice-Hall, Englewood Cliffs, N.J., 1977.
+
+\bibitem{Malik80}
+D.~J. Malik, J.~Eccles, and D.~Secrest,
+On Quantal Bound State Solutions and Potential Energy Surface Fitting.
+A Comparison of the Finite Element Numerov-Cooley and Finite Difference 
+\newblock J.Comp.Phys. {\bf 38}, 157 (1980).
+
+\bibitem{Sathyamurthy75}
+N.~Sathyamurthy and L.~M. Raff,
+Quasiclassical Trajectory 
+Studies Using 3D Spline Interpolation of {\it Ab--initio} Surfaces,
+\newblock J.Chem.Phys. {\bf 63}, 464 (1975).
+
+\bibitem{Dunne87}
+S.~J. Dunne, D.~J. Searles, and E.~I. {von Nagy-Felsobuki},
+{\it Ab--initio} 
+Model of the Raman Spectrum of Li$_3^+$ : Breathe Mode Frequencies,
+\newblock Spectrochim. Acta {\bf 43A}, 699 (1987).
+
+\bibitem{Bruehl88}
+M.~Bruehl and G.~Schatz,
+Theoretical Studies of Collisional Energy Transfer in Highly-excited 
+Molecules: Temperature and Potential Surface Dependence of Relaxation
+in H$_2$, Ne, Ar + CS$_2$,
+\newblock J.Phys.Chem. {\bf 92}, 7223 (1988).
+
+\bibitem{Murrell84}
+J.~N. Murrell, S.~Carter, 
+S.~C. Farantos, P.~Huxley, and A.~J.~C. Varandas,
+\newblock {\em Molecular Potential Energy Functions},
+\newblock John Wiley, Chichester, 1984.
+
+\bibitem{Sorbie75}
+K.~S. Sorbie and J.~N. Murrell,
+Analytical Potentials for Triatomic Molecules from Spectroscopic Data,
+\newblock Mol.Phys. {\bf 29}, 1387 (1975).
+
+\bibitem{Whitehead76}
+R.~J. Whitehead and N.~C. Handy,
+Variational Calculation of Low--Lying and Excited Vibrational Levels of
+the Water Molecule,
+\newblock J.Mol.Spectr. {\bf 59}, 459 (1976).
+
+
+\bibitem{Carter82}
+S.~Carter, I.~M. Mills, J.~N. Murrell, and A.~J.~C. Varandas,
+Analytical Potentials for Triatomic Molecules IX. The Prediction of 
+Anharmonic Force Constants from Potential Energy Surfaces Based on
+Harmonic Force Fields and Dissociation Energies for SO$_2$ and O$_3$,
+\newblock Mol.Phys. {\bf 45}, 1053 (1982).
+
+\bibitem{Searles93}
+D.~Searles and E.~{von Nagy-Felsobuki},
+\newblock {\em Ab Initio Variational Calculations of Molecular
+Vibrational-Rotational Spectra},
+\newblock Springer-Verlag, Berlin, 1993.
+
+\bibitem{Mezey87}
+P.~G. Mezey,
+\newblock {\em Potential Energy Hypersurfaces},
+\newblock Elsevier, Amsterdam, 1987.
+
+
+
+\bibitem{kozlowski91}
+P. M. Kozlowski and L. Adamowicz, 
+An Effective Method for Generating Nonadiabatic
+Many--Body Wave Functions Using Explicitly Correlated
+Gaussian--Type Functions,
+J. Chem. Phys., {\bf 95}, 6681 (1991).
+
+\bibitem{kozlowski92a}
+P. M. Kozlowski and L. Adamowicz, 
+Multi-Center and Multi-particle Integrals for
+Explicitly Correlated Gaussian-Type Functions,
+J. Comput. Chem., {\bf 13}, 602 (1992).
+
+
+\bibitem{kozlowski92b}
+P. M. Kozlowski and L. Adamowicz, 
+Implementation of Analytical First Derivatives for
+Evaluation of the Many--Body Non-Adiabatic Wave Function
+with Explicitly Correlated Gaussian Functions,
+J. Chem. Phys., {\bf 96}, 9013 (1992).
+
+\bibitem{kozlowski92c}
+P. M. Kozlowski and L. Adamowicz, 
+Newton--Raphson Optimization of the Many Body
+Non-Adiabatic Wave Function Expressed in Terms of Explicitly
+Correlated Gaussian Functions,
+J. Chem. Phys., {\bf 97}, 5063 (1992).
+
+
+%\bibitem{ref:A3}   
+%P.M. Kozlowski and L. Adamowicz, 
+%Phys. Rev. {\bf A 48}, 1903 (1993).
+%
+%
+%\bibitem{ref:A6}   
+%P.M. Kozlowski and L. Adamowicz, 
+%Chem. Rev. {\bf 93}, 2007 (1993).
+%
+%\bibitem{ref:A8}   
+%Z. Zhang, P.M. Kozlowski and L. Adamowicz,
+%J. Comp. Chem.
+%{\bf 15}, 54 (1994).
+%
+%\bibitem{ref:A14}  Z. Zhang and L. Adamowicz, 
+%J. Comp. Chem. {\bf 15}, 893 (1994).
+%
+%
+%\bibitem{ref:A16}  P.M. Kozlowski and L. Adamowicz, 
+%Int. J. Quant. Chem. {\bf 55}, 245 (1995).
+%
+%\bibitem{ref:A20}  
+%P. M. Kozlowski and L. Adamowicz, 
+%Int. J. Quant. Chem. {\bf 55}, 367 (1995).
+%
+%\bibitem{ref:A21}  
+%Z. Zhang and L. Adamowicz, 
+%Int. J. Quantum Chem.  {\bf 54}, 281 (1995).
+%
+%
+%\bibitem{ref:A27}  
+%P. M. Kozlowski and L. Adamowicz, 
+%J. Phys. Chem. {\bf 100}, 6266 (1996).
+%
+%
+%\bibitem{ref:A37}  
+%D.B. Kinghorn and L. Adamowicz, 
+%J. Chem. Phys., accepted for publication.
+%
+%\bibitem{ref:A38}  
+%D. W. Gilmore, P.M. Kozlowski, D.B. Kinghorn and 
+%L. Adamowicz,
+%Int. J. Quantum Chem., accepted for publication.
+%
+%\bibitem{ref:A382}
+%D.B. Kinghorn and L. Adamowicz,
+%J.Chem.Phys., submitted.
+%
+
+\bibitem{kpc}
+D.~B. Kinghorn and L. Adamowicz, we have recently derived
+compact integral algorithms allowing for negative $m_{kij}$ powers
+of $r_{ij}$ in the $\phi_k$ functions; unpublished result.
+
+
+\bibitem{Kinghorn95a}
+D.~B. Kinghorn,
+Implementation of Gradient Formulas for Correlated
+Gaussians: He, $^{\infty}$He, Ps$_2$, $^9$Be, and $^{\infty}$Be
+test results,
+\newblock Int.J.Quantum Chem. {\bf 57}, 141 (1996).
+
+\bibitem{Kinghorn93}
+D.~B. Kinghorn and R.~D. Poshusta,
+Nonadiabatic Variational Calculations on Dipositronium
+Using Explicitly Correlated Gaussian Basis Functions,
+\newblock Phys.Rev. A {\bf 47}, 3671 (1993).
+
+\bibitem{Kinghorn95b}
+D.~B. Kinghorn and R.~D. Poshusta,
+Density Matrices for Correlated Gaussians: Helium and
+Dipositronium,
+\newblock Int.J.Quantum Chem. {\bf 60}, 213 (1996).
+
+\bibitem{Poshusta83}
+R.~D. Poshusta,
+Nonadiabatic Singer Polynomial Wave Functions for 
+Three--Particle Systems,
+\newblock Int.J.Quantum Chem. 
+{\bf 24}, 65 (1983).
+
+
+\bibitem{k15}
+H. A. Bethe and E.E. Salpeter, {\rm Quantum Mechanics of One- and
+Two--Electron Systems}, Academic Press, New York, 1957.
+
+\bibitem{kk}
+W. Kolos, Hydrogen Molecule. Test of Quantum Chemistry,
+Polish J.Chem., {\bf 67}, 553 (1993).
+
+
+
+\bibitem{sz1}
+R. Bukowski, B. Jeziorski, and K. Szalewicz,
+New Effective Strategy of Generating Gaussian-type Geminal
+Basis Sets for Correlation Energy Calculations,
+J.Chem.Phys. {\bf 100}, 1366 (1994);
+R. Bukowski, B. Jeziorski, S. Rybak, and K. Szalewicz,
+Second-order Correlation energy for H$_2$O Using
+Explicitly Correlated Gaussian Geminals,
+J.Chem.Phys. {\bf 102}, 888 (1995);
+R. Bukowski, B. Jeziorski, and K. Szalewicz,
+Basis Set Superposition Problem in Interaction Energy
+Calculations with Explicitly Correlated Bases:
+Saturated Second- and Third-Order Energies for He$_2$,
+J.Chem.Phys. {\bf 104}, 3306 (1996);
+H.L. Williams, T. Korona, R. Bukowski, B. Jeziorski, and K. Szalewicz,
+Helium Dimer Potential from Symmetry-Adapted
+Perturbation Theory,
+Chem.Phys.Lett. {\bf 262}, 431 (1996);
+T. Korona, H.L. Williams, R. Bukowski,
+B. Jeziorski, and K. Szalewicz,
+Helium Dimer Potential from Symmetry Adapted Perturbation Theory
+Calculations Using Large Gaussian Geminal and Orbital Basis Sets,
+J.Chem.Phys. {\bf 106}, 5109 (1997);
+and reference therein.
+
+
+\bibitem{Biedenharn81}
+L.~C. Biedenharn and J.~D. Louck,
+\newblock {\em Angular Momentum in Quantum Physics. Theory and Application},
+\newblock Encyclopedia of Mathematics and Its Applications, Addison-{W}esley,
+Reading, {MA}, 1981.
+
+\bibitem{Varga95}
+K.~Varga and Y.~Suzuki,
+Precise Solution of Few--Body Problems with the
+Stochastic Variational Method on a Correlated Gaussian Basis,
+\newblock Phys.Rev. C {\bf 52}, 2885 (1995).
+
+
+\bibitem{Varga96}
+K.~Varga and Y.~Suzuki,
+Global Vector Representation of the Angular Motion of
+Few--Particle Systems,
+\newblock Phys.Rev. C  (1997),
+\newblock in press.
+
+\bibitem{Kolos65}
+W.~Kolos and L.~Wolniewicz,
+Potential--Energy Curves for the X$^{1} \Sigma _g^+$, 
+b $^{3}\Sigma_u ^+,$
+and C $^{1} \Pi_u$ States of the Hydrogen Molecule,
+\newblock J.Chem.Phys. {\bf 43}, 2429 (1965).
+
+\bibitem{Mathematica}
+Wolfram Research, Inc., 
+100 Trade Center Drive, Champaign, Illinois 61820-7237
+USA,
+\newblock {\em Mathematica}.
+
+\bibitem{Wolniewicz66}
+L.~Wolniewicz,
+Vibrational--Rotational Study of the Electronic Ground State 
+of the Hydrogen Molecule,
+\newblock J.Chem.Phys. {\bf 45}, 515 (1966).
+
+\bibitem{LeRoy68}
+R.~J. Le{R}oy and R.~B. Bernstein,
+Dissociation Energy and Vibrational Terms of Ground State 
+(X$^{1} \Sigma _g ^+$) Hydrogen,
+\newblock  J.Chem.Phys. {\bf 49}, 4312 (1968).
+
+
+
+\bibitem{k29}
+W.C. Stwalley, Chem.Phys.Lett. {\bf 6}, 241 (1970).
+
+\bibitem{k42}
+E.E. Eyler and N. Melikechi, Near-threshold continuum structure
+and the dissociation energies of H$_2$, HD, and D$_2$,
+Phys.Rev. A {\bf 48}, R18-R21, 1993.
+
+\bibitem{k42p}
+J.M. Gilligan and E.E. Eyler,
+Precise determinations of ionization potentials and EF--state
+energy levels of H$_2$, HD and D$_2$,
+Phys.Rev. A {\bf 46}, 3676 (1992).
+
+\bibitem{k52}
+W.L. Glab and J.P. Hessler,
+Multiphoton excitation of high singlet $np$ Rydberg states of
+molecular hydrogen - spectroscopy and dynamics,
+Phys.Rev. A {\bf 35} 2102 (1987).
+
+\bibitem{k53}
+E. McCormack, J.M. Gilligan, C. Cornaggie, and E.E. Eyler,
+Measurment of high Rdberg states and the ionization potential
+of H$_2$,
+Phys.Rev. A {\bf 39}, 2260 (1989).
+
+\bibitem{k57}
+C. Jungen, I. Dabrowski, G. Herzberg, and M. Vervloet,
+The ionization potential of D$_2$,
+J.Mol.Spectr., {\bf 153}, 11 (1992).
+
+\bibitem{k12}
+W. Kolos and J. Rychlewski,
+Improved theoretical dissociation energy and
+ionization potential for the ground state of the
+hydrogen molecule,
+J.Chem.Phys. {\bf 98}, 3960 (1993).
+
+
+\bibitem{k58}
+C.A. Leach and R.E. Moss,
+Spectroscopy and quantum--mechanics of the hydrogen 
+molecular cation - a test of molecular quantum mechanics,
+Annu.Rev.Phys.Chem. {\bf 46}, 55 (1995). 
+
+
+\bibitem{k59}
+R. Bukowski, B. Jeziorski, R. Moszynski, and W. Kolos,
+Bethe logarithm and Lamb shift for the hydrogen molecular 
+ion,
+Intern.J.Quantum Chem. {\bf 42}, 287 (1992).
+
+\bibitem{w1}
+D.M. Bishop and L.M. Cheung,
+Rigorous theoretical investigation of the ground state of H$_2$,
+Phys.Rev. A {\bf 18}, 1846 (1978).
+
+\bibitem{w2}
+L. Wolniewicz,
+Nonadiabatic energies of the ground state of the hydrogen
+molecule,
+J.Chem.Phys. {\bf 103}, 1792 (1995).
+
+
+
+\bibitem{w9}
+P. Quadrelli, D. Dressler, and L. Wolniewicz,
+Weak predissociation of the EF, GK, and H$^1\Sigma^+_g$ states
+of the H$_2$ molecule by non--adiabatic coupling
+with the electronic ground state,
+J.Chem.Phys. {\bf 93}, 4958 (1990).
+
+
+\bibitem{w10}
+S. Yu and K. Dressler, 
+Improved theoretical $^1\Sigma_u^+$ and $^1\Pi_u$ wave functions,
+energies, and transition moments fro the H$_2$, D$_2$, and T$_2$,
+J.Chem.Phys. {\bf 101}, 7692 (1994).
+
+\bibitem{w28}
+E. Reinhold, W. Hogervorst, and W. Ubachs,
+Complete g--u symmetry breaking in highly excited valence states
+of the HD molecule,
+Chem.Phys.Lett. {\bf 296}, 411 (1998).
+
+\bibitem{ww}
+E. Reinhold, W. Hogervorst, W. Ubachs, and L. Wolniewicz,
+Experimental and theoretical investigation of the 
+$H\overline{H}^1\Sigma_g^+$ state in H$_2$, D$_2$, and HD,
+and the $B"\overline{B}^1\Sigma_u^+$ state in HD,
+Phys.Rev. A {\bf 60}, 1258 (1999).
+
+
+\bibitem{ref:k35}
+T. Oka, 
+Observation of the Infrared Spectrum of H$_3^+$, 
+Phys.Rev.Lett. {\bf 45}, 531 (1980).
+
+\bibitem{ref:k36}
+G. D. Carney and R. N. Porter, 
+{\it Ab--Initio} Prediction of the Rotation--Vibration 
+Spectrum of H$_3^+$ and D$_3^+$,
+Phys.Rev.Lett. {\bf 45}, 537 (1980);
+H$_3^+$: Geometry Dependence of Electronic Properties, J.Chem.Phys. 
+J.Chem.Phys. {\bf 60}, 4251 (1974);
+H$_3^+$: {\it Ab--Initio} Calculation of the Vibration Spectrum,
+J.Chem.Phys. {\bf 65}, 3547 (1976).
+
+\bibitem{ref:k41}
+P. Drossart, J.-P. Maillard, J. Caldwell, S. J. Kimm,
+J. K. G. Watson, W. A. Majewski, J. Tennyson, S. Miller, S. K. Atreya,
+J. T. Clarke, J. W. Waite, Jr., and R. Wagener, 
+Detection of H$_3^+$ on Jupiter,
+Nature {\bf 340},
+539 (1989).
+
+\bibitem{ref:k44}
+T. R. Geballe, M.-F. Jagod and T. Oka, 
+Detection of H$_3^+$ Infrared Emission Lines
+in Saturn,
+Astrophys. J. {\bf 408},
+L108 (1993).
+
+\bibitem{ref:k45}
+L. Trafton, T. R. Geballe, S. Miller, J. Tennyson, and
+G. E. Ballester, 
+Detection of H$_3^+$ from Uranus,
+Astrophys. J. {\bf 405}, 761 (1993).
+
+\bibitem{ref:ten2}
+L. Neale, S. Miller, and J. Tennyson, 
+Spectroscopic Properties of the H$_3^+$ molecule:
+a New Calculated Line List,
+Astrophys. J. {\bf 464}, 516
+(1996).
+
+\bibitem{ref:ten3}
+B. M. Dinelli, O. L. Polyansky and J. Tennyson, 
+Spectroscopically Determined Born--Openheimer and
+adiabatic surfaces for 
+H$_3^+$, H$_2$D$^+$, D$_2$H$^+$, and D$_3^+$,
+J.Chem.Phys. {\bf 103},
+10433 (1995).
+
+\bibitem{ref:ten4}
+J. Tennyson, in {\em Physics World}, 
+H$_3^+$: from Chaos to the Cosmos,
+vol.{\bf 8}, p. 33 (1995).
+
+\bibitem{ref:ten5}
+O. L. Polyansky, B. M. Dinelli, C. R. Le Sueur, and J. Tennyson,
+Asymmetric Adiabatic Correction to the Rotation--Vibration levels
+of H$_2$D$^+$ and D$_2$H$^+$,
+J.Chem.Phys. {\bf 102}, 9322 (1995).
+
+\bibitem{ref:ten6}
+J. Tennyson, 
+Spectroscopy of H$_3^+$: Planets, Chaos and the Universe,
+in {\em Reports on Progress in Physics}, {\bf 58},
+421 (1995).
+
+\bibitem{ref:ten7}
+B. M. Dinelli, C. R. Le Sueur, J. Tennyson, and R. D. Amos,
+{\it Ab--initio} Ro--vibrational Levels of H$_3^+$ beyond the
+Born--Oppenheimer Approximation,
+Chem.Phys.Lett. {\bf 232}, 295 (1995).
+
+\bibitem{ref:ten8}
+S. Miller, An Lam. Hoanh, and J. Tennyson,
+What Astronomy Has Learn from Observation of H$_3^+$,
+Can.J.Phys. {\bf 72}, 760 (1994).
+
+\bibitem{ref:ten9}
+J. Tennyson and S. Miller, 
+H$_3^+$: from First Principles to Jupiter,
+Contemp.Phys. {\bf 35}, 105 (1994).
+
+\bibitem{mccall}
+B.J. McCall, T.R. Geballe, K.H. Hinkley and T. Oka,
+Observations of H$_3^+$ in dense molecular clouds,
+Astophys.J. {\bf 522}, 338 (1999).
+
+\bibitem{stark}
+R. Stark, F.F.S. van der Tak, and E.F. van Dishoeck,
+Astrophys.J. {\bf 521}, L67 (1999).
+
+\bibitem{azinovic}
+D. Azinovic, R. Bruckmeister, C. Wunderlich, H. Figger,
+G. Theodorakopoulos, and I.D. Petsalakis,
+Dynamics on the ground--state potential surfaces of H$_3$
+and its isotopomers from their UV spectra,
+Phys.Rev. A {\bf 58}, 1115 (1998).
+
+\bibitem{muller}
+U. Muller and P.C. Cosby,
+Three--body decay of the 3s(2) A(1)' (N=1,K=0) and 3d E-2"
+(N=1,G=0,R=1) Rydberg states of the triatomic hydrogen
+molecule H$_3$,
+Phys.Rev. A {\bf 59}, 3632 (1999).
+
+\bibitem{rob}
+F. Robicheaux,
+Simple asymptotic potential model for finding
+weakly bound negative ions,
+Phys.Rev. {\bf 60}, 1706 (1999).
+
+\bibitem{sarkas}
+H.W. Sarkas, J.H. Hendricks, S.T. Arnold, and K.H. Bowen,
+Photoelectron spectroscopy of lithium hydride anion,
+J.Chem.Phys. {\bf 100}, 1884 (1994).
+
+\bibitem{ref:bern1}
+L. Wallace, P. F. Bernath, W. Livingston, K. Hinkle, J. Busler,
+B. Guo, and K. Zhang, 
+Water on the Sun,
+Science {\bf 268}, 1155 (1995).
+
+\bibitem{ref:ten10}
+F. Allard, P. H. Hauschildt, S. Miller, and J. Tennyson,
+The Influence of H$_2$O Line Blanketing on the Spectra of
+Cool Dwarf Stars,
+Astroph.J.,Lett. {\bf 426}, L39 (1994).
+
+\bibitem{ref:ten11}
+C. D. Paulse and J. Tennyson, 
+An Empirical Potential Energy Surface for Water Accounting for
+States with High Angular Momentum,
+J.Mol.Spectr. {\bf 168}, 313 (1994).
+
+\bibitem{ref:ten12}
+A. E. Lynas--Gray, S. Miller, and J. Tennyson,
+Infrared Transition Intensities for Water: A Comparison of
+{\it Ab--initio} and Fitted Dipole Moment Surfaces,
+J.Mol.Spectr. {\bf 169}, 458 (1995).
+
+\bibitem{ref:ten13}
+J. H. Schryber, S. Miller, and J. Tennyson,
+Computed Infrared Absorption Properties if Hot Water Vapour,
+J.Quantit.Spectr.Radiat.Transf. {\bf 53}, 373 (1995).
+
+
+\bibitem{ref:ten14}
+N. F. Zobov, O. L. Polyansky, C. R. Le Sueur, and J. Tennyson,
+Vibration--Rotation Levels of Water beyond the 
+Born--Oppenheimer Approximation,
+Chem.Phys.Lett. {\bf 260}, 381 (1996).
+
+
+%\bibitem{ref:A1}   
+%N. Oliphant and L. Adamowicz, 
+%Int. Rev. Phys. Chem. {\bf 12}, 339 (1993).
+
+%\bibitem{ref:A4}   
+%P. Piecuch, N. Oliphant and L. Adamowicz, 
+%J. Chem. Phys. {\bf 99}, 1875 (1993).
+%
+%\bibitem{ref:A11}  
+%P. Piecuch and L. Adamowicz, 
+%J. Chem. Phys.
+%{\bf 100(8)}, 1 (1994).
+%
+%\bibitem{ref:A17}  
+%P. Piecuch and L. Adamowicz, 
+%J. Chem. Phys. {\bf 102}, 898 (1995).
+%
+%\bibitem{ref:A22}  
+%K.B. Ghose and L. Adamowicz, 
+%J. Chem. Phys. {\bf 103}, 9324 (1995).
+%
+%\bibitem{ref:A25}  
+%K.B. Ghose, P. Piecuch and L. Adamowicz, 
+%J. Chem. Phys. {\bf 103}, 9331 (1995).
+
+\bibitem{ref:sch1} 
+C. D. Sherrill, G. Vacek, Y. Yamaguchi, H. F. Schaefer, III, 
+J. F. Stanton, and J. Gauss,
+The A$^1_u$ State and the T$_2$ potential surface
+of Acetylene: Implications for Triplet Perturbations in the
+Fluorescence Spectra of teh A State,
+J.Chem.Phys. {\bf 104}, 8507 (1996).
+
+\bibitem{ref:sch2} 
+G. Vacek, J. R. Thomas, B.J. DeLeeuw, Y. Yamaguchi, H. F. Schaefer, III, 
+J. F. Stanton, and J. Gauss,
+Isomerization Reactions of the Lowest Potential
+Energy Hypersurface of Triplet Vinylidene and Triplet Acetylene,
+J.Chem.Phys. {\bf 98}, 4766 (1993).
+
+\bibitem{ref:dup1}
+P. Dupre, P.G. Green, R.W. Field, 
+Quantum Beat Spectroscopic Studies of Zeeman Anticrossing
+in the A$^1_u$ State of the Acetylene Molecule
+(C$_2$H$_2$),
+Chem.Phys. {\bf 198}, 211 (1995). 
+
+\bibitem{klopper}
+W. Klopper, M. Quack, and M.A. Suhm,
+A New {\it Ab--initio} Based Six--Dimensional Semi--Empirical Pair
+Interaction Potential for HF,
+Chem.Phys.Lett. {\bf 261}, 35 (1996).
+
+\bibitem{Chung92}
+Kwong T. Chung and Paul Fullbright,
+Electron Affinity of Lithium,
+Physica Scripta. {\bf 45}, 445 (1992)
+
+\bibitem{beowulfwww}
+see for example; {\tt http://www.beowulf.org}
+
+\bibitem{HPFwww}
+see for example the documentation at the 
+Maui High Performance Computing Center;
+{\tt http://www.mhpcc.edu/doc/hpf/hpf.html},
+and the Portland Group Inc. web site;
+{\tt http://www.pgroup.com}
+
+\bibitem{PVMwww}
+see for example; 
+{\tt http://www.epm.ornl.gov/pvm/pvm$\_$home.html}
+
+\bibitem{Kinghorn99a}
+D.~B. Kinghorn and L.~Adamowicz,
+A Correlated Basis Set for Nonadiabatic Energy Calculations
+on Diatomic Systems,
+J. Chem. Phys. {\bf 110}, 7166 (1999).
+
+
+\end{thebibliography}
+
+\end{document}
+
+

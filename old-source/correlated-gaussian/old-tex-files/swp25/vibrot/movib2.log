@@ -1,0 +1,145 @@
+This is TeX, Version 3.1415 (preloaded format=latex 95.10.5)  18 FEB 1997 19:27
+**&latex swp0000.tex
+(
+LaTeX2e <1995/06/01>
+Hyphenation patterns for english, ukenglish, catalan, danish, spanish, french, 
+german, italian, latin, dutch, polish, portuguese, loaded.
+(
+Document Class: article 1995/06/26 v1.3g Standard LaTeX document class
+(
+File: size12.clo 1995/06/19 v1.3e Standard LaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (
+Package: amsfonts 1995/02/01 v2.2b
+\@emptytoks=\toks15
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 128.
+) (
+TCI Document Style `sw20aip' <1 July 1994>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+(
+Document Substyle 'AIP'. Released 17 January 1989
+\@tempcntc=\count90
+) (
+TCI Theorem Support for Scientific Word <1 July 1994>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+(
+\c@theorem=\count91
+\c@axiom=\count92
+\c@remark=\count93
+\c@exercise=\count94
+))) () (
+TCILATEX Macros for Scientific Word 2.5 <04 SEP 96>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+\@hour=\count95
+\@minute=\count96
+\GRAPHICSTYPE=\count97
+\draft=\count98
+\dispkind=\count99
+\c@chapter=\count100
+\theight=\dimen103
+LaTeX Info: Redefining \rm on input line 588.
+LaTeX Info: Redefining \sf on input line 589.
+LaTeX Info: Redefining \tt on input line 590.
+LaTeX Info: Redefining \bf on input line 591.
+LaTeX Info: Redefining \it on input line 592.
+LaTeX Info: Redefining \sl on input line 593.
+LaTeX Info: Redefining \sc on input line 594.
+(
+Package: latexsym 1995/03/18 v2.2a Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 81.
+)
+\c@equationnumber=\count101
+\intno@=\count102
+\ex@=\dimen104
+) ()
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 24.
+ (
+File: Umsa.fd 1995/01/05 v2.2e AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 24.
+ (
+File: Umsb.fd 1995/01/05 v2.2e AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 24.
+ (
+File: Ulasy.fd 1995/03/18 v2.2aLaTeX symbol font definitions
+)
+Overfull \hbox (13.84502pt too wide) in paragraph at lines 24--24
+ [][] 
+ []
+
+[1
+
+] [2] [3
+
+] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+
+Package amsfonts Warning: Obsolete command \Bbb; \mathbb should be used instead
+ on input line 473.
+
+[18]
+Overfull \hbox (1.53223pt too wide) in alignment at lines 496--505
+ [][][] []
+ []
+
+[19] [20] [21] [22] [23] [24] [25]
+Overfull \hbox (5.62012pt too wide) detected at line 677
+\OMS/cmsy/m/n/12 Y[] [] \OT1/cmr/m/n/12 = [][] [] []\OML/cmm/m/it/12 :
+ []
+
+[26] [27] [28] [29] [30] [31] [32] [33] [34]
+Overfull \hbox (58.74384pt too wide) in paragraph at lines 899--918
+\T1/cmr/m/n/12 prod-ucts of dis-tance co-or-di-nates raised to vari-able pow-er
+s, $[][] \OML/cmm/m/it/12 r[] [] []$\T1/cmr/m/n/12 .
+ []
+
+[35] [36] ( [37] [38
+
+] [39]
+Underfull \hbox (badness 2512) in paragraph at lines 83--85
+[][]\T1/cmr/m/n/12 G. E. Forsythe, \T1/cmr/m/it/12 Com-puter meth-ods for math-
+e-mat-i-cal com-pu-ta-tions
+ []
+
+[40] [41] [42]) [43] () )
+Here is how much of TeX's memory you used:
+859 strings out of 10823
+8063 string characters out of 72203
+58763 words of memory out of 262141
+3748 multiletter control sequences out of 10000
+18169 words of font info for 64 fonts, out of 100000 for 255
+94 hyphenation exceptions out of 607
+25i,13n,22p,303b,237s stack positions out of 300i,40n,60p,4096b,4000s
+
+Output written on  (43 pages, 79924 bytes).

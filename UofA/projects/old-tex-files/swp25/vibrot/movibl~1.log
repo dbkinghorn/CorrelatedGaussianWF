@@ -1,0 +1,120 @@
+This is TeX, Version 3.1415 (preloaded format=latex 95.10.5)  19 FEB 1997 21:50
+**&latex movibltr2.tex
+(
+LaTeX2e <1995/06/01>
+Hyphenation patterns for english, ukenglish, catalan, danish, spanish, french, 
+german, italian, latin, dutch, polish, portuguese, loaded.
+(
+Document Class: article 1995/06/26 v1.3g Standard LaTeX document class
+(
+File: size12.clo 1995/06/19 v1.3e Standard LaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (
+TCI Document Style `lettopti' <2 June 94>.
+(
+TCILCOMM Macros for TCI styles <16 Dec 93>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+\@temptokenb=\toks15
+\raggedglue=\skip43
+\trimwidth=\dimen103
+\trimheight=\dimen104
+\botmargin=\dimen105
+\marginpartotal=\dimen106
+)
+\longindentation=\dimen107
+\indentedwidth=\dimen108
+\labelcount=\count90
+\raggedglue=\skip44
+\trimwidth=\dimen109
+\trimheight=\dimen110
+\botmargin=\dimen111
+\marginpartotal=\dimen112
+) (
+TCI Document Style `sw20let1' <1 July 1994>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+) (
+TCILATEX Macros for Scientific Word 2.5 <04 SEP 96>.
+NOTICE: This macro file is NOT proprietary and may be freely copied and distrib
+uted.
+\@hour=\count91
+\@minute=\count92
+\GRAPHICSTYPE=\count93
+\draft=\count94
+\dispkind=\count95
+\c@chapter=\count96
+\theight=\dimen113
+LaTeX Info: Redefining \rm on input line 588.
+LaTeX Info: Redefining \sf on input line 589.
+LaTeX Info: Redefining \tt on input line 590.
+LaTeX Info: Redefining \bf on input line 591.
+LaTeX Info: Redefining \it on input line 592.
+LaTeX Info: Redefining \sl on input line 593.
+LaTeX Info: Redefining \sc on input line 594.
+(
+Package: latexsym 1995/03/18 v2.2a Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 81.
+)
+\c@theorem=\count97
+\c@axiom=\count98
+\c@remark=\count99
+\c@example=\count100
+\c@exercise=\count101
+\c@definition=\count102
+\c@equationnumber=\count103
+\intno@=\count104
+\ex@=\dimen114
+)
+No file movibltr2.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 89.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 89.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 89.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 89.
+(
+File: Ulasy.fd 1995/03/18 v2.2aLaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 89.
+ (
+File: T1cmtt.fd 1995/04/22 v2.3f Standard LaTeX font definitions
+) [1
+
+] () )
+Here is how much of TeX's memory you used:
+770 strings out of 10823
+7601 string characters out of 72203
+55181 words of memory out of 262141
+3698 multiletter control sequences out of 10000
+8052 words of font info for 29 fonts, out of 100000 for 255
+94 hyphenation exceptions out of 607
+22i,6n,21p,180b,199s stack positions out of 300i,40n,60p,4096b,4000s
+
+Output written on  (1 page, 2328 bytes).

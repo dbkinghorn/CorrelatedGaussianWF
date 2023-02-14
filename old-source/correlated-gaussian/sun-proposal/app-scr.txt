@@ -1,0 +1,24 @@
+High Performance Computational Chemistry with Clusters of SMP Nodes: Protein/Nucleic Acid Interactions
+
+Our collaborators on this project are:
+Prof. G. Maes' matrix--isolation IR group at
+the Chemistry Department, University of Leuven, Belgium,
+Prof. Schermann's Rydberg electron transfer and mass spectroscopy
+group at the
+Laser Laboratory, the University of Northern Paris, France,
+the computational
+chemistry group of Prof. Duran--Portas at the University 
+of Girona, Spain, and the matrix--isolation IR spectroscopy
+group at the Prof. R. Fausto, Department of Chemistry,
+University of Coimbra, Portugal
+
+Our in-house quantum chemistry codes (Parallel Multi-Reference Coupled Cluster)
+
+
+[1]New methods for predicting properties of and structure of large biological molecules. [2]Demonstration of the use of clusters of SMP/MPP nodes for high performance computational chemistry.
+
+Through the departments Computer Graphics Facility "CGF"
+
+For detials of the scientific aspects of this proposal please see,
+http://www.chem.arizona.edu/theochem/protein_prop/index.html
+Summary:

@@ -1,0 +1,338 @@
+
+
+Linux Magazin
+http://www.linux-magazin.de/
+http://www.linux-magazin.de/ausgabe.1999.01/Quantenchemie/quantenchemie.html
+          
+Quantenchemie auf einem Linux-Cluster
+
+ Der Struktur von Molekülen auf der
+ Spur 
+
+ von Andreas Blücher, Horst Weiß, Uwe Huniar und
+ Susanne Steiger 
+
+ Here's a halfway decent translation (Score:1)
+           by Johnboy on Monday January 25, @01:32AM 
+           (User Info) 
+           If you feel it necessary to thanks me, send porn to strangefocus@yahoo.com 
+
+           Comments in brackets are my own. Also indicates stuff that can't be typed. Bear with me, my
+           good dictionary is packed somewhere, and I had to sleep sometime. 
+
+           --Inexpensive yet high performance Linux clusters are becoming more important for solving
+           complicated problems.-- 
+
+
+This article presents a system which is used at the BASF in Ludwigshafen for
+           quantum-chemical computations. 
+
+           The BASF is an enterprise of the chemical industry operating world-wide. At the
+           Ludwigshafen location approx. 45,000 coworkers are employed. The department of ZKM is
+           again the authority center for physical questions around chemistry within the BASF. Here
+           two teams are occupied with Molecular Modeling, ours concetrates on quantum chemistry.
+           How a Linux cluster with 10 computers supports us with the daily work, is the topic of this
+           article. 
+
+           QUANTUM CHEMISTRY 
+
+           The quantum chemistry is the branch of chemistry (or physics), which calculates chemical
+           problems with the help of quantum-mechanical models. Unfortunately Dirac, one of the
+           founders of quantum mechanics, said the following quote about these quantum-mechanical
+           methods, namely procedures for the solution of the Schroedinger equation. Even after the
+           invention of the computer chemically relevant problems can be solve only with an enormous
+           cost of computation. With these equations today even the fastest computers can be kept busy
+           for an arbitrarily long time. 
+
+
+           The fundamental physical laws for the mathematical theory of a majority of physics and
+           entire chemistry are well-known. The only problem is that the accurate application of these
+           laws leads to equations, which are much too difficult to solve. 
+
+           P.A.M. Dirac, Proc. Roy. Soc. 123, 714 (1929) 
+
+           There is an abundance of different quantum-chemical algorithms, which by physical models
+           and mathematical tricks, reduce the problem so much, that it can be solved in a reasonable
+           time. These procedures (and naturally the computers) have developed in the meanwhile so
+           far that also chemical problems interesting to industry can be attacked. Routine today are
+           off-initio [???] and density functional calculations with molecules of up to 100 atoms, or a
+           few more. With 200 atoms it becomes then really very complex. With normal algorithms the
+           compute time increases with N^2 to N^3; very complex (and thus very exact) algorithms
+           scale to N^8. N here stands for the size of the system, basically the number of atoms for the
+           description of the molecule. 
+
+           Chemical applications are examples of reaction mechanisms. Here the quantum chemistry
+           helps to simulate the reaction of 2 or more molecules. One receives as the result the
+           structures and energies from the output products, from unstable intermediate stages up to the
+           final products. 
+
+           The following figures show a step of a polymerization reaction with a metallocen [?] catalyst.
+           In fig. 1a the polymer chain and the propylene which can be inserted are still far separated
+           from each other. Abb. 1b shows the activated complex, also called transient condition, of this
+           reaction. Here the developing linkage between the propylene and the polymer chain is already
+           suggested. The function of the catalyst is to lower the energy of the activated complex to
+           provide for the correct installation. In fig. 1c one recognizes the polymer chain grown by the
+           addition of the propylene molecule. This chain is now ready for the installation of the next
+           propylene molecule. Density functional calculations show that with the installation of the
+           propylene an energy of approx. 93 kJ/mol gets released . 
+
+           [ Fig. 1a] 
+
+           [ Fig. 1b: activated complex] 
+
+           [Fig. 1c: Product] 
+
+           In this way quantum chemiistry helps to designen catalysts. The inexpensive simulations
+           make it possible to measure the success of a catalyst before synthesis. The Linux cluster's
+           purpose is to make computing time available for calculations of this type. 
+
+           Request [demand?] in industrial practice [application?]. 
+
+           The goal was too get as much arithmetic performance as possible for the investment
+           framework intended. 20 Pentium Pro CPUs or 3-4 R10000 PCUs (195 MHz) for our own
+           workhorse, an SGI PowerChallenge, cost about the same at the beginning of of 1997. From
+           the point of view of floating point performance it was clear: in this environment
+           (PowerChallenge) a R10000 CCU achieves a SPECfp95 of approximately 12, a Pentium Pro
+           PC about 5.5 -6. This factor of 2 in the performance (in practice with us in the last 1.5 years
+           actually) faces a cost factor of at least 5. At present PC's are unbeatable in this regard
+           (SPECfp95-Cost-Ratio). Three points had to be however still considered: 
+
+                the administrative expenditure could be appropriate not substantially over that for a
+                solution with expensive hardware, because the personnel expenditure eats the purchase
+                price soon up 
+                the computing time must be available at any time 
+                the necessary quantum-chemical software must be available; in particular parallel
+                software is very desirable 
+
+           The last point is naturally particularly critical. Software for assembling, visualizing and
+           measuring molecules is not commercially available for Linux, but the actual code mostly
+           originates from university working groups and are easily portable, lacking a graphical user
+           interface. For the complex density functional and off-initial [?] calculations we use the
+           quantum chemistry package TURBOMOLE that is being specially developed by a team
+           headed by Prof. R. Ahlrichs at the University of Karlsruhe for workstations. It was there that
+           the first linux port of TURBOMOLE was undertaken. Linux as an operating system is well
+           suited because TURBOMOLE was developed on UNIX, and because Linux is the standard
+           UNIX derivative for PC architectures. V A real treat was the possibility of true parallel
+           computation on this hardware. Prof. Ahlrichs and his team are to be thanked for this, since in
+           recent years they have developed an MPI (see below) version of TURBOMOLE. 
+
+           Why compute with Linux? 
+
+           In our case, there were only two choices of operating systems for PC's: NT and Linux. Linux
+           was right for us because our software was ported to Linux. But there are other advantages: 
+
+                Linux is an open system with a large, free software pool.
+                A Linux computer can be easily integrated in an existing UNIX environment. There are
+                no difficulties with mounting discs, exporting displays, Yellow-Pages, and other
+                network services.
+                We have grown large in a UNIX environment and feel good with Linux, because
+                everything is the way we're use to, and there are mouse buffers [?] and korn shells. :-)
+                Our computations often last several days, sometimes over the weekend. If a computer
+                crashes during that time, compute time is wasted. Therefore we place great importance
+                on the stability of an operating system. Linux has not dissapointed us in this respect.
+                Uptimes of well over 100 days are no exception.
+                The availability of MPI is essential for true parallel computing. There exists with
+                ***mpich a partable version for all UNIX platforms. The same source code generates
+                librairies for Linux and IRIX64 used by us.
+                For almost all problems with the operating system there is a wealth of documentation
+                on the internet.
+
+
+           All points taken together made the decision to use Linux easy. 
+
+           HARDWARE 
+
+           Our cluster consists of 10 PC's, each with the following configuration (see figure 3): 
+
+                Dual PPro 200MHz w/ 256kB cache each 
+                256MG RAM 
+                Adaptec 2940 PCI SCSI II cont. 
+                4.3GB SCSI HD 
+                2MB PCI Graphic Cards 
+                3c-905 TX PCI Network Cards (Fast Ethernet) 
+                floppy [yes!!!] 
+
+                All PC's are joined to a Polycon Console [tm?], so that only one monitor with keyboard
+                and mouse is at hand. At the console you enter which computer is to be bound with the
+                in/output devices. This saves space and most importantly reduces heat generation,
+                which is alreay noticeable with 10 PC's! Each node has a power consumption of 200W.
+                This gets turned into heat sooner or later. That's 2kW of heat. That corresponds to an
+                average heater. Smaller rooms are substantially warmed up by that. Besides that there is
+                significant racket. Since we had to raise the voltage of our cooling fans from 6 to 12
+                volts because they often stay running 24 hous a day, the noise got even worse. So the
+                cluster is best kept in a separate room with airconditioning...[geeze, enough of the
+                thermodynamics lesson] 
+
+                You can tell if a fan's gone dead, even with the case closed, because the system hangs
+                within 2-3 minutes after boot-up. That isn't even enough for a filesystem check. ;-)
+                The fans aren't the only parts that die in the service of raw number crunching. We had
+                to replace 3 of the ten network parts after 1 year. The memory modules are often
+                defective. These seem to grow old. With the SGI's we only knew the principle "Run
+                once, run always". On the other hand, on the PC's a module fails about every 2 months.
+                What happens often is the modules pass the memory test at boot-up, and then fail at
+                some point. The more often the defect occurs, the shorter the time to the next crash.
+                [now that's using your noodle] 
+
+                It's a good idea to put your money into high quality components and/or a hardware
+                support contract with the vendor. The computers are networked to a 3com Hub (Super
+                Stack II, Hub 100 TX) with 100Mb/s fast ethernet. The PCI-SCI and Myrinet cards
+                were too experimental and expensive for us. 2000-3000 DM {US$1300-2000] per
+                computer including MPI is what you have to pay for that even today. That gets you very
+                small latencies, because you bypass the TCP/IP stack, and of course high bandwidth. The
+                improvement of the speedups wouldn't have made such an investment worthwhile,
+                though! One of the PC's represents the connection the the LAN [I think]. It is
+                configured as a gateway. To reduce the network load, data for calculations is stored on
+                local discs. 
+
+                SOFTWARE 
+
+                Before we could install our quantum chemistry software TURBOMOLE, we had to first
+                install 10 Linuxes [Linuces? ;) ]. We installed S.u.S.E. Linux 4.4 w/kernel 2.0.25. At that
+                time there weren't any network installations, but we were able to connect the Adaptec
+                controller to an external CD-ROM drive. For parallel jobs under mpich an
+                unreproducible runtime error came up from time to time, which was fixed after
+                upgrading to developmental kernal 2.1.110. The parallel jobs have been running on all
+                CPU's error-free ever since. The developmental kernals are also supposed to have
+                better integrated SMP support. Because of SMP (symmetric multiprocessing) you have
+                to comment out the "SMP=1" in the make file. Then both CPU's can work. After the
+                first 'top' we determined that unfortunately only 64 out of 256MB of RAM were
+                recognized. The solution: add the following line to the lilo configuration file:
+                append="mem=256M". 
+
+                The network was configured with help of the numerous HOWTO's and the energetic
+                support of a UNIX guru. After about a week the cluster was configured with TCP/IP,
+                NFS, and YP. Sole user is Eddy, the knight of computing [what the hell?]. To
+                synchronize the computers we used xntpd. Nine PC's get the time from the 10th PC (the
+                gateway), which is connected via 10Mb network card to the LAN. This gets the time
+                from the BASF intranet. After the OS infrastruktur was ready, we were able to compile
+                the TURBOMOLE package. This software is written in Fortran 77. Only system calls
+                like dynamic memory allocation were developed using C. To compile the Fortran parts
+                we acquired the commercial Fortran compiler of the Portland Group (PGHPF: Portland
+                Group High Performance Fortran Compiler. The binaries of this compiler are faster by
+                a factor of 1.4 than the those of g77. For the queuing system to divide the jobs we used
+                DQS. 
+
+                DQS
+
+                The Distributed Queuing System of the Supercomputing research institute of Florida is
+                a programm package that generates a waiting list for jobs. If the load of one of the
+                computers is smaller then a given value, then a job gets allocated to it. DQS recognizes
+                free resources to all connected nodes. There's a client on all these that constantly passes
+                info about the system state to the server. The server can at any time give out status
+                information to the clients. The communication ensues over 3 ports defined in
+                /etc/services: Service Port dqs313_qmaster 1612/tcp dqs313_dqs_execd 1613/tcp
+                dqs313_dqs_intercell 1614/tcp The queuing system relives the burden of the ten nodes
+                and there 20 CPU's. For example, in a computation of molecular vibration in a 100
+                atom system 1200 individual jobs are produced, which are stuffed in the queuing system
+                by a Perl script. Wenn the calculations are finished, the results are gathered by the Perl
+                script and the frequencies are computed in harmonic convergence. This is how you can
+                find infrared spectra, for example. DQS has proved its worth to us. It seves not only to
+                divide the work, it's also a system for watching over the nodes. 
+
+                MPICH
+
+                TURBOMOLE is parallelized. In order to allow parallelization on many platforms, MPI
+                was used. MPI is a standard interface for data exchange between processes. We use
+                mpich, an implementation of the MPI specification usable on many systems. Mpich
+                supports not only clusters, but also "shared memory architectures" as well. with mpich
+                it's even possible for processes on different computers and OS's to exchange data with
+                one another. Mpich is a librairy (C & Fortran), whose algorithms enable development
+                of parallel programs. It's available for free [beer] on the internet. With mpich any WAN
+                [?] can be turned into a cluster. Of course, mpich must be fitted to the hardware, that
+                means installation and configuration. After unpacking it, you call the 'configure script'
+                to configure it: [duh!] configure -arch=LINUX -device=ch_p4 When the configuring
+                has sucessfuly completed, you can simply proceed with make As a rule there are no
+                problems here. If you have parallelizing programms (with mpi) all you have to do yet is
+                link the librairies to it 
+                ~mpich/lib/LINUX/ch_p4
+                and do the initial tests. If you don't have applications, you can test mpich with the
+                provided examples.
+                ~mpich/examples/basic)
+                For example, cpi calculates pi in parallel. Before starting the program you must register
+                the appropriate nodes in the local directory 'machines', otherwise the default directory
+                ~mpich/util/machines/machines.LINUX
+                gets read. That way even single computers can be named several times. The number of
+                multiple designations correponds to the number of processes that launch on that node.
+                A good documentation of mpich comes with the package. A program parallelized with
+                mpi, like cpi, is called as follows: 
+
+                mpirun -np 6 -machinefine ./machines cpi 
+
+                The number after 'np' corresponds to the number of processes that get started. The
+                output should give info on the node used as well as the number pi. The following list
+                might help any problems: 
+                    On all computers it has to be possible to an rsh zu start without giving a password.
+                    /etc/hosts.equiv
+                    The computrs have to be pingable 
+                    Maybe the mpirun script doesn't work with /bin/sh. Try an older version of bash. 
+                    documentation: ~mpich/docu/user_guide.ps ~mpich/docu/installation.ps 
+
+                    The test and example programs provided with the package serve as a good basis rot
+                    your own first experiments with parallel programming. PERFORMANCE 
+
+                    In hindsight, the Linux PC's did not disappoint on the computations. In direct
+                    comparison with the compute times of our PowerChallenge shows that these are
+                    about twice as fast. The following table contains compute times and speedups for
+                    an energy computation of a molecule with 122 atoms, broken off after 5 iterations.
+                    These calculations were carried out with different numbers of CPU's. [table] The
+                    speedups of the PowerChallenge are somewhat similar to those of the cluster. The
+                    losses in the speedup arise from serial steps. Such a serial step is for example the
+                    preparation of parallel calculation and the diagonalization of a matrix with N^2
+                    elements. Both parts here need about 2000 seconds. The diagonalization for hard
+                    to parallelize N^3 steps is presently the bottleneck. The throughput of mpich can
+                    be measured with the program mpptest. The program varies the size of the packets
+                    to be transferred and measures the times that these need. Figure 3 shows the
+                    result. The vertical axis represents the latency. We arrive at a figure of 0.3 ms. The
+                    bandwidth reads 50Mb/s. Hank Dietz shows in #5 a minimal latency of 0.08 ms
+                    and a maximum bandwidth of 100Mb/s for fast ethernet. The measured values
+                    shouldn't disturb you, because TURBOMOLE is not a bandwidth-hungry
+                    application. 
+
+                    Several programs need considerably higher bandwidth and smaller latencies. The
+                    only thing to do in this case is get different hardware. For so called "plan wave
+                    codes" for solid state physics computations there are presently no alternatives to
+                    Cray-class supercomputers or similarly robust shared memory boxen from DEC,
+                    HP, IBM, SGI, and SUN (ordered alphabetically, not by merit) [funny how alpha
+                    came first, though]. PC's with Myrinet cards have latencies of 0.004 ms and
+                    bahdwidths of 1009Mb/s and might be an alternative to supercomputers after the
+                    conclusion of the experimental phase. 
+
+                    When parallelizing programs, note that the time needed to carry out a parallel
+                    code segment is noticeably less than the latency. If large quantities of data are
+                    transferred, then the time for that likewise needs to be taken into consideration.
+
+
+Performance-Vergleich 
+ Anzahl der CPUS
+                  Rechenzeit [s] 
+                  PentiumPro
+                  200MHz
+                                    Speedup 
+                                                     Rechenzeit [s] 
+                                                     R10000 195 MHz
+                                                                       Speedup
+ 1
+                  20796
+                                    1
+                                                     10424
+                                                                       1
+ 2
+                  12528
+                                    1.7
+                                                     -
+                                                                       -
+ 3
+                  -
+                                    -
+                                                     4013
+                                                                       2.6
+ 4
+                  7096
+                                    2.93
+                                                     -
+                                                                       -
+ 6
+                  5675
+                                    3.7
+                                                     2676
+                                                                       3.9

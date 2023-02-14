@@ -1,0 +1,174 @@
+<html>
+<!-- **********************************************-->
+<!-- Donald B. Kinghorn                            -->
+<!-- University of Arizona                         -->
+<!-- Theoretical and Computational Chemistry Group -->
+<!-- Tucson AZ                                     -->
+<!-- **********************************************-->
+<head>
+<title>Beowulf Clusters for Chemists</title>
+<META name="keywords" content="Beowulf, Chemistry">
+</head>
+<body bgcolor="ghostwhite" text="black" link="blue" vlink="blue" background="">
+
+<!-- empty table just to add some color to the top of page -->
+<table width=100% border=0 cellspacing=0 cellpadding=0>
+<tr><td bgcolor=darkred>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td></tr>
+</table>
+
+<!-- main content table 1 row 4 column -->
+<table width=100% border=0 cellspacing=0 cellpadding=4 valign=top>
+<tr>
+
+<!-- empty column to add a left border color --> 
+<td bgcolor=darkred>&nbsp;&nbsp;&nbsp;</td>
+
+<!-- start navigation bar -->
+<td align=center bgcolor=lightsteelblue valign=top>
+<hr size=4 width=85% noshade align=center>
+<a href="http://www.arizona.edu">
+<font size=2 color=maroon>The University of Arizona<br></font>
+</a>
+<a href="../index.html">
+<font size=2 color=blue>Theoretical and Computational Chemistry Group</font>
+</a>
+<br>
+
+<hr size=4 width=85% noshade align=center>
+<a href=index.html><font size=2>Home</font></a>
+<br><br>
+<a href=whatis.html><font size=2>What is a Beowulf Cluster</font></a>
+<br><br>
+<a href=howtobuild.html><font size=2>How To Build it</font></a>
+<br><br>
+<a href=howtouse.html><font size=2>How To Use it</font></a>
+<br><br>
+<a href=chemsites.html><font size=2>What Chemists are doing with their Clusters</font></a>
+<br><br>
+<hr size=4 width=85% noshade align=center>
+<a href=feedback><font size=2>Feedback Form</font></a>
+<hr size=4 width=85% noshade align=center>
+</td>
+<!-- end navigation bar -->
+
+<!-- empty column to add some space -->
+<td>&nbsp;&nbsp;&nbsp;</td> 
+
+<!-- ***************** -->
+<!-- Main content area -->
+<!-- ***************** -->
+<td width="80%" valign=top>
+<p>
+<h2 align=center>
+What is a Beowulf
+</h1>
+<p>
+<b>Here's one of many possible definitions:</b><br>
+<hr>
+<blockquote>
+A Beowulf system is a collection of personal computers constructed from 
+commodity-off-the-shelf hardware components interconnected with a system-area-network
+and configured to operate as a single unit, parallel computing platform, using 
+an open-source network operating system. 
+</blockquote>
+<hr>
+<p>
+A Beowulf is dedicated parallel cluster as opposed to a Network of Workstations (NOW)
+or Cluster of Workstations (COW). A Beowulf is more like a Pile Of PC's (POP)
+<p>
+The driving design philosophy of a Beowulf system is to achieve 
+the best possible price/performance ratio for a given computing problem.
+For many problems it's possible to achieve an order of magnitude improvement
+in price/performance compared with "conventional" parallel supercomputer
+designs.
+<p>
+Currently the two <b>most common system designs</b> are;
+<ul>
+<li>Intel PII/III based PC's with switched fast ethernet running Linux</li>
+<li>High performance Alpha processor based PC's with 
+<a href="http://www.myri.com/">Myrinet</a>
+(a high speed low latency network system) running Linux</li>
+</ul>
+The Intel+fast ethernet systems are very popular and offer good performance
+for problems that have a high calculation/communication ratio (coarse grained). 
+The Alpha + Myrinet based systems offer excellent performance competing 
+head on with conventional ($expensive$) supercomputers. In fact 
+<a href="http://www.hpti.com/Clusterweb/">HIGH PERFORMANCE TECHNOLOGIES, INC.</a>
+was recently awarded a contract to build an Alpha + Myrinet Beowulf supercomputer
+for NOAA's 
+<a href="http://www.fsl.noaa.gov/">Forecast Systems Laboratory</a> (FSL) that is expected to eventually perform
+four TeraFLOPS (four trillion arithmetic computations per second). 
+See the <a href="http://www.hpti.com/">press release</a>.   
+It's highly significant that they won this contract based on demonstrated 
+performance while competing with the "heavy iron" supercomputer vendors. 
+<p>
+There are numerous <b>other possibilities</b>. Almost any hardware can be used, there is
+even talk about using Sony-PlayStation2's running Linux to build Beowulfs! The new
+<a href="http://www.amd.com">AMD Athlon</a> and soon to be released 
+<a href="http://www.intel.com>Intel Merced</a>  offer other high performance
+posibilites. Other networking technology such as ATM and GigaBit ethernet
+can be used. Most anything is fair game. However, the most common, and thus
+the most well understood, systems are Intel or Alpha + fast ethernet or Myrinet. 
+<p>
+For the <b>network operating system</b> Linux is by far the most popular for Beowulfs and 
+it's largely the combination of the free availability of the Linux source code
+coupled with low cost high performance PC components that has spawned the Beowulf
+movement. 
+<a href="http://www.freebsd.org">FreeBSD</a>
+ would also a good choice. Also, people have used commercial operating
+systems such as Sun Solaris and Microsoft Windows NT. However, the strongest support
+and most rapid development is happening in the Linux community. Any 
+<a href="http://www.Linuxberg.com/distribution.html">Linux distribution</a> can 
+be used, the most popular are
+<a href="http://www.redhat.com"> RedHat</a>, 
+<a href="http://www.debian.org/">Debian</a> and 
+<a href="http://www.SuSE.com/">SuSE</a>, with RedHat being the most
+popular. [I use 
+<a href="http://www.linux-mandrake.com/">Mandrake</a>
+ which is based on RedHat but optimized for Pentium systems
+and updated more frequently]   
+<p>  
+Some good links to find more information are:
+<ul>
+<li><a href="http://www.beowulf.org">The original Beowulf web site at NASA</a>
+Among the many things you will find here are information about joining the
+Beowulf mailing list, 
+<a href="http://www.dnaco.net/~kragen/beowulf-faq.txt">The mailing list FAQ</a>, 
+<a href="http://www.beowulf.org/listarchives/beowulf/">and the list archives</a></li>
+<li>There is a useful book with lots of good information titled,
+<a href="http://mitpress.mit.edu/book-home.tcl?isbn=026269218X">
+<i>How to Build a Beowulf,
+A Guide to the Implementation and Application of PC Clusters</i></a></li>
+<li>The
+<a href="http://www.beowulf-underground.org/doc_project/index.html">
+Beowulf Documentation Project</a> at
+<a href="http://www.beowulf-underground.org/index.html"> The Beowulf Underground</a></li>
+</ul> 
+Now that you have some idea of what a Beowulf is you may want to find out about ...
+<ul>
+<li><a href=howtobuild.html>How To Build it</a></li>
+<li><a href=howtouse.html>How To Use it</a></li>
+<li><a href=chemsites.html>What Chemists are doing with their Clusters</a></li>
+</ul>
+</td>
+<!-- ************************ -->
+<!-- end of main content area -->
+<!-- ************************ -->
+
+<!-- empty column to add some space -->
+<td>&nbsp;&nbsp;&nbsp;</td> 
+
+</tr>
+</table>
+
+
+<HR ALIGN="CENTER">
+<FONT SIZE="1">Last update: Sept. 24, 1999 </FONT>
+<A HREF="mailto:kinghorn@u.arizona.edu">
+<FONT SIZE="1">Donald B. Kinghorn 
+<IMG SRC="images/mailto.gif" WIDTH="14" HEIGHT="10" ALIGN="BOTTOM "BORDER="0"ALIGN="absmiddle">
+</FONT></A>
+
+
+</body>
+</html>

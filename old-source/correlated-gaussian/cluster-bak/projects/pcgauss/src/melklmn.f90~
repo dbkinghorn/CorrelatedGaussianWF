@@ -1,0 +1,528 @@
+SUBROUTINE      melklmn(n,vechLk,vechLl,Sym,Skl,Tkl,Vkl, &
+                        dSk,dSl,dTk,dTl,dVk,dVl)
+
+  USE constants
+  USE globalvars, ONLY : MASS, CHARGE
+  IMPLICIT NONE
+  !Arguments
+  INTEGER, INTENT(in)                              :: n
+  REAL(HIGH), INTENT(in), DIMENSION(n*(n+1)/2)     :: vechLk, vechLl
+  REAL(HIGH), INTENT(in), DIMENSION(n,n)           :: Sym
+  REAL(HIGH), INTENT(out)                          :: Skl, Tkl, Vkl
+  real(HIGH), intent(out), dimension(n*(n+1)/2)    :: dSk,dSl,dTk, &
+                                                      dTl,dVk,dVl
+  !
+  !***************************
+  ! Donald B. Kinghorn
+  ! University of Arizona
+  ! Wed Aug 12 15:02:07 MST 1998
+  !
+  !***Last Modified Date***
+  ! 
+  !***************************
+  !=======
+  !Purpose
+  !=======
+  ! This subroutine computes symmerty adapted matrix elements 
+  ! in a basis of correlated gaussians with r1 pre-multipliers 
+  !
+  ! fk = r1^mk * exp[-r'(Lk*Lk'(kron)I3)r]
+  !
+  ! symmetry adaption is applied to the ket using
+  ! the symmetry term Sym: Al --> Sym'*Ll*Ll'*Sym 
+  !
+  ! Matrix elements computed include:
+  ! Overlap
+  ! Kinetic energy
+  ! Potential energy
+  !
+  !=======
+  !Needs
+  !=======
+  ! Uses module "constants" to supply
+  ! mass matrix, charge matrix, and several m and n
+  ! dependent constants for the integral formulas
+  ! [We don't want to waste time computing gamma
+  ! functions here!]
+  !
+  !=======
+  !Input
+  !=======
+  ! n		--- The dimension of the input matrices Lk and Ll
+  ! vechLk 	--- n(n+1)/2 vectors of exponent parameters
+  ! vechLl          [Lk and Ll are lower triangular n x n]
+  ! Sym         --- The symmetry permutation matrix
+  !=======
+  !Output
+  !=======
+  ! Skl		--- Overlap matrix element (normalized) 
+  ! Tkl		--- Kinetic energy term (normalized)
+  ! Vkl		--- Potential energy term (normalized)
+  ! dSk         --- derivative of Skl wrt vech[Lk]
+  ! dSl         --- derivative of Skl wrt vech[Ll]
+  ! dTk         --- derivative of Tkl wrt vech[Lk]
+  ! dTl         ---               Tkl     vech[Ll]
+  ! dVk         ---               Vkl     vech[Lk]
+  ! dVl         ---               Vkl     vech[Ll]
+  !====================================================================
+  !--------------------------------------------------------------------
+
+ 
+
+  ! Local variables
+  INTEGER                       :: i,j,k,indx,info,jj,ii,kk
+
+  REAL(HIGH)                    :: detLk,detLl,detAkl
+  REAL(HIGH)                    :: SUM0,SUM1,SUM2
+
+  REAL(HIGH), DIMENSION(n,n)    :: Lk,Ll,Ak,Al,invAkl,PLl,invL
+  REAL(HIGH), DIMENSION(n,n)    :: Temp
+  REAL(HIGH)                    :: trT
+  REAL(HIGH), DIMENSION(n,n)    :: R,b
+
+  REAL(HIGH), DIMENSION(n,n)    :: invLk,invLl
+
+  REAL(HIGH), DIMENSION(n,n)    :: ALk,ALl,AAk,AAl,MAk,MAl
+  REAL(HIGH), DIMENSION(n,n)    :: AAlMAl,AAkMAk
+  REAL(HIGH), DIMENSION(n,n)    :: Tllk,Tkkl
+  REAL(HIGH), DIMENSION(n,n)    :: RLk,RLl
+
+  REAL(HIGH), DIMENSION(n*(n+1)/2) :: vechRLk,vechRLl
+
+  ! Intrinsic Functions
+  INTRINSIC                     DSQRT, DABS
+  !--------------------------------------------------------------------
+  !..
+  !..Executable Statements..
+  !
+  !**********************************************************************
+  !
+  ! Build intermediate results for Overlap matrix element
+  ! Ak, Al, invAkl, detLk, detLl, detAkl, invAk, invAl 
+  !
+  !**********************************************************************
+    
+  ! build the lower triangular matrices Lk and Ll from
+  ! the elements in vechLk and vechLl
+ 
+  Lk = ZERO
+  Ll = ZERO
+  indx = 0
+  DO j=1,n
+     DO i=j,n
+        indx = indx + 1
+        Lk(i,j) = vechLk( indx )
+        Ll(i,j) = vechLl( indx )
+     END DO
+  END DO
+
+
+  ! Apply the symmetry transformation Sym to Ll  PLl = Sym'*Ll
+  PLl = ZERO
+  DO j=1,n
+     DO k=1,n
+          DO i=1,n
+           PLl(i,j) = PLl(i,j) + Sym(k,i) * Ll(k,j)
+        END DO
+     END DO
+  END DO
+     
+  ! Build AK=LK*LL' and AL=P'*LL*LL'*P
+  Ak = ZERO
+  Al = ZERO
+  DO j=1,n
+     DO k=1,n
+        DO i=1,n
+           Ak(i,j) = Ak(i,j) + Lk(i,k) * Lk(j,k)
+           Al(i,j) = Al(i,j) + PLl(i,k) * PLl(j,k)
+        END DO
+     END DO
+  END DO
+
+  ! compute Akl THE UPPER TRIANGLE OF Akl=Ak+Al IS IN invL
+  ! (we store the upper part of Akl for convience in the Cholesky
+  ! decomposition code below)
+
+  DO j=1,n
+     DO i=j,n
+        invL(j,i) = Ak(i,j) + Al(i,j)
+     END DO
+  END DO
+      
+  ! compute det(LK) and det(LL)
+  detLk = ONE
+  detLl = ONE
+  DO i=1,n
+     detLk = detLk * Lk(i,i)
+     detLl = detLl * Ll(i,i)
+  END DO
+
+!*** really should replace this with a better algorithm
+  ! compute the Cholesky decomposition of Akl (invL)
+  ! This code is adapted from Numerical Recipes  choldc.for
+  ! det(Akl) is computed during the decomposition and stored in 
+  ! detAkl
+
+  detAkl = ONE
+  DO i=1,n
+     DO j=i,n
+        SUM0 = invL(i,j)
+        DO k=i-1,1,-1
+           SUM0 = SUM0 - invL(i,k) * invL(j,k)
+        END DO
+        IF(i.EQ.j)THEN
+          ! IF(SUM.LE.0)PAUSE 'AKL IS NOT POSITIVE DEFINITE'
+           invL(i,i) = DSQRT(SUM0)
+           detAkl = detAkl * SUM0
+        ELSE
+           invL(j,i) = SUM0 / invL(i,i)
+        END IF
+     END DO
+  END DO
+
+
+  ! invL now CONTAINS the cholesky decomp,L, of Akl, WHERE Akl=L*L'
+  ! detAkl now contains det(Akl)
+
+  ! compute the inverse of Akl, Lk, Ll
+   
+  ! start with invL, invLk, invLl
+  invLk = Lk 
+  invLl = Ll
+  ! [invert the lower triangle matrices]
+  DO i=1,n
+     invL(i,i) = ONE/invL(i,i)
+     invLk(i,i) = ONE/invLk(i,i)
+     invLl(i,i) = ONE/invLl(i,i)
+     DO j=i+1,n
+        SUM0 = ZERO
+        SUM1 = ZERO
+        SUM2 = ZERO
+        DO k=i,j-1
+           SUM0 = SUM0 - invL(j,k) * invL(k,i)
+           SUM1 = SUM1 - invLk(j,k) * invLk(k,i)
+           SUM2 = SUM2 - invLl(j,k) * invLl(k,i)
+        END DO
+        invL(j,i) = SUM0 / invL(j,j)
+        invL(i,j) = ZERO ! zero out the upper triangle for convenience
+        invLk(j,i) = SUM1 / invLk(j,j)
+        invLk(i,j) = ZERO
+        invLl(j,i) = SUM2 / invLl(j,j)
+        invLl(i,j) = ZERO
+     END DO
+  END DO
+
+  ! we now have invLk, invLl (this is not invP'Ll), invL
+
+  ! now do invAkl = invL'*invL
+  invAkl = ZERO
+  DO j=1,n
+     DO k=1,n
+        DO i=1,n
+           invAkl(i,j) = invAkl(i,j) + invL(k,i) * invL(k,j)
+        END DO
+     END DO
+  END DO
+
+  ! OK looks like we got most of the important terms 
+  ! Lk, Ll, PLl, Ak, Al=P'Ll(P'Ll)', invAkl,
+  ! invLk, invLl [not inv(P'Ll)]
+
+
+
+  !********************************************************
+  ! compute intermediate matrix results LOTS OF THEM!
+  !
+  !********************************************************
+
+  ! ALk = invAkl*Lk
+  ! ALl = invAkl*PLl
+  ! AAk = invAkl*Ak
+  ! AAl = invAkl*Al
+  ALk = ZERO
+  ALl = ZERO
+  AAk = ZERO
+  AAl = ZERO
+  do k=1,n
+     do j=1,n
+        do i=1,n
+           ALk(i,j) = ALk(i,j) + invAkl(i,k)*Lk(k,j)
+           ALl(i,j) = ALl(i,j) + invAkl(i,k)*PLl(k,j)
+           AAk(i,j) = AAk(i,j) + invAkl(i,k)*Ak(k,j)
+           AAl(i,j) = AAl(i,j) + invAkl(i,k)*Al(k,j) ! could do I-invAkl*Ak
+        enddo
+     enddo
+  enddo
+
+
+  ! MAk = M*Ak
+  ! MAl = M*Al
+  MAk = ZERO
+  MAl = ZERO
+  do k=1,n
+     do j=1,n
+        do i=1,n
+           MAk(i,j) = MAk(i,j) + MASS(i,k)*Ak(k,j)
+           MAl(i,j) = MAl(i,j) + MASS(i,k)*Al(k,j)
+        enddo
+     enddo
+  enddo
+
+  ! AAlMAl = invAkl*Al*M*Al
+  ! AAkMAk = invAkl*Ak*M*Ak
+  AAlMAl = ZERO
+  AAkMAk = ZERO
+  do k=1,n
+     do j=1,n
+        do i=1,n
+           AAlMAl(i,j) = AAlMAl(i,j) + AAl(i,k)*MAl(k,j)
+           AAkMAk(i,j) = AAkMAk(i,j) + AAk(i,k)*MAk(k,j)
+        enddo
+     enddo
+  enddo
+
+
+  ! A few kinetic energy terms (scalers)
+  ! trT = tr[invAkl*Ak*M*Al]
+  trT = ZERO
+  do j=1,n
+     do i=1,n
+        trT = trT + AAk(i,j)*MAl(j,i)
+     enddo
+  enddo
+
+  ! more kinetic energy (gradient) matrix terms
+  ! Tllk = invAkl*Al*M*Al*invAkl*Lk
+  ! Tkkl = invAkl*Ak*M*Ak*invAkl*Ll
+  Tllk = ZERO
+  Tkkl = ZERO
+  do k=1,n
+     do j=1,n
+        do i=1,n
+           Tllk(i,j) = Tllk(i,j) + AAlMAl(i,k)*ALk(k,j)
+           Tkkl(i,j) = Tkkl(i,j) + AAkMAk(i,k)*ALl(k,j)
+        enddo
+     enddo
+  enddo
+
+
+
+
+
+  ! Thats enough for now ... 6 more i,j dependent potential terms later
+  ! We have enough to compute Skl dSkl Tkl dTkl, so, on to it ...
+
+  !********************************************************
+  ! compute Skl
+  !
+  ! Skl =  2^(3n/2) * sqrt( (||Lk||||Ll||/|Akl|)^3 )
+  !                
+  !********************************************************
+
+  Skl = DABS( detLk*detLl/detAkl )**3
+  Skl = DSQRT(Skl)
+  Skl = Skl * DSQRT(DBLE(2**(3*n)))
+
+  !********************************************************
+  ! gradient terms dSk dSl
+  !********************************************************
+  
+  ! dSk
+  indx = 0
+  do j=1,n
+     do i=j,n
+        indx = indx + 1
+        dSk(indx) = 1.5d0 * invLk(j,i) - 3d0 * ALk(i,j)
+     enddo
+  enddo
+  dSk = Skl * dSk
+
+  ! dSl
+
+  ! multiply ALl  by Sym
+  Temp = ZERO
+  do k=1,n
+     do j=1,n
+        do i=1,n
+           Temp(i,j) = Temp(i,j) + Sym(i,k) * ALl(k,j)
+        enddo
+     enddo
+  enddo
+  Temp = Temp * 3d0 
+ 
+  indx = 0
+  do j=1,n
+     do i=j,n
+        indx = indx + 1
+        dSl(indx) =  1.5d0 * invLl(j,i) - Temp(i,j)
+     enddo
+  enddo 
+  dSl = Skl * dSl
+
+
+  !********************************************************
+  ! compute Tkl
+  !
+  ! Tkl = 6 Skl tr(invAkl*Ak*M*Al)
+  !
+  !********************************************************
+  Tkl = SIX * Skl * trT
+
+  !********************************************************
+  ! gradient terms dTk dTl
+  !********************************************************
+
+  ! load it into dTk (a vector)
+  indx = 0
+  do j=1,n
+     do i=j,n
+        indx = indx + 1
+        dTk(indx) = Tllk(i,j)
+     enddo
+  enddo
+  dTk = dTk * 12d0 * Skl
+  dTk = dTk + Tkl/Skl * dSk
+
+  !dTl
+  
+  ! multiply by Sym
+  Temp = ZERO
+  do k=1,n
+     do j=1,n
+        do i=1,n
+           Temp(i,j) = Temp(i,j) + Sym(i,k) * Tkkl(k,j)
+        enddo
+     enddo
+  enddo
+  ! load it into dTl (a vector)
+  indx = 0
+  do j=1,n
+     do i=j,n
+        indx = indx + 1
+        dTl(indx) = Temp(i,j)
+     enddo
+  enddo
+  dTl = dTl * 12d0 * Skl
+  dTl = dTl + Tkl/Skl * dSl
+
+  !**********************************************************************
+  ! Build intermediate results for potential energy  matrix element
+  ! b(i,i) = invAkl(i,i)
+  ! b(i,j) = invAkl(i,i) + invAkl(j,j) - 2 invAkl(i,j)
+  !**********************************************************************
+
+  ! b
+  b = ONE !set it to 1 so I can take the sqrt of the matrix later
+  DO i=1,n
+     b(i,i) = invAkl(i,i)
+  END DO
+  DO j=1,n-1
+     DO i=j+1,n
+        b(i,j) =  invAkl(i,i) + invAkl(j,j) - 2*invAkl(i,j)
+     END DO
+  END DO
+
+  !**************************************************
+  ! Potential energy 
+  !**************************************************
+  
+  ! We will compute all of the 1/rij terms at once
+  ! and place them in R, then sum over R*CHARGE to 
+  ! get Vkl
+
+  R = Skl*TWOOSPI/DSQRT(b)
+  
+  ! Now compute the potential energy
+  Vkl = ZERO
+  DO j=1,n
+     DO i=j,n
+        Vkl = Vkl + R(i,j)*CHARGE(i,j)
+     END DO
+  END DO
+
+  !******************************************************************
+  ! potential energy gradient elements 
+  !******************************************************************
+  ! each term of the potential gradient is computed individually and
+  ! accumulated in dRk. We sum over these terms multiplied by 
+  ! the CHARGE element for that term. i=j terms are fundimentaly
+  ! different than i/=j terms so we split the loop
+  !
+
+  !********
+  ! dVK
+  !********
+
+  dVk = 0
+  do j=1,n
+     do i=j,n
+   
+        ! RLk = invAkl*Jij*invAkl*Lk
+        if(i /= j)then
+           do jj=1,n
+              RLk(1:n,jj) = &
+                   (invAkl(1:n,i)-invAkl(1:n,j))*(ALk(i,jj)-ALk(j,jj))
+           enddo
+        else
+           do jj=1,n
+              RLk(1:n,jj) = invAkl(1:n,i)*ALk(i,jj)
+           enddo
+        end if
+
+        indx = 0
+        do jj=1,n
+           do ii=jj,n
+              indx = indx + 1
+              vechRLk(indx) = RLk(ii,jj)
+           end do
+        end do
+
+        dVk = dVk + CHARGE(i,j)*R(i,j)*(dSk/Skl + vechRLk/b(i,j))
+
+     enddo
+  enddo
+
+  !********
+  ! dVl
+  !********
+  dVl = 0
+  do j=1,n
+     do i=j,n
+        
+        ! RLl = invAkl*Jij*invAkl*Ll
+        if(i /= j)then
+           do jj=1,n
+              RLl(1:n,jj) = &
+                   (invAkl(1:n,i)-invAkl(1:n,j))*(ALl(i,jj)-ALl(j,jj))
+           enddo
+        else
+           do jj=1,n
+              RLl(1:n,jj) = invAkl(1:n,i)*ALl(i,jj)
+           enddo
+        end if
+
+        ! multiply by Sym
+        Temp = ZERO
+        do kk=1,n
+           do jj=1,n
+              do ii=1,n
+                 Temp(ii,jj) = Temp(ii,jj) + Sym(ii,kk) * RLl(kk,jj)
+              enddo
+           enddo
+        enddo
+
+        indx = 0
+        do jj=1,n
+           do ii=jj,n
+              indx = indx + 1
+              vechRLl(indx) = Temp(ii,jj)
+           end do
+        end do
+
+        dVl = dVl + CHARGE(i,j)*R(i,j)*(dSl/Skl + vechRLl/b(i,j))
+
+     enddo
+  enddo
+
+
+END SUBROUTINE melklmn

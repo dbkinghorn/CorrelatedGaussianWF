@@ -1,0 +1,916 @@
+<html>
+<!-- **********************************************-->
+<!-- Donald B. Kinghorn                            -->
+<!-- University of Arizona                         -->
+<!-- Theoretical and Computational Chemistry Group -->
+<!-- Tucson AZ                                     -->
+<!-- **********************************************-->
+<head>
+<title>Beowulf Clusters for Chemists</title>
+<META name="keywords" content="Beowulf, Chemistry">
+</head>
+<body bgcolor="ghostwhite" text="black" link="blue" vlink="blue" background="">
+
+<!-- empty table just to add some color to the top of page -->
+<table width=100% border=0 cellspacing=0 cellpadding=0>
+<tr><td bgcolor=darkred>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td></tr>
+</table>
+
+<!-- page structure table 1 row 4 column -->
+<table width=100% border=0 cellspacing=0 cellpadding=4 valign=top>
+<tr>
+
+<!-- empty column to add a left border color --> 
+<td bgcolor=darkred>&nbsp;&nbsp;&nbsp;</td>
+
+<!-- start navigation bar coulmn -->
+<td align=center bgcolor=lightsteelblue valign=top>
+<hr size=4 width=85% noshade align=center>
+<a href="http://www.arizona.edu">
+<font size=2 color=maroon>The University of Arizona<br></font>
+</a>
+<a href="../index.html">
+<font size=2 color=blue>Theoretical and Computational Chemistry Group</font>
+</a>
+<br>
+
+<hr size=4 width=85% noshade align=center>
+<a href=index.html><font size=2>Home</font></a>
+<br><br>
+<a href=whatis.html><font size=2>What is a Beowulf Cluster</font></a>
+<br><br>
+<a href=howtobuild.html><font size=2>How To Build it</font></a>
+<br><br>
+<a href=howtouse.html><font size=2>How To Use it</font></a>
+<br><br>
+<a href=chemsites.html><font size=2>What Chemists are doing with their Clusters</font></a>
+<br><br>
+<hr size=4 width=85% noshade align=center>
+<a href=feedback><font size=2>Feedback Form</font></a>
+<hr size=4 width=85% noshade align=center>
+</td>
+<!-- end navigation bar -->
+
+<!-- empty column to add some space -->
+<td>&nbsp;&nbsp;&nbsp;</td> 
+
+<!-- ***************** -->
+<!-- Main content area -->
+<!-- ***************** -->
+<td width="80%" valign=top>
+<p>
+<h2 align=center>
+What Chemists are doing with their Beowulf Clusters
+</h1>
+<p>
+On September 22 1999 I sent an email message to the 
+<a href="http://www.beowulf.org">beowulf mailing list</a> which was also kindly forwarded to 
+the
+<a href="http://www.ccl.net/chemistry/"> Computational Chemistry mail list</a>.
+The body of the message I sent and 20 generous replies are listed below. 
+I have edited the messages (a little) and tried to arange information in a 
+consistent format. I extracted links in the messages and placed them in
+the "header" information.
+<p>
+<font color="#555555">
+This page will change into a more comprensive listing
+of existing Chemistry related Beowulf sites. To facilitate this I will be
+adding a fill out form to make it simple to add your site to the list
+... expect to see this soon, I've allready written most of the Perl scrips :-)...
+</font>
+<p>
+<font size=+1 color=brown>
+My warmest thank you to all that replied!
+</font>
+<p>
+
+<hr>
+<!--startMsg-->
+<br><b>Date: </b>Tue, 21 Sep 1999
+<br><b>From: </b><a href="mailto:kinghorn@u.arizona.edu">Donald B. Kinghorn</a>
+<br><b>Affiliation: </b>University of Arizona Dept. of Chemistry
+<pre>
+Hi All,
+
+I'm giving a talk next week to the Chemistry dept. here at the
+University of Arizona titled:
+
+"High Performance Computational Chemistry using Parallel PC Clusters:
+an Introduction to Beowulf Clusters for Chemists"
+
+Mainly I want to stir up interest and let people know what's out there.
+
+If any of you are doing anything Chemistry related with your clusters
+(or know of anyone who is) I would appreciate it if you would send me
+email with a short description of what you're doing.
+
+Useful info. could include things like:
+  Chemistry + Beowulf web pages
+  Computational Chemistry software that's known to run on Beowulf
+clusters
+  Application porting projects
+  Research projects making use of Beowulf clusters
+  Research groups currently building Beowulf clusters
+  Configuration of your clusters
+  etc.. ...
+
+I'll take whatever information I can find and build some web pages ... a
+
+Beowulf information web site but with a Chemistry bent.  [I'll post the
+URL here when I get things set up]
+
+**You may want to send to me directly instead of the list ... I'll post
+a summary of replies.
+
+I'm basically new to Beowulf but, I did get a two node cluster set up and
+working for a week before I had to take it apart and set it up as
+individual workstations. I'm currently configuring the workstations in
+our lab for use as a COW and am building a couple more dual PII400 boxes
+
+to set up as a dedicated Beowulf (maybe 4 dual processor nodes).  I'm
+also working on parallelizing my code for non-adiabatic,
+energy calculations using explicitly correlated gaussian wave functions.
+
+We will also be using the COW and Beowulf for generating potential
+energy surfaces using Gaussian98.  I'm planning on setting up the
+NWChem suite of parallel applications also.
+
+Thanks for your time
+-Don
+++++++++++++++++++++++++++++++++++++++++++++++
+Dr. Donald B. Kinghorn
+Theoretical and Computational Chemistry Group
+University of Arizona Dept. of Chemistry
+Tucson AZ
+kinghorn@u.arizona.edu
+++++++++++++++++++++++++++++++++++++++++++++++
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:hammer.med.jhmi.edu">Alan Grossfield</a>
+<br><b>Affiliation: </b>Johns Hopkins Medical School
+<br>
+<b>Links:</b><br>
+<a href="http://wulfpack.med.jhmi.edu">http://wulfpack.med.jhmi.edu</a>
+<br> 
+<a href="http://wulfgang.med.jhmi.edu">http://wulfgang.med.jhmi.edu</a>
+<pre>
+
+    There are several groups who use CHARMM (molecular dynamics package 
+    developed by the Karplus lab at Harvard and Brooks lab at the NIH)
+    on beowulf clusters.  My lab's clusters are not particularly
+    impressive (http://wulfpack.med.jhmi.edu and 
+    http://wulfgang.med.jhmi.edu), but LoBoS at the NIH is 
+    (http://www.lobos.nih.gov).  Check out www.beowulf.org, I think it
+    lists more comp chem sites.
+
+Alan Grossfield
+--------------------------------------------------------------------------
+|"In theory, there is no difference between theory and practice.  In     |
+|practice, there is."   Jan L.A. van de Snepscheut                       |
+--------------------------------------------------------------------------
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:llonergan@hpti.com">Luke Lonergan</a>
+<br><b>Affiliation: </b>High Performance Technologies, Inc.
+<br>
+<b>Links:</b><br>
+<a href="http://www.hpti.com/clusterweb">www.hpti.com/clusterweb</a>
+<br> 
+<a href=""></a>
+<pre>
+We (at HPTi) have been obtaining benchmark results on a variety of codes,
+some of which are chemistry related, on our supercomputer prototype at UVa.
+So far, we have comparative results on CHARMM and GAUSSIAN. We can't
+publicly compare the GAUSSIAN results to other machines because the client
+doesn't release them, but you can see our CHARMM comparisons at:
+        www.hpti.com/clusterweb
+under the "Proven Performance" section.
+
+We think we have the fastest CHARMM results ever (prove me wrong), though we
+haven't run on all of our processors yet, nor on the faster CPUs and
+interconnect that have just become available.
+
+The prototype is a cluster of 17 Compaq XP1000s (Alpha EV6 500MHz) with a
+Myrinet interconnect (33 MHz older adapters). We recently recieved an
+additional 17 XP1000s that we will add to the rest so that we can get some
+benchmark results on greater numbers of CPUs.
+
+We will be implementing a very low latency interconnect solution soon which
+should significantly enhance our scalability of chemistry codes like CHARMM
+and GAUSSIAN. They tend to pass lots of tiny messages, which kills networks
+with high latencies. With the new interconnect technology, we should be able
+to scale up to 64 or more processors.
+
+We may also sneak in some benchmarks on the 256 processor FSL machine we are
+implementing in November.
+
+Let me or Greg know if you need more info for your talk. Always happy to
+spread the good news...
+
+Luke
+
+-----
+Luke Lonergan
+Technical Director
+High Performance Technologies, Inc.
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:O.G.Parchment@soton.ac.uk">O.G.Parchment</a>
+<br><b>Affiliation: </b>Southampton University
+<br>
+<b>Links:</b><br>
+<a href="http://www.soton.ac.uk/~chemphys/jessex/beowulf.html">www.soton.ac.uk/~chemphys/jessex/beowulf.html</a>
+<br> 
+<a href=""></a>
+<pre>
+Hi Donald
+Whilst doing a postdoc in the chemistry dept, we
+set up a beowulf cluster to perform monte carlo
+and molecular dynamics simulation. We have a
+webpage at www.soton.ac.uk/~chemphys/jessex/beowulf.html
+which includes some benchmark data.
+Hope it is of some use
+Oz
+----------------------------------------------------------------------------
+Dr O. Parchment                             Tel: (01703) 594611
+Systems Group                               Fax: (01703) 593131
+Computing Services                          email: oz@soton.ac.uk    
+Southampton University                             o.g.parchment@soton.ac.uk
+Southampton  S017 1BJ, UK.
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:lipchus@sca.com">Jerry Lipchus</a>
+<br><b>Affiliation: </b>Scientific Computing Associates (SCA)
+<br>
+<b>Links:</b><br>
+<a href="http://www.sca.com/apps.html">http://www.sca.com/apps.html</a>
+<br> 
+<a href=""></a>
+<pre>
+Hi Donald,
+
+You might want to look at the following web site for information on Parallel
+Guassian.
+http://www.sca.com/apps.html
+SCA's  product "Linda" has been used used to maximize performance with
+computional chemistry since the 80's.
+
+Best regards,
+Jerry lipchus
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:furlani@ccr.buffalo.edu">Tom Furlani</a>
+<br><b>Affiliation: </b>Center for Computational Research  University at Buffalo
+<br>
+<b>Links:</b><br>
+<a href="http://www.ccr.buffalo.edu">www.ccr.buffalo.edu</a>
+<br> 
+<a href=""></a>
+<pre>
+At the University at Buffalo's Center for Computational Research
+(www.ccr.buffalo.edu) we have
+built a 64 processor Linux/Beowulf cluster of Sun Ultra5 workstations.  The system
+is still in
+a research (not production) mode but is carrying out useful science.  We are
+running both
+GAMESS and Crystal95 on the cluster with good results.  The batch queuing software,
+PBS, is
+being utilized to schedule jobs.   Greater detail is contained in our web page.
+
+
+Regards,
+Tom Furlani
+Associate Director, Center for Computational Research
+Norton Hall Rm. 9
+University at Buffalo
+Buffalo, NY  14260-1800
+Phone: 716 645-6500     Fax: 716 645-6505
+furlani@ccr.buffalo.edu
+www.ccr.buffalo.edu
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:gillies@cmcind.far.ruu.nl">Malcolm Gillies</a>
+<br><b>Affiliation: </b>Utrecht University
+<br>
+<b>Links:</b><br>
+<a href="http://molsim.chem.uva.nl/cluster/">molsim.chem.uva.nl/cluster/</a>
+<br> 
+<a href=""></a>
+<pre>
+Hi Don,
+
+Saw your request for pointers forwarded to the Computational Chemistry
+List.
+
+Just in case noone there saw your request, I thought I'd let you know
+that there's a group at the University of Amsterdam doing this kind
+of thing:
+
+    http://molsim.chem.uva.nl/cluster/
+
+groetjes,
+
+Malcolm
+--
+Malcolm Gillies <M.B.Gillies@pharm.uu.nl>
+PhD student, computational medicinal chemistry
+Dept of Medicinal Chemistry, Faculty of Pharmacy,
+Utrecht University, The Netherlands
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:chburger@aci.unizh.ch">Peter Burger</a>
+<br><b>Affiliation: </b>University of Zuerich
+<br>
+<b>Links:</b><br>
+<a href="http://www.chemie.uni-karlsruhe.de/PC/TheoChem/turbomole/intro.de.html">
+www.chemie.uni-karlsruhe.de/PC/TheoChem/turbomole/intro.de.html</a>
+<br> 
+<a href="http://www.msi.com">www.msi.com</a>
+<br> 
+<a href="http://tc.chem.vu.nl/">tc.chem.vu.nl/</a>
+<br> 
+<a href="http://www.pqs-chem.com"> www.pqs-chem.com</a>
+<pre>
+From: "Dr. Peter Burger" <chburger@aci.unizh.ch>
+
+Dear Eugene,
+
+just worth my 0.02 cents.
+
+> Useful info. could include things like:
+>   Chemistry + Beowulf web pages
+>   Computational Chemistry software that's known to run on Beowulf
+> clusters
+
+Turbomole (quantum chemistry, MPI) !! works great here!
+ADF       ( DFT             ,PVM)  
+PQS-CHEM (only including hardware from Peter Pulay, www.pqs-chem.com) don't have
+          it
+
+>   Application porting projects
+
+DMOL/Linux/MPI (done here in collaboration with B. Delley) very nice parallel
+                  speedup
+
+>   Research projects making use of Beowulf clusters
+
+Organometallic & Inorganic Chemistry combining experiment & Theory (my own group)
+
+>   Configuration of your clusters
+
+Cluster a)
+16xPII/PIII CPUS (400-550 MHz), dual processor boards 512 MB RAM/machine,
+2x 100 MB networks (parallel), 1x switch (full duplex), 1x HUB, 10-30 GB
+HD/machine.  MPICH-MPI, PVM, 
+
+Cluster b) 
+
+same as above with 8 CPU's 
+>   etc.. ...
+> 
+> I'll take whatever information I can find and build some web pages ... a
+
+Turbomole:
+
+http://www.chemie.uni-karlsruhe.de/PC/TheoChem/turbomole/intro.de.html
+
+DMOL: see www.msi.com (no official version Linux)
+
+ADF: http://tc.chem.vu.nl/
+
+sorry, I don't have a homepage so far either
+
+Best wishes 
+
+Peter
+
+---------------------------------------------
+Dr. Peter Burger
+Institte of Inorganic Chemistry
+University of Zuerich
+chburger@aci.unizh.ch
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:kvaughan@bc.cc.ca.us">Kenward Vaughan</a>
+<br><b>Affiliation: </b>Bakersfield College
+<br>
+<b>Links:</b><br>
+<a href=""></a>
+<br> 
+<a href=""></a>
+<pre>
+Hi Donald,
+
+Wish I could attend the talk, but it's a bit far to drive.  :-)
+
+Whatever information you gather would be of great value to me, as I'm slowly
+gathering steam to initiate a clustered lab at Bakersfield College for the
+use of comp. chem. in our courses (an interesting proposition at a community
+college).  I'm certainly quite interested in anything you gather.  Thanks! 
+
+Cheers,
+
+Dr. Kenward Vaughan
+Professor of Chemistry
+Bakersfield College
+Bakersfield, CA  93305
+661-395-4243
+kvaughan@bc.cc.ca.us  (work)
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:asnmaz01@asc.edu">Mark A. Zottola</a>
+<br><b>Affiliation: </b>Alabama Research and Education Network
+<br>
+<b>Links:</b><br>
+<a href=""></a>
+<br> 
+<a href=""></a>
+<pre>
+Dear Don,
+
+We have built an 'experimental" beowulf cluster from a set of donated
+Indigo2 workstations (SGI). We are single-headed, running LINUX except
+we are not on the standard Intel/Alpha line of CPU's. I mention this as
+there are some purists who claim that unless it is an Intel or Alpha
+chip powering (or AMD) that it is not a true Beowulf system. I tend to
+disagree strongly with that view. As I am PI on the grant which brought
+the machines here to UAB, I wanted to be up front on that particular
+issue.
+
+We are currently using this cluster to do computational chemistry. We
+currently have GAMESS running and are working on AMBER. A port of LINDA
+to MIPS/LINUX is being negotiated so Gaussian is not currently
+implemented. A second part to this project is evaluating the adequacy of
+a Beowulf cluster to serve as a computational adjunct to the State's
+supercomputing facilities (currently a 16-processor SV1).
+
+The results for GAMESS have been quite gratifying. My bosses have asked
+me to clear any benchmarking information before releasing it. If you are
+interested in our benchmarks, let me know and I will see if I can give
+you hard numbers. As for particular subjects being studied - I am
+examining boron - nitrogen clusters and a colleague at Auburn is using
+the beowulf to examine Borane and carborane clusters.
+
+I think the idea you have about a chemistry Beowulf page is outstanding.
+If I can be of any assistance, please let me know. As a computational
+chemist turned computer scientist (Ph.D. pending), I still remember and
+visit my roots often!
+
+I look forward to hearing from you.
+
+Regards,
+
+Mark
+
+-- 
+Mark A. Zottola                 Alabama Research and Education Network
+119 Rust Research Center        Nichols Research Corporation
+1801 University Boulevard       VOICE: (205) 934 - 3893
+Birmingham AL 35294             E-MAIL: asnmaz01@asc.edu
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:davemc@shindo.engr.sgi.com">Dave McAllister</a>
+<br><b>Affiliation: </b>SGI
+<br><b>Links:</b><br>
+<a href="http://SAL.kachinatech.com/index.shtml">SAL.kachinatech.com/index.shtml</a>
+<br> 
+<a href="http://hobbes.gh.wits.ac.za/index.html">hobbes.gh.wits.ac.za/index.html</a>
+<pre>
+
+I'm sure you've already heard, but start with the SAL pages at
+http://SAL.kachinatech.com/index.shtml
+
+
+also try
+
+http://hobbes.gh.wits.ac.za/index.html
+
+Dave McAllister
+
+
+-- 
+Director of Strategic Technologies
+
+support|                             |   Ph: 650.933.3238
+  O-   |      Technology  for SGI    |  Fax: 650.932.3238
+ DNRC  |                             | email davemc@engr.sgi.com
+_______|_____________________________| http://reality.sgi.com/davemc
+     Linux - the REAL "Live Free or Die!" Unix
+"Acting is an art which consists of keeping the audience from
+coughing."
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:MChalla@T12.LANL.Gov">Matt Challacombe </a>
+<br><b>Affiliation: </b>LANL Group T-12, Theoretical Chemistry and Molecular Physics
+<br>
+<b>Links:</b><br>
+<a href=""></a>
+<br> 
+<a href=""></a>
+<pre>
+Hi Don,
+
+In T-12 at LANL, we have been experimenting with NUMA type set ups.  We
+currently have a 26 cpu PII beowulf (9 duals and 2 quads), and plan
+to expand this significantly.  All kinds of chemistry software gets
+run there, and I am currently developing a parallel, linear scaling
+quantum chemistry code on this platform.  I'm seeing about 1.2 GFLOPS 
+on a 16 cpu LINUX cluster with Myrinet, and 5 GFLOPS with 90 proc on 
+ASCII Blue for the part of the code that solves the SCF equations
+by density matrix minimization.
+...
+T-division at 
+LANL is one of the birthplaces of modern beowulfs.  We have the first 
+Myrinet alpha cluster (Avalon, 64 nodes), and just about every group 
+in T has their own cluster.
+
+-- 
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
++ Matt Challacombe, Ph.D.           http://www.t12.lanl.gov/~mchalla/ +
++ Los Alamos National Laboratory    email: mchalla@t12.lanl.gov       + 
++ Theoretical Division              vmail:   (505) 698-4112           +
++ Group T-12, Mail Stop B268        phone:   (505) 665-5905           +
++ Los Alamos, New Mexico  87545     fax:     (505) 665-3909           +
++                                                                     +
++ "The secret to mountain biking is pretty simple. The slower you go  +
++  the more likely it is you'll crash." -- Julie Furtado              +
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:zsolt@simbiosys.ca">Zsolt Zsoldos</a>
+<br><b>Affiliation: </b>SimBioSys Inc.
+<br>
+<b>Links:</b><br>
+<a href="http://www.simbiosys.ca/">www.simbiosys.ca/</a>
+<br> 
+<a href=""></a>
+<pre>
+Dear Donald,
+
+Our company, Simbiosys Inc., have developped a molecular modelling system,
+that is in alpha testing phase now - beta release planned for next month.
+The system uses CORBA distributed object technology, server objects can
+be run on any Unix-type system (tested on SGI Irix and PC-Linux), while
+the client applications can run on any platform supporting Java & OpenGL,
+e.g. SGI Irix, x86 Linux, MS Windows 95/98/NT/2K, Mac. Server components
+can be run on multiple Linux boxes in the same network to distribute the
+processing load. The system does not use the Beowulf-native code (PVM)
+for that at the moment, it is using the CORBA distribution model instead.
+However, PVM support (including native Beowulf Clusters) is on the roadmap
+for the next release, expected to be out next summer. Information on the
+system can be found at http://www.simbiosys.ca/
+
+Best regards,
+Zsolt Zsoldos
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:h.j.j.vandam@dl.ac.uk">Huub van Dam</a>
+<br><b>Affiliation: </b>CCLRC Daresbury Laboratory
+<br>
+<b>Links:</b><br>
+<a href="http://www.dl.ac.uk/TCSC/disco/Beowulf/gamess-uk.html">
+www.dl.ac.uk/TCSC/disco/Beowulf/gamess-uk.html</a>
+<br> 
+<a href="http://wserv1.dl.ac.uk/CCP/CCP1/parallel/MPP/mpp.html">
+wserv1.dl.ac.uk/CCP/CCP1/parallel/MPP/mpp.html</a>
+<pre>
+
+
+One of the applications that certainly runs on Beowulf systems is the
+GAMESS-UK ab initio code.
+Some data about the performance of GAMESS-UK on Beowulf clusters can be
+found at:
+
+    http://www.dl.ac.uk/TCSC/disco/Beowulf/gamess-uk.html
+
+more details on the parallelisation of GAMESS-UK can be found at:
+
+    http://wserv1.dl.ac.uk/CCP/CCP1/parallel/MPP/mpp.html
+
+I hope this information is of use to you.
+
+Best wishes, Huub
+
+
+
+--
+
+========================================================================
+
+Huub van Dam                               E-mail: h.j.j.vandam@dl.ac.uk
+CCLRC Daresbury Laboratory                  phone: +44-1925-603362
+Daresbury, Warrington                         fax: +44-1925-603634
+Cheshire, UK
+WA4 4AD
+
+========================================================================
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:smithja@ucarb.com">Jack A. Smith</a>
+<br><b>Affiliation: </b>Union Carbide 
+<br>
+<b>Links:</b><br>
+<a href=""></a>
+<br> 
+<a href=""></a>
+<pre>
+
+Perhaps you could "publish" your talk (and supplemental findings) on the web? 
+We are very much interested (with initial efforts already underway) 
+in running G98 on a Beowulf cluster. 
+
+- Jack 
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+ Jack A. Smith             || 
+ Union Carbide             || Phone:  (304) 747-5797 
+ Catalyst Skill Center     || FAX:    (304) 747-4672 
+ P.O. Box 8361             || 
+ S. Charleston, WV  25303  || smithja@ucarb.com 
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:patchkov@ucalgary.ca">Serguei Patchkovskii</a>
+<br><b>Affiliation: </b>University of Calgary
+<br>
+<b>Links:</b><br>
+<a href="http://www.cobalt.chem.ucalgary.ca/">www.cobalt.chem.ucalgary.ca/</a>
+<br> 
+<a href="http://www.cobalt.chem.ucalgary.ca/ps/">www.cobalt.chem.ucalgary.ca/ps/</a>
+<pre>
+
+> If any of you are doing anything Chemistry related with your clusters
+> (or know of anyone who is) I would appreciate it if you would send me
+> email with a short description of what you're doing.
+
+http://www.cobalt.chem.ucalgary.ca/
+
+-- 
+home page: http://www.cobalt.chem.ucalgary.ca/ps/
+
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:sudhakar@ncsa.uiuc.edu">Sudhakar Pamidighantam</a>
+<br><b>Affiliation: </b>National Center for Supercomputing Applications
+<br>
+<b>Links:</b><br>
+<a href="http://www.ncsa.uiuc.edu/SCD/Hardware/NTCluster/">
+www.ncsa.uiuc.edu/SCD/Hardware/NTCluster/</a>
+<br> 
+<a href=""></a>
+<pre>
+Hi,
+
+I am in the chemistry support group at National Center for Supercomputing
+Applications and we have a large NT cluster (of course not a Beowulf) where
+parallel chemistry codes are getting tested. If you are interested I could take
+your code and try it on this cluster. For more information on the cluster
+itself please see
+http://www.ncsa.uiuc.edu/SCD/Hardware/NTCluster/
+Please let me know if you need further information. I am interested in knowing
+more about your experiences.
+
+Thanks,
+Sudhakar.
+-------------------------------------------------------------------------------
+Sudhakar Pamidighantam, Ph. D.                  Phone:  217-333-5831
+Research Programmer, NCSA                       Fax:    217-244-2909
+4043 Beckman Institute                          email:  spamidig@ncsa.uiuc.edu
+405 N Mathews Ave.  Urbana, Illinois 61801      WWW:    tintagel.ncsa.uiuc.edu
+-------------------------------------------------------------------------------
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:charwel@chthry.chem.lsu.edu">Chris Harwell</a>
+<br><b>Affiliation: </b>Louisiana State University
+<br>
+<b>Links:</b><br>
+<a href="http://chthry.chem.lsu.edu/Beowulf/index.html">chthry.chem.lsu.edu/Beowulf/index.html</a>
+<br> 
+<a href="http://beowulf.chem.lsu.edu/index.html">beowulf.chem.lsu.edu/index.html</a>
+<pre>
+
+we are in the process of building a small 16 node cluster here in the
+chemistry dept. at lsu.  each node w/ PII400s 512MB memory 10GB disk.
+we will be running a number of programs, primarily GAMESS.
+
+there is a _temporary_ web page here:
+http://chthry.chem.lsu.edu/Beowulf/index.html
+
+that will eventually become: 
+http://beowulf.chem.lsu.edu/index.html
+
+good luck,
+
+chris harwell
+charwel@chrs1.chem.lsu.edu
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:billran@reciprocal.com">Bill Rankin</a>
+<br><b>Affiliation: </b>Duke University
+<br>
+<b>Links:</b><br>
+<a href="http://www.ks.uiuc.edu/">www.ks.uiuc.edu/</a>
+<br> 
+<a href=""></a>
+<pre>
+
+check out the NAMD web pages at http://www.ks.uiuc.edu/
+
+our research group at Duke is doing the electrostatic N-body
+problem (as well as LJ interactions) on clusters:
+http://www.ee.duke.edu/Research/SciComp/SciComp.html
+
+hope this helps,
+
+-bill
+</pre>
+<hr>
+<!--endMsg-->
+
+<br><b>Date: </b>Wed, 22 Sep 1999
+<br><b>From: </b><a href="mailto:Giovanni@averell.umh.ac.be">Giovanni Scalmani</a>
+<br><b>Affiliation: </b>Universite' de Mons-Hainaut
+<br>
+<b>Links:</b><br>
+<a href=""></a>
+<br> 
+<a href=""></a>
+<pre>
+Hi!
+
+  I can tell you about two clusters ... but I'm not as good in HTML so
+no web pages are available :-(
+
+  Both clusters originated from the fact that a couple of years ago during
+the spare time in my PhD student activity, I developed a modified version
+of Gaussian94 that uses MPI instead of fork/wait and Linda(tm) to run
+in parallel. That initial idea then grew and now I have a Gaussian98
+(RevA7) that uses MPI and also allows two-level hybrid MPI + fork/wait
+parallel execution across shared memory nodes. It also uses ScaLAPACK
+for doing some N**3 linear algebra operations (Fock matrix diagonalization 
+and DIIS error matrix calculation). It has been developed on Linux RH6.0
+but has been ported on SGI Origin2000, Cray-T3E and IBM RS/6000 although
+fully tested only on O2K so far. I'm not freely distributing the modified
+version since this is a sensible topic with respect to the Gaussian
+license, however some copies are in use by groups with which I have
+'a kind of' collaboration. 
+
+  I use _a_lot_ Gaussian and, having this modified version it was obvious
+to use a beowulf to exploit it. So when I was still in Milan (Italy) I
+build my first cluster:
+
+  Configuration:  8 x dual PII 350 MHz
+                      motherboard with integrated SCSI controller
+                      256MB SDRAM
+                      4Gb SCSI HDD (8Gb on the master)
+                      100baseT switched network
+
+  Software     :  RedHat 5.2, PGI compilers, Gaussian94(revE2)-MPI
+
+  Location     :  Department of Biotechnology and Biosciences
+                  University of Milano - Bicocca
+                  Milan (Italy)
+
+  Contact      :  Prof Giorgio Moro
+                  giorgio.moro@unimib.it
+
+
+  Then I moved to Prof Bredas group in Mons (Belgium) and here we build
+another cluster. This is the actual configuration which is likely to
+be _doubled_ in the next couple of months or so.
+
+  Configuration:  8 x dual PII 400 MHz
+                      motherboard with integrated SCSI controller
+                      512MB SDRAM
+                      4Gb SCSI HDD (8Gb on the master)
+                      dual 100baseT switched network (channel bonded)
+
+  Software     :  RedHat 6.0, PGI compilers, Gaussian98(revA7)-MPI
+
+  Location     :  Service de Chimie des Materiaux Nouveaux
+                  Centre de Recherce en Electronique et Photonique  
+                    Moleculaires
+                  University of Mons
+                  Mons (Italy)
+
+  Contact      :  Dr Giovanni Scalmani (myself)                      
+                  Giovanni@averell.umh.ac.be
+</pre>
+<hr>
+<!--endMsg-->
+
+
+<br><b>Date: </b>Wed, 24 Sep 1999
+<br><b>From: </b><a href="mailto:s997186@jinx.umsl.edu">Gary Stiehr</a>
+<br><b>Affiliation: </b>University of Missouri - St. Louis
+<br>
+<b>Links:</b><br>
+<a href="http://www.sca.com">www.sca.com</a>
+<br> 
+<a href="http://www.gaussian.com">www.gaussian.com</a>
+<pre>
+
+We are about to install Gaussian98 (www.gaussian.com) on our cluster.  It
+uses Linda (www.sca.com) as its parallel environment.  I'm sorry that I
+don't have any results for you yet but I thought these Web sites may be of
+interest to you.
+
+Gary Stiehr
+University of Missouri - St. Louis
+gary@umsl.edu
+
+</pre>
+<hr>
+<!--endMsg-->
+
+
+
+
+</td>
+<!-- ************************ -->
+<!-- end of main content area -->
+<!-- ************************ -->
+
+<!-- empty column to add some space -->
+<td>&nbsp;&nbsp;&nbsp;</td> 
+
+</tr>
+</table>
+
+
+<HR ALIGN="CENTER">
+<FONT SIZE="1">Last update: Sept. 28, 1999 </FONT>
+<A HREF="mailto:kinghorn@u.arizona.edu">
+<FONT SIZE="1">Donald B. Kinghorn 
+<IMG SRC="images/mailto.gif" WIDTH="14" HEIGHT="10" ALIGN="BOTTOM "BORDER="0"ALIGN="absmiddle">
+</FONT></A>
+
+
+</body>
+</html>

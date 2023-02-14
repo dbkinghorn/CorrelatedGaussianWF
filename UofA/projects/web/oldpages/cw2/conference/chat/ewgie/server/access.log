@@ -1,0 +1,70 @@
+[22 Nov 1997 21:33:12 GMT] Starting up
+[22 Nov 1997 21:33:14 GMT] Listening on port 1971
+[22 Nov 1997 21:34:18 GMT] Starting up
+[22 Nov 1997 21:34:21 GMT] Listening on port 1971
+[22 Nov 1997 21:40:01 GMT] Starting up
+[22 Nov 1997 21:40:03 GMT] Listening on port 1971
+[22 Nov 1997 21:40:19 GMT] Adding don 128.196.184.98
+[22 Nov 1997 21:40:33 GMT] Removing don
+[22 Nov 1997 21:41:38 GMT] Starting up
+[22 Nov 1997 21:41:40 GMT] Listening on port 1971
+[23 Nov 1997 23:01:06 GMT] Adding don 128.196.184.98
+[23 Nov 1997 23:01:19 GMT] Removing don
+[23 Nov 1997 23:01:44 GMT] Adding don 128.196.184.98
+[23 Nov 1997 23:01:49 GMT] Removing don
+[23 Nov 1997 23:10:07 GMT] Starting up
+[23 Nov 1997 23:10:10 GMT] Listening on port 1971
+[23 Nov 1997 23:10:18 GMT] Adding don 128.196.184.98
+[23 Nov 1997 23:10:25 GMT] Removing don
+[25 Nov 1997 01:58:15 GMT] Adding dgilmore dgilmore.nh.ultranet.com
+[25 Nov 1997 01:58:52 GMT] Removing dgilmore
+[26 Nov 1997 19:27:56 GMT] Adding don 128.196.184.98
+[26 Nov 1997 19:28:06 GMT] Removing don
+[26 Nov 1997 20:24:50 GMT] Starting up
+[26 Nov 1997 20:25:00 GMT] Listening on port 1971
+[26 Nov 1997 20:28:03 GMT] Adding don chemweb1.chem.arizona.edu
+[26 Nov 1997 20:28:57 GMT] Removing don
+[4 Dec 1997 15:11:57 GMT] Adding guest 193.243.235.228
+[4 Dec 1997 15:12:52 GMT] Removing guest
+[15 Dec 1997 17:01:42 GMT] Starting up
+[15[15 Dec 1997 17:02:07 GMT] Starting up
+[15 Dec 1997 17:02:09 GMT] Listening on port 1971
+[15 Dec 1997 17:21:50 GMT] Starting up
+[15 Dec 1997 17:21:52 GMT] Listening on port 1971
+[15 Dec 1997 17:23:59 GMT] Adding mbruck chemweb1.chem.arizona.edu
+[15 Dec 1997 17:24:11 GMT] Removing mbruck
+[15 Dec 1997 17:27:05 GMT] Starting up
+[15 Dec 1997 17:27:12 GMT] Listening on port 1971
+[15 Dec 1997 17:27:28 GMT] Adding travis chemweb1.chem.arizona.edu
+[15 Dec 1997 17:29:01 GMT] Removing travis
+[15 Dec 1997 17:29:08 GMT] Adding anonymous chemweb1.chem.arizona.edu
+[15 Dec 1997 17:54:37 GMT] Adding trav 128.196.86.91
+[15 Dec 1997 17:54:55 GMT] Removing trav
+[15 Dec 1997 17:57:01 GMT] Adding Brenda brenda.chem.Arizona.EDU
+[15 Dec 1997 17:58:35 GMT] Removing anonymous
+[15 Dec 1997 17:59:16 GMT] Adding Mike_Bruck chemweb1.chem.arizona.edu
+[15 Dec 1997 18:00:55 GMT] Adding Travis travis.chem.Arizona.EDU
+[15 Dec 1997 18:01:24 GMT] Adding Gomer shycgf.chem.Arizona.EDU
+[15 Dec 1997 18:03:46 GMT] Removing Gomer
+[15 Dec 1997 18:03:54 GMT] Adding Gomer shycgf.chem.Arizona.EDU
+[15 Dec 1997 18:09:45 GMT] Adding gervay cgfpc1.chem.Arizona.EDU
+[15 Dec 1997 18:13:26 GMT] Removing Travis
+[15 Dec 1997 18:13:29 GMT] Adding Travis travis.chem.Arizona.EDU
+[15 Dec 1997 18:16:37 GMT] Adding jackie cgfpc1.chem.Arizona.EDU
+[15 Dec 1997 18:25:55 GMT] Removing Mike_Bruck
+[15 Dec 1997 18:26:34 GMT] Adding Mike_B chemweb1.chem.arizona.edu
+[15 Dec 1997 18:26:46 GMT] Removing Brenda
+[15 Dec 1997 18:43:23 GMT] Removing Travis
+[15 Dec 1997 18:46:00 GMT] Removing gervay
+[15 Dec 1997 18:46:00 GMT] Removing jackie
+[15 Dec 1997 18:46:59 GMT] Adding don p11.s1.pacinfo.com
+[15 Dec 1997 18:50:34 GMT] Removing don
+[15 Dec 1997 19:04:34 GMT] Removing Mike_B
+[15 Dec 1997 19:30:35 GMT] Removing Gomer
+[15 Dec 1997 22:43:08 GMT] Adding momot 128.196.184.227
+[15 Dec 1997 22:43:31 GMT] Removing momot
+[16 Dec 1997 18:22:39 GMT] Starting up
+[16 Dec 1997 18:22:43 GMT] Listening on port 1971
+[16 Dec 1997 18:23:17 GMT] Adding tg travis.chem.Arizona.EDU
+[16 Dec 1997 18:26:24 GMT] Removing tg
+[16 Dec 1997 18:49:53 GMT] Adding tr travis.chem.Arizona.EDU

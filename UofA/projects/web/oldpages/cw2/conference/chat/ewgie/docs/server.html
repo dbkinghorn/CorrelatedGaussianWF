@@ -1,0 +1,316 @@
+<html>
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 13 Sep 1971 13:00:00 GMT">
+<head>
+<title>Ewgie Documentation: Using EwgieServer</title>
+</head>
+<body bgcolor="#FFFFFF" vlink="#68675F" link="#E31818">
+
+<center>
+<table width=95%>
+
+<tr>
+<td><font size=+3><b>EWGIE</b></font><br>
+<font size=+1><b><font color="#FF0000">E</font>asy <font color="#FF0000">W</font>eb <font color="#FF0000">G</font>roup <font color="#FF0000">I</font>nteraction <font color="#FF0000">E</font>nabler</b></font></td>
+<td><img src="ewgie.gif" alt="" align=right width=138 height=60></td>
+
+</tr>
+</table>
+</center>
+<p>
+
+<center>
+<font size=+2><b>Using EwgieServer</b></font>
+<p>
+
+<table width=95%>
+<tr>
+<td>
+
+<blockquote>
+This section assumes that you're running EwgieServer in a UNIX environment, although for other platforms the basics shouldn't be all that different. Once you've received, uncompressed, and unpacked the software distribution, you should have a directory called <code>server</code> that contains all the server-related files that you'll need. There is also a <code>client</code> subdirectory that contains the client files, and a <code>docs</code> subdirectory that contains the HTML documentation, and a <code>utils</code> subdirectory that contains optional files.
+<p>
+
+<br>
+<a name="1"><h3>What's in the Distribution</h3></a>
+
+Here's what should be in the <code>server</code> directory:
+<p>
+<ul>
+<li> A number of Java class files (they have <code>.class</code> suffixes)
+<p>
+This is the Java code that makes everything work.
+<p>
+<li> <code>welcome.txt</code>
+<p>
+This is a text-only startup message that appears when people connect to your server. If you remove this file, then no startup message will appear. This is a good place to put policies, pointers, discussion topics, etc. Text in this file will automatically wrap to the width of the viewer's screen.
+<p>
+<li> <code>server.conf</code>
+<p>
+This file is the optional main configuration file.
+<p>
+<li> <code>.htaccess</code>
+<p>
+This file is provided to prevent others from accessing these files publically via the Web. If your server does not recognize <code>.htaccess</code> files, you may want to set the equivalent permissions for this directory.
+</ul>
+<p>
+
+Here's what should be in the <code>client</code> directory:
+<p>
+<ul>
+<li> <code>Ewgie.html</code> and other <code>*.html</code> files
+<p>
+These HTML templates can be used to put the client applet on your Web. <b>Make sure you edit these first and change the host and port parameters to the machine and port you'll be running the server on</b>. See the <a href="options.html">client options</a> section for details.
+<p>
+<li> A number of Java class files (they have <code>.class</code> and <code>.zip</code> suffixes)
+<p>
+This is the Java code that makes everything work.
+<p>
+<li> <code>ring.au</code>
+<p>
+This is the sound people hear when you ring them. You can replace this with any sound in the Sun audio format, as long as it is called the same name.
+<p>
+<li> <code>widgets.gif</code>
+<p>
+This is the tool panel for the whiteboard. Don't mess with it.
+</ul>
+<p>
+
+Here's what should be in the <code>utils</code> directory:
+<p>
+<ul>
+<li> A <code>sounds</code> directory
+<p>
+A number of alternative alert sounds are provided that can server as client ring sounds. To use a sound, rename it <code>ring.au</code> and drop it into the <code>client</code> directory. The default sound is <code>pingping.au</code>.
+<p>
+<li> <code>EwgieLanguage.java</code>
+<p>
+This file will allow you to internationalize the client and server. Read it for instructions on how to do this.
+</ul>
+<p>
+
+<br>
+<a name="2"><h3>Running the Server</h3></a>
+
+In order to run EwgieServer, you must have a Java virtual machine somewhere to execute the code. One way to do this is to go to <a href="http://java.sun.com/">java.sun.com</a> and get the latest Java Developer's Kit, install it for your system and set it all up. Once that's done, all you have to do is type
+<pre>
+     java EwgieServer &
+</pre>
+...and you're ready to rock 'n' roll.
+<p>
+
+When you first start the server, you'll notice that logging information goes to standard output. You can easily redirect this to another file:
+<pre>
+     java EwgieServer & >! access_log
+</pre>
+Or you can specify a log file to create/append to using a command-line option or configuration file option.
+<p>
+If you will be setting up a client that is intended to connect with this server, make sure you <a hre=f"client.html#3">configure the client parameters</a> properly and set the host and port to that of the server.
+<p>
+
+<br>
+<a name="3"><h3>Command-Line Options</h3></a>
+
+Here are the EwgieServer command-line options in a nutshell:
+<font size=-1>
+<pre>
+  usage: EwgieServer [-p #] [-m #] [-l file]
+                     [-t file] [-w welcome] [-c file]
+options: -p : the port to listen to
+         -m : the maximum number of clients to accept
+         -l : the log file to use
+         -t : the transcript file to use
+         -w : the welcome file to use
+         -c : the configuration file to use
+</pre>
+</font>
+...any unsupported option will return this usage message.
+<p>
+<ul>
+<li> <b>-p</b> <i>number</i>
+<p>
+This specifies the port to listen to. The default port is 1971.
+<p>
+<li> <b>-m</b> <i>number</i>
+<p>
+This specifies the maximum number of simultaneous connections (people) the server can support. The default maximum is 50 people.
+<p>
+<li> <b>-l</b> <i>file</i>
+<p>
+This is the log file to log transactions to. If the log file does not exist, it will be created. If it exists, it will be appended to.
+<p>
+<li> <b>-t</b> <i>file</i>
+<p>
+This is the transcript file which is a transcript of the activity on the server. If the file does not exist, it will be created. If it exists, it will be appended to. If the file name ends in ".html" or ".htm", the transcript will be formatted in HTML; otherwise the transcript will be in a text-only format. If you create a transcript, you may want to create a public link to it so others can see what's been going on. Private messages will not be shown in the transcript.
+<p>
+If the transcript file is in HTML, URLs that are typed will be automatically converted to hyperlinks and 8-bit characters will be converted to the proper HTML codes. See a <a href="script.html">sample transcript</a> to see how it looks.
+<p>
+<li> <b>-w</b> <i>file</i>
+<p>
+This is the startup message displayed to people when they connect to the server. If it doesn't exist, no message will be displayed. This message must be a text-only file.
+<p>
+<li> <b>-c</b> <i>configuration file</i>
+<p>
+The configuration file to use. Command-line options override anything in the configuration file. There is no default configuration file, and the server does not look for one upon startup.
+<p>
+<li> <b>-debug</b>
+<p>
+This option will allow you to view all messages received by the server as well as any exceptions that are caught in the program. Use this if you experience recurring bugs in the server.
+</ul>
+<p>
+
+<br>
+<a name="4"><h3>The Configuration File</h3></a>
+
+The configuration file allows you to specify everything you can with command-line options and a little more. If you use command-line option with a configuration file, the command-line options will override anything in the file.
+<p>
+
+Here's what a sample file looks like:
+<font size=-1>
+<pre>
+     # Administration file for EwgieServer
+     # These directives are case-insensitive
+ 
+     port 1971
+     maxClients 50
+
+     logFile access.log
+     welcomeFile welcome.txt
+     scriptFile script.txt
+
+     deny all
+     allow name Biff
+     allow address 192.100.
+     allow address 132.151.1.35
+
+     whiteboard on
+
+     password Biff mypassword
+     generalPassword somepassword
+     operatorPassword somepassword
+
+     timestamp 15
+     noNewRooms
+     makeRoom Lobby, This is the lobby, lobby.html
+
+     debug off
+</pre>
+</font>
+Blank lines and lines beginning with hash marks (#) are ignored. As you can see, the first five directives (from <code>port</code> to <code>scriptFile</code>) are pretty straightforward and self-explanatory, if you've already read what command-line options are available.
+<p>
+
+<ul>
+<li> <b>allow</b> and <b>deny</b>
+<p>
+<code>deny</code> and <code>allow</code> allow you to control in a basic fashion who connects to your server - by nickname and by IP address. Because there is no way to get the user's real name, these directives should be taken with a grain of salt. If you want slightly better control over who has access to your Ewgie server, you should make use of your Web server's access control mechanism instead of or in tandem with these directives.
+<p>
+<b>You may also want to place the server and configuration file in a directory that is not accessible from the Web as an added precaution.</b>
+<p>
+The allow/deny directives are parsed in order from the top down. Let's take the example above:
+<font size=-1>
+<pre>
+     deny all
+     allow name Biff
+     allow address 192.100.
+     allow address 132.151.1.35
+</pre>
+</font>
+First, all access is denied to the server. Next, only the person with the nickname Biff (case-insensitive) is allowed into the server. After that, anyone coming from a computer with an address starting with <code>192.100</code> is allowed. After that, anyone coming from <code>132.151.1.35</code> is allowed.
+<p>
+Note that addresses must be <i>number</i> addresses and not names, and you can only perform matching on the beginnings of these addresses. Wildcards are not supported.
+<font size=-1>
+<pre>
+     allow all
+     deny name Sue
+     deny address 198.95.251.30
+</pre>
+</font>
+This works in reverse - first, everyone is allowed access, then only those with the nickname Sue are denied access, then those coming from the address <code>198.95.251.30</code> are denied.
+<p>
+<li> <b>whiteboard</b>
+<p>
+If you wish the server to allow whiteboard communications, include this line in your configuration file:
+<pre>
+     whiteboard on
+</pre>
+If you use this line:
+<pre>
+     whiteboard off
+</pre>
+..then whiteboard communication will not be supported. This means that although members may open their whiteboards and draw on them, they will not be able to see what other people are doing. If you disable whiteboard communications in the server, you should note this in the server's welcome message.
+<p>
+<li> <b>password</b>, <b>generalPassword</b>, and <b>operatorPassword</b>
+<p>
+You can include a <code>password</code> directive in the configuration file, thereby closing the chat area to everyone except for those with passwords. If you typed in a line like this:
+<pre>
+     password John testpassword
+</pre>
+...then only a user with the nickname <code>John</code> (case-insensitive) who entered the password <code>testpassword</code> (case-sensitive) is allowed to enter the chat area.
+<p>
+The <code>generalPassword</code> directive will require every user that has not been assigned a specific password to enter a common password before they can enter the chat area. Those already with specific passwords (as defined with the <code>password</code> directive) must still type in their specific passwords.
+<p>
+The <code>operatorPassword</code> directive specifies a password that is required to use the <a href="commands.html#shutdown"><code>/shutdown</code></a> and <a href="commands.html#notice"><code>/notice</code></a> commands. See the client documentation for how to use these commands.
+<p>
+If you use the password directives, note that passwords are not encrypted and are stored as plaintext. For this reason, <b>it is highly recommended that you place the configuration file in an area that is not publicly accessible and that the passwords used by members are not used for anything else</b>.
+<p>
+The server will enforce a minimum password length of eight characters.
+<p>
+<li> <b>timestamp</b>
+<p>
+If you are keeping a transcript of the chat activity, you can choose to have the server insert a time stamp (full time and date) at regular intervals. You must use the <code>timestamp</code> directive with the number of minutes between time stamps:
+<pre>
+     timestamp 15
+</pre>
+This example inserts a time stamp every 15 minutes.
+<p>
+The time is given in Greenwich Mean Time and is inserted in HTML comments if the transcript format is in HTML.
+<p>
+<li> <b>noNewRooms</b>
+<p>
+By default chat members can create new rooms whenever they like. You can disable this option by including the <code>noNewRooms</code> directive in the configuration file.
+<p>
+<li> <b>makeRoom</b>
+<p>
+You can use this directive multiple times to make permanent rooms on the server - they cannot be removed by anybody. This is useful for setting up core topic areas. This directive is used like this:
+<font size=-1>
+<pre>
+     makeRoom roomName, (roomTopic), (scriptFile)
+</pre>
+</font>
+A room name must be supplied. You can specify a room topic and a file to transcribe the room's activity to. If you do not supply a topic then anybody can change or remove the topic for that room. If you specify a script file the <code>timestamp</code> directive applies to it.
+<p>
+If you make multiple rooms, the first room you define with the <code>makeRoom</code> directive will be the server's default main room, the room everyone enters when they first connect to the server. The script for the main room can be specified in the <code>scriptFile</code> directive or as an argument to the first room you define. The room name, topic, and script arguments must be separated by a comma. Here's an example:
+<font size=-1>
+<pre>
+     makeRoom Port of Entry, Welcome All!, entry.html
+     makeRoom Bazaar
+     makeRoom Bar and Grill, , bar.html
+     makeRoom Idle Chat, Nothing in particular
+</pre>
+</font>
+Anyone entering a server configured with these directives would first enter into the main room "Port of Entry" with the topic "Welcome All!". Any public activity in this room would be transcribed in the file <code>entry.html</code>. Anyone can change the topic for the room "Bazaar", which is not being transcribed.
+<p>
+The room "Bar and Grill" has no topic, but it is being recorded. Note that you can have multiple rooms being transcribed to different files. The room "Idle Chat" has the topic "Nothing in particular", which cannot be changed. None of these rooms can be removed.
+<p>
+Note that if the <code>noNewRooms</code> directive were specified no additional rooms could be made by chat members.
+<p>
+<li> <b>debug</b>
+<p>
+This directive can take the value <code>on</code> or <code>off</code>. Turning it on has the same effect as using the <code>-debug</code> command-line flag.
+</ul>
+<p>
+</blockquote>
+
+</td>
+</tr>
+<tr>
+<td align=center>
+<a href="board.html">[ Back: Using EwgieBoard ]</a>
+<a href="index.html">[ Index ]</a>
+<a href="other.html">[ Next: Other Stuff ]</a>
+</td>
+</tr>
+</table>
+</center>
+
+</body>
+</html>

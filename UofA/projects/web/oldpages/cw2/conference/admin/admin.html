@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--last modified on Saturday, November 22, 1997 04:23 PM -->
+<HTML>
+
+<HEAD>
+	<META NAME="Author" Content="Donald B. Kinghorn">
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<TITLE>Admin Page</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<P><FORM ACTION="http://www.chem.arizona.edu/conference/cgi-bin/addInvite.cgi" METHOD="POST" ENCTYPE="application/x-www-form-urlencoded"
+NAME="addToList">
+<H1 ALIGN="CENTER">Admin Page</H1>
+<P>
+<HR ALIGN="CENTER">
+<BR>
+<FONT SIZE="5" COLOR="#DD0000"><B>Be carefull of what you do in here!</B></FONT>
+<H2>
+<HR ALIGN="CENTER">
+Add to invitation list:</H2>
+<P>This form is for adding a single email address to the invite.list (You can edit invite.list locally and upload
+the file with ftp to /chem/htdocs/conference/admin/invite.list This form just makes it easy to add a few address
+to the invite.list file)<BR>
+<BR>
+<B>Add email address to current invitation list:</B> <INPUT TYPE="TEXT" NAME="emailAddr" SIZE="25"><INPUT TYPE="SUBMIT"
+NAME="Add" VALUE="Add to Invite List"><BR>
+(Current invitation list is invite.list)
+<H2>
+<HR ALIGN="CENTER">
+Send Invitations:</H2>
+<P>This script will send the email invitations to all address in invite.list and then rename the invite.list file
+so you wont accedintally send invitations more than once.<BR>
+<BR>
+<B>New name for the sent invite.list file:<BR>
+</B>( invite.list.sent1 would be good) </FORM>
+<FORM ACTION="http://www.chem.arizona.edu/conference/cgi-bin/sendInvitations.cgi" METHOD="POST" ENCTYPE="application/x-www-form-urlencoded">
+<INPUT TYPE="TEXT" NAME="newFileName" SIZE="25"><BR>
+<BR>
+The invitation message is hardcoded in the script and reads as follows:<BR>
+(If you need to change this let me know -Don) <BR>
+<BR>
+<INPUT TYPE="SUBMIT" NAME="Submit" VALUE="Send the Invitations">
+<H2>
+<HR ALIGN="CENTER">
+Send Message to Registrants:</H2>
+<P>This script will send the schedule (or other message) to everyone in the registration database:<BR>
+(don't rely on word wrap, insert your own line breaks i.e. hit return at the end of each line)<BR>
+</FORM>
+<FORM ACTION="http://www.chem.arizona.edu/conference/cgi-bin/sendMsg.cgi" METHOD="POST" ENCTYPE="application/x-www-form-urlencoded"><B>Name
+of registration database file:</B> <INPUT TYPE="TEXT" NAME="dbName" SIZE="25"><BR>
+(You can put a test db under conference/admin to test the mailing)<BR>
+<TEXTAREA NAME="message" ROWS="22" COLS="52"></TEXTAREA><BR>
+<INPUT TYPE="SUBMIT" NAME="Submit13" VALUE="Send Msg to Registrants">
+<H2>
+<HR ALIGN="CENTER">
+Initialize Poster:</H2>
+<P>This script will;
+
+<UL>
+	<LI>add a new poster room entry
+	<LI>create the poster directory
+	<LI>copy the template file to the new directory
+	<LI>modify the navBar.html and chatlogin.html file for the new poster
+	<LI>make a new chat server.conf file
+	<LI>restart chat (you must restart EwgieServer by hand)
+	<LI>create a news group for the poster (you must create the news group by hand)
+</UL>
+
+<P>This can all be done with just the poster title author list and email addresses the short title for the chat
+room and discussion group and a schedule time for the live chat. The actual poster GIF files can be uploaded later.
+When the poster GIF files are uploaded the navBar.html file will need to be trimed to the appropriate number of
+slides (easy).<BR>
+</FORM>
+<FORM ACTION="http://www.chem.arizona.edu/conference/cgi-bin/setupPoster.cgi" METHOD="POST" ENCTYPE="application/x-www-form-urlencoded"><B>Poster
+Title: </B>(if you want to force a break in the title insert &lt;BR&gt;)<B><BR>
+</B><TEXTAREA NAME="title" ROWS="7" COLS="39"></TEXTAREA> <BR>
+<BR>
+<B>Author Names and Email Addresses:</B><BR>
+(should be entered one entry per line as Name, email: <FONT COLOR="#DD0000">Don't forget the comma and colon!</FONT>)<BR>
+i.e. Donald B. Kinghorn,kinghorn@u.arizona.edu:<BR>
+      Donald B. Kinghorn II,kinghorn@u.arizona.edu (you don't need the last colon)<BR>
+<TEXTAREA NAME="authorList" ROWS="7" COLS="39"></TEXTAREA><BR>
+<BR>
+<B>One word poster ID for the chat room and discussion group:</B><BR>
+(can include underscore as in two_words <FONT COLOR="#DD0000">Use all lower case</FONT>)<BR>
+<INPUT TYPE="TEXT" NAME="posterID" SIZE="31"><BR>
+<BR>
+<B>Live Chat schedule Time (if known):</B><BR>
+(use format: Dec. 17th 9:15AM (AZ time) )<BR>
+<INPUT TYPE="TEXT" NAME="chatTime" SIZE="25"><BR>
+<BR>
+<INPUT TYPE="SUBMIT" NAME="Submit21" VALUE="Initialize Poster"><FONT COLOR="#DD0000"><B>(be sure you want to do
+this! it can't be easly undone)</B></FONT><BR>
+
+<HR ALIGN="CENTER">
+
+</FORM>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,19 @@
+<A HREF="#new announcement">New Announcement</A>
+
+<A HREF="#delete announcement">Delete Announcement </A>
+
+
+<A HREF="#add link">Add Link to Menu</A>
+
+
+<A HREF="#add page">Add page to Menu</A>
+
+
+<A HREF="#delete menu item">Delete Menu Item</A>
+
+
+<A HREF="#upload extra files">Upload Extra Files</A>
+
+
+<A HREF="#delete uploaded file">Delete Uploaded File</A>
+

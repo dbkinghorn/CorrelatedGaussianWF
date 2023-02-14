@@ -1,0 +1,563 @@
+%%% file: manaip.tex from REVTeX 3.1
+% Copyright (c) 1992, American Institute of Physics
+\documentstyle[aps]{revtex}
+\makeatletter
+%run page numbers by chapter
+\def\thepage{3-\@arabic\c@page}
+%these page numbers need abit more width
+\def\@pnumwidth{2em}
+\def\REVTeX{REV\TeX}
+\makeatother
+\begin{document}
+\twocolumn
+\title{REV\TeX\ Information For AIP Authors\\
+\vskip 1pc
+Instructions to authors for preparing compuscripts to be submitted to\\
+AIP journals in REV\TeX\ 3.1 format}
+
+\maketitle
+\tableofcontents
+
+\makeatletter
+\global\@specialpagefalse
+\def\@oddhead{\REVTeX{} 3.1\hfill Released September 1996}
+\let\@evenhead\@oddhead
+% run page numbers by "chapter", with copyright for first page
+\def\@oddfoot{\reset@font\rm\hfill \thepage\hfill
+\ifnum\c@page=1
+  \llap{\protect\copyright{} 1996
+  American Institute of Physics}%
+\fi
+} \let\@evenfoot\@oddfoot
+\makeatother
+
+\section{Introduction}
+
+The American Institute of Physics has been using author-prepared
+REV\TeX\ files to produce author proofs since 1992. Author files
+are converted into code that can be used by Xyvision, AIP's
+composition system. Therefore, you may have noticed that these
+compuscripts look exactly like conventionally processed articles.
+
+It is because of this conversion that it is imperative that the
+guidelines as set forth in the REV\TeX\ input guide are followed
+exactly. Failure to comply with these guidelines may result in
+rejection of your file, and your manuscript will then be typeset from
+scratch.
+
+At this time, all compuscripts follow conventional processing
+schedules. There are no accelerated schedules for compuscripts,
+nor are there any page charge reductions.
+
+
+
+
+
+\section{Participating Journals }
+\label{partjourn}
+AIP has established compuscript procedures for the following
+journals:
+
+\begin{itemize}
+
+\item The Astronomical Journal\footnote{{\it AJ} authors are
+asked to use AAS\TeX\, an author markup package prepared by the
+American Astronomical Society. For more information on AAS\TeX\,
+send e-mail to {\tt aastex-help@aas.org}. For instructions on how
+to submit a file electronically, send an empty e-mail message to
+{\tt aj-instruct@aas.org}.}
+\item Applied Physics Letters
+\item Chaos
+\item Computers in Physics
+\item Journal of Applied Physics
+\item Journal of the Acoustical Society of America
+\item Journal of Chemical Physics
+\item Journal of Mathematical Physics
+\item Journal of Rheology
+\item Journal of Physical and Chemical Reference Data
+\item Journal of Vacuum Science \& Technology A \& B\footnote{Authors
+wishing to submit a REV\TeX\ file to these journals may of course
+do so, but please be aware that this society prefers the use of AIP's
+Word/WordPerfect author toolkit. Information regarding this toolkit
+may be found on the AIP homepage
+ \protect({\tt http://www.aip.org/compuscripts.info.html}).
+ The toolkit is available via anonymous ftp from ftp.aip.org in
+ the directory{\tt /ems}.}
+ \item Medical Physics\footnote{See {\it JVA} \& {\it JVB}.}
+ \item Noise Control Engineering
+ \item Powder Diffraction
+ \item Physics of Fluids
+ \item Physics of Plasmas
+ \item Publications of the Astronomical Society of the Pacific\footnote{%
+ Authors may submit either AAS\TeX\/, \LaTeX\/, or \TeX\ files. Send an
+ empty e-mail message to {\tt pasp-instruct@aas.org} for more information.}
+ \item Review of Scientific Instruments
+
+ \end{itemize}
+
+\section{Where to turn for help}
+\subsection{Procedural questions}
+\label{home}
+For more detailed instructions on how to submit your REV\TeX\ file,
+please see the {\it Information For Contributors} page in the journal
+you wish to publish in. Information can also be found on various
+journal homepages (most are accessible from the AIP homepage; URL:
+{\tt http://www.aip.org}).
+
+Please remember this ``golden rule'' of submission: Do not send a file
+electronically or on diskette to the editorial office unless (a) your
+article has been accepted for publication or (b) you are sure that
+the editorial office accepts files prior to acceptance of your paper.
+
+%In this section are listed both AIP contacts and editorial office contacts.
+%Authors can always contact AIP with any questions, technical or procedural,
+%surrounding the compuscript program.  However, answers may be obtained more
+%quickly by contacting the editorial office in question, depending on what
+%stage the manuscript is in and whether the question is procedural or
+%technical (involving the use of REV\TeX ).
+
+\subsection{REV\TeX\ questions}
+
+Technical questions involving the use of REV\TeX\/, transmitting files
+electronically, procedural questions, etc., can be answered 
+by AIP staff. Please contact:
+
+\begin{verse}
+Liz Belmont\\
+Compuscript Liaison, AIP\\
+e-mail: esubs@aip.org\\
+phone: 516-576-2454
+\end{verse}
+
+\subsection{Prior to manuscript acceptance}
+%\subsubsection{Procedural questions}
+
+Some editorial offices accept original submissions via e-mail,
+but most do not. Contact the editorial office of the journal you
+wish to submit to for instructions on how to send your original
+file electronically. If you have already sent a hard copy of the
+manuscript to the editorial office, DO NOT send a file until you
+have been instructed to do so.
+
+{\bf Note:} When corresponding with the editorial office, {\it always}
+include an e-mail address. This will help to expedite matters when
+the time comes for you to send the file electronically.
+
+
+
+
+
+
+\subsection{After manuscript acceptance}
+
+Files may be submitted to AIP or the editorial office via e-mail
+or on diskette (PC or Mac, preferably high density diskettes). The
+editorial office will send you instructions on how and when to
+submit your file with your acceptance letter (or, depending on the
+editorial office, an e-mail message notifying you of acceptance).
+
+You will receive notification with your page proofs as to whether
+or not your file was used by AIP, along with an author feedback
+form, outlining problems we had with the file, or perhaps offering
+suggestions on how to more easily prepare files in the future.
+
+
+
+\subsection{Editorial Office Contacts}
+\label{contacts}
+
+Editorial office contacts are listed below (editor, editorial
+assistant, phone number,  and e-mail address).
+
+
+\bigskip
+
+\noindent       Applied Physics Letters
+
+\begin{verse}
+                Dr. Nghi Q. Lam (Diane Kurtz)\\
+                708-252-4200\\
+                apl@anl.gov
+ \end{verse}
+
+
+\noindent      Astronomical Journal$^*$
+
+\begin{verse}
+             Dr. Paul Hodge (Chaim Rosemarin)\\
+             206-685-2150\\
+             astroj@astro.washington.edu\\
+             $^*$Do not use REV\TeX .  See Sec. \ref{partjourn}.
+\end{verse}
+
+\noindent      Chaos
+
+\begin{verse}
+             Dr. David Campbell\\
+             (Janis Bennett, AIP; janis@aip.org; 516-576-2403)\\
+             217-333-3760\\
+             dkc@faust.physics.uiuc.edu
+\end{verse}
+
+\noindent      Computers in Physics
+
+\begin{verse}
+             Dr. Lewis Holmes\\
+             (Patricia Daukantas: 202-745-1895)\\
+             301-209-3003\\
+             lh4@aip.org
+\end{verse}
+
+\noindent      Journal of Applied Physics
+
+\begin{verse}
+             Dr. Steven Rothman (Diane Kurtz)\\
+             708-252-4200\\
+             jap@anl.gov
+\end{verse}
+
+\noindent      The Journal of the Acoustical Society of America
+
+\begin{verse}
+             Dr. Daniel Martin\\
+             513-231-5278
+\end{verse}
+
+\noindent      The Journal of Chemical Physics
+
+\begin{verse}
+             Dr. John C. Light (Mitty Collier)\\
+             312-702-7067\\
+             light@jcp.uchicago.edu
+\end{verse}
+
+
+\noindent      Journal of Mathematical Physics
+
+\begin{verse}
+             Dr. Roger G. Newton\\
+             (Penny Brigham, 812-855-3576)\\
+             jmp@indiana.edu
+\end{verse}
+
+\noindent    Journal of Physical and Chemical Reference Data
+
+\begin{verse}
+             Dr. Jean Gallagher/Dr. Malcolm Chase\\
+             (Julian Ives)\\
+             301-975-2204\\
+             jpcrd@nist.gov
+\end{verse}
+
+
+\noindent      Journal of Rheology
+
+\begin{verse}
+               Dr. Morton Denn (Elizabeth Frey)\\
+               510-642-0176\\
+               jor@cchem.berkeley.edu
+\end{verse}
+
+
+\noindent      Journal of Vacuum Science and Technology A
+
+\begin{verse}
+             Dr. Gerald Lucovsky (Becky York)\\
+             919-248-1861\\
+             jvst@mcnc.org
+\end{verse}
+
+\noindent      Journal of Vacuum Science and Technology B
+
+\begin{verse}
+             Dr. Gary McGuire (Becky York)\\
+             919-248-1861\\
+             jvst@mcnc.org
+\end{verse}
+
+\noindent      Medical Physics
+%ADD E-MAIL ADDRESS
+\begin{verse}
+             Dr. John S. Laughlin\\
+             (Linda Addonisio, 212-639-7414)\\
+             addonisio@mpcs.mskcc.org
+\end{verse}
+
+\noindent     Noise Control Engineering$^*$   
+
+\begin{verse}
+             Dr. David K. Holger\\
+             515-294-6240\\
+             nz.dk@iastate.edu\\
+             $^*$ Word/WordPerfect toolkit preferred. See Sec. \ref{partjourn}.
+\end{verse}
+
+\noindent      Publications of the Astronomical Society of the Pacific$^*$
+
+\begin{verse}
+             Dr. Howard Bond (Denise Dankert)\\
+             410-338-4958\\
+             pasp@stsci.edu\\
+             $^*$ AAS\TeX\/, La\TeX\/, \TeX\ preferred and accepted.
+             See Sec. \ref{partjourn}.
+\end{verse}
+
+\noindent      Physics of Fluids 
+
+\begin{verse}
+             Dr. Andreas Acrivos (Cheryl Pahaham)\\
+             212-283-0962\\
+             pfa@lev.engr.ccny.cuny.edu
+\end{verse}
+
+\noindent      Physics of Plasmas
+
+\begin{verse}
+             Dr. Ronald C. Davidson (Sandra Schmidt)\\
+             609-243-2424\\
+             physplas@pppl.gov
+\end{verse}
+
+\noindent      Powder Diffraction
+
+\begin{verse}
+             Deane K. Smith (Mary Rossi)\\
+             814-865-5782\\
+             smith@psumrl1.psu.edu
+\end{verse}
+
+\noindent      Review of Scientific Instruments
+
+\begin{verse}
+             Dr. Thomas H. Braid (Lynne Welsh)\\
+             708-252-8236\\
+             rsi@anl.gov
+\end{verse}
+
+\section{REV\TeX\ Tips}
+
+You may have discovered that, although you followed all the 
+instructions in the REV\TeX\ input guide, 
+your file was found to be
+unusable by AIP. Of course there will be circumstances beyond anyone's
+control (damaged disks, corrupt e-mail messages, etc.) that will render
+a file unusable. But there are some things that you, the author, can
+do before you send AIP the file to ensure that it {\it is} accepted and used to
+produce your page
+proofs.
+
+AIP has developed a robust conversion to translate your file to
+our Xyvision page make-up system. This conversion was written
+based on the APS REV\TeX\ input guidelines and the REV\TeX\
+template. If those instructions are followed exactly, and the
+correct REV\TeX\ tags used, then the file will be converted without
+any problems.
+But we do recognize that you may
+be using your REV\TeX\ file to produce preprints, so you may find
+yourself ``tweaking'' fonts or spacing, or even creating new
+symbols. However, for our
+conversion to work properly, it is absolutely necessary that you send
+AIP a ``clean'' file to work with.
+
+Here are some things you can do to help us.
+
+\subsection{Author-Defined Macros}
+
+Not all author-defined macros are ``bad.'' This used to be the
+case, but owing to the efforts of AIP's programmers, we are now
+able to globally expand ``keystroke-saving'' macros.
+
+``Keystroke-saving'' macros are macros
+defined via the \verb+\def+ and \verb+\newcommand+ family of commands.
+For example, ``\verb+\be+'' would expand to ``\verb+\begin{equation}+''
+and would be defined in the 
+beginning of the file as \verb+\def\be{\begin{equation}}+.
+
+So-called ``bad'' macros are custom macros that effect low-level
+formatting. It is not necessary to worry about the finer points of
+typesetting. Your file is being translated into another typesetting
+language, and no amount of moving and kerning of superscripts and
+subscripts and creating open-face fonts (for example) will change the way the
+final printed page looks like.
+
+If you are going to use your own keystroke-saving macros, please
+list all of them at the beginning of the file, before the
+\verb+\begin{document}+
+line. Do not sprinkle your defs (or redefine the same macros!) throughout
+your paper. Again, the macro expander will not work unless all author-defined
+macros are present at the beginning of the file.
+
+The macro expander does not support Plain \TeX\ commands at this time.
+Do not use \verb+\else, \fi, \if, \input, \mathop, \mathrel,
+\special+. As for La\TeX\ constructions, \linebreak
+please do not use \verb+ \newenvironment, \newfont,
+\newtheorem, \include+.
+ Do not redefine labels, do not
+reset counters, etc. 
+
+\subsection{Style files}
+
+At this time, there are no AIP journal-specific style files. Please
+use one of the {\it Physical Review} style files that most closely resembles the style
+you are trying to achieve. Do not use any private style files, or
+``ersatz'' AIP style files found at various FTP sites. AIP does
+not support these files.
+
+The easiest thing to do is to use the following documentstyle line.
+\begin{center}
+\begin{verbatim}
+\documentstyle[preprint,prb,aps]{revtex}
+\end{verbatim}
+\end{center}
+This documenstyle line will be sufficient for most journals printed
+by AIP.
+Using this documentstyle line will give you a preprint (12 point,
+one column) manuscript, with superscripted reference citation numbers.
+(If you wish to number your equation numbers by section, use the
+eqsecnum style; use amssymb, amsfonts for symbols and fonts, etc.)
+
+\subsection{Plain \TeX\ and La\TeX\ files}
+
+Some authors will put the REV\TeX\ documentstyle line at the beginning
+of a regular, ``non-REV\TeX\/''  \LaTeX\ file and send it 
+in as a bona fide REV\TeX\
+file. We ask that authors please do not do this, since it still requires
+us to go into your file and (a) edit the file into a ``real'' REV\TeX\
+file or (b) reject the file outright due to the amount of extra editing
+time it would take for us to make the file usable.
+
+Use the REV\TeX\ template. If you use the template and
+follow it implicitely, the odds of your file being used to
+produce your proofs will greatly increase. (See the APS input 
+guide for more information.)
+
+Do not use Plain \TeX\ to typeset equations or tables. Use \LaTeX\ and REV\TeX\
+commands. 
+
+\subsection{Cross-referencing commands}
+
+One of the most important things you can do is use cross-referencing
+commands that REV\TeX\ and \LaTeX\ provide for \verb+\section, \bibitem,
+and \cite+. Use \verb+\ref+ and \verb+\label+ for tagging figures
+and tables. 
+
+Not only will you get automatic numbering, but this markup will be
+translated by AIP's conversion software to create ``SGML-like'' hyperlinks, 
+which
+will then be used in electronic journal products such as on-line journals
+and CD-ROM's.
+
+\subsection{Roman versus {\it italic}}
+
+One of the most prevalent problems we encounter with author files 
+is the incorrect uses of roman and italic characters. 
+As a rule, all math variables should be typed as italic characters
+in the file. Roman functions should be set in roman font. Units of
+measure should be roman also. All too often, a file has been found to
+be unusable for production of author proofs because of the number of
+fonts changes that would have to be made to the file by the keyboarder.
+
+For example, if an author
+typesets math variables as  roman characters throughout a file, it
+means that a keyboarder must go through the file and change each
+character by hand, one by one. At this point, then, it is much easier
+to typeset the article from scratch, and we may have to reject your file.
+
+Conversely, some authors will typeset units of measure or abbreviations
+for elements in italic fonts. This time, the keyboarder would have to change
+all the italics to roman fonts, and once again, the file 
+would have to be rejected.
+
+Here is an example of a chronic problem. The author has typeset the
+elements as italics:
+\[
+Ga_{1-x}As_{1-y}
+\]
+
+The above {\it should} be typeset as shown below:
+\[
+{\rm Ga}_{1-x}{\rm As}_{1-y}
+\]
+
+Another example: ``20 $\mu m$'' is wrong. ``20 $\mu$m'' is correct.
+
+
+Most math variables (with very few exceptions) must be typeset as
+italic characters. 
+
+Very often, authors will set roman functions as italic; these must
+all be changed to roman. Use \verb+\sin, \cos, \tan+, etc., 
+not \verb+$sin$, $cos$, $tan$+, etc.
+
+\subsection{Equations}
+
+Do not attempt to break equations unnecessarily. Xyvision will do this
+automatically. For the most part, eqnarrays should only be used for
+matrices. Do not use Plain \TeX\ commands (i.e., \verb+$$+ and
+\verb+\eqno+).
+
+\subsection{References}
+
+Frequently seen errors are: 
+\begin{itemize}
+\item Missing and/or extra punctuation (usually missing serial commas
+between authors' names).
+\item Spacing errors: these include not enough space between the
+authors' initials, awkward spacing of journal names, etc.
+\item Font problems: Journal titles should be roman, not italic;
+book titles should be italic, not roman; journal volume numbers should be
+emphasized in bold face, etc.
+\end{itemize}
+
+\subsection{The best advice and the final word...}
+
+The best advice we can give you is, when you are in doubt about some
+stylistic question, check the latest issue of the journal you wish to
+publish in. Although most of the AIP-owned journals follow the same
+style rules, there are some society-owned journals whose style differs 
+slightly (or somewhat greatly!)
+from the AIP style. Therefore, the final word may be found in the
+journal itself.
+
+However, if you still have a question even after consulting the journal,
+you should contact the editorial office or AIP. Although the AIP Compuscript
+Liaison may be able to help you with these queries, you might want to
+consult with the Chief Production Editor in charge of the journal. A
+list of phone numbers and e-mail addresses may be found on the AIP
+homepage (see Sec. \ref{home}).
+
+\bigskip
+\bigskip
+\section{Other packages that can be used with REV\TeX}
+
+\begin{itemize}
+
+\item
+BIBTEX can be used to produce the bibliography section.  Use the guidelines
+for {\em Physical Review}. But please remember to add the resulting
+*.bbl file to your main file.
+
+\item  PostScript graphics files: At this time, AIP does not
+accept PostScript files. However, look for AIP to announce an
+author-prepared electronic graphics program in the near future. Until  
+that time, please send hard copies of your figures along with the
+final hard copy version of your article to the editorial office.
+
+\end{itemize}
+
+\section{The Latest REV\TeX\ Information}
+
+The latest information regarding the AIP Compuscript Program
+may be found on the AIP homepage. Point your browser to
+\begin{center}
+\begin{verbatim}
+http://www.aip.org/epub/compuscripts.info.html
+\end{verbatim}
+\end{center}
+
+
+\end{document}
+
+
+% end of file manaip.tex
+

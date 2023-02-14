@@ -1,0 +1,70 @@
+#!/usr/bin/perl 
+
+# h3surf.1.pl
+#################################################
+# Donald B. Kinghorn                                              
+# University of Arizona Dept. of Chemistry        
+# Tucson AZ  85721                                                 
+# e-mail: kinghorn@u.arizona.edu                        
+# Thu May 27 15:08:18 MST 1999
+#################################################
+#
+# USAGE: h3surf geometry.file
+# 
+# PURPOSE: to collect energy values for an H3
+#          potential energy surface.
+#
+# This script reads in the points from the file
+# geometry.file and then creates a gamess input 
+# file for each point (one at a time) and submits
+# the job. When the job finishes the script then 
+# pulls the energy out of the output file and 
+# appends a file, h3.surf, with the energy and
+# the point at which it was computed. 
+#
+#################################################
+
+# get the  points file and input file
+my $geofile = shift(@ARGV) || die "error: no points file given";
+my $inputfile = shift(@ARGV) || die "error: no input file given";
+
+# get the base file name
+my $inputbase = (split(/\./, $inputfile))[0];
+#print $inputbase;
+
+open(POINTS, "< $geofile") || die "cannot open file $geofile: $!"; 
+@points = <POINTS>;
+close(POINTS);
+
+# Main loop
+$count=0;
+foreach $point (@points){
+  # parse the input point
+  ($x1,$x2,$y2) = split(/\t/, $point);
+  # make a new input file
+  $count++;
+  $newinput = "$inputbase"."-$count".'.inp';
+  
+  open(NEWINPUT, ">> $newinput") || die "cannot open file $newinput: $!";
+  open(INPUTFILE, "< $inputfile") || die "cannot open file $inputfile: $!";
+  
+  while(<INPUTFILE>) {
+    s/_x1/$x1/;
+    s/_x2/$x2/;
+    s/_y2/$y2/;
+    print NEWINPUT;
+  }
+  close(INPUTFILE);
+  close(NEWINPUT);
+
+  # make output file name
+  $outputfile = "$inputbase"."-$count".'.log';
+
+  # Run gamess
+  
+  # process output
+
+  # add result to surface file
+
+  #clean up ... remove input and output files
+}

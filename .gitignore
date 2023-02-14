@@ -1,3 +1,11 @@
+no-git/
+*.tar
+*.tar.*
+*.zip
+*.tgz
+mbox
+nsmail/
+
 # Prerequisites
 *.d
 

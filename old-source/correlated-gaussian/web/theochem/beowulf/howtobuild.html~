@@ -1,0 +1,132 @@
+<html>
+<!-- **********************************************-->
+<!-- Donald B. Kinghorn                            -->
+<!-- University of Arizona                         -->
+<!-- Theoretical and Computational Chemistry Group -->
+<!-- Tucson AZ                                     -->
+<head>
+<title>Beowulf Clusters for Chemists</title>
+<META name="keywords" content="Beowulf, Chemistry">
+</head>
+<body bgcolor="ghostwhite" text="black" link="blue" vlink="blue" background="">
+
+<!-- empty table just to add some color to the top of page -->
+<table width=100% border=0 cellspacing=0 cellpadding=0>
+<tr><td bgcolor=darkred>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td></tr>
+</table>
+
+<!-- main content table 1 row 4 column -->
+<table width=100% border=0 cellspacing=0 cellpadding=4 valign=top>
+<tr>
+
+<!-- empty column to add a left border color --> 
+<td bgcolor=darkred>&nbsp;&nbsp;&nbsp;</td>
+
+<!-- start navigation bar -->
+<td align=center bgcolor=lightsteelblue valign=top>
+<hr size=4 width=85% noshade align=center>
+<a href="http://www.arizona.edu">
+<font size=2 color=maroon>The University of Arizona<br></font>
+</a>
+<a href="../index.html">
+<font size=2 color=blue>Theoretical and Computational Chemistry Group</font>
+</a>
+<br>
+
+<hr size=4 width=85% noshade align=center>
+<a href=index.html><font size=2>Home</font></a>
+<br><br>
+<a href=whatis.html><font size=2>What is a Beowulf Cluster</font></a>
+<br><br>
+<a href=howtobuild.html><font size=2>How To Build it</font></a>
+<br><br>
+<a href=howtouse.html><font size=2>How To Use it</font></a>
+<br><br>
+<a href=chemsites.html><font size=2>What Chemists are doing with their Clusters</font></a>
+<br><br>
+<hr size=4 width=85% noshade align=center>
+<a href=feedback><font size=2>Feedback Form</font></a>
+<hr size=4 width=85% noshade align=center>
+</td>
+<!-- end navigation bar -->
+
+<!-- empty column to add some space -->
+<td>&nbsp;&nbsp;&nbsp;</td> 
+
+<!-- ***************** -->
+<!-- Main content area -->
+<!-- ***************** -->
+<td width="80%" valign=top>
+<p>
+<h2 align=center>
+How To Build (or acquire) a Beowulf 
+</h1>
+<p>
+<font color="#555555">
+I have a lot of work to do here still... <br>
+This page will contain: 
+<ul>
+<li>Links to vendors that are supplying
+preconfigured Beowulf systems</li> 
+<li>Information and links on how to
+build and configure a system including,
+  <ul>
+   <li>System Hardware</li>
+   <li>Network Hardware</li>
+   <li>System Software<li> 
+  </ul>
+</li>
+</ul>
+</font>
+<p>
+<hr>
+<b>Beowulf system vendors (not complete!)</b>
+<ul>
+<li>
+ <a href="http://www.pqs-chem.com">PQS Parallel Quantum Solutions</a> 
+</li>
+<li>
+<a href="http://www.hpti.com/Clusterweb/">HIGH PERFORMANCE TECHNOLOGIES, INC.</a>
+</li>
+<li>
+<a href="http://www.tdl.com/~netex/">Net Express</a>
+</li>
+</ul>
+<hr>
+
+<b>More Links:</b> lots more to come ...
+<ul>
+<li><a href="http://www.beowulf.org">The original Beowulf web site at NASA</a>
+</li>
+<li>There is a useful book with lots of good information titled,
+<a href="http://mitpress.mit.edu/book-home.tcl?isbn=026269218X">
+<i>How to Build a Beowulf,
+A Guide to the Implementation and Application of PC Clusters</i></a></li>
+<li>The
+<a href="http://www.beowulf-underground.org/doc_project/index.html">
+Beowulf Documentation Project</a> at
+<a href="http://www.beowulf-underground.org/index.html"> The Beowulf Underground</a></li>
+</ul> 
+
+</td>
+<!-- ************************ -->
+<!-- end of main content area -->
+<!-- ************************ -->
+
+<!-- empty column to add some space -->
+<td>&nbsp;&nbsp;&nbsp;</td> 
+
+</tr>
+</table>
+
+
+<HR ALIGN="CENTER">
+<FONT SIZE="1">Last update: Sept. 24, 1999 </FONT>
+<A HREF="mailto:kinghorn@u.arizona.edu">
+<FONT SIZE="1">Donald B. Kinghorn 
+<IMG SRC="images/mailto.gif" WIDTH="14" HEIGHT="10" ALIGN="BOTTOM "BORDER="0"ALIGN="absmiddle">
+</FONT></A>
+
+
+</body>
+</html>

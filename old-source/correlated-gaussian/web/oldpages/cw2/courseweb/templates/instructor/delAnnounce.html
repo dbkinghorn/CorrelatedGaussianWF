@@ -1,0 +1,59 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- Updated 10:53 PM on 5/1/97                              -->
+<!-- *******************************************************-->
+<HEAD>
+<TITLE>Delete Course Announcement</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Begin hiding Script from old Shouser Browsers
+
+//
+// Generate a mailto: for help
+//
+function helpMsg() {
+	if( confirm("I haven't installed the help system yet but you can help me by telling me what you would like help on.\n I will use your comments as a guide for constructing the help system. \n\nWOULD YOU LIKE TO SEND ME E-MAIL?") ) {
+	 window.location='mailto:kinghorn@dakotacom.net' 
+	}
+}
+// 
+// End Hiding Script -->
+</SCRIPT>
+
+</HEAD>
+<BODY BGCOLOR="#D3D3D3" onLoad='document.forms[0].elements[2].focus()'>
+<H2>Delete Announcement</H2>
+
+Use this form  to delete an announcement from the course welcome page.<BR>
+<HR>
+
+<FORM NAME="delAnnForm" METHOD="POST" ACTION="http://www.chem.arizona.edu/cgi-bin/courseweb/delannounce.cgi" 
+	ENCLTYPE="text/html"  >
+
+	<!-- put in file and directory info -->
+	<INPUT TYPE="HIDDEN"  NAME="courseDir" VALUE="<!--courseDir-->" >
+	<INPUT TYPE="HIDDEN"  NAME="courseFile" VALUE="cw_Announcements.html" >
+Enter the Msg : number of the announcement you would like to delete.<BR>
+	Msg :
+	<INPUT TYPE="TEXT" NAME="delMsg" SIZE=4 MAXLENGTH=5>
+	
+	<INPUT NAME="deleteAnnounce" TYPE="SUBMIT" VALUE="Delete Announcement">
+	<INPUT NAME="helpDelAnnounce" TYPE="BUTTON" VALUE="   Help   "
+		onClick='helpMsg()'>
+	
+</FORM>
+<HR>
+<FORM NAME="closeForm">
+	<DIV ALIGN="CENTER">
+	<INPUT  TYPE="BUTTON" VALUE=" CLOSE " onClick="opener.parent.location.reload(true);self.close()">
+	</DIV>
+</FORM>
+</BODY>
+</HTML>

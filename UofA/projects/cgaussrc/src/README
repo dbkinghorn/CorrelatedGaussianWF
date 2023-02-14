@@ -1,0 +1,4 @@
+This is my old atom code i.e. exp[-r(Lk*Lk'kron(I3))r] basis
+It's faster than pcgauss on a single processor.
+To build:
+pgf90 -fast -o cg cgaussrc.f engradrc.f melkk.f melkl.f tn.f -llapack -lblas             

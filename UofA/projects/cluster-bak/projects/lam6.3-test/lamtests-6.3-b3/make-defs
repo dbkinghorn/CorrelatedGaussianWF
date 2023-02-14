@@ -1,0 +1,78 @@
+## -*- makefile -*-
+##
+# Copyright 1998-1999, University of Notre Dame.
+# Authors: Jeffrey M. Squyres, Kinis L. Meyer, with M. D. McNally 
+#          and Andrew Lumsdaine
+#
+# This file is part of the Notre Dame LAM implementation of MPI.
+#
+# You should have received a copy of the License Agreement for the
+# Notre Dame LAM implementation of MPI along with the software; see
+# the file LICENSE.  If not, contact Office of Research, University of
+# Notre Dame, Notre Dame, IN 46556.
+#
+# Permission to modify the code and to distribute modified code is
+# granted, provided the text of this NOTICE is retained, a notice that
+# the code was modified is included with the above COPYRIGHT NOTICE and
+# with the COPYRIGHT NOTICE in the LICENSE file, and that the LICENSE
+# file is distributed with the modified code.
+#
+# LICENSOR MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED.
+# By way of example, but not limitation, Licensor MAKES NO
+# REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+# PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE COMPONENTS
+# OR DOCUMENTATION WILL NOT INFRINGE ANY PATENTS, COPYRIGHTS, TRADEMARKS
+# OR OTHER RIGHTS.
+#
+# Additional copyrights may follow.
+#
+##
+## Configuration for "make" for all the subdirectories
+##
+## It expected $(BIN) to be defined before this file is included.
+##
+
+SHELL	= /bin/sh
+CC	= mpicc
+F77	= mpif77
+CLINKER	= mpicc
+FLINKER	= mpif77
+CFLAGS	= -g
+FFLAGS	= -g
+LINK	= $(CLINKER) $(CFLAGS) -o $@ $@.o
+
+.c.o:
+	$(CC) $(CFLAGS) -c $*.c
+.f.o:
+	$(F77) $(FFLAGS) -c $*.f
+
+default: build
+
+clean:
+	/bin/rm -f *.o *~ core *% $(BIN)
+
+testing: testing-lamd testing-c2c
+
+testing-lamd: $(BIN)
+	@echo "*** Testing -lamd mode ***"
+	@$(MAKE) MODE="-lamd" LAMPWD="`pwd`" runtests
+
+testing-c2c: $(BIN)
+	@echo "*** Testing -c2c mode ***"
+	@$(MAKE) MODE="-c2c" LAMPWD="`pwd`" runtests
+
+# Use the "cat" trick to ensure that "make" doesn't bail on the
+# "abort" test
+runtests: $(BIN)
+	@ for bin in $(BIN) ; do \
+	  lamclean ; \
+	  case $$bin in \
+	    range) np=8 ;; \
+	    cart)  np=6 ;; \
+	    sub)   np=6 ;; \
+	    graph) np=4 ;; \
+	    *)     np=2 ;; \
+	  esac ; \
+	  echo mpirun -np $$np -s h $(MODE) -O $(LAMPWD)/$$bin ; \
+	  mpirun -np $$np -s h $(MODE) -O $(LAMPWD)/$$bin | cat; \
+	done

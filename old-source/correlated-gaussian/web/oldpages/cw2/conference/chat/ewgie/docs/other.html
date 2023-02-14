@@ -1,0 +1,183 @@
+<html>
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 13 Sep 1971 13:00:00 GMT">
+<head>
+<title>Ewgie Documentation: Other Stuff</title>
+</head>
+<body bgcolor="#FFFFFF" vlink="#68675F" link="#E31818">
+
+<center>
+<table width=95%>
+
+<tr>
+<td><font size=+3><b>EWGIE</b></font><br>
+<font size=+1><b><font color="#FF0000">E</font>asy <font color="#FF0000">W</font>eb <font color="#FF0000">G</font>roup <font color="#FF0000">I</font>nteraction <font color="#FF0000">E</font>nabler</b></font></td>
+<td><img src="ewgie.gif" alt="" align=right width=138 height=60></td>
+
+</tr>
+</table>
+</center>
+<p>
+
+<center>
+<font size=+2><b>Other Stuff</b></font>
+<p>
+
+<table width=95%>
+<tr>
+<td>
+
+<blockquote>
+<a name="1"><h3>Possible Applications</h3></a>
+
+<b>Quick communications:</b> If you're in an environment in which a computer is up and running all the time, you can have a EwgieServer running in your Web browser somewhere in the background. Log into the Ewgie server, tell others that you are <a href="commands.html#away"><code>/away</code></a>, and leave it alone. When someone wants to get in touch with you, they can <a href="commands.html#ring"><code>/ring</code></a> you and get in touch with you right away.
+<p>
+<b>Customer support:</b> You can use Ewgie to provide support to people over the World-Wide Web. Set up multiple permanent rooms for help on particular products and services.
+<p>
+<b>General discussion fun:</b> You can run Ewgie from your home directory and/or home page, and have multiple chat areas taking place off of different pages. Make a link to an ongoing transcript file so new people joining in can review what's been happening.
+<p>
+<b>Community Service:</b> Ewgie can be used in libraries, classrooms, and other civic areas. Ewgie can also be set up to serve as a police station incident report area or a town hall complaint message board.
+<p>
+<b>Who Knows?</b> You could run your own personal chat service who knows where.
+<p>
+
+<br>
+<a name="2"><h3>Questions</h3></a>
+
+<ul>
+<li> <b>The client/server crashes and burns.</b>
+<p>
+An overwhelming majority of the problems you may experience are due to the poor implementation of Java on various platforms. The system works almost perfectly under the Solaris Java Developer's Kit; try running the client/server on a different platform/browser and see if your problem goes away. If not, run the server/client in debug mode (read the client/server instructions on how to do this) and let me know what messages appear and how to reproduce the problem if possible.
+<p>
+<li> <b>Where can I get a list of all the available Ewgie servers?</b>
+<p>
+You can go to this <a href="http://www.eit.com/~kevinh/servers.html">list of public servers</a>. Should you set up a service please <a href="mailto:kevinh@commerce.net">let me know</a> and I will create a page with a list of all the currently known servers.
+<p>
+<li> <b>How can I use Ewgie to host a moderated chat?</b>
+<p>
+One way you could do this is put a general password on the server and allow only the moderator and guest(s) online, then give everyone else a link to the ongoing transcript and an email address to send questions for the guest(s) to. I am currently playing around with the idea of allowing read-only guests (lurkers) to connect to the server as well as other forms of built-in moderation.
+<p>
+<li> <b>Can I run the Ewgie client and server through my firewall?</b>
+<p>
+Not now. Since all traffic between the client and server takes place over one port, it seems that fitting Ewgie to a proxy service would not be so difficult. In fact, all I would need is a Java Socks-ified socket class to make things work. One came with the Java 1.0a3 JDK, but I can't find it now. If you know where I can get a freely usable one (that works with Socks versions 4 and 5), let me know. Note that such support will likely be built into the next version of the JDK.
+<p>
+<li> <b>Can I chain more than one server together?</b>
+<p>
+No, because this makes things a good deal more complicated. If you want a chat system that spans more than one server, use IRC.
+<p>
+<li> <b>Does Ewgie speak the IRC protocol?</b>
+<p>
+Not yet, but IRC support is planned. Currently Ewgie uses its own protocol, which I tend to write about eventually.
+<p>
+<li> <b>I want to make a Ewgie client/server. Where do I start?</b>
+<p>
+Unfortunately the best you could do is take a look at how the protocol works by running the existing client and server in debug mode. I'm not willing to write up the protocol yet because <b>it is not stable yet</b> and I will be tweaking the architecture over the next few versions. If you want to make a non-commercial port of the client or server, please ask for permission to disassemble the code first and I can help you muddle through it.
+<p>
+<li> <b>I want people to be able to communicate in HTML, with active links on my chat screen. Can you do this?</b>
+<p>
+One day I would like to make this, but doing it myself from scratch would take a while. If somebody made a textArea class that allows simple HTML, then I could plug it into Ewgie very easily.
+<p>
+<li> <b>How can I translate the client/server into German/French/Italian, etc.?</b>
+<p>
+In the <code>utils</code> subdirectory of the distribution package is a file called <code>EwgieLanguage.java</code> that you can translate, compile, and integrate into the client and server. All strings, date options, and time options can be controlled by changing this file - read it for instructions on how to do this.
+<p>
+<li> <b>What features are planned in the future?</b>
+<p>
+Work on the next version will concentrate on changing the whiteboard quite a bit - I want everything you draw to be treated as an object, so you can group and layer things. The board should also keep a persistent memory on the server, be particular to rooms (channels), and allow one to save and load board commands.
+<p>
+Should somebody release free classes to handle audio and/or video input and output, then plugging these into the Ewgie system would not be so hard.
+<p>
+Things I also want to do are:
+<p>
+<ul>
+<li> Allow HTML within chat
+<li> Make control panel resizing more flexible
+<li> Allow images to be mailed to participants and posted to other Web pages
+<li> Add scroll bars to the whiteboard canvas (these are not functional yet)
+<li> Allow linked hotspots to be made in the whiteboard
+<li> Write up the documentation for the protocol
+<li> Create a GUI for the server (maybe, maybe not)
+</ul>
+<p>
+Here is the long-term development plan for Ewgie:
+<p>
+<ul>
+<li> (2.0) Improve whiteboard, possible HTML widget development
+<li> (2.0+) Modularize protocol more
+<li> (3.0+) Support IRC, server-to-server communications and possibly other chat protocols
+</ul>
+<p>
+<li> <b>How can I make Ewgie more secure?</b>
+<p>
+There is the issue of security in regards to access, attacks, and transmission.
+<p>
+Where the issue of access is concerned, the client and server do no real name or account checking - I trust people not to use Ewgie for malicious purposes in this regard. To restrict access to the client and server, use the access control mechanism built into your Web server, or use Ewgie within a firewall.
+<p>
+Where the issue of attacks is concerned, Ewgie has some built-in precautions that can help prevent simple mistakes by people, but it is unknown how secure the system is in this regard. If you wish to be safe, Ewgie should be run within a firewall and/or from a machine that is within a restricted zone.
+<p>
+Regarding secure transmission, it would be possible to build a form of public-key cryptography into the client and server so that messages are passed securely. If anyone has a possible solution for this (code or classes), please let me know.
+<p>
+<li> <b>Will you release the source?</b>
+<p>
+I will give the source distribution to people who have a stated project in mind, such as to speed up things, improve classes, allow other protocols, add crypto, etc. Note that I will only give the source to people who are willing to give their changes back to me freely and without limitation. Please read the license details below.
+</ul>
+<p>
+
+<br>
+<a name="3"><h3>Liner Notes And License</h3></a>
+
+EwgieServer and EwgieClient are Copyright &#169; 1996 by <a href="http://www.commerce.net/">CommerceNet</a> at CommerceNet Laboratories. Feature requests, bug reports, and anything else are appreciated and can be sent to Kevin Hughes at <a href="mailto:kevinh@commerce.net">kevinh@commerce.net</a>. Sorry, but due to information overload a response is not necessarily guaranteed.
+<p>
+
+Permission to use, copy, modify, and distribute this software in executable format and its documentation for NON-COMMERCIAL purposes and without fee is hereby granted provided that this copyright notice appears in all copies of the source and related documentation.
+<p>
+
+Unauthorized distribution of the source code is prohibited. Permission to modify the source and software in executable format is given as long as changes are given to the author without limitation.
+<p>
+
+This means that:
+<p>
+
+<ul>
+<li> You can set up and run your own service as long as you don't charge for it and include these notices in the documentation. The system is free for use by government and not-for-profit organizations.
+<li> You can modify and/or translate the documentation and HTML pages for your service and redistribute same as long as you don't charge for it and include these notices in the documentation.
+<li> You cannot distribute the source code if it is given to you. If you modify the source code or binaries, you must release the changes back to me without limitation.
+<li> I reserve the right to deny any requests for the source code.
+<li> If you wish to use the Ewgie system for commercial internal or external purposes, or are an interested CommerceNet member, please contact <a href="mailto:yoko@commerce.net">Yoko Nakagawa</a> at <a href="http://www.commerce.net/">CommerceNet</a> for commercial/CommerceNet member licensing details. She can be reached at (415) 858-1930, extension 209.
+</ul>
+<p>
+
+If you intend to make changes to the source, please use the version number of the release you are basing your changes on with an identifier, for instance: <b>1.0 (EIT modified)</b>.
+<p>
+
+COMMERCENET MAKES NO REPRESENTATIONS OR WARRANTIES ABOUT THE SUITABILITY OF THE SOFTWARE, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. COMMERCENET SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF USING, MODIFYING OR DISTRIBUTING THIS SOFTWARE OR ITS DERIVATIVES.
+<p>
+
+Portions of Ewgie are copyright (C) 1996 by Jef Poskanzer <jef@acme.com>. All rights reserved. The disclaimer for these portions is below.
+<p>
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+<p>
+
+<ul>
+<li> Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+<li> Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+</ul>
+<p>
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</blockquote>
+
+</td>
+</tr>
+<tr>
+<td align=center>
+<a href="server.html">[ Back: Using EwgieServer ]</a>
+<a href="index.html">[ Index ]</a>
+<a href="release.html">[ Next: Release Notes ]</a>
+</td>
+</tr>
+</table>
+</center>
+
+</body>
+</html>

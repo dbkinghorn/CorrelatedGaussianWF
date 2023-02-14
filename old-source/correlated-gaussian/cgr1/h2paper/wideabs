@@ -1,0 +1,32 @@
+  You can actually get a first page that looks something like the first
+page of Phys. Rev. (with abstract across the page), IF you are using
+version 3.1 of REVTeX. Here is the general format:
+
+\wideabs{
+\title{ . . . }
+   .
+   .
+   .
+\pacs{ . . . }
+}
+
+That is, just insert the command \wideabs the title, and put the
+ending curly brace after the pacs.
+
+  Note that these lines should never appear in a file destined for the APS.
+Note also that this is a quick hack and may have unknown drawbacks, along
+with these known ones:
+
+  (1) Byline footnotes (any footnotes or \thanks between the inserted lines)
+      will probably just disappear.
+  (2) No catcode changes can be effected between the inserted lines;
+      mainly this means no verbatim and \verb, but may have other
+      consequences.
+It was intended to produce a style that had the abstract printed on the
+width of the page, but there were always problems with the implementation and
+so it was withdrawn near the release date. It may be possible to solve this
+problem in the future.
+
+
+
+

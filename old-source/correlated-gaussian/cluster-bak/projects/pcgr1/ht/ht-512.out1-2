@@ -1,0 +1,23 @@
+2765 ../src/pcgr1 running on n0 (o)
+2290 ../src/pcgr1 running on n1
+ echoing input...
+
+ n =            3
+ nb =          512
+ wev =            1
+
+ Starting energy =  -0.4504474779096199     
+ Time for one energy and gradient calculation is:    60.05000    
+ Wall time =    68.64773809909821     
+
+
+ NIT   NF   CG         F                     GTG
+
+
+   0    1    0 -4.504474779096199D-01   9.48559930D+02
+MPI_Recv: process in local group is dead (rank 1, MPI_COMM_WORLD)
+Rank 1: Call stack within LAM:
+Rank 1:  - MPI_Recv()
+Rank 1:  - MPI_Bcast()
+Rank 1:  - main()
+2765 (n0) exited with status 1

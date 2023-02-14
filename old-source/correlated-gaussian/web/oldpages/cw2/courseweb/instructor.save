@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>University of Arizona Chemistry</TITLE>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000BB" VLINK="#AA0000" 
+	ALINK="#FFFF00" BACKGROUND="../jpg/backgrnd.jpg">
+
+<A HREF="doc/cw_doc.html">CourseWeb User Guide</A>
+<P>
+
+<UL>
+<LI><A HREF="974/instructor/Icourselist.html">974 - Fall - 1997</A></LI>
+<P>
+<LI><A HREF="973/instructor/Icourselist.html">973 - Summer Session II - 1997</A></LI>
+<P>
+<LI><A HREF="972/instructor/Icourselist.html">972 - Summer Session I - 1997</A></LI>
+</UL>
+
+
+<hr>
+
+<TABLE  width=100% CELLSPACING=0 border=0 cellpadding=0 >
+<TR>
+
+<TD width=33%>
+<A HREF="http://www.arizona.edu">University of Arizona
+<br> Homepage</A>
+</TD>
+
+<TD width=34%>
+Maintained by <BR>
+<A HREF="http://www.chem.arizona.edu/cheminfo.html">ChemInfo</A>
+</TD>
+
+<TD width=33%>
+<A HREF="http://www.chem.arizona.edu">Chemistry
+<br> Homepage</A>
+</TD>
+
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>

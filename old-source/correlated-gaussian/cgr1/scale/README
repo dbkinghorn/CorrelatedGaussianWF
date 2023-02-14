@@ -1,0 +1,5 @@
+This is my most used version of cgr1
+The src directory has (commented out) code at
+the bottom of the engradrc.f90 source file
+for doing a simple energy scaling to improve
+convergence when the optimization is near the min.

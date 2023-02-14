@@ -1,0 +1,405 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      8498,        287]*)
+(*NotebookOutlinePosition[      9159,        311]*)
+(*  CellTagsIndexPosition[      9115,        307]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(gm2\  = \ 
+      N[\ Table[Gamma[p + 1]/Gamma[p + 3/2], {p, 0, 40}], \ 20]\)], "Input"],
+
+Cell[BoxData[
+    \({1.1283791670955125738961589031215`20, 
+      0.7522527780636750492641059354144`20, 
+      0.6018022224509400394112847483315`20, 
+      0.5158304763865200337811012128556`20, 
+      0.4585159790102400300276455225383`20, 
+      0.4168327081911273000251322932166`20, 
+      0.3847686537148867384847375014307`20, 
+      0.359117410133894289252421668002`20, 
+      0.33799285659660638988463215811954`20, 
+      0.32020375888099552725912520242904`20, 
+      0.30495596083904335929440495469432`20, 
+      0.29169700601995451758595256535978`20, 
+      0.28002912577915633688251446274539`20, 
+      0.26965767667622462070168059375482`20, 
+      0.26035913610118239240162264224604`20, 
+      0.2519604542914668313564090086252`20, 
+      0.24432528900990723040621479624261`20, 
+      0.23734456646676702382318008777854`20, 
+      0.23092984845415169885498603135209`20, 
+      0.22500857028866062965357613311229`20, 
+      0.21952055637918110210104988596321`20, 
+      0.2144154271610606113545138421036`20, 
+      0.20965063989081481999108020116797`20, 
+      0.20518998797824429190616360114312`20, 
+      0.20100243720317808186726230316061`20, 
+      0.19706121294429223712476696388295`20, 
+      0.1933430768510037043488279645644`20, 
+      0.18982774818098545517884927429959`20, 
+      0.18649743680938921912307998878557`20, 
+      0.18333646330414533405319727711123`20, 
+      0.18033094751227409906871863322416`20, 
+      0.17746855152001578003588182952219`20, 
+      0.17473826611201553726609903214493`20, 
+      0.17213023228944814118750053912784`20, 
+      0.16963559124177497972101502406802`20, 
+      0.16724635756231336028832467161635`20, 
+      0.16495531156830906768163529255312`20, 
+      0.16275590741406494677921348865241`20, 
+      0.16064219433076540201584707970887`20, 
+      0.158608748832907612116912306548`20, 
+      0.15665061613126677739941956202272`20}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(OpenWrite["\<gm2-40.dat\>"]\)], "Input"],
+
+Cell[BoxData[
+    \(OutputStream["gm2-40.dat", 8]\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(Write["\<gm2-40.dat\>", \ ColumnForm[gm2]]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Close["\<gm2-40.dat\>"]\)], "Input"],
+
+Cell[BoxData[
+    \("gm2-40.dat"\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(gm3\  = \ 
+      N[\ Table[Gamma[q + 1/2]/\((Gamma[q + 1]\ Gamma[1/2])\), {q, 0, 40}], 
+        20]\)], "Input"],
+
+Cell[BoxData[
+    \({1.`20, 0.5`20, 0.375`20, 0.3125`20, 0.2734375`20, 0.24609375`20, 
+      0.2255859375`20, 0.20947265625`20, 0.196380615234375`20, 
+      0.1854705810546875`20, 0.176197052001953125`20, 
+      0.1681880950927734375`20, 0.1611802577972412109375`20, 
+      0.15498101711273193359375`20, 0.1494459807872772216796875`20, 
+      0.14446444809436798095703125`20, 0.1399499340914189815521240234375`20, 
+      0.13583375955931842327117919921875`20, 
+      0.13206059957155957818031311035156`20, 
+      0.12858532063546590507030487060547`20, 
+      0.12537068761957925744354724884033`20, 
+      0.12238567124768451321870088577271`20, 
+      0.1196041787193280470091849565506`20, 
+      0.11700408787760352424811571836472`20, 
+      0.11456650271348678415961330756545`20, 
+      0.11227517265921704847642104141414`20, 
+      0.11011603472346287446725909831002`20, 
+      0.10807684889525059901416170760058`20, 
+      0.10614690516497826688890881996485`20, 
+      0.10431678611040967608047935755167`20, 
+      0.10257817300856951481247136825914`20, 
+      0.10092368634714097425097989457754`20, 
+      0.09934675374796689652830833372477`20, 
+      0.09784149990330073142939457109257`20, 
+      0.09640265431648748537896229798827`20, 
+      0.09502547354053766415926283658844`20, 
+      0.09370567529691908549038418608026`20, 
+      0.09243938238750126001078439978188`20, 
+      0.09122307472450782237906355241633`20, 
+      0.09005354812547567081010119918023`20, 
+      0.08892787877390722492497493419047`20}\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(OpenWrite["\<gm3-40.dat\>"]\)], "Input"],
+
+Cell[BoxData[
+    \(OutputStream["gm3-40.dat", 9]\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(Write["\<gm3-40.dat\>", \ ColumnForm[gm3]]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Close["\<gm3-40.dat\>"]\)], "Input"],
+
+Cell[BoxData[
+    \("gm3-40.dat"\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(gm1\  = \ 
+        N[Table[\((Gamma[\((m + n + 3)\)/2]\ 2^\((\((m + n)\)/2)\))\)/
+              Sqrt[Gamma[m + 3/2]\ Gamma[
+                    n + 3/2]], \n\t\t\t\ \ \ \ \ \ \ \ \ \ {m, 0, 40}, {n, 0, 
+              40}], 20];\)\)], "Input"],
+
+Cell[BoxData[
+    \(\(Flatten[gm1]; \)\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(OpenWrite["\<gm1-40.dat\>"]\)], "Input"],
+
+Cell[BoxData[
+    \(OutputStream["gm1-40.dat", 11]\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(Write["\<gm1-40.dat\>", ColumnForm[Flatten[gm1]]]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Close["\<gm1-40.dat\>"]\)], "Input"],
+
+Cell[BoxData[
+    \("gm1-40.dat"\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(\(gm11\  = \ 
+      N[Table[\((Gamma[\((m + n + 3)\)/2]\ )\)/
+            Sqrt[Gamma[m + 3/2]\ Gamma[n + 3/2]], \n
+          \t\t\t\ \ \ \ \ \ \ \ \ \ {m, 0, 40}, {n, 0, 40}], 20]; \)\)], 
+  "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(OpenWrite["\<gm11-40.dat\>"]\)], "Input"],
+
+Cell[BoxData[
+    \(OutputStream["gm11-40.dat", 12]\)], "Output"]
+}, Open  ]],
+
+Cell[BoxData[
+    \(Write["\<gm11-40.dat\>", ColumnForm[Flatten[gm11]]]\)], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Close["\<gm11-40.dat\>"]\)], "Input"],
+
+Cell[BoxData[
+    \("gm11-40.dat"\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(N[\ Gamma[\((40 + 39 + 3)\)/2]/
+          Sqrt[Gamma[40 + 3/2]\ Gamma[39 + 3/2]]\ , 20] // 
+      FortranForm\)], "Input"],
+
+Cell["0.99691841649122558149", "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Gamma[80 + 1]/Gamma[80 + 3/2] // N\)], "Input"],
+
+Cell[BoxData[
+    \(0.11128271015806457`\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Gamma[80 + 1/2]/\((Gamma[80 + 1]\ Gamma[1/2])\) // N\)], "Input"],
+
+Cell[BoxData[
+    \(0.06297983078680193`\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(\((Gamma[\((80 + 80 + 3)\)/2]\ 2^\((\((80 + 80)\)/2)\))\)/
+        Sqrt[Gamma[80 + 3/2]\ Gamma[80 + 3/2]] // N\)], "Input"],
+
+Cell[BoxData[
+    \(1.2089258196146292`*^24\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Sqrt[%]\)], "Input"],
+
+Cell[BoxData[
+    \(1.099511627776`*^12\)], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for X",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{964, 776},
+WindowMargins->{{74, Automatic}, {Automatic, 96}},
+Magnification->1.25
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 107, 2, 35, "Input"],
+Cell[1849, 55, 1899, 41, 308, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3785, 101, 60, 1, 35, "Input"],
+Cell[3848, 104, 63, 1, 35, "Output"]
+}, Open  ]],
+Cell[3926, 108, 75, 1, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[4026, 113, 56, 1, 35, "Input"],
+Cell[4085, 116, 46, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4168, 122, 132, 3, 35, "Input"],
+Cell[4303, 127, 1530, 30, 308, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[5870, 162, 60, 1, 35, "Input"],
+Cell[5933, 165, 63, 1, 35, "Output"]
+}, Open  ]],
+Cell[6011, 169, 75, 1, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[6111, 174, 56, 1, 35, "Input"],
+Cell[6170, 177, 46, 1, 35, "Output"]
+}, Open  ]],
+Cell[6231, 181, 264, 5, 56, "Input"],
+Cell[6498, 188, 51, 1, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[6574, 193, 60, 1, 35, "Input"],
+Cell[6637, 196, 64, 1, 35, "Output"]
+}, Open  ]],
+Cell[6716, 200, 82, 1, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[6823, 205, 56, 1, 35, "Input"],
+Cell[6882, 208, 46, 1, 35, "Output"]
+}, Open  ]],
+Cell[6943, 212, 219, 5, 56, "Input"],
+
+Cell[CellGroupData[{
+Cell[7187, 221, 61, 1, 35, "Input"],
+Cell[7251, 224, 65, 1, 35, "Output"]
+}, Open  ]],
+Cell[7331, 228, 84, 1, 35, "Input"],
+
+Cell[CellGroupData[{
+Cell[7440, 233, 57, 1, 35, "Input"],
+Cell[7500, 236, 47, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7584, 242, 142, 3, 35, "Input"],
+Cell[7729, 247, 40, 0, 51, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7806, 252, 67, 1, 35, "Input"],
+Cell[7876, 255, 54, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[7967, 261, 85, 1, 35, "Input"],
+Cell[8055, 264, 54, 1, 35, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8146, 270, 143, 2, 35, "Input"],
+Cell[8292, 274, 57, 1, 36, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[8386, 280, 40, 1, 35, "Input"],
+Cell[8429, 283, 53, 1, 36, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

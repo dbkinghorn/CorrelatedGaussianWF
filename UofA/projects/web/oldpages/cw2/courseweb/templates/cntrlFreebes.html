@@ -1,0 +1,74 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- Updated 8:55 PM on 4/17/97                              -->
+<!-- *******************************************************-->
+<HEAD>
+<TITLE>Add Prebuilt Pages</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Begin hiding Script from old Shouser Browsers
+
+//
+// Generate a mailto: for help
+//
+function helpMsg() {
+	if( confirm("I haven't installed the help system yet but you can help me by telling me what you would like help on.\n I will use your comments as a guide for constructing the help system. \n\nWOULD YOU LIKE TO SEND ME E-MAIL?") ) {
+	 window.location='mailto:kinghorn@dakotacom.net' 
+	}
+}
+// 
+// End Hiding Script -->
+</SCRIPT>
+
+</HEAD>
+<BODY BGCOLOR="#D3D3D3">
+<H2>Add Prebuilt Pages</H2>
+
+Check the prebuilt pages below that you would like to add to your course menu. <BR>
+
+
+<FORM NAME="Freebes" >
+<TABLE BORDER="2">
+<TR>
+	<TH>Check to<BR>Include</TH><TH>Menu Name</TH><TH>Description</TH>
+</TR>
+<TR>		
+	<TD><INPUT NAME="caucus" TYPE="CHECKBOX" VALUE="caucus" CHECKED></TD>
+	<TD>Caucus</TD>
+	<TD>A link to Caucus</TD>
+</TR> 
+<TR>		
+	<TD><INPUT NAME="molView" TYPE="CHECKBOX" VALUE="molView" ></TD>
+	<TD>Molecule Viewer</TD>
+	<TD>A molecule viewer using the CHIME plugin</TD>
+</TR> 
+<TR>		
+	<TD><INPUT NAME="c3" TYPE="CHECKBOX" VALUE="c3" ></TD>
+	<TD>Cool page 3</TD>
+	<TD>Some page we haven't built yet</TD>
+</TR> 
+<TR>		
+	<TD><INPUT NAME="c4" TYPE="CHECKBOX" VALUE="c4" ></TD>
+	<TD>Cool page 4</TD>
+	<TD>Another page </TD>
+</TR> 	
+</TABLE>
+	<INPUT NAME="addFreebes" TYPE="SUBMIT" VALUE="Add These Pages">
+	<INPUT NAME="helpAnnounce" TYPE="BUTTON" VALUE="  Help  "
+		onClick='helpMsg()'>	
+</FORM>
+<HR>
+<FORM>
+	<DIV ALIGN="CENTER">
+	<INPUT  TYPE="BUTTON" VALUE="CLOSE" onClick="window.close()">
+	</DIV>
+</FORM>
+</BODY>
+</HTML>

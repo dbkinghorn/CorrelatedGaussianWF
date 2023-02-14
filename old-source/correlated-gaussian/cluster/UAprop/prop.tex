@@ -1,0 +1,339 @@
+
+\documentstyle[12pt,overcite]{article}
+
+\setlength{\textwidth}{7in}
+\setlength{\textheight}{9.0in}
+\setlength{\oddsidemargin}{-.25in}
+%
+\setlength{\topmargin}{-.10in}
+\def\Real{\rm I\hspace{-0.2em}R}
+\def\nin{{\in \! \! \! \! \! /} \,}
+\def\nequiv{{\equiv \! \! \! \! \! \! /} \,}
+
+\newcommand{\half}{\mbox{$\frac{1}{2}$}}
+\newcommand{\mul}{\multicolumn{2}{c}{none}}
+\newcommand{\qua}{\mbox{$\frac{1}{4}$}}
+\newcommand{\six}{\mbox{$\frac{1}{6}$}}
+\newcommand{\tfour}{\mbox{$\frac{1}{24}$}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\tripler}{T_{3}\!\left(^{a^{\prime}b^{\prime}
+{\rm C}^{\prime}}_{{\rm I}^{\prime}j^{\prime}k^{\prime}}\right)}
+\newcommand{\quadrupler}{T_{4}\!\left(^{a^{\prime}b^{\prime}
+{\rm C}^{\prime}{\rm D}^{\prime}}_{{\rm I}^{\prime}{\rm J}^{\prime}
+k^{\prime}l^{\prime}}\right)}
+% \newcommand{\hhline}{\hline \vspace{-4.8mm} \\ \hline}
+
+
+\begin{document}
+
+
+
+\setlength{\baselineskip}{1em}
+
+
+\noindent
+{\bf Building a parallel supercomputer for molecular
+quantum mechanical calculations}
+
+
+
+
+%\begin{abstract}
+\section{Abstract}
+We propose the construction of a 
+prototype high--performance / low--cost parallel computational platform
+for a new type of quantum mechanical (q.m.) calculations on molecules
+and clusters with explicitly correlated gaussian functions.
+The methods for employing these novel basis functions
+to both adiabatic and non--adiabatic q.m. calculations have
+been under development in my research group for several 
+years. This work has been coupled with extended computaional
+implementation work which has recently culminated in an
+integrated design
+for parallel computational software and hardware
+for performing practical calculations on non--adiabatic
+and ro--vibrational behavior of chemical systems.
+The computational hardware will consist of a Linux ``Beowulf'' cluster built 
+from low cost commodity PC components running the Linux operating system
+connencted with switched fast ethernet. 
+Building of a  parallel computing platform 
+represents a new direction in the research effort of our group at the University of Arizona. 
+It also represents a novel direction in high performance scientific computing. 
+Our research group has the necessary interdisciplinary skills to
+construct and fully utilize this high performance computational 
+platform.   
+At present we propose to build a low cost prototype
+system consisting of a cluster server and two diskless compute nodes
+providing six  processors for parallel program execution. This system will be used
+to demonstrate the feasibilty of our approach for
+presentation to external funding agencies. 
+In the proposal we provide background
+information related to the design of the parallel cluster and 
+to component specifications
+and cost estimates.
+%\end{abstract}
+
+\newpage
+
+
+\section{Introduction}
+
+The performance of commodity personal computer (PC) components has been
+steadily increasing while at the same time prices for these components have
+been decreasing. Today it's possible to construct a computer with off the
+shelf components for arround \$500 that will out perform a \$40,000
+workstation
+of just a few years ago. The availability of high quality, no cost, open
+source, network operating system components and tools for parallel software
+development together with high performance low cost PC components coupled with
+inexpensive high speed networking hardware has made PC clustering, by far, the
+most cost effective means of ``super computing''.
+The most widespread implementation of this type of PC clustering originated
+with the ``Beowulf Project''( http://beowulf.gsfc.nasa.gov/beowulf.html ) at
+the Center of Excellence in Space Data and Information Sciences (CESDIS)
+in
+1994 ( http://cesdis.gsfc.nasa.gov/ ). Since then the Beowulf project
+development has spread to research labs and universities around the world.
+Today the term Beowulf cluster loosely refers to any PC clustering based on
+the freely available, open source, Linux operating system. The software tools,
+information and expertise for building Beowulf class PC clusters is readably
+available from numerous sites on the web. A few good starting points are:
+http://www.beowulf.org, http://www.linux.org/, http://www.redhat.com, and for
+parallel computing in general the 
+IEEE Computer Society's ParaScope 
+site http://www.computer.org/parascope/.
+
+\section{Proposed system}
+
+The parallel computing cluster we are proposing will utilize high end PC
+components running RedHat Linux with Beowulf kernel modifications and network
+drivers together with tools for parallel software development. The compute
+nodes will communicate over a private, switched, 100Mb ethernet LAN connected
+to a cluster master node via 1000Mb ethernet. The master node will server as
+the primary network gateway. The compute nodes will each contain two cpu's and
+the networking hardware will allow us to scale the cluster in units of 12 or
+24 nodes for a maximum of 192 nodes ( 284 cpu's ). We are initially planning
+on building a 12 node system. The presnet request is made to provide
+funding to purchase 10 notes.
+
+The quantum chemistry programs we have developed (and are developing) readily
+lend themselves to coarse grained parallelism which scales well and is ideally
+suited for implementation on large parallel clusters. We are currently running
+large, high accuracy calculations which require weeks or months of cpu time
+with well optimized efficient algorithms. Our only logical recourse to
+increase productivity is to go parallel. We have recently assembled a small 4
+cpu test system and are currently working on parallel implementations of our
+quantum chemistry codes. Our experiences so far are very encouraging and have
+given use great motivation for this project. We are now confident that we have
+the human resources necessary to build 
+and fully utilize the system we are proposing.
+
+The specifications for our system will now be given along with cost estimates.
+It should be noted that PC components are commodities and prices fluctuate
+with supply and demand, and new technology. However, the trend is for prices
+to move downward while quality and performance increase. Therefore, the
+specifications will likely change by the time you read this, and, this change
+will most likely be for higher performance components at the same total system cost.
+
+Note that components are chosen not on the basis of lowest cost but rather
+highest reliability and performance. Component failure in the cluster is
+minimized by paying attention to the details.%
+
+
+\section{Scientific goals to be accomplished}
+
+
+
+The workstation cluster, which we propose to build, will
+be empolyed to perform calculations with the 
+the methods allowing study of molecular systems without
+assuming the Born--Oppenheimer (BO) approximation regarding the
+separability of the nuclear and electronic motions, which we have
+developed in my research group.\cite{1,2,3,4}
+The approach can be also applied to 
+a more general problem of stationary bound
+quantum states of multi--particle
+systems which interact through an isotropic potential.
+The non-BO molecular system consisting of electrons and nuclei 
+with
+Coulombic repulsive and attractive potentials 
+is an example of such a problem.
+Another example
+is the problem of ro--vibrational structures
+of molecules and clusters. 
+In this case the isotropic interaction potential is provided
+in the form of the potential energy hypersurface (PES)
+calculated for the system using electronic structure methods.
+We will consider PES'es of the 
+ground or an excited electronic state in such a calculation.
+Unlike the Coulombic potential, which includes only two-body
+components, the potential given by PES has N--body character and,
+although in most cases it is dominated by two-body interactions,
+the three- and higher-body contributions can be important.
+%New functional forms for the multi--body expansion of the potential 
+%energy
+%surface  and for the basis function expansion of the ro--vibrational
+%wave function to be used variational calculations of vibrational
+%and rotational levels of N-atom systems
+%are proposed.
+In this project we propose that N--body
+explicitly correlated gaussians with pre-multiplying factors consisting of
+products of powers of internal distance coordinates are utilized in a dual
+role to analytically represent the isotropic N--atom potential and the 
+wave functions expressed in terms of internal cartesian coordinates. 
+We propose to develop and implement the methodology for the general
+N--body case. 
+
+The initial non-Born-Oppenheimer 
+application of the present methodology 
+will focus on
+small atomic and molecular systems.
+Following our recent non--adiabatic calculations
+of the electron affinities of hydrogen, deuterium and tritium,
+as well as different isotopes of the Li atom,
+which produced results matching very well with the experimental
+values, we will now consider small molecular systems.
+In the first calculations 
+we will study
+hydrogen molecules and ions and their isotopomers,
+H$_2^+$, H$_2$, H$_3$, {\it etc.}, 
+%small dipole--bound anions, {\it e.g.}, LiH$^-$, LiD$^-$,
+and other molecular systems, {\it e.g.}, HeH$^+$, HeH$_2^+$, HeH$_2$.  
+The aim of these calculations will be to determine 
+electron affinities and electron detachment energies 
+of these systems in different ro--vibrational states.
+Very accurate measurements, which have 
+recently become
+available 
+for these systems
+present an exciting challenge for 
+the ``non--Born-Oppenheimer Atomic and Molecular Quantum Mechanics."
+Also calculations of 
+higher excited states,
+where the coupling of the electronic and nuclear motions
+can be significant, 
+will be performed and the nature and magnitude of the 
+coupling effect will be 
+analyzed.
+
+%dbk
+%It should be noted that we are in no way restricted to conventional
+%systems.
+%Calculations involving ``exotic'' particles present no difficulty 
+%since in general our methodology can treat collections of particles
+%with any given masses and charges fully non--adiabatically.  
+%dbk
+
+%Initial applications of the method with 
+%analytically fitted PES's as the 
+%interaction potentials
+%in the ro--vibrational Hamiltonian
+%will start with 
+%``calibration cases"
+%such as the H$_3^+$ and H$_2$O systems and their 
+%isotopomers.
+%These systems considered before by others
+%using different methodologies
+%and their calculated ro-vibrational spectra 
+%were compared with very accurate experimental data.
+%
+%For H$_3^+$ we will generate the 
+%potential energy surface using 
+%the variational approach with explicitly correlated
+%gaussians and with the optimization algorithm based
+%on analytical derivatives of the variational functional
+%with respect to the non--linear parameters of gaussians,
+%which we have recently developed.
+%For H$_2$O we will use the best existing potentials,
+%as well as the potential generated using our SSMRCC method.
+%Application of our approach to systems with more than three
+%nuclei are the most interesting since 
+%other methods have been mostly limited to three-body cases.
+%We find particularly interesting 
+%to investigate
+%the
+%ro-vibrationally hot elemental clusters, such as
+%C$_n$, Si$_n$, P$_n$, $n$=4,5 {\it etc.}, and their anions.
+%Calculations of highly excited ro-vibrational states near the
+%dissociation barrier of
+%these systems will reveal their structures and dynamics 
+%at high temperatures.
+%Among other applications we will consider
+%the high--temperature
+%ro--vibrational structure  
+%of the vinylidine--acetylene,
+%$HCCH \leftrightarrow CCH_2$, isomeric system.
+%We will also study
+%ro--vibrational spectra 
+%of small molecular dimers such
+%as (HF)$_2$, (H$_2$O)$_2$, {\it etc.}
+
+
+
+\begin{thebibliography}{999}
+
+
+\bibitem{1}
+D.B. Kinghorn and L. Adamowicz,
+The Electron Affinity of Hydrogen, Deuterium and Tritium:
+A Non--Adiabatic Variational Calculation Using Explicitly-Correlated
+Gaussian Basis Set, J. Chem. Phys.,
+{\bf 106}, 4589 (1997).
+
+
+
+\bibitem{2}
+D. Gilmore, P.M. Kozlowski, D.B. Kinghorn and
+L. Adamowicz, Analytic First Derivatives for
+Explicitly-Correlated Multi-Center Gaussian Geminals,
+Int. J. Quantum Chem. {\bf 63}, 991 (1997).
+
+
+\bibitem{3}
+D.B. Kinghorn and L. Adamowicz,
+A New N--Body Potential and Basis Functions for
+Variational Energy Calculations,
+J.Chem.Phys., {\bf 106}, 8760 (1997).
+
+\bibitem{4}
+D. B. Kinghorn and L. Adamowicz, in {\em Pauling's Chemical
+Bonding}, edited by Z.B. Maksic and W.J. Orville--Thomas,
+Elsevier Science, 1998, in press.
+
+\bibitem{5}
+D.B. Kinghorn and L. Adamowicz,
+A Correlated Basis Set for Non--Adiabatic Energy
+Calculations of Diatomic Molecules,
+J.Chem.Phys., in press.
+
+
+
+
+\end{thebibliography}
+
+
+\newpage
+
+
+\section{Budget Justification}
+The following components of the prototype parallel computer system are budgeted whithin
+the requested amounts:
+
+\noindent 
+Cluster server: 
+Chasis [\$250], AUSU P2B-DS motherboard [\$450], (2) PII400 processors [\$680],
+9GB SCSI hard drive [\$470], 128MB PC100 SDRAM [\$170], 
+17'' monitor [\$265], video card [\$22], 100Mb nic [\$19], 100Mb TX switch [\$229] --- SUBTOTAL \$2555
+
+\noindent
+Diskless Compute Node:
+Chasis [\$200], DFI P2XBLD motherboard [\$170], (2) PII350 processors [\$420],
+128MB PC100 SDRAM [\$170], 100Mb nic [\$19], misc. [\$75] --- SUBTOTAL \$1054
+
+\noindent
+Cluster server + two compute nodes + local sales tax --- TOTAL \$5000
+
+
+\end{document}
+

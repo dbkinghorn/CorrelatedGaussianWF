@@ -1,0 +1,2 @@
+parallel versions of cgauss (atom code) and cgr1 (diatomic code)
+parallelization is on symmetry projection

@@ -1,0 +1,35 @@
+% my letter template ( haven't done this in awhile )
+
+\documentclass{letter}
+
+% my address and name
+\address{University of Arizona\\
+	 Dept. of Chemistry\\
+	 1306 E. University\\
+	 Tucson, AZ 85721}
+
+\signature{Dr. Donald B. Kinghorn}
+
+\begin{document}
+
+% the recipient
+\begin{letter}{UARK Federal Credit Union\\
+	       P.O. Box 1643\\
+	       Fayetteville, AR 72702}
+
+% the opening greeting
+\opening{Hi}
+
+I have moved to Tucson and would like to close my accounts with you. Would you please close my accounts (checking and savings) and send the balance to the address above.
+\begin{quote}
+	Account information:\\
+	SSN: 522-88-5591\\
+	ACCT: 7992003
+\end{quote}
+
+\closing{Many thanks}
+
+\end{letter}
+
+\end{document}
+ 

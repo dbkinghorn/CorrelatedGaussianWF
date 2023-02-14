@@ -1,0 +1,3 @@
+This is the code to get a more complete set of expectation
+values for the cgr1 calcs.. It expvals will give an exact
+eigenvector, all the energy terms, g'g, r, r^2, eta, etc..

@@ -1,0 +1,187 @@
+<html>
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 13 Sep 1971 13:00:00 GMT">
+<head>
+<title>Ewgie Documentation: Client Options</title>
+</head>
+<body bgcolor="#FFFFFF" vlink="#68675F" link="#E31818">
+
+<center>
+<table width=95%>
+
+<tr>
+<td><font size=+3><b>EWGIE</b></font><br>
+<font size=+1><b><font color="#FF0000">E</font>asy <font color="#FF0000">W</font>eb <font color="#FF0000">G</font>roup <font color="#FF0000">I</font>nteraction <font color="#FF0000">E</font>nabler</b></font></td>
+<td><img src="ewgie.gif" alt="" align=right width=138 height=60></td>
+
+</tr>
+</table>
+</center>
+<p>
+
+<center>
+<font size=+2><b>Client Options</b></font>
+<p>
+
+<table width=95%>
+<tr>
+<td>
+
+<blockquote>
+<p>
+
+<h3>Parameters</h3>
+
+You can pass the client program a number of options via the <code>PARAM</code> tag, like this:
+
+<font size=-1>
+<pre>
+     &lt;APPLET CODE="Ewgie.class" WIDTH=480 HEIGHT=550&gt;
+     &lt;PARAM NAME=host VALUE=www.eit.com&gt;
+     &lt;PARAM NAME=port VALUE=1971&gt;
+     &lt;PARAM NAME=room VALUE=""&gt;
+     &lt;PARAM NAME=bgcolor VALUE="50,50,50"&gt;
+     &lt;PARAM NAME=fgcolor VALUE="0,255,0"&gt;
+     &lt;PARAM NAME=fontsize VALUE=12&gt;
+     &lt;PARAM NAME=login VALUE=on&gt;
+     &lt;PARAM NAME=namepanel VALUE=on&gt;
+     &lt;PARAM NAME=statuspanel VALUE=on&gt;
+     &lt;PARAM NAME=buttonpanel VALUE=on&gt;
+     &lt;PARAM NAME=controlpanel VALUE=right&gt;
+     &lt;PARAM NAME=controlbuttons VALUE=on&gt;
+     &lt;PARAM NAME=whiteboard VALUE=on&gt;
+     &lt;PARAM NAME=debug VALUE=off&gt;
+     &lt;/APPLET&gt;
+</pre>
+</font>
+
+If you are using a browser that knows how to extract multiple Java class files from a zip file, you can write the <code>APPLET</code> tag this way:
+
+<font size=-1>
+<pre>
+     &lt;APPLET ARCHIVE="Ewgie.zip" CODE="Ewgie.class"
+      WIDTH=480 HEIGHT=550&gt;
+     &lt;/APPLET&gt;
+</pre>
+</font>
+
+This can speed up the applet loading time <i>considerably</i> and is recommended for users with modems. But note that very few browsers support this feature - as of this writing, only Netscape 3.0b6 supports the option as written above.
+</blockquote>
+<p>
+
+<ul>
+<li> <code>host</code> and <code>port</code>
+<p>
+You can set the default host the client is to connect to. If run within a browser this should be the same machine the program files are located on.
+<p>
+If no port is set, the default port, 1971, will be used. The client has no default host.
+<p>
+<li> <code>room</code>
+<p>
+This sets the room people will start in when they first connect to the server. If the value is set to "" (nothing), then they will start chat in the server's default main room. You can use this parameter to make multiple client pages, each which connects to a different room upon startup.
+<p>
+<li> <code>bgcolor</code> and <code>fgcolor</code>
+<p>
+You can set the foreground and background colors of the client and all its windows with the <code>bgcolor</code> and <code>fgcolor</code> values - specify the colors as above, an RGB (<b>R</b>ed, <b>G</b>reen, <b>B</b>lue) value. The default colors are white for the background and black for the foreground. One nifty combination I like is "0,255,0" for the foreground and "50,50,50" for the background.
+<p>
+<li> <code>fontsize</code>
+<p>
+This parameter sets the default font size of text in the chat area and text entry field. This is the font size that will be displayed when the client starts. Note that on particular computer platforms you may not always be able to get the exact size you want. Font sizes 12, 18, and 24 are usually available.
+<p>
+<li> <code>login</code>
+<p>
+The <code>login</code> parameter starts Ewgie as a small interface in which you can enter your name and password. The client will appear as a window which you can resize and in which you can take advantage of the options in its menu bar. This can be set to <code>on</code> or <code>off</code>.
+<p>
+<li> <code>namepanel</code>
+<p>
+If <code>namepanel</code> is set to <code>off</code>, then the name entry field and font size selector will be hidden - this gives more space to the chat screen; this mode is intended for those who are already familiar with the system. This can be set to <code>on</code> or <code>off</code>.
+<p>
+<li> <code>statuspanel</code>
+<p>
+<code>statuspanel</code> set to <code>off</code> removes the status bar at the top of the display. This option is provided for those who like to customize the chat interface. This can be set to <code>on</code> or <code>off</code>.
+<p>
+<li> <code>buttonpanel</code>
+<p>
+<code>buttonpanel</code> set to <code>off</code> removes the various buttons at the bottom of the display. This option is provided for those who like to customize the chat interface. This can be set to <code>on</code> or <code>off</code>.
+<p>
+<li> <code>controlpanel</code>
+<p>
+<code>controlpanel</code> can have the value <code>on</code>, <code>off</code>, <code>left</code>, <code>right</code>, and <code>window</code>. These options control how the rooms/people control panel is displayed on startup.
+<p>
+If set to <code>on</code>, the panel is hidden on startup but is available via either the "Panels" menu (if the client is within a window) or the "People/Rooms" button in the button panel. If set to <code>off</code>, it will not be possible to open the control panel. If set to <code>left</code> or <code>right</code>, the control panel will attach itself to the left or right of the main chat window upon startup, unless the chat area is embedded within a Web page. If set to <code>window</code>, the panel will display itself in a separate window automatically upon startup.
+<p>
+<li> <code>controlbuttons</code>
+<p>
+This can be set to <code>on</code> or <code>off</code> - if set to <code>off</code>, the buttons within the control panel will be removed. This gives more space to room and member information but can confuse people new to using the client.
+<p>
+<li> <code>whiteboard</code>
+<p>
+If <code>whiteboard</code> is set to <code>off</code>, then the whiteboard button (and any other controls to access it) will be hidden. This can be set to <code>on</code> or <code>off</code>.
+<p>
+<li> <code>debug</code>
+<p>
+This can be set to <code>on</code> or <code>off</code> - if set to <code>on</code>, you will be able to see all communications the server sends to the client as well as any exceptions that occur in the program. Turn this option on if you detect recurring bugs in the client.
+</ul>
+<p>
+
+<blockquote>
+<br>
+<h3>Templates</h3>
+
+The Ewgie distribution comes with six templates for the client applet which are provided as examples:
+<p>
+<table width=80%>
+<tr>
+<td valign=top width=30%><a href="../client/Ewgie.html">Ewgie.html</a></td>
+<td valign=top>A standard client with all features turned on and starting as a login dialog.</td>
+</tr>
+<tr>
+<td valign=top><a href="../client/Ewgie3.html">Ewgie2.html</a></td>
+<td valign=top>A standard client with all features turned on and starting as a login dialog, makes use of the zip archive feature.</td>
+</tr>
+<tr>
+<td valign=top><a href="../client/Ewgie2.html">Ewgie3.html</a></td>
+<td valign=top>A standard client with all features enabled and with the chat area embedded within the page.</td>
+</tr>
+<tr>
+<td valign=top><a href="../client/Ewgie4.html">Ewgie4.html</a></td>
+<td valign=top>A standard client with all features enabled and with the chat area embedded within the page, makes use of the zip archive feature.</td>
+</tr>
+<tr>
+<td valign=top><a href="../client/Ewgie5.html">Ewgie5.html</a></td>
+<td valign=top>A client with the chat area embedded within the page. Many features are turned off, making for a clean and simple interface.</td>
+</tr>
+<tr>
+<td valign=top><a href="../client/Ewgie6.html">Ewgie6.html</a></td>
+<td valign=top>A client with the chat area embedded within the page. Many features are turned off, making for a clean and simple interface. This makes use of the zip archive feature.</td>
+</tr>
+</table>
+<p>
+
+<br>
+<h3>Running the client</h3>
+
+If you want you can run the client as a stand-alone application. If you have the Java Developer's Kit (or some other Java virtual machine) installed on your computer, you can run the client like this:
+<pre>
+     java Ewgie
+</pre>
+You can use all the usual applet parameters on the command line as name/value pairs separated by an equals sign:
+<pre>
+     java Ewgie port=1971 host=www.eit.com
+          bgcolor="0,50,0"
+</pre>
+</blockquote>
+
+</td>
+</tr>
+<tr>
+<td align=center>
+<a href="commands.html">[ Back: All the Commands ]</a>
+<a href="index.html">[ Index ]</a>
+<a href="help.html">[ Next: Concise Help ]</a>
+</td>
+</tr>
+</table>
+</center>
+
+</body>
+</html>

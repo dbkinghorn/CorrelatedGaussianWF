@@ -1,0 +1,168 @@
+ AUTHOR       Frolov, A.M.
+              Thakkar, A.J.
+ TITLE        Weakly bound ground states in three-body Coulomb systems with 
+                unit charges.
+  
+ APPEARS IN   Physical Review A (Atomic, Molecular, and Optical Physics) 
+                vol.46, no.7 (1 Oct. 1992) p4418-20.
+ PUBLISHED    (1 Oct. 1992)
+  
+ ABSTRACT     The stability of weakly bound ground states, with zero total 
+
+lqqq Holdings: PHYSICAL REVIEW A (ATOMIC, MOLECULAR, AND OPTICAL PHYSICS) qqqqk
+x1 > Science    QC1 .P42             CURRENT RECORD                           x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+x2 > Science    QC1 .P42             41:1-45:8 (1/1/90-4/15/92)               x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+ AUTHOR       Frolov, A.M.
+ TITLE        Two-stage strategy for high-precision variational calculations.
+  
+ APPEARS IN   Physical Review A (Atomic, Molecular, and Optical Physics) 
+                vol.57, no.4 (April 1998) p2436-9.
+ PUBLISHED    (April 1998)
+  
+ ABSTRACT     The problem of high-precision, variational, bound-state 
+                calculations in few-body systems is discussed. The simple and 
+                very effective variational procedure developed below makes 
+
+lqqq Holdings: PHYSICAL REVIEW A (ATOMIC, MOLECULAR, AND OPTICAL PHYSICS) qqqqk
+x1 > Science    QC1 .P42             CURRENT RECORD                           x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+x2 > Science    QC1 .P42             41:1-45:8 (1/1/90-4/15/92)               x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj AUTHOR       Frolov, A.M.
+              Smith, V.H., Jr.
+ TITLE        Ground state of positronium hydride.
+  
+ APPEARS IN   Physical Review A (Atomic, Molecular, and Optical Physics) 
+                vol.56, no.3 (Sept. 1997) p2417-20.
+ PUBLISHED    (Sept. 1997)
+  
+ ABSTRACT     The ground bound state in the positronium hydride molecule (HPs) 
+                is determined from extensive variational four-body calculations
+
+lqqq Holdings: PHYSICAL REVIEW A (ATOMIC, MOLECULAR, AND OPTICAL PHYSICS) qqqqk
+x1 > Science    QC1 .P42             CURRENT RECORD                           x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+x2 > Science    QC1 .P42             41:1-45:8 (1/1/90-4/15/92)               x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+ AUTHOR       Frolov, A.M.
+              Smith, V.H., Jr.
+ TITLE        Positronium hydrides and the Ps/sub 2/ molecule: bound-state 
+                properties, positron annihilation rates, and hyperfine 
+                structure.
+  
+ APPEARS IN   Physical Review A (Atomic, Molecular, and Optical Physics) 
+                vol.55, no.4 (April 1997) p2662-73.
+ PUBLISHED    (April 1997)
+  
+
+lqqq Holdings: PHYSICAL REVIEW A (ATOMIC, MOLECULAR, AND OPTICAL PHYSICS) qqqqk
+x1 > Science    QC1 .P42             CURRENT RECORD                           x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+x2 > Science    QC1 .P42             41:1-45:8 (1/1/90-4/15/92)               x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+ AUTHOR       Frolov, A.M.
+              Smith, V.H., Jr.
+ TITLE        The properties of the helium-muonic atoms in the electron excited
+                states and four-body helium-muonic ions.
+  
+ APPEARS IN   Journal of Physics B (Atomic, Molecular and Optical Physics) 
+                vol.29, no.23 (14 Dec. 1996) p5969-80.
+ PUBLISHED    (14 Dec. 1996)
+  
+ ABSTRACT     The properties of muonic ( mu /sup -/) helium (/sup 3/He, /sup 4/
+                He and /sup varies as /He) atoms in the electron excited S 
+                states (L=0) are considered. In particular, the hyperfine 
+
+lqq Holdings: JOURNAL OF PHYSICS B (ATOMIC, MOLECULAR AND OPTICAL PHYSICS) qqqk
+x1 > Science    QC770 .J67                                                    x
+x   LIB HAS: SCIENCE v.21, 1988-, INTERNET ACCESS v.29, 1996-                 x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+ AUTHOR       Frolov, A.M.
+              Smith, V.H., Jr.
+ TITLE        Bound states with arbitrary angular momenta in nonrelativistic 
+                three-body systems.
+  
+ APPEARS IN   Physical Review A (Atomic, Molecular, and Optical Physics) 
+                vol.53, no.6 (June 1996) p3853-64.
+ PUBLISHED    (June 1996)
+  
+ ABSTRACT     The generalization of the highly accurate exponential variational
+
+lqqq Holdings: PHYSICAL REVIEW A (ATOMIC, MOLECULAR, AND OPTICAL PHYSICS) qqqqk
+x1 > Science    QC1 .P42             CURRENT RECORD                           x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+x2 > Science    QC1 .P42             41:1-45:8 (1/1/90-4/15/92)               x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+ AUTHOR       Frolov, A.M.
+              Smith, V.H., Jr.
+ TITLE        The CMP-invariance for symmetrical Coulomb four-body systems with
+                unit charges.
+  
+ APPEARS IN   Journal of Physics B (Atomic, Molecular and Optical Physics) 
+                vol.29, no.11 (14 June 1996) pL433-40.
+ PUBLISHED    (14 June 1996)
+  
+ ABSTRACT     The bound state spectra in the symmetrical Coulomb four-body 
+                systems with unit charges X/sup +/X/sup +/Y/sup -/Y/sup -/ are 
+                considered. The total energy and other properties for such 
+
+lqq Holdings: JOURNAL OF PHYSICS B (ATOMIC, MOLECULAR AND OPTICAL PHYSICS) qqqk
+x1 > Science    QC770 .J67                                                    x
+x   LIB HAS: SCIENCE v.21, 1988-, INTERNET ACCESS v.29, 1996-                 x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj AUTHOR       Frolov, A.M.
+              Smith, V.H., Jr.
+ TITLE        Universal variational expansion for three-body systems.
+  
+ APPEARS IN   Journal of Physics B (Atomic, Molecular and Optical Physics) 
+                vol.28, no.14 (28 July 1995) pL449-55.
+ PUBLISHED    (28 July 1995)
+  
+ ABSTRACT     A universal variational expansion in the interparticle 
+                coordinates is proposed for the accurate calculation of the 
+                bound states of an arbitrary three-body system. This fully non-
+                adiabatic variational expansion has been applied successfully 
+
+lqq Holdings: JOURNAL OF PHYSICS B (ATOMIC, MOLECULAR AND OPTICAL PHYSICS) qqqk
+x1 > Science    QC770 .J67                                                    x
+x   LIB HAS: SCIENCE v.21, 1988-, INTERNET ACCESS v.29, 1996-                 x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+ AUTHOR       Bishop, D.M.
+              Frolov, A.M.
+              Smith, V.H., Jr.
+ TITLE        Properties of the bound S states (L=0) in Coulomb three-body 
+                systems with unit charges.
+  
+ APPEARS IN   Physical Review A (Atomic, Molecular, and Optical Physics) 
+                vol.51, no.5 (May 1995) p3636-44.
+ PUBLISHED    (May 1995)
+  
+
+lqqq Holdings: PHYSICAL REVIEW A (ATOMIC, MOLECULAR, AND OPTICAL PHYSICS) qqqqk
+x1 > Science    QC1 .P42             CURRENT RECORD                           x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+x2 > Science    QC1 .P42             41:1-45:8 (1/1/90-4/15/92)               x
+x   LIB HAS: SCIENCE cop.1 v.41, 1990-                                        x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj
+ AUTHOR       Smith, V. H., Jr.
+              Frolov, A.M.
+ TITLE        On properties of the helium-muonic and helium-antiprotonic atoms.
+  
+ APPEARS IN   Journal of Physics B (Atomic, Molecular and Optical Physics) 
+                vol.28, no.7 (14 April 1995) p1357-68.
+ PUBLISHED    (14 April 1995)
+  
+ ABSTRACT     Various properties of the muonic ( mu /sup -/) and antihydrogen 
+                nuclei (p/sup -/, d/sup -/ or t/sup -/) helium atoms (/sup 3/He
+                or /sup 4/He) in their ground bound states with L=0 are 
+                presented. The properties of the helium-antihydrogen systems 
+
+lqq Holdings: JOURNAL OF PHYSICS B (ATOMIC, MOLECULAR AND OPTICAL PHYSICS) qqqk
+x1 > Science    QC770 .J67                                                    x
+x   LIB HAS: SCIENCE v.21, 1988-, INTERNET ACCESS v.29, 1996-                 x
+mqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqj

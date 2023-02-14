@@ -1,0 +1,234 @@
+This is TeX, Version 3.14159 (C version 6.1) (format=latex 98.5.7)  4 NOV 1998 17:02
+**cgr1st.tex
+(cgr1st.tex
+LaTeX2e <1996/12/01> patch level 1
+Babel <v3.6h> and hyphenation patterns for american, german, loaded.
+(/usr/lib/texmf/texmf/tex/latex/base/article.cls
+Document Class: article 1996/10/31 v1.3u Standard LaTeX document class
+(/usr/lib/texmf/texmf/tex/latex/base/size10.clo
+File: size10.clo 1996/10/31 v1.3u Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/lib/texmf/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1996/10/31 v1.0c Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/lib/texmf/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1995/09/21 v1.09 key=value parser (DPC)
+)
+(/usr/lib/texmf/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 1996/10/31 v1.0c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/lib/texmf/texmf/tex/latex/graphics/trig.sty
+Package: trig 1994/10/16 v1.08 sin cos tan (DPC)
+)
+(/usr/lib/texmf/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: dvips.def on input line 82.
+
+(/usr/lib/texmf/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1996/12/12 v3.0d Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(/usr/lib/texmf/texmf/tex/latex/amslatex/amsmath.sty
+Package: amsmath 1996/11/01 v1.2c AMS math features
+\@mathmargin=\skip43
+
+(/usr/lib/texmf/texmf/tex/latex/amslatex/amstext.sty
+Package: amstext 1996/10/28 v1.2b
+
+(/usr/lib/texmf/texmf/tex/latex/amslatex/amsgen.sty
+File: amsgen 1996/10/29 v1.2b
+\@emptytoks=\toks14
+\ex@=\dimen105
+))
+(/usr/lib/texmf/texmf/tex/latex/amslatex/amsbsy.sty
+Package: amsbsy 1996/10/28 v1.2b
+\pmbraise@=\dimen106
+)
+(/usr/lib/texmf/texmf/tex/latex/amslatex/amsopn.sty
+Package: amsopn 1996/10/28 v1.2b operator names
+)
+LaTeX Info: Redefining \frac on input line 188.
+\uproot@=\count87
+\leftroot@=\count88
+\classnum@=\count89
+\DOTSCASE@=\count90
+LaTeX Info: Redefining \dots on input line 335.
+LaTeX Info: Redefining \ldots on input line 418.
+LaTeX Info: Redefining \cdots on input line 422.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen107
+LaTeX Font Info:    Redeclaring font encoding OML on input line 500.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 501.
+\skewcharcount@=\count91
+\familycount@=\count92
+\pointcount@=\count93
+\accentdimen@=\dimen108
+\accentmu@=\count94
+\minaw@=\dimen109
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks15
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks16
+\eqnshift@=\dimen110
+\alignsep@=\dimen111
+\tagshift@=\dimen112
+\tagwidth@=\dimen113
+\totwidth@=\dimen114
+\lineht@=\dimen115
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+)
+(/usr/lib/texmf/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 1996/11/03 v2.2c
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 129.
+)
+(/usr/lib/texmf/texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 1996/11/03 v2.2b
+)
+\c@theorem=\count101
+ (cgr1st.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Try loading font information for U+msa on input line 45.
+
+(/usr/lib/texmf/texmf/tex/latex/amsfonts/umsa.fd
+File: Umsa.fd 1995/01/05 v2.2e AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 45.
+
+(/usr/lib/texmf/texmf/tex/latex/amsfonts/umsb.fd
+File: Umsb.fd 1995/01/05 v2.2e AMS font definitions
+) [1
+
+]
+
+LaTeX Warning: Citation `Kinghorn93' on page 2 undefined on input line 93.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 2 undefined on input line 93.
+
+
+LaTeX Warning: Citation `Kozlowski93b' on page 2 undefined on input line 93.
+
+
+LaTeX Warning: Citation `Kinghorn96a' on page 2 undefined on input line 93.
+
+
+LaTeX Warning: Citation `Varga96' on page 2 undefined on input line 93.
+
+[2] [3]
+
+LaTeX Warning: Citation `Kinghorn95a' on page 4 undefined on input line 268.
+
+
+LaTeX Warning: Citation `Kinghorn93' on page 4 undefined on input line 272.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 4 undefined on input line 272.
+
+[4]
+
+LaTeX Warning: Citation `Poshusta83' on page 5 undefined on input line 353.
+
+
+LaTeX Warning: Citation `Kinghorn95a' on page 5 undefined on input line 353.
+
+[5] [6] [7]
+
+LaTeX Warning: Citation `Kinghorn95a' on page 8 undefined on input line 508.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 8 undefined on input line 508.
+
+[8] [9]
+
+LaTeX Warning: Citation `Kinghorn95a' on page 10 undefined on input line 663.
+
+
+Overfull \hbox (45.4896pt too wide) in paragraph at lines 702--702
+[] 
+ []
+
+[10] [11]
+Overfull \hbox (113.84767pt too wide) in paragraph at lines 843--843
+[] 
+ []
+
+[12]
+Overfull \hbox (44.31812pt too wide) in paragraph at lines 862--862
+[] 
+ []
+
+
+Overfull \hbox (4.31325pt too wide) in paragraph at lines 870--870
+[] 
+ []
+
+[13]
+
+LaTeX Warning: Citation `Kinghorn95a' on page 14 undefined on input line 895.
+
+
+LaTeX Warning: Citation `Kinghorn95b' on page 14 undefined on input line 895.
+
+[14]
+
+LaTeX Warning: Citation `Kinghorn95a' on page 15 undefined on input line 979.
+
+[15] [16]
+
+LaTeX Warning: Reference `adef,bdef,cdef' on page 17 undefined on input line 10
+97.
+
+
+LaTeX Warning: Reference `gamma2,gamma3' on page 17 undefined on input line 109
+9.
+
+[17] (cgr1st.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1480 strings out of 10906
+ 15145 string characters out of 72188
+ 68663 words of memory out of 262141
+ 4331 multiletter control sequences out of 9500
+ 13084 words of font info for 50 fonts, out of 150000 for 255
+ 14 hyphenation exceptions out of 607
+ 28i,16n,22p,223b,260s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on cgr1st.dvi (17 pages, 78844 bytes).

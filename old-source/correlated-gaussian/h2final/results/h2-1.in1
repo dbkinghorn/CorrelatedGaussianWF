@@ -1,0 +1,50 @@
+*****Test input for H2 2 basis function******
+  n THE NUMBER OF PSEUDO PARTICLES
+  3 
+  nb THE NUMBER OF BASIS FUNCTIONS
+  1
+  wev WHICH EIGENVALUE
+  1
+  x THE INITIAL GUESS FOR THE EXPONENTS
+  1
+0
+0
+.5
+0
+.25      
+   POWERS OF r1
+22
+   CHARGE MATRIX 
+  +1.0  0.0  0.0
+  -1.0 -1.0  0.0
+  -1.0  1.0 -1.0
+  MASS
+  5.4461701568302e-4 2.7230850784151e-4 2.7230850784151e-4
+  2.7230850784151e-4 0.500272308507841  2.7230850784151e-4
+  2.7230850784151e-4 2.7230850784151e-4 0.500272308507841
+  nsym NUMBER OF SYMMETRY TERMS
+  4
+  symc SYMMETRY COEFS
+  1.0
+  1.0
+  1.0
+  1.0
+  Sym PROJECTION MATRICES
+    (1)(2)(3)
+  1.0  0.0  0.0
+  0.0  1.0  0.0
+  0.0  0.0  1.0
+      (12)
+  -1.0  0.0  0.0
+  -1.0  1.0  0.0
+  -1.0  0.0  1.0 
+      (34)
+  1.0  0.0  0.0
+  0.0  0.0  1.0
+  0.0  1.0  0.0
+    (12)(34)
+  -1.0  0.0  0.0
+  -1.0  0.0  1.0
+  -1.0  1.0  0.0
+  evec
+  1

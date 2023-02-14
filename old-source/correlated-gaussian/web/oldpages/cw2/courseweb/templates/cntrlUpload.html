@@ -1,0 +1,57 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- Updated 8:37 PM on 4/17/97                              -->
+<!-- *******************************************************-->
+
+<HEAD>
+<TITLE>Upload Extra Files</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Begin hiding Script from old Shouser Browsers
+
+//
+// Generate a mailto: for help
+//
+function helpMsg() {
+	if( confirm("I haven't installed the help system yet but you can help me by telling me what you would like help on.\n I will use your comments as a guide for constructing the help system. \n\nWOULD YOU LIKE TO SEND ME E-MAIL?") ) {
+	 window.location='mailto:kinghorn@dakotacom.net' 
+	}
+}
+// 
+// End Hiding Script -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="#D3D3D3" >
+<H2>Uploaded Extra Files To Course Directory</H2>
+<FORM ACTION="http://www.chem.arizona.edu/cgi-bin/courseweb/uploadextra.cgi" ENCTYPE="multipart/form-data">
+	
+	<!-- put in file and directory info -->
+	<INPUT TYPE="HIDDEN"  NAME="courseDir" VALUE="/chem/htdocs/courseweb/972/chem001/" >
+	
+	<H3>Select an HTML or TEXT file to upload:</H3>  
+	<INPUT NAME="asciiUpload" TYPE="FILE" SIZE="30" >
+	<INPUT TYPE="submit" VALUE="Upload File"><BR>
+	<H3>Select an image file to upload (GIF or JPEG):</H3> 
+	<INPUT NAME="imageUpload" TYPE="FILE" SIZE="30">
+	<INPUT TYPE="submit" VALUE="Upload image">
+	<BR>
+	<INPUT NAME="helpUpload" TYPE="BUTTON" VALUE="   Help   "
+		onClick='helpMsg()'>
+</FORM>
+<HR>
+<FORM>
+	<DIV ALIGN="CENTER">
+	<INPUT  TYPE="BUTTON" VALUE="CLOSE" onClick="self.close()">
+	</DIV>
+</FORM>
+</BODY>
+</HTML>

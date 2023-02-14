@@ -1,0 +1,497 @@
+<html>
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 13 Sep 1971 13:00:00 GMT">
+<head>
+<title>Ewgie Documentation: All the Commands</title>
+</head>
+<body bgcolor="#FFFFFF" vlink="#68675F" link="#E31818">
+
+<center>
+<table width=95%>
+
+<tr>
+<td><font size=+3><b>EWGIE</b></font><br>
+<font size=+1><b><font color="#FF0000">E</font>asy <font color="#FF0000">W</font>eb <font color="#FF0000">G</font>roup <font color="#FF0000">I</font>nteraction <font color="#FF0000">E</font>nabler</b></font></td>
+<td><img src="ewgie.gif" alt="" align=right width=138 height=60></td>
+
+</tr>
+</table>
+</center>
+<p>
+
+<center>
+<font size=+2><b>All the Commands</b></font>
+<p>
+
+<table width=95%>
+<tr>
+<td>
+Some commands can be appended with other nicknames and messages. When you use these commands, do not enclose the names or text in quotes. For many commands that take names as arguments, you can specify multiple names by typing a comma-delimited list of names in the command. Note that wildcards (using asterisks in commands as shorthand) won't work in Ewgie. Names of other members you specify in commands is case-insensitive.
+</td>
+</tr>
+</table>
+<p>
+
+<table width=75%>
+<tr>
+<td width=20% valign=top>
+
+<a href="#enter"><b>Enter/Exit<br>Commands</b></a>
+<p>
+
+<a href="#join">join<br>
+<a href="#quit">quit</a><br>
+<a href="#connect">connect</a><br>
+<p>
+
+<a href="#general"><b>General<br>Commands</b></a>
+<p>
+
+<a href="#help">help</a><br>
+<a href="#who">who</a><br>
+<a href="#whowas">whowas</a><br>
+<a href="#nick">nick</a><br>
+<a href="#away">away</a><br>
+<a href="#return">return</a>
+
+</td>
+
+<td width=20% valign=top>
+
+<a href="#conversation"><b>Conversation<br>Commands</b></a>
+<p>
+
+<a href="#msg">msg</a><br>
+<a href="#ring">ring</a><br>
+<a href="#me">me</a>
+<a href="#notify">notify</a><br>
+<a href="#nonotify">nonotify</a><br>
+<a href="#ignore">ignore</a><br>
+<a href="#noignore">noignore</a><br>
+<a href="#filter">filter</a><br>
+<a href="#nofilter">nofilter</a><br>
+<a href="#follow">follow</a><br>
+<a href="#nofollow">nofollow</a><br>
+
+</td>
+
+<td width=20% valign=top>
+
+<a href="#room"><b>Room<br>Commands</b></a>
+<p>
+
+<a href="#join2">join</a><br>
+<a href="#leave">leave</a><br>
+<a href="#remove">remove</a><br>
+<a href="#topic">topic</a><br>
+<a href="#room">room</a><br>
+<a href="#rooms">rooms</a><br>
+<a href="#names">names</a><br>
+<a href="#invite">invite</a>
+
+</td>
+
+<td width=20% valign=top>
+
+<a href="#other"><b>Other<br>Commands</b></a>
+<p>
+
+<a href="#fontsize">fontsize</a><br>
+<a href="#motd">motd</a><br>
+<a href="#clear">clear</a><br>
+<a href="#stats">stats</a><br>
+<a href="#client">client</a>
+<p>
+
+<a href="#operator"><b>Operator<br>Commands</b></a>
+<p>
+
+<a href="#shutdown">shutdown</a><br>
+<a href="#notice">notice</a>
+
+</td>
+</tr>
+</table>
+<p>
+
+<table width=95%>
+<tr>
+<td>
+
+<br>
+<a name="enter"><h3>Enter/Exit Commands</h3></a>
+
+<ul>
+<li> <a name="join"><b>/join</b> <i>name</i></a>
+<li> <b>/enter</b> <i>name</i>
+<p>
+These commands will connect you to a server. Instead of having to type in a name in the name entry field, and can simply type <code>/join</code> appended with your nickname in the text entry field, hit return, and connect quickly.
+<p>
+<li> <a name="quit"><b>/quit</b></a>
+<li> <b>/leave</b>
+<li> <b>/bye</b>
+<li> <b>/exit</b>
+<li> <b>/si</b>
+<li> <b>/signoff</b>
+<p>
+All these commands will disconnect you from the chat session. <code>/si</code> and <code>/signoff</code> are provided for IRC users that are more comfortable using those commands.
+<p>
+<li> <a name="connect"><b>/connect name host</b> <i>(port)</i></a>
+<li> <b>/server name host</b> <i>(port)</i>
+<p>
+You can connect to another Ewgie server by entering the <code>/connect</code> command. If you use this command while in chat, you will be automatically disconnected. Note that if you are running the client as an applet within a browser, you will probably not be able to connect to any other hosts other than the one the applet came from.
+<p>
+The port value is optional - if omitted, the default port (1971) will be assumed. <code>/server</code> does the same thing as <code>/connect</code> and is provided for IRC users.
+</ul>
+<p>
+
+<br>
+<a name="general"><h3>General Commands</h3></a>
+
+<ul>
+<li> <a name="help"><b>/help</b></a>
+<p>
+Displays a short summary of all the commands.
+<p>
+<li> <a name="who"><b>/who</b> <i>(name)</i></a>
+<li> <b>/whois</b> <i>(name)</i>
+<p>
+Used with no arguments, <code>/who</code> displays the number of people that are connected to the server, the maximum number of people that can be connected at once, and for each person, their nickname and Internet address. Also indicated is whether or not eash person is away (see the <a href="#away"><code>away</code></a> command) and if their whiteboard is open.
+<p>
+If used with someone else's nickname, this command will display their nickname, address, how long they've been online, how long they've been idle (how long it has been since they last typed anything), if they are <a href="#follow">following</a> and/or ignoring you, if their whiteboard is open, and whether or not they are away (see the <a href="#away"><code>away</code></a> command).
+<p>
+
+If you use a single asterisk (*) as a parameter, this will tell you who is in the same room as you are. <code>/whois</code> is provided for IRC users.
+<p>
+<li> <a name="whowas"><b>/whowas</b> <i>(name) (limit)</i></a>
+<p>
+The <code>whowas</code> command shows who has last been using Ewgie. If you specify a name or a list of names separated by commas, the history will be searched for entries of those specific members. If you specify a number as the last argument, only the last <i>number</i> entries will be shown or looked through.
+<pre>
+     /whowas
+</pre>
+This shows the last 100 entries by default.
+<pre>
+     /whowas 10
+</pre>
+This shows the last 10 entries only.
+<pre>
+     /whowas John
+</pre>
+This returns any entries by John.
+<pre>
+     /whowas John 10
+</pre>
+This returns any entries by John in the last 10 entries.
+<pre>
+     /whowas John,Joe,Biff
+</pre>
+This returns any entries by John, Joe, and Biff.
+<p>
+For each entry, the member's nickname, host machine, and the times they entered and left Ewgie are shown.
+<p>
+<li> <a name="nick"><b>/nick</b> <i>(name)</i></a>
+<li> <b>/rename</b> <i>(name)</i>
+<p>
+This command allows you to change your name, as long as nobody else already is using the same name you want to use. If successful, the server will let everyone know who your new name is.
+<pre>
+     /nick Guido
+     *** Kev is now named Guido.
+</pre>
+<p>
+<li> <a name="away"><b>/away</b> <i>text</i></a>
+<p>
+If you have to leave and do other things, or would simple like to sit back and watch the traffic, you can use this command to set up a virtual answering machine. Use this command with a message to indicate that you're away:
+<pre>
+     /away Sorry, I'm away right now.
+</pre>
+Now, when somebody tries to send you a private message (see <a href="#msg"><code>/msg</code></a>), they will get this in return:
+<pre>
+     *Kev*> Sorry, I'm away right now.
+</pre>
+If you use <code>/away</code> with no arguments, a default away message will be used.
+<p>
+<li> <a name="return"><b>/return</b></a>
+<p>
+If you were <code>/away</code> and want to get back into the action, you can use the <code>/return</code> command. This announces to everyone that you have returned. Alternatively, if you are away you can simply type <code>/away</code> again and you will return.
+</ul>
+<p>
+
+<br>
+<a name="conversation"><h3>Conversation Commands</h3></a>
+
+<ul>
+<li> <a name="msg"><b>/msg</b> <i>name text</i></a>
+<p>
+This sends a private message to somebody. For instance, if I type
+<pre>
+     /msg Joe Hi there...
+</pre>
+I will see this on my screen:
+<pre>
+     ->*Joe* Hi there...
+</pre>
+This tells me that I have sent a private message to Joe. Joe will then see this on his screen:
+<pre>
+     *Kev*> Hi there...
+</pre>
+The asterisks indicate that this is a private message from me, which is for his eyes only. The message has been sent to nobody else.
+<p>
+If I want to send a private message to more than one person at once, I can specify a comma-separated list (this list cannot have any spaces in it):
+<pre>
+     /msg Joe,Biff,Max Hi there, folks...
+</pre>
+This will send a message to Joe, Biff, and Max.
+<p>
+
+If you wish to continually talk privately with a person or persons, just press the up arrow key when you're in the message entry field - this will take you to the last command you entered, and all you would have to do is type what you want to say.
+<p>
+<li> <a name="ring"><b>/ring</b> <i>name</i></a>
+<p>
+If someone is away and you want to catch their attention, you can <code>/ring</code> them. This plays a ring sound on their client, flashes their status bar, and sends them a message indicating that you've rung them. With <code>/ring</code>, you can use Ewgie a bit like a telephone (albeit a rather expensive one).
+<p>
+<li> <a name="me"><b>/me</b> <i>(text)</i></a>
+<p>
+If you want to appear that you're performing an action, you can use this command. The text argument is optional. For example:
+<pre>
+     /me rolls on the floor laughing.
+     *** Kev rolls on the floor laughing.
+     /me
+     *** Kev does nothing.
+</pre>
+<p>
+<li> <a name="notify"><b>/notify</b> <i>(name)</i></a>
+<p>
+If you'd like to be notified when someone enters and leaves chat, you can add the person to a notification list:
+<pre>
+     /notify sam,biff
+     *** sam has been added to your
+         notification list.
+     *** biff has been added to your
+         notification list.
+</pre>
+The next time someone on your list enters or leaves chat, Ewgie will ring you and you'll see this:
+<pre>
+     *** Notification: Sam has entered chat.
+     *** Notification: Sam has left chat.
+</pre>
+Use <code>/notify</code> without any arguments to see who on your list is in chat:
+<pre>
+     /notify
+     *** sam is in chat.
+     *** biff is not in chat.
+</pre>
+<p>
+<li> <a name="nonotify"><b>/nonotify</b> <i>(name)</i></a>
+<p>
+If you use this command without an argument, you will remove all names from your notification list. For each name you specify as an argument, you will remove that name from your notification list.
+<p>
+<li> <a name="ignore"><b>/ignore</b> <i>(name)</i></a>
+<p>
+If someone is just being downright rude to you, you can choose to <code>/ignore</code> them. From then on, if this person tries to send you a private message, they will get this in return:
+<pre>
+     *** Kev is ignoring you.
+</pre>
+If you use <code>/ignore</code> with no arguments, you will ignore everybody.
+<p>
+<p>
+<li> <a name="noignore"><b>/noignore</b> <i>(name)</i></a>
+<p>
+When you've made up with the people you've ignored, you can use <code>/noignore</code> to allow everybody to send you private messages once again. Use this command with an argument to not ignore somebody.
+<p>
+<li> <a name="filter"><b>/filter name</b></a>
+<p>
+If you do not want to see any messages at all from a particular person, whether public or private, you can <code>/filter</code> them out of existence.
+<p>
+<li> <a name="nofilter"><b>/nofilter</b> <i>(name)</i></a>
+<p>
+This command will undo all of your <code>/filter</code>ing havoc and will allow you to see everybody's messages again. Use this command with an argument to not filter somebody.
+<p>
+<li> <a name="follow"><b>/follow</b> <i>(name)</i></a>
+<p>
+If you choose to <code>/follow</code> somebody, the next time they type in a URL as a public or private message, that page will appear via your browser in a new window. Using this command with no arguments allows you to follow <i>everybody</i>. When you first enter chat, you will by default not be following anybody, including yourself. If you want to be able to type in URLs and browse them yourself, you must explicitly follow yourself.
+<p>
+Note that people can only follow you if they are in the same room as you are or if you send them a private message containing the URL.
+<p>
+<li> <a name="nofollow"><b>/nofollow</b> <i>(name)</i></a>
+<p>
+This command with a name as an argument will make you stop following the person you've indicated. If you use <code>/nofollow</code> then you will not be following anybody, including yourself.
+<p>
+<li> <b>http://.../</b>, <b>www. ...</b>
+<li> <b>gopher://.../</b>, <b>gopher. ...</b>
+<li> <b>ftp://.../</b>, <b>ftp. ...</b>
+<p>
+
+Basically, any URL that has a "colon-slash-slash" in it is followable by others. URLs such a <code>news:</code> and <code>mailto:</code> won't work. Any word you type that begins with "www.", "gopher." or "ftp." will be followed as well. Here are some examples:
+<pre>
+     http://www.eit.com/
+</pre>
+People that are following you go to www.eit.com.
+<pre>
+     Say, go to these sites - ftp.blah.com
+     and gopher.foo.com
+</pre>
+People that are following you go to ftp.blah.com only.
+<pre>
+     You should go to www.foo.com - it's
+     a great place
+</pre>
+People that are following you go to www.foo.com.
+</ul>
+<p>
+
+<br>
+<a name="room"><h3>Room Commands</h3></a>
+
+<ul>
+<li> <a name="join2"><b>/join</b> <i>room</i></a>
+<p>
+If you are already in chat, the <code>/join</code> command is used to enter a room on the server. If the room does not exist, the room will be created and you will automatically be entered into it. Room names must be at least one character long and cannot contain commas.
+<p>
+<li> <a name="leave"><b>/leave</b> <i>(room)</i></a>
+<p>
+This command allows you to leave a room and enter back into the default main room of the server. If you do not specify a room, you will leave chat.
+<p>
+<li> <a name="remove"><b>/remove</b> <i>room</i></a>
+<li> <b>/delete</b> <i>room</i>
+<p>
+This command removes a room from the server. The room must be empty before it can be removed. <code>/delete</code> is supplied as an alternative.
+<p>
+<li> <a name="topic"><b>/topic</b> <i>(text)</i></a>
+<p>
+The <code>/topic</code> command allows you to change the topic of the room you are currently in. If no text argument is supplied, the topic of the room will be removed.
+<pre>
+     /topic My favorite things
+     *** Kev sets the topic for Lobby:
+         My favorite things
+     /topic
+     *** Kev has removed the topic for Lobby.
+</pre>
+<li> <a name="room"><b>/room</b> <i>(room)</i></a>
+<p>
+This command gives you information about a particular room, or if no room argument is supplied, information about the room you are in. The room name, topic, number of people in it, and list of people in it are given.
+<p>
+<li> <a name="rooms"><b>/rooms</b> <i>(text) (number)</i></a>
+<li> <b>/list</b> <i>(text) (number)</i>
+<p>
+If no arguments are specified, the <code>/rooms</code> command allows you see a list of all the rooms on the server as well as their topics and member count. If I supply some text as an argument, only the rooms whose names or topics contain that text (the matching is case-insensitive) will be listed.
+<p>
+I can also supply a numerical argument which will show me only those rooms with that amount of people in them. I can use a greater-than or lesser-than sign before the number to show rooms with more or less than a certain amount of people.
+<pre>
+     /rooms
+</pre>
+Displays all rooms.
+<pre>
+     /rooms travel
+</pre>
+Displays all rooms with "travel" in the name or topic.
+<pre>
+     /rooms travel <6
+</pre>
+Same as above but shows only rooms with less than six people.
+<pre>
+     /rooms 10
+</pre>
+Shows only rooms with ten people.
+<pre>
+     /rooms >10
+</pre>
+Shows only rooms with more than ten people.
+<p>
+<code>/list</code> is supplied for IRC users.
+<p>
+<li> <a name="names"><b>/names</b> <i>(text) (number)</i></a>
+<p>
+If no arguments are specified, the <code>/names</code> command allows you see a list of all the rooms on the server, their member count, and a list of everyone in each room. If I supply some text as an argument, only the rooms whose names or members' names contain that text (the matching is case-insensitive) will be listed.
+<p>
+I can also supply a numerical argument which will show me only those rooms with that amount of people in them. I can use a greater-than or lesser-than sign before the number to show rooms with more or less than a certain amount of people.
+<pre>
+     /names
+</pre>
+Displays all rooms.
+<pre>
+     /names kim
+</pre>
+Displays all rooms with a person whose name contains "kim" or rooms whose names contain "kim".
+<pre>
+     /names kim <6
+</pre>
+Same as above but shows only rooms with less than six people.
+<pre>
+     /names 10
+</pre>
+Shows only rooms with ten people.
+<pre>
+     /names >10
+</pre>
+Shows only rooms with more than ten people.
+<p>
+<li> <a name="invite"><b>/invite</b> <i>name</i></a>
+<p>
+If you would like somebody to join you in your room, you can <code>invite</code> them - simply use this command with their name:
+<pre>
+     (I type:)    /invite biff
+     (Biff sees:) *** Kev invites you to Lounge.
+</pre>
+</ul>
+<p>
+
+<br>
+<a name="other"><h3>Other Commands</h3></a>
+
+<ul>
+<li> <a name="fontsize"><b>/fontsize</b> <i>size</i></a>
+<p>
+This command will set the size of the font used in the chat area. Note that on particular computer platforms you may not always be able to get the exact size you want. Font sizes 12, 18, and 24 are usually available. Example:
+<pre>
+     fontsize 14
+</pre>
+<p>
+<li> <a name="motd"><b>/motd</b></a>
+<p>
+This displays the message of the day on the server you are connected to. This is the message you see when you first connect to a server, if such a message is provided.
+<p>
+<li> <a name="clear"><b>/clear</b></a>
+<p>
+Clears the screen.
+<p>
+<li> <a name="stats"><b>/stats</b></a>
+<li> <b>/about</b>
+<li> <b>/version</b>
+<p>
+This displays all sorts of information about the server you're connected to: the server name and version, how many simultaneous connections it can support, when it started, how long it has been running in elapsed time, its Internet address, and port number. <code>/about</code> and <code>/version</code> do the same thing and are provided for IRC users.
+<p>
+<li> <a name="client"><b>/client</b></a>
+<li> <b>/info</b>
+<li> <b>/version</b>
+<p>
+Displays the client's name, version number, and author. <code>/info</code> and <code>/version</code> does the same thing and is provided for IRC users.
+</ul>
+<p>
+
+<br>
+<a name="operator"><h3>Operator Commands</h3></a>
+
+<ul>
+<li> <a name="shutdown"><b>/shutdown</b> <i>password (time)</i></a>
+<p>
+This directive shuts down the server and notifies all participants how much time is left before the server will shut down. The operator password must be supplied when using this command. The time specified is in minutes - if no time argument is specified, the server will shut down in one minute.
+<p>
+<li> <a name="notice"><b>/notice</b> <i>password text</i></a>
+<p>
+This directive sends a notice to all members currently on the server. The operator password must be supplied in order to use this command.
+</ul>
+<p>
+
+</td>
+</tr>
+<tr>
+<td align=center>
+<a href="control.html">[ Back: Using the Control Panel ]</a>
+<a href="index.html">[ Index ]</a>
+<a href="options.html">[ Next: Client Options ]</a>
+</td>
+</tr>
+</table>
+</center>
+
+</body>
+</html>

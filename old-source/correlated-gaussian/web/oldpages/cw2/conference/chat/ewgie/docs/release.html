@@ -1,0 +1,193 @@
+<html>
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 13 Sep 1971 13:00:00 GMT">
+<head>
+<title>Ewgie Documentation: Release Notes</title>
+</head>
+<body bgcolor="#FFFFFF" vlink="#68675F" link="#E31818">
+
+<center>
+<table width=95%>
+
+<tr>
+<td><font size=+3><b>EWGIE</b></font><br>
+<font size=+1><b><font color="#FF0000">E</font>asy <font color="#FF0000">W</font>eb <font color="#FF0000">G</font>roup <font color="#FF0000">I</font>nteraction <font color="#FF0000">E</font>nabler</b></font></td>
+<td><img src="ewgie.gif" alt="" align=right width=138 height=60></td>
+
+</tr>
+</table>
+</center>
+<p>
+
+<center>
+<font size=+2><b>Release Notes And Known Bugs</b></font>
+<p>
+
+<table width=95%>
+<tr>
+<td>
+
+<h3>1.1 * August 7, 1996</h3></a>
+
+<blockquote>
+Both the server and client have had large blocks of code cleaned up - Ewgie is slowly becoming a "real" application! Here is a summary of the more significant changes from 1.0:
+<p>
+
+<b>Server and Client</b>
+<p>
+<ul>
+<li> Added support for multiple rooms!
+<li> All the code has been compiled and optimized with the 1.0.2 JDK
+<li> No platform-dependent code exists anywhere (yay!)
+<li> The output streams used for communication now automatically flush
+<li> The elapsed times function now reports correct elapsed times
+<li> The core protocol has been streamlined slightly; many new commands have been added as well
+<li> GMT times are converted to the client's local time automatically
+<li> All strings are contained in one file for easier internationalization
+<li> Images are distributed in a slightly more sane manner
+</ul>
+<p>
+
+<b>Client</b>
+<p>
+<ul>
+<li> Ewgie now runs in a number of ways - as a standalone application or an applet, with or without a login dialog
+<li> Ewgie now has a control panel in which you can view people and rooms!
+<li> Many components in the interface are optional
+<li> New commands: /me, /connect, /fontsize, /version, /motd, /whowas, /notify, /nonotify, /notice, /shutdown, /join, /leave, /topic, /rooms, /names, /remove, /invite, slight syntax changes in other commands
+<li> New parameters: fontsize, bgcolor, fgcolor, namepanel, statuspanel, buttonpanel, login, controlpanel
+<li> A new chat menu bar has common chat commands
+<li> The status panel has more information and when selected sends you away or returns you
+<li> When run standalone, the application/applet can be cloned
+<li> Lists of names can be specified in most commands
+<li> Names in commands are now case-insensitive
+<li> You can save the chat text to a file
+<li> You can load a GIF image from a file!
+<li> You can save the board image as a GIF file!
+<li> A resize thread handler has been written so that Ewgie doesn't stop when the browser is resized (if run as an applet)
+<li> Custom layout managers have been written for major interface portions to make things look good and act better
+<li> Customizable foreground and background colors correctly propagate to all windows
+<li> If in chat, using the name field now renames you
+<li> WINDOW_DESTROY events are now trapped in all non-modal windows
+<li> The default welcome message has been rewritten
+<li> More basic help for /chat help - concise HTML help written in the documentation
+<li> All dialogs are modal where appropriate
+<li> The EwgieBoard color picker has had a variety of problems fixed
+<li> The board's live pointer tool has been changed a little to save bandwidth
+<li> The live pointer icon is easier to see and move
+<li> Board menus are properly disabled and checkmarked
+<li> The enter and return key in all fields is trapped (so Ewgie is usable on Macintoshes)
+<li> Less restrictions on nicknames - they cannot contain commas
+<li> Almost all layouts have been rewritten so that all coordinates and widgets are properly displayed and handled on different platforms
+<li> Movement of the board status panel has been fixed
+<li> Loading images from a URL displays a "http://" in the dialog by default
+<li> Words that look like Web addresses are followed when others type them
+<li> The FixedGrabber class has been done away with (fixed by Sun)
+<li> A zipped class archive and HTML templates are provided for "zip-capable" browsers
+</ul>
+<p>
+
+<b>Server</b>
+<p>
+<ul>
+<li> The server can have room-specific transcript files
+<li> New code to support new commands
+<li> A general password can be used for the system
+<li> An operator password can be supplied to shutdown the server remotely and send notices
+<li> New configuration directives: timestamp, generalPassword, operatorPassword, noNewRooms, makeRoom, debug
+<li> Configuration directives are now fully case-insensitive
+<li> A regular time stamp can be inserted into the transcript
+<li> The transcript has much nicer formatting and colors, and 8-bit characters and links in the text are automatically converted to HTML
+<li> Clarified server configuration file comments slightly
+</ul>
+<p>
+
+<b>Known Bugs</b>
+<p>
+Most of these problems can be attributed to inconsistencies in the implementations of the Java virtual machine on different platforms. Because the current implementations are so poor, I recommend you run Ewgie under the Java Developer's Kit on a Sun machine. Note that because new versions are being released weekly, some of these problems may already be fixed.
+<p>
+<ul>
+<li> If run as an applet you must be on the same page the applet was started from or you will not be able to follow anyone (launch new pages automatically) - this seems to be a browser-specific problem, or a security feature :)
+<li> The scroll bars in the whiteboard do not work yet
+<li> On startup the text may wrap too much (due to slow Java machines)
+<li> Under Mac Netscape, input from the server is received <i>very very</i> slowly - chat is usable; image distribution works but is so slow it is unusable
+<li> Buttons do not enable/disable or show/hide properly (Mac Netscape)
+<li> Detaching and attaching the control panel multiple times may result in a bus error (Solaris JDK)
+<li> Cloning and closing multiple instances of the client may cause a segmentation violation (Solaris JDK)
+<li> The enter/return key may not work in certain situations (Netscape)
+<li> The program may hang when using the board's selection tool (Netscape)
+<li> There may be redraw problems when showing the control panel buttons (Netscape/Explorer for Windows)
+<li> The client's command menu may appear disabled when actually enabled (Explorer for Windows)
+<li> The applet may not start at all (Explorer for Windows)
+<li> The board color picker may appear twice (Explorer for Windows)
+<li> Some layout margins are bigger and smaller than they should be (Explorer for Windows)
+<li> When running as a standalone application, completely quitting Ewgie when there is more than one cloned window open may cause a segmentation fault (Solaris 1.0.2 JDK)
+<li> Because buffered input streams do not seem to work on Mac Netscape, they are not implemented in this release
+<li> The JDK really should support the <a href="http://quest.jpl.nasa.gov/Info-ZIP/people/greg/greg_png.html">PNG</a> image format in addition to GIF
+</ul>
+<p>
+
+</blockquote>
+
+<h3>1.0 * May 1, 1996</h3></a>
+
+<blockquote>
+Most of the bugs in this release can be attributed to bugs in Java, more specifically to the cross-platform incompatibilities that arise:
+<p>
+
+<ul>
+<li> Inconsistency in widget sizes
+<li> Inconsistency in fonts and font metrics
+<li> Inconsistency in coordinate systems
+<li> Inconsistency in graphics and memory handling
+<li> Inconsistency in the display of colors
+<li> Inconsistency in event handling in widgets
+</ul>
+<p>
+
+<b>Miscellaneous Problems</b>
+<p>
+
+<ul>
+<li> If you experience crashes or freezes, this is likely due to problems in the Java virtual machine you are running. The Ewgie client runs best under appletviewer on Solaris or Windows 95. The server appears to run best on UNIX systems.
+<li> The x,y status coordinates don't update on startup and after pasting.
+<li> The angle indictator in the status panel is sometimes filled with funny characters under Windows.
+<li> Loading images doesn't always work for some strange reason. The same code sometimes works and sometimes doesn't.
+<li> Some of the menu options in tne white board should have check marks and deselected options.
+<li> On Windows 3.1 and Windows NT, the left side of the Ewgie client screen may be blank.
+<li> On Windows, the status palette location is slightly to the right of where it should be.
+<li> On some Windows platforms, cutting and pasting may result in black boxes filling the cut and pasted areas.
+<li> When a user is removed due to timing out, the "has left" message appears more than once in the transcript.
+<li> On different machines, the tool and status panels may show up behind the menubar. Ideally, their default location should be just below the menu bar.
+<li> The pointer tool may not work if you're using an SGI machine.
+<li> If you are using a Macintosh, you may not be able to make any network connections (while using the client or server).
+</ul>
+<p>
+
+For the technical-minded, the following Java problems have appeared while developing Ewgie with JDK 1.0 (aside from those mentioned above):
+<p>
+
+<ul>
+<li> You cannot grab regions of offscreen images. This has been fixed with the workaround FixedGrabber class included with the distribution. Even then this operation is quite slow on many platforms.
+<li> You cannot always get the proper bounds of a frame relative to the environment on some platforms, and you cannot get the bounds of the browser an applet is running in.
+<li> Dialog boxes don't seem to work under appletviewer.
+<li> One has to layout frames for Netscape in funny ways in order to make space for the applet security warning label.
+<li> Sometimes certain events like mouseMove() are not sent until paint() is called or mouseDown() is called. They all seem to depend on each other in strange ways.
+<li> One cannot compress (zip) the classes. This would decrease the startup time by at least 5 times, by my estimate.
+<li> I have not been able to find a freely available (deflate or LZ77-based) compression class for Java. Since I don't know how to code this stuff, I have made a compression class that uses a combination of RLE and Huffman techniques that is used to transmit image data to and from clients. My class allows one to compress and decompress data from streamed sources in a passable manner, but image transmission could be sped up by a factor of at least 7 by my estimates if I had the right code to do this.
+</ul>
+</blockquote>
+
+</td>
+</tr>
+<tr>
+<td align=center>
+<a href="other.html">[ Back: Other Stuff ]</a>
+<a href="index.html">[ Index ]</a>
+<a href="index.html">[ Next: Table of Contents ]</a>
+</td>
+</tr>
+</table>
+</center>
+
+</body>
+</html>

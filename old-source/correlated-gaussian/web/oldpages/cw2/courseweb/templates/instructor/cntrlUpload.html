@@ -1,0 +1,86 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- Updated 7:15 PM on 5/21/97                              -->
+<!-- *******************************************************-->
+
+<HEAD>
+<TITLE>Upload Files Control</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Begin hiding Script from old Shouser Browsers
+
+//
+// Generate a mailto: for help
+//
+function helpMsg() {
+	if( confirm("I haven't installed the help system yet but you can help me by telling me what you would like help on.\n I will use your comments as a guide for constructing the help system. \n\nWOULD YOU LIKE TO SEND ME E-MAIL?") ) {
+	 window.location='mailto:kinghorn@dakotacom.net' 
+	}
+}
+// 
+// Validate the form
+//
+function validate(theForm) {
+	if( (theForm.addToMenu[0].checked) && (theForm.elements[3].value=="") ){
+		alert( "You need to enter a name for the menu item." );
+		return false;
+	}  
+	else if( (theForm.addToMenu[0].checked) && (theForm.elements[3].value=="Menu Item Name") ){ 
+		alert( "[Menu Item Name] is not a great name for your new menu item" );
+		return false;
+	}
+	else if( (theForm.fileName.value == "") ){
+		alert( "Please select a file to upload [you need Netscape 3.0 or better]" );
+		theForm.fileName.focus();
+		return false;
+	} else {
+	return true;
+	}
+}
+// End Hiding Script -->
+</SCRIPT>
+
+
+</HEAD>
+
+<BODY BGCOLOR="#D3D3D3" onLoad='document.forms[0].elements[3].focus();
+					     document.forms[0].elements[3].select()'>
+<H2>Upload  File To Course Directory</H2>
+<HR>
+<FORM ACTION="http://www.chem.arizona.edu/cgi-bin/courseweb/uploadfile.cgi" ENCTYPE="multipart/form-data">
+	
+	<!-- put in directory info -->
+	<INPUT TYPE="HIDDEN"  NAME="courseDir" VALUE="<!--courseDir-->" >
+	<INPUT TYPE="HIDDEN"  NAME="courseFile" VALUE="cw_Top.html" >
+
+	<INPUT TYPE="RADIO" NAME="addToMenu" VALUE="yes" CHECKED>
+	<FONT SIZE=+1><B>Add To Menu</B></FONT>
+	<INPUT NAME="menuItemName" TYPE="TEXT"  SIZE="20" VALUE="Menu Item Name" CHECKED>
+	<BR>
+	<INPUT TYPE="RADIO" NAME="addToMenu" VALUE="no"  >
+	<FONT SIZE=+1><B>Don't Add To Menu </B></FONT>
+	<BR><BR>
+	<FONT SIZE=+1><B>Select a file to upload: </B></FONT>
+	<BR>
+	<!--stupid javascript hack to make validation work (Browse does not give focus to file name)-->
+	<INPUT NAME="fileName" TYPE="FILE" SIZE="40" onBlur="this.form.fileName.focus()" >
+	<INPUT TYPE="submit" VALUE="Upload File"
+		onClick="return validate(this.form)"><BR><BR>
+</FORM>
+<HR>
+
+<FORM>
+	<CENTER>
+	<INPUT  TYPE="BUTTON" VALUE="CLOSE" onClick="self.close()">
+	<INPUT NAME="helpUpload" TYPE="BUTTON" VALUE="   Help   " onClick='helpMsg()'>
+	</CENTER>
+</FORM>
+</BODY>
+</HTML>

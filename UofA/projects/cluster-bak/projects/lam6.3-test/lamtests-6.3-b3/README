@@ -1,0 +1,197 @@
+Copyright 1998-1999, University of Notre Dame.
+Authors: Jeffrey M. Squyres, Kinis L. Meyer with M. D. McNally 
+         and Andrew Lumsdaine
+
+This file is part of the Notre Dame LAM implementation of MPI.
+
+You should have received a copy of the License Agreement for the Notre
+Dame LAM implementation of MPI along with the software; see the file
+LICENSE.  If not, contact Office of Research, University of Notre
+Dame, Notre Dame, IN 46556.
+
+Permission to modify the code and to distribute modified code is
+granted, provided the text of this NOTICE is retained, a notice that
+the code was modified is included with the above COPYRIGHT NOTICE and
+with the COPYRIGHT NOTICE in the LICENSE file, and that the LICENSE
+file is distributed with the modified code.
+
+LICENSOR MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED.
+By way of example, but not limitation, Licensor MAKES NO
+REPRESENTATIONS OR WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY
+PARTICULAR PURPOSE OR THAT THE USE OF THE LICENSED SOFTWARE COMPONENTS
+OR DOCUMENTATION WILL NOT INFRINGE ANY PATENTS, COPYRIGHTS, TRADEMARKS
+OR OTHER RIGHTS.
+
+Additional copyrights may follow.
+
+
+This test directory has been modified by the LAM Team at the
+University of Notre Dame.  It is based on a modified version of the
+IBM test suite (see text below).  Questions and comments should be
+directed to the LAM Team (llamas@mpi.nd.edu), not to the original IBM
+authors.
+
+
+Instructions:
+=============
+
+The LAM Team requests that you compile and run this test suite after
+successfully installing LAM on your system.  
+
+The purpose of this package is to run a series of tests against the
+LAM/MPI implementation.  It will highlight potential problems and
+bugs, and will be very helpful for the validation of the overall
+LAM/MPI package.  It *must* be run on homogenous systems, and use the
+-O option to mpirun (this allows LAM to use "natural" byte ordering
+and bypass some checks that happen on little endian machines, such as
+Intel x86 architectures).
+
+To compile and run the test suite:
+
+1. Boot up a LAM with at least 1 node (i.e., do a successful lamboot)
+
+2. Be sure that the "mpirun" and "mpicc" for the new version of LAM
+are in your path.
+
+3. Run "make" in the top level directory.  This will both compile the
+test suite and run all the tests.  Each test program will be run in
+"-lamd" and "-c2c" modes to test both aspects of the LAM message
+passing engine.  To capture the output while it is running, you may
+wish to run (for csh-type shells):
+
+	% make |& tee make.out
+
+4. If any errors occurred, please attempt to finish the rest of the
+tests.  You can do this manually, or use one of the alternate "make"
+targets from the top-level directory that have been provided to "jump
+start" the tests:
+
+	ccl-c2c		ccl-lamd
+	comm-c2c	comm-lamd
+	dtyp-c2c	dtyp-lamd
+	env-c2c		env-lamd
+	group-c2c	group-lamd
+	pt2pt-c2c	pt2pt-lamd
+	topo-c2c	topo-lamd
+
+For example:
+
+	% make ccl-c2c topo-lamd |& tee tests.out
+
+will run the "ccl" group of tests in the "-c2c" mode, and the "topo"
+group of tests in the "-lamd" mode, as well as capture a copy of the
+output into the file "tests.out".
+
+5. If any errors occurred, please send the following information to
+llamas@mpi.nd.edu:
+
+	- *All* output (both compilation output and run time output,
+	  including all error messages)
+	- The result of "uname -a" on your system
+	- Output from when you ran "./configure" to configure LAM
+	- Output from when you ran "make" to build LAM
+	- The config.mk file from the top-level LAM directory
+	- The config.log file from the top-level LAM directory
+
+Thank you for your time.
+- The LAM Team
+
+
+LAM modifications to this test suite:
+=====================================
+
+The LAM modifications consist of:
+
+- new Makefiles; the target "testing" builds the programs and invokes
+  the targets "testing-lamd" and "testing-c2c"
+- the mpirun commands use LAM's "-s h" option to ship the binary and
+  thus work nicely in homogeneous clusters without complex setting of
+  the directory names (heterogeneous clusters are not supported; the
+  binaries are built once on the local host)
+- removal of some success-case and warning printf()s to reduce the output
+- the cancel-send test cases were deleted (LAM doesn't support it)
+- the sync-send and wtime test cases were redesigned
+- the "char*argv" typo was fixed
+- a datatype test case was fixed as it violated the rule: extent = ub - lb
+- some programs were renamed to avoid clashes with standard Unix commands
+- added a few "make" targets to make the test suite a little more user
+  friendly 
+- changed a few "int"s to "MPI_Aint"s where necessary
+- changed a spurrious "int" to "MPI_Request"
+- added an endian test to dtype/bakstr.c to ensure that the test happens 
+  right
+- forced -O on mpirun command line to ensure that LAM knows that it's
+  homogeneous (the NULL buffer check in pt2pt/badbuf.c will only happen
+  if LAM thinks we're either on a big endian machine or homogeneous)
+- Added some tidying-up code to some of the programs to make them
+  bcheck clean (a tool similar to purify)
+
+
+Examples:
+=========
+
+An example successful output log can be found in the file
+LAM-SAMPLE-LOG.out.
+
+
+Contact information:
+====================
+
+Send feedback and bug reports to:
+
+	llamas@mpi.nd.edu
+
+
+
+Original Copyright/Author Text:
+===============================
+
+******************************************************************************
+
+This directory of tests has been modified by William Gropp of Argonne National
+Laboratory to both conform to the MPI Standard (mostly providing argc and argv
+to MPI_Init) and to contain MPICH-style makefiles.  The original programs
+were provided by IBM.  The target "testing" will build and test the programs,
+assuming that "mpirun" is used to run programs.
+
+To use with MPICH, you'll need to build the Makefiles.  The easiest way to do
+this is with
+
+mpireconfig Makefile 
+make makefiles
+
+where mpireconfig is the MPICH script to create Makefile's from Makefile.in's.
+
+******************************************************************************
+
+This is a very good (partial) test suite, and I recommend it to all MPI
+implementors.  As of this writing, MPICH passes almost all of the tests,
+failing only tests of MPI_CANCEL (unimplemented in MPICH).  Thanks to IBM 
+for providing it.  A few tests tests for particular behavior on errors (such
+as calling MPI_Barrier before MPI_Init) and as such are undefined.
+
+
+Comments on the differences with the original suite.
+
+Many of the programs failed to return a return value to the 
+calling environment; a return 0; was added after most MPI_Finalize calls.
+
+A number of bugs of the form "if (a = b)" were fixed by changing to 
+"if (a == b)". 
+
+Some of the tests tested interpretations of the MPI Standard that do not match
+clarifications made by MPIF (particularly TEST/WAIT on empty lists); these
+have been updated to match the current spec.  Some of the datatype tests
+tested a particular interpretation of the "padding" rule that was (a)
+implementation specific and (b) also changed in a clarification (making the
+resulting standard more portable).  
+
+There are reports that some tests check for specific data lengths, for
+example, assuming that sizeof(int) == 4.  If you find any of these, please
+send mail to mpi-bugs@mcs.anl.gov .
+
+Many of the tests created MPI objects (groups, communicators, etc) but did
+not free them.  While this is not a bug, it made it hard to test for storage
+leaks in the MPI implementation, so I've added code right before the
+MPI_Finalize to free most objects.
+

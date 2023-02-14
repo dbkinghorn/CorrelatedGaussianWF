@@ -1,0 +1,1206 @@
+%% This document created by Scientific Word (R) Version 2.0
+%% Starting shell: mathart1
+
+
+\documentclass[12pt,thmsa]{article}
+\usepackage{amssymb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{sw20aip}
+\usepackage{doublesp}
+
+%TCIDATA{Created=Sat May 25 12:14:43 1996}
+%TCIDATA{LastRevised=Sat Nov 02 18:45:12 1996}
+%TCIDATA{Language=American English}
+
+\input tcilatex
+\begin{document}
+
+\author{Donald B. Kinghorn\thanks{%
+This work is a component of the author's doctoral thesis. Correspondence to
+the author should be directed care of R. D. Poshusta at Washington State
+University Department of Chemistry } and R. D. Poshusta \\
+%EndAName
+Department of Chemistry\\
+Washington State University}
+\title{Implementation of Gradient Formulas for Correlated Gaussians: He, $^\infty $%
+He, Ps$_2$, $^9$Be and $^\infty $Be Test Results}
+\date{Jan. 29 1996 }
+\maketitle
+
+\begin{abstract}
+New formulas in the basis of explicitly correlated Gaussian basis functions,
+derived in a previous paper using powerful matrix calculus, are implemented
+and applied to find variational upper bounds for non-relativistic ground
+states of $^4$He, $^\infty $He, Ps$_2$, $^9$Be, and $^\infty $Be. Analytic
+gradients of the energy are included to speed optimization of the
+exponential variational parameters. Five different nonlinear optimization
+subroutines (algorithms) are compared: TN, truncated Newton; DUMING,
+quasi-Newton; DUMIDH, modified Newton; DUMCGG, conjugate gradient; POWELL,
+direction set (non-gradient). The new analytic gradient formulas are found
+to significantly accelerate optimizations that require gradients. We find
+the truncated Newton algorithm outperforms the other optimizers for the
+selected test cases. Computer timings and energy bounds are reported.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+Explicitly correlated Gaussian basis functions, despite their relative
+simplicity compared to other explicitly correlated bases and despite the
+enhanced convergence they exhibit, are not so widely used as orbital product
+wave functions. This is due to several difficulties that have plagued their
+use since their introduction by Boys\cite{Boys} and Singer\cite{Singer1} 35
+years ago. Not the least among these difficulties have been the labyrinthine
+formulas for evaluating matrix elements and gradients, and the formidable
+problem to optimize the many exponential variational parameters in this
+basis. The former problem was addressed, and largely solved, by application
+of matrix differential calculus described in a previous paper\cite
+{Kinghorn95a} (hereafter referred to as paper 1). The latter problem remains
+a serious stumbling block although, as demonstrated in the present work, the
+analytic gradient formulas of paper 1 significantly reduce optimization
+costs.
+
+With rare exceptions, past applications of explicitly correlated Gaussian
+basis functions were left incompletely optimized, often suggesting much
+slower convergence than this basis is capable of. Much clever but
+essentially \textit{ad hoc} experimentation has been done to solve the
+optimization problem. For example, stepwise partial optimization\cite
+{Kinghorn93}, and a stochastic variational method\cite{Varga96}. Various
+tempering schemes have been employed in an effort to reduce the number of
+parameters to be optimized\cite
+{Poshusta79:temp,Monkhorst86:temp,Alexander90,Rybak89}. A recent calculation
+by Komasa \textit{et al}\cite{Komasa95} produced excellent results for Be
+atom by repeatedly stepping through the wave function optimizing the
+nonlinear parameters one basis function at a time. Nearly every new
+optimization strategy has been tried, some of which do not require gradients
+and many which do. Often numerical approximations for gradients were used
+with consequent increase in optimization costs\cite
+{Kinghorn93,Kozlowski93b,Schwegler93}. In the present paper we achieve much
+more thorough optimization with large basis sets than we could achieve
+previously without the advantage of efficient formulas for analytic
+gradients.
+
+The analytic formulas derived in paper 1 have been coded for general
+n-particle systems and tested for the following 3-, 4-, and 5-particle
+systems: $^4$He, $^\infty $He, Ps$_2$, $^9$Be, and $^\infty $Be. Thorough
+optimization has been achieved with 4, 8, and 16 basis functions in each
+case, and partial optimization for up to 128 basis functions.
+
+This paper is intended to provide a complete method for generating optimized
+wave functions in a basis of correlated Gaussians. Therefore, we begin with
+a review of notation and basic methods for handling symmetry in this basis
+before moving on to implementation details. The paper is organized as
+follows. A brief section reviews the essential matrix calculus notation. The
+matrix form of the Hamiltonian operator and the correlated Gaussian basis
+set is reviewed. Particle permutation operators are defined and transformed
+to the center of mass frame of reference. Projectors for requisite
+permutational symmetry states are derived for each of the test cases to be
+studied. Matrix elements over symmetry projected wave functions are then
+derived. Next, the components of the energy gradient for symmetry projected
+basis functions are given. Physical characteristics of the test cases are
+given. Hardware, algebraic and optimization software are then described.
+Timing results are reported for the optimization subroutines and for
+gradient and energy evaluations, followed by the newly optimized energies of
+each test case. Finally, we discuss these results and draw conclusions.
+
+\section{Notation}
+
+Some of the notation and matrix constructs used in this work may be
+unfamiliar to some readers. A more complete description of notation and
+matrix methods can be found in paper 1 and the references therein. Here a
+few important definitions are given, other definitions are included
+throughout the text as needed.
+
+\subsection{The vec and vech Operators}
+
+The vec operator transforms a matrix into a vector by stacking the columns
+of the matrix one underneath the other.
+
+Let $A$ be an $m\times n$ matrix and $a_j$ its $j^{th}$ column, then $\,%
+\mathrm{vec}\,A$ is the $mn\times 1$ vector 
+\begin{equation}
+\,\mathrm{vec}\,A=\left[ 
+\begin{array}{c}
+a_1 \\ 
+a_2 \\ 
+\vdots \\ 
+a_n
+\end{array}
+\right]
+\end{equation}
+If the original dimensions of $A$ are known then the vec operation is
+invertible and the $ij^{th}$ element of $A$ is given by the indexing scheme $%
+a_{ij}=\left( \,\mathrm{vec}\,A\right) _{i+\left( j-1\right) m}$.
+
+An operator similar to vec is the vech, ``vector half'', operator. Let $A$
+be a square $n\times n$ matrix . Then $\,\mathrm{vech}\,A$ is the $n\left(
+n+1\right) /2\times 1$ vector obtained by stacking the lower triangular
+elements of $A$. For example, if $n=3$, 
+\begin{equation}
+\,\mathrm{vech}\,A=\left[ 
+\begin{array}{c}
+a_{11} \\ 
+a_{21} \\ 
+a_{31} \\ 
+a_{22} \\ 
+a_{32} \\ 
+a_{33}
+\end{array}
+\right]
+\end{equation}
+For symmetric $X$, $\,\mathrm{vech}\,X$ contains the independent elements of 
+$X$. For a review of the notation, properties, and some applications of the
+vec and vech operators see the papers by Henderson and Searle\cite
+{HendersonSearle79,HendersonSearle80}.
+
+\subsection{Basis matrices}
+
+Basis matrices arise in the description of linear structures given by Magnus%
+\cite{Magnus88}, and are described in paper1. Here basis matrices can be
+thought of simply as transformation matrices on the vectors $\,\mathrm{vec}%
+\,A$ or $\,\mathrm{vech}\,A$. Three basis matrices are used in this paper, $%
+\mathcal{R}_n,\;\mathcal{F}_{n3},$ and $\mathcal{L}_n$. The first two, $%
+\mathcal{R}_n,\;\mathcal{F}_{n3},$ are defined along with the new
+matrix/vector formula for the potential energy operator. $\mathcal{L}_n$,
+known as the elimination matrix is defined operationally by $\mathcal{L}_n\,%
+\mathrm{vec}\,L=\,\mathrm{vech}\,L$ for any lower triangular matrix $L.$
+Again the reader is urged to consult paper 1 for more details.
+
+\subsection{Matrix derivatives}
+
+For $F\left( X\right) $ an $m\times n$ matrix function of the $p\times q$
+matrix variable $X$, the derivative or Jacobian of $F$ with respect to $X\,$
+is unambiguously defined as the $mn\times pq$ matrix of partial derivatives 
+\begin{equation}
+\frac{\partial \,\mathrm{vec}\,F\left( X\right) }{\partial \left( \,\mathrm{%
+vec}\,X\right) ^{\prime }}  \label{derdef}
+\end{equation}
+whose $ij^{th}$ element is the partial derivative of the $i^{th}$ component
+of $\,\mathrm{vec}\,F\left( X\right) $, a column vector, with respect to the 
+$j^{th}$ element of $\left( \,\mathrm{vec}\,X\right) ^{\prime },$ a row
+vector. This is the form of the matrix derivative defined by Magnus and
+Neudecker\cite{MagNeud88} and used in paper 1.
+
+\subsection{Other notation}
+
+\begin{itemize}
+\item  The Kronecker product of two matrices $A$ and $B$ is denoted by $%
+A\otimes B.$
+
+\item  The Hadamard product, element by element product, of two matrices is
+denoted by $A\odot B$ and defined by $\left( A\odot B\right)
+_{ij}=a_{ij}b_{ij}$ when $A$ and $B$ are the same size.
+
+\item  The Hadamard power was defined in paper 1 as $A^{\left[ \alpha
+\right] }=\left( a_{ij}^\alpha \right) $ when $a_{ij}^\alpha $ is well
+defined for all of the $ij$ elements in $A.$
+
+\item  $\,\mathrm{diag}\,A$ is the diagonal $n\times n$ matrix consisting of
+the diagonal elements of the square matrix $A.$
+
+\item  The trace of $A$ is denoted $\,\mathrm{tr}\,A$
+
+\item  The transpose of $A$ is denoted $A^{\prime }$
+\end{itemize}
+
+\subsection{Units}
+
+Throughout this work atomic units are used such that $m_e=1$ , the electron
+charge is $-1$, and $\hslash =1$. Thus, energy is in hartrees, $%
+E_h=27.2107eV=2.19474\times 10^5cm^{-1}$.
+
+\section{The Hamiltonian}
+
+Consider a system of $p$ particles with masses $\{M_1,\cdots ,M_p\}$ and
+charges $\{Q_1,\cdots ,Q_p\}$ interacting under a coulomb potential. The
+nonrelativistic Hamiltonian can be transformed from real particle
+coordinates, column vector $R$, to center of mass, $r_{0\text{, }}$ and
+internal, $r$, (pseudo particle) coordinates under the transformation $%
+T:R\mapsto [r_0^{\prime },r^{\prime }]^{\prime }$ given by 
+\begin{equation}
+T=\left[ 
+\begin{array}{ccccc}
+\frac{M_1}{m_0} & \frac{M_2}{m_0} & \frac{M_3}{m_0} & \cdots  & \frac{M_N}{%
+m_0} \\ 
+-1 & 1 & 0 & \cdots  & 0 \\ 
+-1 & 0 & 1 & \cdots  & 0 \\ 
+\vdots  & \vdots  & \vdots  & \ddots  & \vdots  \\ 
+-1 & 0 & 0 & \cdots  & 1
+\end{array}
+\right] \otimes I_3  \label{tranT}
+\end{equation}
+Here $R$ is the length $3p$ column vector of real particle coordinates, $r$
+is a $3n=3\left( p-1\right) $ column vector of pseudo particle coordinates, $%
+m_0=\sum_i^pM_i$ and $I_3$ is the $3\times 3$ identity matrix. Details of
+the center of mass transformation can be found in Kinghorn and Poshusta\cite
+{Kinghorn93}. Note: the transformation matrix $T$ is also used to transform
+real particle permutation matrices to pseudo particle permutation matrices.
+
+Under the transformation $T$ the total Hamiltonian becomes $%
+H_{tot}=H_{c.m.}+H_{int}$ where $H_{c.m.}$ represents the translational
+kinetic energy of the center of mass and $H_{int}$ is the Hamiltonian for
+the internal energy of the interacting particles. The discrete eigenstates
+of the internal Hamiltonian are considered in this work.
+
+It was shown in paper 1 that this internal Hamiltonian can be written in
+matrix/vector form with 
+\begin{equation}
+\hat{T}=-\nabla _r\cdot \left( M\otimes I_3\right) \nabla _r  \label{newT}
+\end{equation}
+and 
+\begin{equation}
+\hat{V}=\left( \,\mathrm{vec}\,\left[ Q^{\prime }\right] \right) ^{\prime
+}\left( \mathcal{R}_n\mathcal{F}_{n3}\,\mathrm{vec}\,\left[ rr^{\prime
+}\right] \right) ^{\left[ -1/2\right] }  \label{newV}
+\end{equation}
+Here $M$ is an $n\times n$ matrix with $1/2\mu _i$ on the diagonal and $%
+1/2M_1$ for the off diagonal entries, $\nabla _r$ is the gradient operator
+with respect to $r$ the vector of all (pseudo) particle coordinates. In the
+potential energy operator $Q$ is an $n\times n$ upper triangular matrix, 
+\begin{equation}
+Q=\left( 
+\begin{array}{cccc}
+q_0q_1 & q_1q_2 & \cdots & q_1q_n \\ 
+0 & q_0q_2 & q_2q_3 & q_2q_n \\ 
+\vdots &  & \ddots & \vdots \\ 
+0 & \cdots & 0 & q_0q_n
+\end{array}
+\right)
+\end{equation}
+$\mathcal{R}_n$ is a basis matrix defined by $\mathcal{R}_n\,\mathrm{vec}%
+\,\left[ \left( r_i\cdot r_j\right) \right] =\,\mathrm{vec}\,\left[ \left(
+r_{ij}^2\right) \right] $ where, $\left( r_i\cdot r_j\right) $ and $\left(
+r_{ij}^2\right) $ are $n\times n$ matrices with the corresponding $ij$
+elements. $\mathcal{F}_{3n}\,$ is defined by $\mathcal{F}_{3n}\,\mathrm{vec}%
+\,\left[ rr^{\prime }\right] =\,\mathrm{vec}\,\left[ \left( r_i\cdot
+r_j\right) \right] $, note that the rank one matrix, $rr^{\prime }$ is $%
+3n\times 3n$. The reader is referred to paper 1 for more details on the
+derivation of equations (\ref{newT}),(\ref{newV}) and the basis matrices $%
+\mathcal{R}_n$ and $\mathcal{F}_{n3}$.
+
+\section{Explicitly Correlated Gaussian Basis Functions}
+
+The basis functions used in this work consist of negative expontentials of
+positive definite quadratic forms. Using the notation from paper 1 
+\begin{eqnarray}
+\phi _k &=&\exp \left[ -r^{\prime }\left( L_kL_k^{\prime }\otimes I_3\right)
+r\right]  \label{phik} \\
+&=&\exp \left[ -r^{\prime }\left( A_k\otimes I_3\right) r\right]
+\label{phiAk} \\
+&=&\exp \left[ -r^{\prime }\bar{A}_kr\right]
+\end{eqnarray}
+where $r$ is a $3n\times 1$ vector of Cartesian coordinates for the $n$
+particles, $L_k$ is an $n\times n$ rank $n$ lower triangular matrix. $k$
+ranges from 1 to $N$ where $N$ is the number of basis functions. $%
+A_k=L_kL_k^{\prime }$ is written in this Cholesky factored form to assure
+positive definiteness of the quadratic form.
+
+Correlation in the basis is achieved by including terms of the form $%
+a_{ij}r_i\cdot r_j$ in the quadratic form, i.e. $\exp \left[ -r^{\prime
+}\left( A_k\otimes I_3\right) r\right] =\exp \left[
+-\sum_{i,j}a_{ij}r_i\cdot r_j\right] $. This is perhaps easier to see by
+noting the identity, $r_{ij}^2=r_i\cdot r_i+r_j\cdot r_j-2r_i\cdot r_j$. In
+this sense the $\phi _k$ contain information on all interparticle distances
+and are thus explicitly correlated.
+
+The Kronecker product with the $3\times 3$ identity matrix $I_3$ in equation
+(\ref{phiAk}) insures rotational invariance of the basis functions. The $%
+\phi _k$ are angular momentum eigenfunctions with $J=0$. Adaptation to
+permutational symmetry is described in the next section.
+
+\section{Symmetry}
+
+Any coordinate transformation which commutes with the Hamiltonian
+constitutes a symmetry element. Simultaneous translation of all real
+particles corresponds to momentum of the center of mass and is of no concern
+for the internal Hamiltonian. Also, as stated above, rotational symmetry is
+specified by the restriction of $\phi _k$ to $J=0$ angular momentum
+eigenstates. Another important symmetry of the Hamiltonian, permutational
+symmetry, arises when particles are in some sense indistinguishable or
+conjugate. Indistinguishability arises when particles possess the same
+masses and charges and is usually an obvious symmetry of the Hamiltonian.
+Less obvious permutational symmetries also occur, as in the case of Ps$_2$
+where simultaneous charge reversal of the positrons and electrons is a
+permutational symmetry of the Hamiltonian (see below). The handling of
+permutational symmetry for explicitly correlated Gaussians is outlined
+briefly in what follows.
+
+\subsection{Induced symmetry transformations}
+
+Elementary permutations of real particles induce transformations on pseudo
+particles. Let $P$ be a permutation of real particles, then, under the
+center of mass transformation (\ref{tranT}) the permutation $P$ induces the
+transformation $TPT^{-1}\otimes I_3$ on center of mass and internal
+coordinates. Further, since $P$ interchanges particles with the same mass
+and thus leaves the center of mass unchanged, it follows that $%
+TPT^{-1}\otimes I_3$ is a direct sum of the identity transformation on the
+center of mass and an induced transformation on internal coordinates 
+\begin{equation}
+TPT^{-1}\otimes I_3=\left( I_1\oplus \tau _P\right) \otimes I_3=I_3\oplus
+\left( \tau _P\otimes I_3\right)  \label{TPT}
+\end{equation}
+
+In the special case of atoms, when the natural choice for particle one is
+the nucleus, the $\tau _P$ are elementary permutations on pseudo particles.
+For example, the $\tau _P$ for He are the $2\times 2$ permutation matrices
+for the symmetric group $S_2$ and for Be the $\tau _P$ are the 24 $4\times 4$
+permutation matrices for $S_4$.
+
+In the case of Ps$_2$ the $\tau _P$ are not elementary permutations. For Ps$%
+_2$ the permutational symmetry elements make up a group of order 8
+consisting of: E, the identity; (12), interchange of positrons; (34),
+interchange of electrons; (12)(34) interchange of positrons and interchange
+of electrons; (13)(24) and (14)(23), charge reversal of class one; (1324)
+and (1423), charge reversal of class two. Now, as an example, $\tau _{(12)}$
+is derived from the permutation 
+\begin{equation}
+P_{(12)}=\left( 
+\begin{array}{cccc}
+0 & 1 & 0 & 0 \\ 
+1 & 0 & 0 & 0 \\ 
+0 & 0 & 1 & 0 \\ 
+0 & 0 & 0 & 1
+\end{array}
+\right)
+\end{equation}
+by the transformation 
+\begin{equation}
+TP_{\left( 12\right) }T^{-1}\otimes I_3=\left[ 
+\begin{array}{cccc}
+1 & 0 & 0 & 0 \\ 
+0 & -1 & 0 & 0 \\ 
+0 & -1 & 1 & 0 \\ 
+0 & -1 & 0 & 1
+\end{array}
+\right] \otimes I_3=I_3\oplus \left( \tau _{\left( 12\right) }\otimes
+I_3\right)
+\end{equation}
+Thus, 
+\begin{equation}
+\tau _{\left( 12\right) }=\left[ 
+\begin{array}{ccc}
+-1 & 0 & 0 \\ 
+-1 & 1 & 0 \\ 
+-1 & 0 & 1
+\end{array}
+\right]
+\end{equation}
+All of the induced transformations for Ps$_2$ along with a complete
+discussion of the permutational symmetry of Ps$_2$ is presented in reference
+(\cite{Kinghorn93}). Of course the permutation $P$ transforms the basis
+functions by 
+\begin{equation}
+P\phi _l=\exp \left[ -r^{\prime }\left( \tau _P^{\prime }A_l\tau _P\otimes
+I_3\right) r\right]
+\end{equation}
+
+\subsection{Symmetry projectors}
+
+Symmetry projectors on real particles are transformed to projectors on
+pseudo particles using the transformation (\ref{TPT}), thus, 
+\begin{equation}
+\mathcal{P}=\sum_P\chi _PP\,\,\mapsto \,\,\sum_P\chi _P\tau _P
+\end{equation}
+Hence, $\mathcal{P}$ acts on $\phi _l$ as 
+\begin{equation}
+\mathcal{P}\phi _l=\sum_P\chi _P\exp \left[ -r^{\prime }\left( \tau
+_P^{\prime }A_l\tau _P\otimes I_3\right) r\right]
+\end{equation}
+
+Energy eigenstates of the internal Hamiltonian transform irreducibly under
+the induced pseudo particle symmetry group. Symmetry projectors for the
+ground state energy eigenstates of He, Be, and Ps$_2$ are now presented.
+
+For He the internal Hamiltonian is invariant under the group consisting of
+the identity operation E, and the interchange of the two electrons, (12).
+The projector for the ground state of He is thus, 
+\begin{equation}
+\mathcal{P}^{He}=E+\left( 12\right)  \label{Heproj}
+\end{equation}
+
+For Be, using the representation theory of the symmetric group and the spin
+free formalism\cite{Matson70}, the ground state can be labeled by the Young
+tableaux shape $\boxplus $. The corresponding standard Young tableaux for
+this 2-dimensional irreducible representation of $S_4$ are 
+\[
+T_1= 
+\begin{tabular}{|l|l|}
+\hline
+1 & 2 \\ \hline
+3 & 4 \\ \hline
+\end{tabular}
+\,\,\,\,\,\,\,\,\,\,\,\,T_2= 
+\begin{tabular}{|l|l|}
+\hline
+1 & 3 \\ \hline
+2 & 4 \\ \hline
+\end{tabular}
+\]
+Two suitable symmetry projectors can be obtained using the Young $E_{11}=PN$
+and $E_{12}=PN(23)$operators 
+\begin{equation}
+E_{11}=PN=\left[ \left( E+\left( 12\right) \right) \left( E+\left( 34\right)
+\right) \right] \left[ \left( E-\left( 13\right) \right) \left( E-\left(
+24\right) \right) \right]  \label{NP}
+\end{equation}
+and 
+\begin{equation}
+E_{12}=PN\left( 23\right) =\left[ \left( E+\left( 12\right) \right) \left(
+E+\left( 34\right) \right) \right] \left[ \left( E-\left( 13\right) \right)
+\left( \left( 23\right) -\left( 34\right) \right) \right]
+\end{equation}
+The two independent projectors arise because this is a two dimensional
+irreducible representation. In the spin formalism these two states
+correspond to the two singlet spin eigenstates for four spin 1/2 particles.
+Presumably the best trial function would be a weighted combination of both
+projectors on each basis function, $\left( E_{11}+b_kE_{12}\right) \phi _k$,
+however, using only one of the projectors will produce a trial function with
+the correct symmetry properties. For simplicity only the eigenstate
+projected using $E_{11}$ will be used in this work.
+
+The permutational symmetry group for Ps$_2$ is isomorphic with the point
+group D$_{2d}$, and characters and irreducible representations for D$_{2d}$
+are used to derive the projector of the ground state of Ps$_2$, an A$_1$
+labeled state, 
+\begin{equation}
+\mathcal{P}^{Ps_2}=E+\left( 12\right) +\left( 34\right) +\left( 12\right)
+\left( 34\right) +\left( 1324\right) +\left( 1423\right) +\left( 13\right)
+\left( 24\right) +\left( 14\right) \left( 23\right)  \label{Ps2proj}
+\end{equation}
+
+Computational effort for computing matrix elements with symmetry projected
+basis functions can be reduced by a factor the order of the group by
+exploiting commutation of the symmetry projectors with the Hamiltonian and
+identity operators. In general 
+\begin{equation}
+\left\langle \mathcal{P}\phi _k\right| H\left| \mathcal{P}\phi
+_l\right\rangle =\left\langle \phi _k\right| H\left| \mathcal{P}^{\dagger }%
+\mathcal{P}\phi _l\right\rangle
+\end{equation}
+Thus, symmetry projection need only be performed on the ket. The projection
+operators defined above for He and Ps$_2$ are Hermitian and essentially
+idempotent: $\mathcal{P}^{\dagger }\mathcal{P}=2\mathcal{P}$ and $\mathcal{P}%
+^{\dagger }\mathcal{P}=8\mathcal{P}$ respectively. The projector for Be is
+essentially idempotent but not Hermitian. Thus, 
+\begin{eqnarray}
+\left( E_{11}\right) ^{\dagger }E_{11} &=&16E+8\left( 12\right) -16\left(
+13\right) +8\left( 14\right) +8\left( 23\right) -16\left( 24\right) + 
+\nonumber  \label{Beproj} \\
+&&8\left( 34\right) +16\left( 12\right) \left( 34\right) +16\left( 13\right)
+\left( 24\right) +16\left( 14\right) \left( 23\right) -8\left( 123\right) - 
+\nonumber \\
+&&8\left( 132\right) -8\left( 124\right) -8\left( 142\right) -8\left(
+134\right) -8\left( 143\right) -  \label{Beproj} \\
+&&8\left( 234\right) -8\left( 243\right) -16\left( 1234\right) +8\left(
+1243\right) +8\left( 1324\right) +  \nonumber \\
+&&8\left( 1342\right) +8\left( 1423\right) -16\left( 1432\right)  \nonumber
+\end{eqnarray}
+This is the ket projector used for Be in the calculations.
+
+In every case the ket projector assumes the form 
+\begin{equation}
+\mathcal{P=}\sum_P\chi _PP
+\end{equation}
+where the numerical coefficients $\chi _P$ (not to be confused with
+character) appear in equations \ref{Heproj}, \ref{Ps2proj}, and \ref{Beproj}
+for He, Ps$_2$ and Be respectively.
+
+\section{Integrals for Symmetry Adapted Basis Functions}
+
+In paper 1 integral formulas for non-symmetry projected basis functions were
+derived in detail. Here the modifications needed for integrals when symmetry
+projection is applied to kets is presented, along with a few suggestions on
+how to implement the formulas efficiently. The matrix elements needed are of
+the form 
+\[
+O_{kl}=\left\langle \phi _k\right| O\left| \mathcal{P}\phi _l\right\rangle
+=\sum_P\chi _P\left\langle \phi _k\right| O\left| \exp \left[ -r^{\prime
+}\left( \tau _P^{\prime }A_l\tau _P\otimes I_3\right) r\right] \right\rangle 
+\]
+where $O$ is the identity operator, the kinetic energy operator or the
+potential energy operator.
+
+Let $A_{kl}=A_k+\tau _P^{\prime }A_l\tau _P$ then the overlap matrix element
+is defined as,
+
+\begin{equation}
+S_{kl}=\frac{1/f\,\,\left\langle \phi _k\right. |\left. \mathcal{P}\phi
+_l\right\rangle }{\left( \left\langle \phi _k\right. |\left. \phi
+_k\right\rangle \left\langle \phi _l\right. |\left. \phi _l\right\rangle
+\right) ^{1/2}}=\sum_P^f\chi _P\frac{2^{3n/2}}f\left( \frac{\left\|
+L_k\right\| \left\| L_l\right\| }{\left| A_{kl}\right| }\right) ^{3/2}
+\label{skl}
+\end{equation}
+where $f$ is the number of terms in the projector, introduced for scaling.
+Note that the symmetry projection is not performed on the normalization
+factors, this is chosen for computational convenience, since the choice of
+normalization has no effect on the calculations other than as matrix
+preconditioning for numerical stability.
+
+Kinetic energy matrix elements are given by,
+
+\begin{equation}
+T_{kl}=6S_{kl}\sum_P^f\chi _P\,\mathrm{tr}\,\left[ MA_kA_{kl}^{-1}\tau
+_P^{\prime }A_l\tau _P\right]  \label{Tkl}
+\end{equation}
+This formula is implemented efficiently by utilizing $\,\mathrm{tr}\,\left[
+AB\right] =\sum_{i,j}\left( A\odot B^{\prime }\right) _{i,j}$. That is, form
+the Hadamard, (term by term), product of $A$ and $B$ transpose, and then add
+up all of the components of the product.
+
+Potential energy matrix elements have the form,
+
+\begin{equation}
+V_{kl}=\frac 2{\sqrt{\pi }}S_{kl}\sum_P^f\chi _P\left( \,\mathrm{\,%
+\QTR{mathrm}{vech}\,}\left[ \,Q^{\prime }\right] \right) ^{\prime }\left( 
+\mathcal{L}_n\mathcal{R}_n\,\mathrm{vec}\left[ \,A_{kl}^{-1}\right] \right)
+^{\left[ -1/2\right] }  \label{Vkl}
+\end{equation}
+This formula may at first look difficult to implement, however, it is
+actually very easy to compute using the following identity: For any
+symmetric matrix $A$ , ($A_{kl}^{-1}$ is symmetric). 
+\begin{equation}
+\left( \mathcal{L}_n\mathcal{R}_n\,\mathrm{vec}\left[ \,A\right] \right)
+^{\left[ -1/2\right] }=\,\mathrm{\,\QTR{mathrm}{vech}\,}\left[ \,\left(
+\left\{ 
+\begin{array}{ll}
+\left( a_{ii}\right) ^{-1/2} & i=j \\ 
+\left( a_{ii}+a_{jj}-2a_{ij}\right) ^{-1/2} & i>j
+\end{array}
+\right. \right) \right]
+\end{equation}
+
+\section{Gradient}
+
+In this section the effects of symmetry projection on the components of the
+energy gradient are given along with a few implementation suggestions. For a
+complete derivation of the energy gradient see the paper 1.
+
+The secular equation 
+\begin{equation}
+\left( H-\epsilon S\right) c=0
+\end{equation}
+defines the energy $\epsilon $ as an implicit function of the $N\times N$
+matrices $H$ and $S$. $H$ and $S$ are themselves functions of the $Nn\left(
+n+1\right) /2\times 1$ vector $a=\left[ \left( \mathrm{vech}\,L_1\right)
+^{\prime },\cdots ,\left( \mathrm{vech}\,L_N\right) ^{\prime }\right] $ of
+nonlinear exponential parameters contained in the matrices $L_k,$ recall
+that $A_k=L_kL_k^{\prime }$. The energy gradient with respect to $a$ is then 
+\begin{equation}
+g=\nabla _a\epsilon =\frac 1{c^{\prime }Sc}\left( \frac{\partial \,\mathrm{%
+vech}\,H}{\partial a^{\prime }}-\epsilon \frac{\partial \,\mathrm{vech}\,S}{%
+\partial a^{\prime }}\right) ^{\prime }\left( \,\mathrm{vech}\,\left[
+2cc^{\prime }-\,\mathrm{diag}\,cc^{\prime }\right] \right)  \label{grad}
+\end{equation}
+
+The matrix $\left( \partial \,\mathrm{vech}\,H/\partial a^{\prime }-\epsilon
+\,\,\partial \,\mathrm{vech}\,S/\partial a^{\prime }\right) =\partial \,%
+\mathrm{vech}\,\left( H-\epsilon S\right) /\partial a^{\prime }$ in the
+gradient above is sparse and has dimension $N\left( N+1\right) /2\times
+Nn\left( n+1\right) /2$. This sparse matrix together with the eigenvector $c$
+can be collapsed to a dense partitioned form with dimension $N\times
+Nn\left( n+1\right) /2$, 
+\begin{equation}
+G=\left[ 
+\begin{array}{cccc}
+c_1^2\frac{\partial \left( H-\epsilon S\right) _{11}}{\partial \left( \,%
+\mathrm{vech}\,L_1\right) ^{\prime }} & 2c_1c_2\frac{\partial \left(
+H-\epsilon S\right) _{12}}{\partial \left( \,\mathrm{vech}\,L_2\right)
+^{\prime }} & \cdots & 2c_1c_N\frac{\partial \left( H-\epsilon S\right) _{1N}%
+}{\partial \left( \,\mathrm{vech}\,L_N\right) ^{\prime }} \\ 
+2c_2c_1\frac{\partial \left( H-\epsilon S\right) _{21}}{\partial \left( \,%
+\mathrm{vech}\,L_1\right) ^{\prime }} & c_2^2\frac{\partial \left(
+H-\epsilon S\right) _{22}}{\partial \left( \,\mathrm{vech}\,L_2\right)
+^{\prime }} & \cdots & 2c_2c_N\frac{\partial \left( H-\epsilon S\right) _{2N}%
+}{\partial \left( \,\mathrm{vech}\,L_N\right) ^{\prime }} \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+2c_Nc_1\frac{\partial \left( H-\epsilon S\right) _{N1}}{\partial \left( \,%
+\mathrm{vech}\,L_1\right) ^{\prime }} & 2c_Nc_2\frac{\partial \left(
+H-\epsilon S\right) _{N2}}{\partial \left( \,\mathrm{vech}\,L_2\right)
+^{\prime }} & \cdots & c_N^2\frac{\partial \left( H-\epsilon S\right) _{NN}}{%
+\partial \left( \,\mathrm{vech}\,L_N\right) ^{\prime }}
+\end{array}
+\right]
+\end{equation}
+With $G$ defined as above the gradient can be computed by summing over the
+rows of $G$. That is 
+\[
+g_i=\frac 1{c^{\prime }Sc}\sum_jG_{ji} 
+\]
+
+The non-zero terms in the matrices $\partial \,\mathrm{vech}\,H/\partial
+a^{\prime }$ and $\partial \,\mathrm{vech}\,S/\partial a^{\prime }$ are
+contained in the $1\times n\left( n+1\right) /2$ vectors $\partial
+\,H_{kl}/\partial \left( \,\mathrm{vech}\,L_k\right) ^{\prime }$ and $%
+\partial \,S_{kl}/\partial \left( \,\mathrm{vech}\,L_k\right) ^{\prime }$
+also $\partial \,H_{kl}/\partial \left( \,\mathrm{vech}\,L_l\right) ^{\prime
+}$ and $\partial \,S_{kl}/\partial \left( \,\mathrm{vech}\,L_l\right)
+^{\prime }$. Matrix derivatives depend on the order of elements in a matrix
+variable, therefore, since symmetry projection on kets effectively reorders
+elements of the exponent matrix $L_l$ the formulas for derivatives with
+respect to exponent matrices in the ket, $\,\mathrm{vech}\,\left[ L_l\right]
+,$ are different than those with respect to exponent matrices in the bra,$\,%
+\mathrm{vech}\,\left[ L_k\right] $. ( Note that $\tau _P^{\prime }A_l\tau
+_P=\tau _P^{\prime }L_lL_l^{\prime }\tau _P=\tau _P^{\prime }L_l\left( \tau
+_P^{\prime }L_l\right) ^{\prime }$ ). Also, the matrix derivatives for the
+diagonal blocks of $G$ are complicated somewhat by the symmetry projection
+on the kets. However, they can be computed using the following relationship,
+for example, 
+\begin{equation}
+\frac{\partial H_{kk}}{\partial \left( \,\mathrm{vech}\,L_k\right) ^{\prime }%
+}=\left. \frac{\partial H_{kl}}{\partial \left( \,\mathrm{vech}\,L_k\right)
+^{\prime }}\right| _{l=k}+\left. \frac{\partial H_{kl}}{\partial \left( \,%
+\mathrm{vech}\,L_l\right) ^{\prime }}\right| _{l=k}
+\end{equation}
+Thus, only two sets of formulas for the derivatives need be computed. These
+formulas are now presented. Note: only one term in the symmetry projection
+will be represented, and labeled with a superscript $P$.
+
+\subsection{Overlap derivatives}
+
+The following definition will simplify the formulas that follow, 
+\begin{equation}
+\text{Define: }A_{kl}=A_k+\tau _P^{\prime }A_l\tau _P
+\end{equation}
+The derivatives of the overlap matrix elements are then,
+
+\begin{equation}
+\frac{\partial S_{kl}^P}{\partial \left( \,\mathrm{vech}\,L_k\right)
+^{\prime }}=\frac 32S_{kl}^P\left( \,\mathrm{vech}\,\left[ \left( \,\mathrm{%
+diag}\,L_k\right) ^{-1}-2A_{kl}^{-1}L_k\right] \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial S_{kl}^P}{\partial \left( \,\mathrm{vech}\,L_l\right)
+^{\prime }}=\frac 32S_{kl}^P\left( \,\mathrm{vech}\,\left[ \left( \,\mathrm{%
+diag}\,L_l\right) ^{-1}-2\tau _PA_{kl}^{-1}\tau _P^{\prime }L_l\right]
+\right) ^{\prime }
+\end{equation}
+Note: in paper 1 the term $\,\mathrm{vech}\left[ \,\left( L_l^{-1}\right)
+^{\prime }\right] $ appeared in the formula for the overlap derivative, here
+the simplification $\,\mathrm{vech}\left[ \,\left( L_l^{-1}\right) ^{\prime
+}\right] =\,\mathrm{vech}\,\left[ \left( \,\mathrm{diag}\,L_k\right)
+^{-1}\right] $ is used, (this is trivial to compute).
+
+\subsection{Kinetic energy derivatives}
+
+Let's start with a simplifying definition, Define: $A_l^{*}=\tau _P^{\prime
+}A_l\tau _P$ Then,
+
+\begin{eqnarray}
+\frac{\partial T_{kl}^P}{\partial \left( \,\mathrm{vech}\,L_k\right)
+^{\prime }} &=&\left( \,\mathrm{vech}\,\left[ \frac 32T_{kl}^P\left( \left(
+\,\mathrm{diag}\,L_k\right) ^{-1}-2A_{kl}^{-1}L_k\right) + 
+\begin{array}{c}
+\end{array}
+\right. \right.  \nonumber \\
+&&\left. \left. 
+\begin{array}{c}
+\end{array}
+12S_{kl}^P\left( A_{kl}^{-1}A_l^{*}MA_l^{*}A_{kl}^{-1}L_k\right) \right]
+\right) ^{\prime }
+\end{eqnarray}
+and 
+\begin{eqnarray}
+\frac{\partial T_{kl}^P}{\partial \left( \,\mathrm{vech}\,L_l\right)
+^{\prime }} &=&\,\left( \mathrm{vech}\,\left[ \frac 32T_{kl}^P\left( \left(
+\,\mathrm{diag}\,L_l\right) ^{-1}-2\tau _PA_{kl}^{-1}\tau _P^{\prime
+}L_l\right) + 
+\begin{array}{c}
+\end{array}
+\right. \right.  \nonumber \\
+&&\left. \left. 
+\begin{array}{c}
+\end{array}
+12S_{kl}^P\left( \tau _PA_{kl}^{-1}A_kMA_kA_{kl}^{-1}\tau _P^{\prime
+}L_l\right) \right] \right) ^{\prime }
+\end{eqnarray}
+
+\subsection{Potential Energy}
+
+The potential energy gradient components are given by,
+
+\begin{eqnarray}
+\frac{\partial V_{kl}^P}{\partial \left( \,\,\mathrm{vech}\,L_k\right)
+^{\prime }} &=&\,\left( \mathrm{vech}\left[ \frac 32V_{kl}^P\left( \left( \,%
+\mathrm{diag}\,L_k\right) ^{-1}-2A_{kl}^{-1}L_k\right) + 
+\begin{array}{c}
+\end{array}
+\right. \right.  \nonumber \\
+&&\left. \left. 
+\begin{array}{c}
+\end{array}
+\frac 2{\sqrt{\pi }}S_{kl}^P\left(
+\,\,A_{kl}^{-1}D_{kl}A_{kl}^{-1}L_k\right) \right] \right) ^{\prime }
+\end{eqnarray}
+\begin{eqnarray}
+\frac{\partial V_{kl}^P}{\partial \left( \,\,\mathrm{vech}\,L_l\right)
+^{\prime }} &=&\,\left( \mathrm{vech}\left[ \frac 32V_{kl}^P\left( \left( \,%
+\mathrm{diag}\,L_l\right) ^{-1}-2\tau _PA_{kl}^{-1}\tau _P^{\prime
+}L_l\right) + 
+\begin{array}{c}
+\end{array}
+\right. \right.  \nonumber \\
+&&\left. \left. 
+\begin{array}{c}
+\end{array}
+\frac 2{\sqrt{\pi }}S_{kl}^P\left( \tau
+_P\,\,A_{kl}^{-1}D_{kl}A_{kl}^{-1}\tau _P^{\prime }L_l\right) \right]
+\right) ^{\prime }
+\end{eqnarray}
+Introduction of the matrix $D_{kl}$ gives a significant simplification over
+the result presented in the paper 1. If we define $\bar{Q}=Q+Q^{\prime }-\,%
+\mathrm{diag}\,Q$ the matrix $D_{kl}$ is given by, 
+\begin{equation}
+D_{kl}=\left( \left\{ 
+\begin{array}{ll}
+\left( D_{kl}\right) _{ij}=\sum_{r=1}^n\bar{Q}_{ir}B_{ir}^{-3/2} & i=j \\ 
+\left( D_{kl}\right) _{ij}=-\bar{Q}_{ij}B_{ij}^{-3/2} & i\neq j
+\end{array}
+\right. \right)
+\end{equation}
+where the matrix $B$ is given by 
+\begin{equation}
+B=\left( \left\{ 
+\begin{array}{ll}
+B_{ij}=\left( A_{kl}^{-1}\right) _{ii} & i=j \\ 
+B_{ij}=\left( A_{kl}^{-1}\right) _{ii}+\left( A_{kl}^{-1}\right)
+_{jj}-2\left( A_{kl}^{-1}\right) _{ij} & i\neq j
+\end{array}
+\right. \right)
+\end{equation}
+Algorithms for $D_{kl}$ are relatively simple to implement using the
+definitions above. This use of $D_{kl}$ allows the following substitution to
+be made in the formula (equation 134) for the potential energy derivative
+given in the paper 1 greatly simplifying the derivative formula and making
+an implementation strategy more obvious. 
+\begin{equation}
+\mathrm{vech}\left[ \,A_{kl}^{-1}D_{kl}A_{kl}^{-1}L_k\right] =\left( \mathrm{%
+vec}Q^{\prime }\odot \left( \mathcal{R}_n\,\mathrm{vec}A_{kl}^{-1}\right)
+^{\left[ -3/2\right] }\right) ^{\prime }\mathcal{R}_n\left(
+A_{kl}^{-1}L_k\otimes A_{kl}^{-1}\right) \mathcal{L}_n^{\prime }
+\end{equation}
+
+\section{Implementation and Illustrations}
+
+\subsection{Systems}
+
+The systems investigated in this work are ground states of, $^4$He, $^\infty 
+$He, Ps$_2$, $^9$Be, and $^\infty $Be. For the atomic systems, He and Be,
+calculations using both the common isotopic masses and the infinite nuclear
+mass approximation were performed. The calculations with the infinite
+nuclear mass approximation are included for comparison with other results
+from the literature, where calculations using actual isotopic nuclear masses
+are rare.
+
+He, the obligatory test system for new methods, is a simple 3 particle
+system with only 3 exponent parameters per basis function and only 2
+permutations in the symmetry projector. Ps$_2$, a 4 particle system, is a
+more challenging test case with 6 parameters per basis function and 8
+permutations in the symmetry projector. Meaningful calculations on Ps$_2$
+require a non Born-Oppenheimer method with explicit correlation, thus, Ps$_2$
+is ideally suited for calculation with explicitly correlated Gaussian basis
+functions. Be, with 5 particles is the largest system considered in the
+testing. For Be there are 10 parameters per basis function and 24
+permutations in the symmetry projector.
+
+The unit of mass is $m_e=1$ yielding energy in hartrees. For Ps$_2$ all
+particle masses are all equal to 1. For $^4$He and $^9$Be the nuclear masses
+used are from ``The 1983 Atomic Mass Evaluation'' of Wapstra and Audi\cite
+{Wapstra}. In units of $m_e=1$ the masses are \{$^4$He: 7294.2949\} and \{$%
+^9 $Be: 16424.194\}.
+
+\subsection{Hardware and Software}
+
+Computer programs for the calculations were run on a DEC 2100 4/275. The
+programs were written in Fortran 77 and compiled under the OSF/1 operating
+system using f77 with the -fast compiler option and linked to dxml (DEC
+extended math library) for access to LAPACK\cite{LAPACK} and the BLAS.
+LAPACK was used for solving the generalized symmetric eigensystem needed for
+the energy calculations. The principle optimization software used was the
+package TN written by Stephen Nash\cite{NashTN}. Optimization subroutines
+and a gradient test subroutine from the IMSL\cite{IMSL} library where also
+used as was code for a Powell direction set method from Numerical Recipes%
+\cite{NRinFortran}. Optimization methods will be described in more detail
+below. The software package MATLAB\cite{MATLAB} was used heavily for
+developing and testing algorithms.
+
+The code for energy and gradient calculations was debugged and tested
+thoroughly. Results for matrix elements and energy calculations were
+compared against the our previous calculations on Li and Ps$_2$\cite
+{Kinghorn93} and by comparison with results obtained by implementing
+formulas directly in MATLAB. Thus, two independent checks for all formulas
+were obtained. The correctness of the gradient code was verified using the
+numerical diagnostics given by the IMSL subroutine DCHGRD and by computing
+finite difference approximations to the gradient in Fortran and in MATLAB.
+
+\subsection{Optimization methods}
+
+Four gradient based optimizations methods and one non-gradient method were
+tested. It is beyond the scope of this paper to give detailed descriptions
+of the optimization methods, thus the reader is referred to the references
+for more information. Some useful references include the texts of Dennis and
+Schnabel\cite{DennisSchnabel83}, Gill, Murray and Wright\cite
+{GillMurrayWright81}, and Luenberger\cite{Luenberger84}. An interesting
+monograph by Nazareth\cite{Nazareth94} shows the fundamental unity of the
+various methods. Following is a listing of the subroutines used and their
+underlying methods.
+
+\begin{itemize}
+\item  TN---A truncated Newton package where the quadratic subproblem is
+solved approximately using a linear conjugate gradient method, see Nash\cite
+{NashTN}. (Source code available from netlib\cite{netlib})
+
+\item  DUMING---A quasi-Newton method utilizing a BFGS update to an
+approximated Hessian, see Dennis and Schnabel\cite{DennisSchnabel83}. (IMSL
+subroutine)
+
+\item  DUMIDH---A modified Newton method using a finite difference
+approximation to the Hessian and model trust-region approach, see Dennis and
+Schnabel\cite{DennisSchnabel83} and Gay\cite{Gay83}.(IMSL subroutine)
+
+\item  DUMCGG---A version of the conjugate gradient method described in
+Powell\cite{Powell77} using analytic gradients and no Hessian.(IMSL
+subroutine)
+
+\item  POWELL---An implementation of a direction set method of Powell that
+does not utilize gradient information, see Numerical Recipes\cite
+{NRinFortran}.
+\end{itemize}
+
+\section{Results}
+
+Implementation of the formulas of paper 1 has resulted in computer code
+that, in our experience, represents a substantial improvement in both speed
+and accuracy for the calculation of energy bounds using correlated
+Gaussians. Our previous computations on Ps$_2,$ He, and Li with this basis
+set often required days or weeks of optimization effort, whereas the present
+implementation accomplishes the same ends in mere seconds. For small and
+medium sized basis sets our energy bounds are better or very close to
+previously published results. Clearly, formulas of paper 1 perform
+exceptionally well.
+
+\subsection{Timing results}
+
+It is not our intention to compare different optimizers with one another and
+we caution the reader not to draw unwarranted conclusions regarding
+superiority of any algorithms. We do however make note the vastly improved
+performance observed when using analytic gradient methods versus the
+non-gradient Powell method. Many factors can affect performance of
+non-linear optimization routines; convergence criteria, initial guesses for
+parameters, etc.. Also, when choosing optimization software, factors other
+than performance way be important, such as, ease of use and availability of
+source code.
+
+Table (\ref{Betime}) gives timing data for optimization runs on a 4 term (40
+parameter) $^9$Be trial function. The same randomly chosen starting point
+was used for each of the optimization runs. The starting sets of exponents
+were generated using the randn function in MATLAB which generates normally
+distributed set of random numbers with mean 0 and standard deviation 1.
+Default stopping criteria were used in each routine. The table reports the
+energy in hartrees , the magnitude of the gradient, $\left\| g\right\|
+_2=\left( g^{\prime }g\right) ^{1/2}$, the total number of energy and
+gradient calls, the number of major iterations for the method and the total
+time for the optimization run. The results in the tables are representative
+for these optimizers when started from other common starting points. Blanks
+in the tables represent information that was not provided by the
+corresponding routine. Note: for the POWELL routine no gradient information
+is computed.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering} }
+%BeginExpansion
+\begin{table}[p] \centering%
+%EndExpansion
+\begin{tabular}{llllll}
+\hline\hline
+method & energy & $\left\| g\right\| _2$ & calls & iter & tot. t/sec \\ 
+\hline
+TN & -14.502506 & $2.2\times 10^{-7}$ & 477 & 66 & 19.7 \\ 
+DUMING & -14.299668 & $8.5\times 10^{-5}$ & 325 & 149 & 13.2 \\ 
+DUMIDH & -14.308297 & $2.3\times 10^{-5}$ & 122 & 42 & 71.6 \\ 
+DUMCGG & -14.298264 & $5.4\times 10^{-7}$ & --- & --- & 68.1 \\ 
+POWELL & -14.305858 & --- & --- & 71 & 2132.0 \\ \hline\hline
+\end{tabular}
+\caption{Comparison of optimization methods using a 4 term $ ^{9}$Be trial
+function\label{Betime}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering} }
+%BeginExpansion
+\begin{table}[p] \centering%
+%EndExpansion
+\begin{tabular}{llllll}
+\hline\hline
+method & energy & $\left\| g\right\| _2$ & calls & iter & tot t/sec \\ \hline
+TN & -.5133492 & $1.7\times 10^{-7}$ & 1231 & 119 & 44.2 \\ 
+DUMING & -.5133492 & $9.3\times 10^{-6}$ & 1052 & 488 & 37.3 \\ 
+DUMIDH & -.5133492 & $5.7\times 10^{-6}$ & 183 & 62 & 115.6 \\ 
+DUMCGG & -.5133492 & $9.7\times 10^{-8}$ & --- & --- & 285.7 \\ 
+POWELL & -.5132153 & --- & --- & 174 & 5402.5 \\ \hline\hline
+\end{tabular}
+\caption{Comparison of optimization methods using an 8 term Ps$_{2}$ trial
+function\label{Pstime}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+Table (\ref{Betime}) illustrates three general points: 1) the new energy and
+gradient code is very fast, 2) the POWELL, non-gradient, routine is more
+than an order of magnitude slower than any of the gradient based methods, 3)
+non-linear optimization can be unpredictable. The information provided by
+the analytic gradient accelerates optimization, in this case by a factor of
+160 between the DUMING\ and POWELL routines. The unpredictably of non-linear
+optimization is illustrated by the difference in energy results. We
+speculate that the TN run has converged to a global minimum while the others
+have converged to some other local minimum, even though all runs were
+started from the same initial point.
+
+Table (\ref{Pstime}) applies to an 8 term (48 parameter) trial function for
+Ps$_2$ and illustrates the same speed benefits of gradient methods. But, in
+this case all five routines are apparently reaching the same minimum.
+
+Table (\ref{egtime}) shows how the energy and gradient calculation scales
+with increased system size and with increased basis size. The time increase
+with system size reflects the effect of increasing the terms in the symmetry
+projector, 2, 8, 24, respectively for He, Ps$_2$, and Be, and the size of
+the exponent matrices, $2\times 2,\;3\times 3$ and $4\times 4$,
+respectively. The table shows the energy and gradient calculations scale
+approximately by a factor of four with respect to doubling the size of the
+basis and with respect to increasing the number of particles in the problem.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering} }
+%BeginExpansion
+\begin{table}[p] \centering%
+%EndExpansion
+\begin{tabular}{lllllll}
+\hline\hline
+N & 4 & 8 & 16 & 32 & 64 & 128 \\ \hline
+He & .01 & .02 & .04 & .14 & .54 & 2.0 \\ 
+Ps$_2$ & .02 & .05 & .16 & .62 & 2.2 & 9.2 \\ 
+Be & .05 & .17 & .57 & 2.1 & 8.5 & 34.7 \\ \hline\hline
+\end{tabular}
+\caption{Time, in seconds, for 1 energy and gradient evaluation for
+ He, Ps$_{2}$, Be using from 4 to 128 trial functions\label{egtime}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+These timing tests on three diverse systems are encouraging. Further
+improvements are certainly possible. More experimentation with optimization
+methods and fine tuning of the methods would likely improve the results.
+However, we believe such refinements will make a smaller impact than our
+newly developed formulas for matrix elements and gradient which have made it
+possible to exploit the power of high quality optimization subroutines.
+
+\subsection{Energy calculations}
+
+Tables (\ref{He4eng}), (\ref{Heeng}), (\ref{Ps2eng}), (\ref{Be9eng}), and (%
+\ref{Beeng}) present results for ground state energy calculations on $^4$He,
+He, Ps$_2$, $^9$Be, and Be respectively. TN was used for the optimization in
+all of these calculations. The initial guesses for the exponents for $^4$He,
+Ps$_2$, and $^9$Be were random numbers generated using the randn command
+from MATLAB with the exception of the 128 term $^9$Be and $^4$He starting
+points which were formed from the partially optimized parameters from two 64
+term wave functions. The initial guesses for exponents of $^\infty $He and $%
+^\infty $Be were obtained from the optimized points for $^4$He and $^9$Be
+and required few additional iterations. The values reported in the tables
+are: the energy in hartrees, the magnitude of the gradient, $\left\|
+g\right\| _2$, and the absolute value of one minus the virial coefficient, $%
+\left| 1-\eta \right| $. The virial coefficient $\eta =-\left\langle
+V\right\rangle /2\left\langle T\right\rangle $ was computed as a simple
+check on the scale optimality of the wave function. Energy results are
+rounded to the nearest micro-hartree except for the 128 term results which
+are rounded the nano-hartree.
+
+Although these energy calculations were done primarily to test the new
+analytic gradient formulas they are actually very good results in their own
+right. However, it is likely that these results can be improved, and future
+work should bare this out.
+
+The 128 term $^4$He result is only 54 nano-hartrees above the result of
+Haftel and Mandelzweig\cite{Haftel94} (directly calculated using correlation
+hyperspherical harmonic method). Our 128 term $^\infty $He result,
+-2.903724307E$_h$, is 489 nano-hartree lower than the 100 term correlated
+Gaussian result of Rybak \textit{et al.}\cite{Rybak89}, -2.903723818E$_h$,
+and is only 70 nano-hartree above the exact result, -2.903724377034E$_h$\cite
+{Baker90,Drake88,Thakkar94}.
+
+The energy result -.516002493E$_h$ for Ps$_2$ establishes a new upper bound
+on the ground state energy of this system and is approximately 22.5
+micro-hartrees lower in energy than previously reported results\cite
+{Kozlowski93b,Kinghorn93,Varga96}.
+
+No other direct calculations for the ground state energy of $^9$Be were
+found in the literature, however, our results suggest that the ground state
+energy of this system is approximately one milli-hartree above the infinite
+nuclear mass limit which is what would be predicted by simple mass scaling.
+The exact result for $^\infty $Be reported in table (\ref{Beeng}) is the
+recent non-relativistic variational result of Komasa \textit{et al}.\cite
+{Komasa95}. This exceptionally good result was achieved with a 1200 term
+correlated Gaussian wave function. Our $^\infty $Be result with 128 basis
+functions, -14.667003813E$_h$, is 351 micro-hartrees above Komasa's result
+cited above and is midway between their 100 and 150 term results.
+
+\section{Conclusions}
+
+The formulas for matrix elements and analytic gradients in paper 1 are
+expressed in compact matrix notation made possible by the modern calculus of
+matrix variables. These formulas lead to the implementation of succinct,
+efficient, and easily debugged computer codes. The programming process is
+virtually painless when compared to previous formulas. The new formulas and
+computer code constitute a major development in the application of
+correlated Gaussian basis functions.
+
+An efficient computer program for analytic gradients significantly reduces
+the optimization effort inherent in the correlated Gaussian basis. Much more
+completely optimized wave functions are now possible. There remain
+additional problems that hamper exploitation of the correlated Gaussian
+basis functions. Some of these are rather elementary and require only
+careful application of known mathematical techniques: higher angular
+momentum states (paper 1 is limited to J=0), multi-center correlated
+Gaussians natural to Born-Oppenheimer wave functions of polyatomic
+molecules. Other difficulties appear to be largely insoluble except by shear
+brute strength, e.g. the vast number of permutations required to project a
+Fermi allowed state from an n-particle basis function. Also, it is well
+known that cusps due to Coulomb singularities cannot be precisely described
+with Gaussian basis functions such as ours. Additionally, the long range
+tail exponential is poorly described in this basis. Nevertheless, the
+present work confirms that Gaussian basis functions can achieve outstanding
+accuracy for modest numbers of particles when a sufficiently large expansion
+is used. Furthermore, convergence problems are ameliorated by the new
+algorithms made possible by the matrix calculus. The optimization of many
+non-linear parameters is a more severe problem than the inability to
+describe cusps and exponential tails. The present results demonstrate that,
+even for as many as 1000 non-linear parameters, excellent performance can be
+achieved with the latest optimization algorithms. It has been pointed out
+previously that multiple minima are present and that we merely report the
+best local minimum that has been found ( our experience indicates near
+equivalence of many local minima ).
+
+The present results confirm our expectation that formulas of paper 1 will
+extend the practical range of the correlated Gaussian basis. Our general
+computer program is currently being applied to several new systems.
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering} }
+%BeginExpansion
+\begin{table}[p] \centering%
+%EndExpansion
+\begin{tabular}{llll}
+\hline\hline
+N & energy & $\left\| g\right\| _2$ & $\left| 1-\eta \right| $ \\ \hline
+4 & -2.873276 & $7.7\times 10^{-9}$ & $3.0\times 10^{-9}$ \\ 
+8 & -2.899000 & $9.4\times 10^{-8}$ & $7.0\times 10^{-9}$ \\ 
+16 & -2.902915 & $2.7\times 10^{-7}$ & $1.0\times 10^{-9}$ \\ 
+32 & -2.903280 & $3.3\times 10^{-7}$ & $1.5\times 10^{-7}$ \\ 
+64 & -2.903303 & $1.4\times 10^{-7}$ & $1.9\times 10^{-7}$ \\ 
+128 & -2.903304488 & $6.3\times 10^{-7}$ & $3.4\times 10^{-8}$ \\ 
+exact\cite{Haftel94} & -2.903304542 &  &  \\ \hline\hline
+\end{tabular}
+\caption{$ ^{4}$He energy calculations using from 4 to 128 basis functions
+ Optimization using TN\label{He4eng}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering} }
+%BeginExpansion
+\begin{table}[p] \centering%
+%EndExpansion
+\begin{tabular}{llll}
+\hline\hline
+N & energy & $\left\| g\right\| _2$ & $\left| 1-\eta \right| $ \\ \hline
+4 & -2.873692 & $8.6\times 10^{-8}$ & $7.0\times 10^{-9}$ \\ 
+8 & -2.899420 & $1.2\times 10^{-7}$ & $2.8\times 10^{-8}$ \\ 
+16 & -2.903466 & $1.9\times 10^{-7}$ & $2.9\times 10^{-9}$ \\ 
+32 & -2.903700 & $4.0\times 10^{-7}$ & $9.1\times 10^{-8}$ \\ 
+64 & -2.903723 & $5.2\times 10^{-8}$ & $1.5\times 10^{-7}$ \\ 
+128 & -2.903724307 & $2.7\times 10^{-7}$ & $2.5\times 10^{-8}$ \\ 
+exact\cite{Baker90,Drake88,Thakkar94} & -2.903724377 &  &  \\ \hline\hline
+\end{tabular}
+\caption{$ ^{\infty}$He energy calculations using from 4 to 128 basis functions
+ Optimization using TN\label{Heeng}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering} }
+%BeginExpansion
+\begin{table}[p] \centering%
+%EndExpansion
+\begin{tabular}{llll}
+\hline\hline
+N & energy/hartree & $\left\| g\right\| _2$ & $\left| 1-\eta \right| $ \\ 
+\hline
+4 & -.506291 & $2.9\times 10^{-8}$ & $8.0\times 10^{-9}$ \\ 
+8 & -.513349 & $1.7\times 10^{-7}$ & $2.0\times 10^{-9}$ \\ 
+16 & -.515456 & $1.5\times 10^{-7}$ & $7.2\times 10^{-9}$ \\ 
+32 & -.515877 & $3.9\times 10^{-7}$ & $2.0\times 10^{-8}$ \\ 
+64 & -.515984 & $5.1\times 10^{-7}$ & $1.9\times 10^{-7}$ \\ 
+128 & -.516002493 & $9.7\times 10^{-7}$ & $4.4\times 10^{-9}$ \\ \hline\hline
+\end{tabular}
+\caption{Ps$_{2}$ energy calculations using from 4 to 128 basis functions
+ Optimization using TN\label{Ps2eng}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering} }
+%BeginExpansion
+\begin{table}[p] \centering%
+%EndExpansion
+\begin{tabular}{llll}
+\hline\hline
+N & energy/hartree & $\left\| g\right\| _2$ & $\left| 1-\eta \right| $ \\ 
+\hline
+4 & -14.502506 & $2.2\times 10^{-7}$ & $9.0\times 10^{-9}$ \\ 
+8 & -14.603063 & $2.7\times 10^{-7}$ & $7.0\times 10^{-9}$ \\ 
+16 & -14.640292 & $7.1\times 10^{-7}$ & $8.0\times 10^{-9}$ \\ 
+32 & -14.655832 & $2.7\times 10^{-5}$ & $3.8\times 10^{-7}$ \\ 
+64 & -14.664523 & $3.7\times 10^{-4}$ & $3.8\times 10^{-7}$ \\ 
+128 & -14.666082684 & $2.0\times 10^{-4}$ & $3.0\times 10^{-7}$ \\ 
+\hline\hline
+\end{tabular}
+\caption{$ ^{9}$Be energy calculations using from 4 to 128 basis functions
+ Optimization using TN\label{Be9eng}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+%TCIMACRO{\TeXButton{B}{\begin{table}[p] \centering} }
+%BeginExpansion
+\begin{table}[p] \centering%
+%EndExpansion
+\begin{tabular}{llll}
+\hline\hline
+N & energy/hartree & $\left\| g\right\| _2$ & $\left| 1-\eta \right| $ \\ 
+\hline
+4 & -14.503421 & $1.5\times 10^{-7}$ & $5.8\times 10^{-10}$ \\ 
+8 & -14.603984 & $2.8\times 10^{-7}$ & $7.0\times 10^{-9}$ \\ 
+16 & -14.641214 & $1.3\times 10^{-6}$ & $2.1\times 10^{-8}$ \\ 
+32 & -14.656012 & $1.2\times 10^{-6}$ & $5.0\times 10^{-9}$ \\ 
+64 & -14.665444 & $1.2\times 10^{-5}$ & $2.5\times 10^{-8}$ \\ 
+128 & -14.667003813 & $1.6\times 10^{-5}$ & $5.9\times 10^{-8}$ \\ 
+exact\cite{Baker90} & -14.667355021 &  &  \\ \hline\hline
+\end{tabular}
+\caption{$ ^{\infty}$Be energy calculations using from 4 to 128 basis functions
+ Optimization using TN\label{Beeng}}%
+%TCIMACRO{\TeXButton{E}{\end{table}}}
+%BeginExpansion
+\end{table}%
+%EndExpansion
+
+\bibliographystyle{aip}
+\bibliography{4-prefs,mcalc}
+
+\end{document}

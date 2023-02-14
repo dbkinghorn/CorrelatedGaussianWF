@@ -1,0 +1,285 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 3.0,
+MathReader 3.0, or any compatible application. The data for the notebook 
+starts with the line of stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      5428,        195]*)
+(*NotebookOutlinePosition[      6066,        218]*)
+(*  CellTagsIndexPosition[      6022,        214]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+    \(f = Exp[\(-\((t1^2\ a11\  + \ t2^2\ a22\  + \ 2\ t1\ t2\ a12)\)\)]\)], 
+  "Input"],
+
+Cell[BoxData[
+    \(E\^\(\(-a11\)\ t1\^2 - 2\ a12\ t1\ t2 - a22\ t2\^2\)\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[f, {t1, 1}]/f\ \  /. \ {t1 -> 0, t2 -> 0}\)], "Input"],
+
+Cell[BoxData[
+    \(0\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[f, {t1, 2}]/f\ \  /. \ {t1 -> 0, t2 -> 0}\)], "Input"],
+
+Cell[BoxData[
+    \(\(-2\)\ a11\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[f, {t1, 3}]/f\ \ \  /. \ {t1 -> 0, t2 -> 0}\)], "Input"],
+
+Cell[BoxData[
+    \(0\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[f, {t1, 4}]\ /f\  /. \ {t1 -> 0, t2 -> 0}\)], "Input"],
+
+Cell[BoxData[
+    \(12\ a11\^2\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[f, {t1, 6}]\ /f\  /. \ {t1 -> 0, t2 -> 0}\)], "Input"],
+
+Cell[BoxData[
+    \(\(-120\)\ a11\^3\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[f, {t1, 8}]\ /f\  /. \ {t1 -> 0, t2 -> 0}\)], "Input"],
+
+Cell[BoxData[
+    \(1680\ a11\^4\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(D[f, {t1, 10}]\ /f\  /. \ {t1 -> 0, t2 -> 0}\)], "Input"],
+
+Cell[BoxData[
+    \(\(-30240\)\ a11\^5\)], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Integrate[u^\((2  m)\)\ Exp[\(-u^2\)], {u, \(-Infinity\), Infinity}]
+      \)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"If", "[", 
+      RowBox[{
+      \(Re[m] > \(-\(1\/2\)\)\), ",", 
+        \(1\/2\ \((1 + \((\(-1\))\)\^\(2\ m\))\)\ Gamma[1\/2 + m]\), ",", 
+        RowBox[{
+          SubsuperscriptBox["\[Integral]", 
+            InterpretationBox[\(-\[Infinity]\),
+              DirectedInfinity[ -1]], 
+            InterpretationBox["\[Infinity]",
+              DirectedInfinity[ 1]]], 
+          \(\(E\^\(-u\^2\)\ u\^\(2\ m\)\) \[DifferentialD]u\)}]}], "]"}]], 
+  "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Integrate[
+      \((u^\((2  m)\) + a)\)\ Exp[\(-\((u^2\  + \ b)\)\)\ ], {u, 
+        \(-Infinity\), Infinity}]\)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"If", "[", 
+      RowBox[{
+      \(Re[m] > 0\), ",", 
+        \(1\/2\ E\^\(-b\)\ 
+          \((2\ a\ \@\[Pi] + 
+              \((1 + \((\(-1\))\)\^\(2\ m\))\)\ Gamma[1\/2 + m])\)\), ",", 
+        RowBox[{
+          SubsuperscriptBox["\[Integral]", 
+            InterpretationBox[\(-\[Infinity]\),
+              DirectedInfinity[ -1]], 
+            InterpretationBox["\[Infinity]",
+              DirectedInfinity[ 1]]], 
+          \(\(E\^\(\(-b\) - u\^2\)\ \((a + u\^\(2\ m\))\)\) 
+            \[DifferentialD]u\)}]}], "]"}]], "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Integrate[
+      \((q^2\ u^2 + a)\)^m\ Exp[\(-u^2\)\ \ ], {u, \(-Infinity\), Infinity}]
+      \)], "Input"],
+
+Cell[BoxData[
+    RowBox[{"If", "[", 
+      RowBox[{
+      \(Arg[a\/q\^2] \[NotEqual] \[Pi]\), ",", 
+        \(1\/Gamma[\(-m\)]\((
+          a\^m\ \((a\/q\^2)\)\^\(1\/2 - m\)\ \@\(q\^2\/a\)\ 
+            \((\@\[Pi]\ \((a\/q\^2)\)\^\(1\/2 + m\)\ 
+                  Gamma[\(-\(1\/2\)\) - m]\ 
+                  Hypergeometric1F1[1\/2, 3\/2 + m, a\/q\^2] + 
+                Gamma[\(-m\)]\ Gamma[1\/2 + m]\ 
+                  Hypergeometric1F1[\(-m\), 1\/2 - m, a\/q\^2])\))\)\), ",", 
+        RowBox[{
+          SubsuperscriptBox["\[Integral]", 
+            InterpretationBox[\(-\[Infinity]\),
+              DirectedInfinity[ -1]], 
+            InterpretationBox["\[Infinity]",
+              DirectedInfinity[ 1]]], 
+          \(\(E\^\(-u\^2\)\ \((a + q\^2\ u\^2)\)\^m\) 
+            \[DifferentialD]u\)}]}], "]"}]], "Output"]
+}, Open  ]]
+},
+FrontEndVersion->"X 3.0",
+ScreenRectangle->{{0, 1280}, {0, 1024}},
+WindowSize->{520, 600},
+WindowMargins->{{361, Automatic}, {Automatic, 117}}
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1731, 51, 102, 2, 27, "Input"],
+Cell[1836, 55, 86, 1, 32, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[1959, 61, 76, 1, 27, "Input"],
+Cell[2038, 64, 35, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2110, 70, 76, 1, 27, "Input"],
+Cell[2189, 73, 45, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2271, 79, 78, 1, 27, "Input"],
+Cell[2352, 82, 35, 1, 27, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2424, 88, 76, 1, 27, "Input"],
+Cell[2503, 91, 44, 1, 29, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2584, 97, 76, 1, 27, "Input"],
+Cell[2663, 100, 50, 1, 29, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2750, 106, 76, 1, 27, "Input"],
+Cell[2829, 109, 46, 1, 29, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[2912, 115, 77, 1, 27, "Input"],
+Cell[2992, 118, 52, 1, 29, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3081, 124, 108, 2, 27, "Input"],
+Cell[3192, 128, 486, 12, 43, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[3715, 145, 143, 3, 43, "Input"],
+Cell[3861, 150, 561, 14, 76, "Output"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+Cell[4459, 169, 127, 3, 27, "Input"],
+Cell[4589, 174, 823, 18, 179, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

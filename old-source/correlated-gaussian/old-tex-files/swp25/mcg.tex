@@ -1,0 +1,158 @@
+%% This document created by Scientific Word (R) Version 2.0
+%% Starting shell: mathart1
+
+
+\documentclass[12pt,thmsa]{article}
+\usepackage{amsfonts}
+%%%%%
+\usepackage{sw20aip}
+\usepackage{doublesp}
+
+\input tcilatex
+\QQQ{Language}{
+American English
+}
+
+\begin{document}
+
+\author{Donald B. Kinghorn and Ludwik Adamowicz \\
+%EndAName
+Department of Chemistry, University of Arizona, Tucson, Arizona 85721}
+\title{Multi-Center Correlated Gaussian Basis Functions: Integrals and Derivatives
+uning Matrix Differential Calculus }
+\date{December 14 1995}
+\maketitle
+
+\begin{abstract}
+Replace this text with your own abstract.
+\end{abstract}
+
+\section{Introduction}
+
+\section{Multi-Center Correlated Gaussian Basis Functions}
+
+The milti-center correlated Gaussian functions considered in this work are
+negative exponitials of positive definite quadratic forms,
+
+\begin{equation}
+\phi _k=\exp \left[ -\left( r-s_k\right) ^{\prime }\left( L_kL_k^{\prime
+}\otimes I_3\right) \left( r-s_k\right) \right]  \label{basisfcn}
+\end{equation}
+Here, $r$ is a $3n\times 1$ vector of Cartesian coordinates for the $n$
+particles, $s_k$ is a $3n\times 1$ vector of centers for the Gaussian
+functions (not nescessarily nuclear positions), $L_k$ is an $n\times n$
+lower triangular matrix of rank $n$ and $I_3$ is the $3\times 3$ identity
+matrix. $k$ would range from $1$ to $N$ where $N$ is the number of basis
+functions. Integrals involving the functions $\phi _k$ are well defined only
+if the exponent matrix is positive definite symmetric, this is assured by
+using the Cholesky factorization $L_kL_k^{\prime }$. The Kronecker product
+with $I_3$ is used to insure rotational invariance of the basis
+functions*****????.
+
+This form is similar to that presented by Singer\cite{Singer1} *****
+
+\section{Integral Formulas}
+
+\subsection{A Fundimental Integral}
+
+The following integral from Friedman\cite{Friedman90int} will be useful in
+what follows. Let $A$ be a positive definite $m\times m$ matrix, $a$ an $%
+m\times 1$column vector, $x$ an $m\times 1$column vector variable and $%
+f\left( u\right) $ an arbitrary integrable function of the variable $u$ over
+the interval $\left( -\infty ,\infty \right) $, then, 
+\begin{equation}
+\int_{x\in \Bbb{R}^n}f(a^{\prime }x)\exp \left[ -x^{\prime }Ax\right]
+\,\,dx=\pi ^{\left( m-1\right) /2}\left| A\right| ^{-1/2}\int_{-\infty
+}^\infty f\left( \gamma u\right) e^{-u^2}\,\,du  \label{fint}
+\end{equation}
+with, 
+\[
+\gamma ^2=a^{\prime }A^{-1}a 
+\]
+
+Now, let 
+\[
+f\left( a^{\prime }x\right) =\exp \left[ a^{\prime }x\right] 
+\]
+then, using equation (\ref{fint}), 
+\begin{eqnarray}
+\int_{x\in \Bbb{R}^n}\exp \left[ a^{\prime }x-x^{\prime }Ax\right] \,\,dx
+&=&\pi ^{\left( m-1\right) /2}\left| A\right| ^{-1/2}\int_{-\infty }^\infty
+e^{\gamma u-u^2}\,\,du  \nonumber \\
+&=&\pi ^{m/2}\left| A\right| ^{-1/2}\exp \left[ \left( a^{\prime
+}A^{-1}a\right) /4\right]  \label{basicint}
+\end{eqnarray}
+Use of formula (\ref{basicint}) will allow a straight forward derivation of
+the overlap and potential energy integrals.
+
+\subsection{Overlap Integral}
+
+Some notational simplification will make the formulas that follow easier to
+read. Let 
+\begin{eqnarray*}
+A_k &=&L_kL_k^{\prime } \\
+A_{kl} &=&A_k+A_l
+\end{eqnarray*}
+The Kronecker product of a matrix with the $3\times 3$ identity matrix will
+be denoted by an over-bar, for example 
+\[
+\bar{A}_k=A_k\otimes I_3
+\]
+Continuing, let, 
+\begin{eqnarray*}
+a_k &=&\bar{A}_ks_k \\
+a_{kl} &=&a_k+a_l \\
+\gamma _k &=&s_k^{\prime }\bar{A}_ks_k \\
+\gamma _{kl} &=&\gamma _k+\gamma _l
+\end{eqnarray*}
+With this notation the basis function, equation (\ref{basisfcn}), can be
+written as 
+\begin{eqnarray}
+\phi _k &=&\exp \left[ -\left( r-s_k\right) ^{\prime }\bar{A}_k\left(
+r-s_k\right) \right]   \nonumber \\
+&=&\exp \left[ 2a_k^{\prime }r-r^{\prime }\bar{A}_kr\right] \,e^{-\gamma _k}
+\end{eqnarray}
+The product of two basis functions is then, 
+\begin{equation}
+\phi _k\phi _l=\exp \left[ 2a_{kl}^{\prime }r-r^{\prime }\bar{A}_kr\right]
+\,e^{-\gamma _{kl}}
+\end{equation}
+
+The overlap integral now follows immediately from equation (\ref{basicint}) 
+\begin{eqnarray}
+\left\langle \phi _k\right. |\left. \phi _l\right\rangle  &=&\pi
+^{3n/2}\,e^{-\gamma _{kl}}\,\,\left| \bar{A}_{kl}\right| ^{-1/2}\exp \left[
+a_{kl}^{\prime }\bar{A}_{kl}^{-1}a\right]   \nonumber \\
+&=&\alpha \,\pi ^{3n/2}\left| A_{kl}\otimes I_3\right| ^{-1/2}  \nonumber \\
+&=&\alpha \,\pi ^{3n/2}\left| A_{kl}\right| ^{-3/2}
+\end{eqnarray}
+where $\alpha $ is the constant, 
+\begin{equation}
+\alpha =e^{-\gamma _{kl}}\,\exp \left[ a_{kl}^{\prime }\bar{A}%
+_{kl}^{-1}a\right] 
+\end{equation}
+Note that $\alpha =1$ when $s_k=s_l=0,$ the single center case.
+
+\subsection{Kinetic Energy Integral}
+
+\subsection{Potential Energy Integral}
+
+\subsection{Other Integral Formulas}
+
+\section{Gradient of the Energy Functional}
+
+\section{First Derivatives}
+
+\subsection{Overlap Derivative}
+
+\subsection{Kinetic Energy Derivative}
+
+\subsection{Potential Energy Derivative}
+
+\section{Conclusions}
+
+\appendix 
+
+\section{Some Useful Matrix Results}
+
+\end{document}

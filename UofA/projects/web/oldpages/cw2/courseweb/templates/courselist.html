@@ -1,0 +1,113 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- Updated 12:40 PM on 4/9/97                              -->
+<!-- *******************************************************-->
+
+<HEAD>
+<TITLE>CourseWeb Sample Course List Layout</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#CAE4FF">
+
+<TABLE BORDER=0 WIDTH=100% CELLPADDING=0 CELLSPACING=0>
+<TR>
+	<TD><IMG SRC="images/porph_med2.gif" ALT="porph_med2.gif - 6.38 K" WIDTH="362" HEIGHT="103" ALIGN="top"></TD>
+	<TD><H1>Course List</H1>  </TD>
+
+</TR>
+</TABLE>
+
+<HR>
+
+<P>[This is a SAMPLE course list page. The only active link is CHEM 000 which is the CourseWeb test area.
+         The course list page will be generated from a course list data base created at the beginning of a semester. 
+         This data base will determine what courses appear in the menus below,  set authoring privileges 
+          for the courses, and initialize the directory structure on the web server for all courses in the data base. ]</P>
+
+<TABLE BORDER="2" CELLPADDING="8" CELLSPACING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+<TR>
+        	<TD>Select the course you would like to visit from one of
+        	the drop down lists below. <FONT SIZE="2">(The only
+        	active link is CHEM 000 on the 100 Level Courses list)</FONT>
+            
+	<CENTER>
+
+	<FORM NAME="menu100">
+          	<SELECT NAME="menu100_select" SIZE="1"
+                    onChange="window.location=menu100.menu100_select.options[menu100.menu100_select.selectedIndex].value;document.menu100.menu100_select[0].selected='1'">
+                        <OPTION SELECTED>100 Level Courses .........................................</OPTION>
+                        <OPTION VALUE="chem000FrameSet.html">CHEM 000 CourseWeb test course</OPTION>
+              </SELECT>
+              </FORM>
+	
+	<FORM NAME="menu200">
+              <SELECT NAME="menu200_select" SIZE="1">
+                        <OPTION SELECTED>200 Level Courses .........................................</OPTION>
+               </SELECT>
+               </FORM>
+
+	<FORM NAME="menu300">
+              <SELECT NAME="menu300_select" SIZE="1">
+                        <OPTION SELECTED>300 Level Courses .........................................</OPTION>
+           	</SELECT>
+          	</FORM>
+
+	<FORM NAME="menu400">
+              <SELECT NAME="menu400_select" SIZE="1">
+                        <OPTION SELECTED>400 Level Courses .........................................</OPTION>
+              </SELECT>
+              </FORM>
+
+	<FORM NAME="menu500">
+              <SELECT NAME="menu500_select" SIZE="1">
+                        <OPTION SELECTED>500 Level Courses .........................................</OPTION>
+              </SELECT>
+              </FORM>
+
+	<FORM NAME="menu600">
+              <SELECT NAME="menu600_select" SIZE="1">
+                        <OPTION SELECTED>600 Level Courses .........................................</OPTION>
+              </SELECT>
+              </FORM>
+              
+	<FORM NAME="menuSpecial">
+              <SELECT NAME="menuSpecial_select" SIZE="1">
+                        <OPTION SELECTED>Special  Courses or Events ...........................</OPTION>
+              </SELECT>
+              </FORM>
+	</CENTER>
+	</TD>
+</TR>
+
+<TR>
+	<TD>
+	<P>
+	To obtain general descriptions of the course offerings you can consult the university catalogs:
+	</P>
+	
+	<UL>
+            	    <LI><A HREF="http://www.arizona.edu/academic/catalog/chem.html">Chemistry catalog listings</A></LI>
+            	    <LI><A HREF="http://www.arizona.edu/cgi-bin/schedule/sisdown/parse-schedule.pl?CHEMzz971z">Chemistry schedule listings</A></LI>
+        	</UL>
+	
+	</TD>
+</TR>
+
+</TABLE>
+
+<!-- Footer-->
+<HR>
+<FONT SIZE="1">&copy 1997, The University of Arizona Department of Chemistry. 
+<EM><A HREF="mailto:kinghorn@u.arizona.edu">Donald B. Kinghorn 
+<IMG SRC="images/mailto.gif" BORDER="0" WIDTH="14" HEIGHT="10" ALIGN="absmiddle"></A></EM>
+</FONT>
+
+</BODY>
+</HTML>

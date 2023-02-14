@@ -1,0 +1,183 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- 5:08 PM on 6/9/97                                                 -->
+<!-- *******************************************************-->
+
+<HEAD>
+
+<TITLE>B.O.S.S. CoursWeb Admin Interface</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Begin hiding Script from old Shouser Browsers
+//
+// Set the user info in the current form
+//
+function setUser(theForm){
+	theForm.userName.value=document.forms[0].elements[0].value;
+	theForm.userEmail.value=document.forms[0].elements[1].value;
+}
+//
+// Make sure the form is filled out
+//
+function checkData(thisForm){
+	for( var i=0; i<thisForm.length; i++) {
+		if(thisForm.elements[i].value=="") {
+			alert("Please enter the missing data.");
+			return false;
+		}
+	} 
+	return true;
+}	
+
+// End Hiding Script -->
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="#CAE4FF" onLoad =  'now = new Date();alert(now + " All B.O.S.S. activity is loged!")'>
+
+<HR WIDTH=200 ALIGN="CENTER">
+<CENTER>
+<FONT SIZE=+3 FACE="Arial" COLOR="#800000">CourseWeb<BR>B.O.S.S. <B></B></FONT>
+</CENTER>
+<HR WIDTH=200 ALIGN="CENTER">
+<BR>
+Welcome to the <BIG><B>B</B></BIG>eginning <B>O</B>f <B>S</B>emester <B>S</B>ystem
+for <B>CourseWeb</B>. 
+This is the  setup area for CourseWeb web sites. 
+<P>Here you can:
+<UL>
+	<LI>upload the course database to set up class web sites,<BR>
+	<FONT FACE="Arial" COLOR="#FF0000">
+		<A HREF="dbformat.html">[Database format information]</A>
+	</FONT>
+	<!-- <LI>delete course web sites (directories) -->
+	<LI>add/delete a class site without using the database.
+</UL>
+
+<TABLE  WIDTH="100%" BGCOLOR="#D3D3D3" BORDER="0" CELLSPACING="0">
+<TR>
+	<TD><HR><FONT SIZE=+1><B>Please enter your name and e-mail address (required):</B></FONT>
+	<TABLE>
+	<FORM NAME="userInfo">
+	<TR>
+	    <TD>Name: </TD><TD><INPUT TYPE="TEXT" SIZE="30" ></TD>
+	</TR>
+	<TR>
+	    <TD>e-mail address: </TD><TD><INPUT TYPE="TEXT" SIZE="30" ></TD>
+	</TR>
+
+	</TABLE>
+	</FORM>
+</TR>
+<TR>
+	<TD><HR><FONT SIZE=+1><B>Upload the course database:</B></FONT>
+	<FORM NAME="uploadForm" 
+	      ACTION="http://www.chem.arizona.edu/cgi-bin/courseweb/boss/mksitedb.cgi" 
+	      ENCTYPE="multipart/form-data">
+	
+	<INPUT TYPE="HIDDEN"  NAME="userName" >
+	<INPUT TYPE="HIDDEN"  NAME="userEmail" >
+
+	<INPUT NAME="fileName" TYPE="FILE" SIZE="50" >
+	<INPUT TYPE="submit" VALUE="Upload"
+			onClick='setUser(this.form);return checkData(this.form)'><BR>
+	</FORM><BR><HR>
+	</TD>
+</TR>
+
+<!--
+
+<TR>
+	<TD><FONT SIZE=+1><B>Delete course directories:</B></FONT>
+	<FORM NAME="deleteForm">
+
+	<INPUT TYPE="HIDDEN"  NAME="userName" >
+	<INPUT TYPE="HIDDEN"  NAME="userEmail" >
+
+	 <SELECT NAME="menu_select" SIZE="8" MULTIPLE>
+<!--beginOptions-->
+
+<!--
+
+<OPTION >Course name1</OPTION>
+<OPTION >Course name2</OPTION>
+<OPTION >Course name3</OPTION>
+<OPTION >Course name4</OPTION>
+<OPTION >Course name5</OPTION>
+<OPTION >Course name6</OPTION>
+<OPTION >Course name7</OPTION>
+<OPTION >Course name8</OPTION>
+<OPTION >Course name9</OPTION>
+<OPTION >Course name10</OPTION>
+<!--endOptions-->
+              </SELECT> 
+	<INPUT TYPE="submit" VALUE="Delete"
+			onClick='setUser(this.form);return checkData(this.form)'><BR>
+	</FORM><BR><HR>
+	</TD>
+</TR>
+
+-->
+
+<TR>
+        <TD><FONT SIZE=+1><B>Add or Delete a single course:</B></FONT>
+	<TABLE>
+	<FORM NAME="addForm"  METHOD="POST" ENCLTYPE="text/html" 
+		ACTION="http://www.chem.arizona.edu/cgi-bin/courseweb/boss/mksite.cgi">
+	<INPUT TYPE="HIDDEN"  NAME="userName" >
+	<INPUT TYPE="HIDDEN"  NAME="userEmail" >
+	<TR>
+	    <TD>Semester Code: </TD><TD><INPUT TYPE="TEXT" SIZE="3" NAME="semesterCode" ></TD>
+	</TR>
+	<TR>
+	    <TD>Course Name: </TD><TD><INPUT TYPE="TEXT" SIZE="30" NAME="courseName"></TD>
+	</TR>
+	<TR>
+	    <TD>Section:</TD><TD><INPUT TYPE="TEXT" SIZE="30" NAME="section" VALUE=" "></TD>
+	</TR>
+	<TR>
+	    <TD>Instructor Name: </TD><TD><INPUT TYPE="TEXT" SIZE="30" NAME="insName" ></TD>
+	</TR>
+	<TR>
+	    <TD>Instructor e-mail: </TD><TD><INPUT TYPE="TEXT" SIZE="30" NAME="insEmail" VALUE=" " >(optional--for notification)</TD>
+	</TR>
+	<TR>
+	    <TD>Menu ID: </TD><TD><SELECT NAME="menuID"  >
+					<OPTION >100 Level Courses</OPTION>
+					<OPTION >200 Level Courses</OPTION>
+					<OPTION >300 Level Courses</OPTION>
+					<OPTION >400 Level Courses</OPTION>
+					<OPTION >500 Level Courses</OPTION>
+					<OPTION >600 Level Courses</OPTION>
+					<OPTION >Special Courses and Events....</OPTION>
+				            </SELECT></TD>
+	</TR>
+	<TR>
+	    <TD>Option:</TD><TD><SELECT NAME="optMenu">
+					<OPTION>Add new course</OPTION>
+					<OPTION>Overwrite existing course</OPTION>
+					<OPTION>Delete course</OPTION>
+				      </SELECT></TD>
+	</TR>
+	<TR>
+	    <TD>&nbsp </TD>
+	        <TD><INPUT TYPE="submit" VALUE="Setup course web site" 
+				onClick='setUser(this.form);return checkData(this.form)'></TD>
+	</TR>
+	</FORM>
+	</TABLE>
+        </TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>
+

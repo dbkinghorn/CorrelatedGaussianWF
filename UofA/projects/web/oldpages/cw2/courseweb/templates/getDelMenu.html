@@ -1,0 +1,31 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- Updated 7:56 PM on 5/8/97                              -->
+<!-- *******************************************************-->
+<HEAD>
+<TITLE>Delete Menu Item</TITLE>
+
+</HEAD>
+<BODY BGCOLOR="#D3D3D3" onLoad='document.forms[0].submit()'>
+<!--  -->
+<H2>Getting current course menu. Please wait</H2>
+
+<FORM NAME="theForm" METHOD="POST" ACTION="http://www.chem.arizona.edu/cgi-bin/courseweb/mkdelmenu.cgi" 
+	ENCLTYPE="text/html"  >
+
+	<!-- put in file and directory info -->
+	<INPUT TYPE="HIDDEN"  NAME="courseDir" VALUE="/chem/htdocs/courseweb/972/chem001/" >
+	<INPUT TYPE="HIDDEN"  NAME="courseFile" VALUE="cw_Top.html" >
+
+</FORM>
+<HR>
+</BODY>
+</HTML>
+

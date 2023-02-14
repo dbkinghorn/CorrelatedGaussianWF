@@ -1,0 +1,1 @@
+ifort -O3 -o testcg-ifort cgaussrc.f engradrc.f melkk.f melkl.f tn.f -lmkl_core -lmkl_intel_lp64 -lmkl_sequential

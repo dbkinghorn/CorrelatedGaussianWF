@@ -1,0 +1,59 @@
+\documentstyle[12pt,overcite]{article}
+\setlength{\textwidth}{7in}
+\setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{-.25in}
+%
+\setlength{\topmargin}{-.9in}
+\def\Real{\rm I\hspace{-0.2em}R}
+\def\nin{{\in \! \! \! \! \! /} \,}
+\def\nequiv{{\equiv \! \! \! \! \! \! /} \,}
+
+
+
+\begin{document}
+\setcounter{page}{32}
+
+\begin{center}
+{\Large 
+\bf 
+Budget Justification}
+\end{center}
+ 
+\vspace{2mm}
+
+\setlength{\baselineskip}{2em}
+
+We have two main budget needs in this project. First, we
+need to provide summer salary support for the P.I.
+and salaries 
+for  the postdoctoral research associate
+and 
+for the graduate student
+working on the project.
+The proposed budget will provide two months of salary for the
+P.I. and twelve months of salary for a 
+postdoctoral research associate and a graduate student,
+each year.
+
+
+The second budget item is a purchase of an SGI ORIGIN 200
+4-cpu system with 1GB RAM and 20 GB disk. This system 
+will provide an excellent parallel environment for the 
+proposed method development and application calculations.
+At the price of \$30,554 this system is probably the best
+buy at the present time. The SGI computer will complement
+and eventually replace
+our aging cluster of IBM RISK 6000 workstations.
+
+The third budget need are the travel expenses and
+operation funds for the project, including materials
+and supplies, publication costs, computer services,
+communication costs, {\it etc.}
+We budgeted the minimum what will be needed for this 
+purpose.
+
+
+\end{document}
+
+
+

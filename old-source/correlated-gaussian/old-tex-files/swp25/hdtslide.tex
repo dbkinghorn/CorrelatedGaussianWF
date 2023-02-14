@@ -1,0 +1,69 @@
+%% This document created by Scientific Word (R)
+%% Version 2.0
+
+
+\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{thmdefs}
+
+%TCIDATA{TCIstyle=MISC/misc.lat,tcislides}
+
+\input tcilatex
+\input tcislide
+\QQQ{Language}{
+American English
+}
+
+\begin{document}
+
+Atomic Born-Oppenheimer calculations can be corrected for finite nuclear
+mass using 
+\[
+E\cong \mu E^\infty +\frac{m_e}M\left\langle \nabla _1\cdot \nabla
+_2\right\rangle _\infty 
+\]
+Below we compare this correction with the direct non-adiabatic energy
+calculations
+
+\begin{tabular}{llll}
+\hline\hline
+& H$^{-}$ & D$^{-}$ & T$^{-}$ \\ \hline
+Mass scaled approx & -0.527446011 & -0.527598357 & -0.527649056 \\ 
+Dirrect calculation & -0.527446042 & -0.527598360 & -0.527649060 \\ 
+\hline\hline
+\end{tabular}
+
+\newpage\ 
+
+\section{Electron Affinities}
+
+\newpage
+
+The Hydrogen ground state energy is given by
+\[
+E=-\frac \mu 2
+\]
+where $\mu $ is the reduced mass, thus we have (in Hartrees)
+\begin{eqnarray*}
+E\left( H\right)  &=&-.499727987597 \\
+E\left( D\right)  &=&-.499863852242 \\
+E\left( T\right)  &=&-.499909073021
+\end{eqnarray*}
+The electron affinities are given by
+\[
+EA=E\left( H\right) -\left\langle \widehat{H}\right\rangle _H+E_r
+\]
+where $\left\langle \widehat{H}\right\rangle $ is the non-adiabatic
+non-relativistic energy and $E_r=-.30416cm^{-1}$ is a relativistic
+correction from Pekeris [ C. L. Pekeris Physical Review Vol. 126 no.4 1470
+(1962) ]
+
+\begin{tabular}{llll}
+\hline\hline
+& $EA$ & Experimental & Pekeris \\ \hline
+H & 6083.112cm$^{-1}$ & 6082.99$\pm 0.15$cm$^{-1}$ & 6083.00958cm$^{-1}$ \\ 
+D & 6086.724cm$^{-1}$ & 6086.2$\pm 0.6$cm$^{-1}$ &  \\ 
+T & 6087.926cm$^{-1}$ &  &  \\ \hline
+\end{tabular}
+
+\end{document}

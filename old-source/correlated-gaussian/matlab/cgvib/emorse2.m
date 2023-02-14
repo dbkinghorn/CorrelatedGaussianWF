@@ -1,0 +1,71 @@
+function e = emorse2(v)
+
+
+%mu=50;
+mu=9.180763410000000e+002;
+%q=-1;
+
+n0=1;
+n1=1;
+n2=1;
+n3=1;
+n4=1;
+n5=1;
+n6=1;
+nt=n0+n1+n2+n3+n4+n5+n6;
+
+a=zeros(nt,1);
+a=v(1:nt);
+
+% do the tempering
+%a(1:n0) = v(1)*(v(2).^[1:n0]);
+%a(n0+1:n0+n1) = v(3)*(v(4).^[1:n1]);
+%a(n0+n1+1:n0+n1+n2) = v(5)*(v(6).^[1:n2]);
+
+%c=v(nt+1:2*nt);
+
+
+for i=1:n0
+    indxmn(i)=14;
+end
+for i=1:n1
+    indxmn(n0+i)=15;
+end
+for i=1:n2
+    indxmn(n0+n1+i)=16;
+end
+for i=1:n3
+    indxmn(n0+n1+n2+i)=17;
+end
+for i=1:n4
+    indxmn(n0+n1+n2+n3+i)=18;
+end
+for i=1:n5
+    indxmn(n0+n1+n2+n3+n4+i)=19;
+end
+for i=1:n6
+    indxmn(n0+n1+n2+n3+n4+n5+i)=20;
+end
+
+for i=1:nt
+    for j=1:nt
+        [S(i,j),T(i,j),V(i,j)]=matelmn(a(i),a(j),indxmn(i),indxmn(j),mu);
+    end
+end
+
+H=T+V;
+%S
+%T
+%V
+%H
+%eig(S)
+%min(eig(S))
+%cond=rcond(S);
+
+es=eig(H,S);
+es=sort(real(es));
+e=es(1);
+
+%e=(c'*H*c)/(c'*S*c);
+
+%[V D]=eig(H,S)

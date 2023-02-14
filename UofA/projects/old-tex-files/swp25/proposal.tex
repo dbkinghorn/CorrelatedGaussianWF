@@ -1,0 +1,125 @@
+%% This document created by Scientific Word (R) Version 2.0
+
+
+\documentclass[12pt,thmsa]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{sw20jart}
+
+%TCIDATA{TCIstyle=Article/art4.lat,jart,sw20jart}
+
+\input tcilatex
+\QQQ{Language}{
+American English
+}
+
+\begin{document}
+
+\hspace{1.0in}
+
+\vspace{1.0in}
+
+Spectroscopy is one of the most important tools in chemistry. It is
+indispensable for structure determination and chemical analysis. Indeed much
+of what is known in chemistry is the result of spectroscopic investigation
+or at least motivated by such investigations. Quantum chemistry itself is
+the curious child of spectroscopy. It was the puzzlement of spectral
+observations which motivated the development of quantum mechanics. Since
+Plank's investigation of black-body radiation and Bohr's explanation of the
+hydrogen spectra as transitions between quantum states, spectroscopic
+observations have been interpreted using quantum theory. Theoretical quantum
+chemistry has matured enormously since the turn of the century, this,
+coupled with the phenomenal increase in the computational power of computers
+has opened the door to ``\emph{ab initio} spectroscopy''. It is work in this
+relatively new and undeniably important field which is suggested in this
+proposal.
+
+Our focus here is on a new method for computing vibration-rotation energy
+levels. A variety of methods for investigation of vibration-rotation have
+been used ranging from, simple harmonic oscillator rigid rotor models with
+perturbation extensions based on the classical rovibrational Hamiltonians of
+Eckart\cite{Eckart35}, Willison and Howard\cite{WilsonHoward36}, and the
+quantum mechanical version of the Eckart Hamiltonian put forth by Watson\cite
+{Watson68}, to the variational method of Sutcliffe and Tennyson\cite
+{SutcliffeTennyson87}, and the Morse oscillator based Hamiltonian, (MORBID),
+of Jenson\cite{Jenson88}. Most of the recent work utilizes complicated
+coordinate transformations which are specific for the systems investigated,
+di- and tri-atomic molecules, and are not easily generalized, and not
+practical for investigations of larger systems. The method we propose does
+not require exotic transformations of the Hamiltonian and is easily extended
+to larger systems.
+
+The method proposed here consists of three steps: 1) compute an accurate
+potential energy surface for the electronic state of interest, 2) Model the
+potential energy surface using a series of elliptic correlated gaussians, 3)
+Perform a variational calculation for the vibration-rotation energy levels
+using a basis of correlated gaussians.
+
+Generating an accurate potential energy surface for a system with many
+degrees of freedom is a computationally intensive task, there are, however,
+many methods available for carrying out such calculations, for example, the
+various forms of configuration interaction methods. Also, for systems with
+few electrons highly accurate potential energy surfaces can be generated
+using variational methods, currently under development by us, utilizing
+explicitly correlated gaussian basis sets together with analytic derivatives
+of the energy functional with respect to the nonlinear variational
+parameters.
+
+The second step in our procedure finding an expression for the potential
+energy function has been referred to as the search for the ``Holy Grail of
+Spectroscopy''. Methods have included expansions in terms of normal
+coordinates, Morse functions, interpolating functions, power series
+expansions, rational polynomial approximations and many body expansions; see
+Searles\cite{Searles93} for a review. Our method will utilize a
+multi-parameter fit of the potential energy surface using an expansion in
+elliptic correlated gaussians of the form $V=\sum_ic_i\exp \left[ r^{\prime
+}\left( A\otimes B\right) r\right] $ where $r$ is a $3n$ vector of nuclear
+coordinates in an internal coordinate system, $A$ is a $n\times n$ matrix
+with ``orbital'' coefficients on the diagonal and ``correlation''
+coefficients off the diagonal and $B$ is a $3\times 3$ diagonal matrix of
+parameters which determine the elliptic distortions. We expect this form of
+the potential to be flexible enough to model even the most complex potential
+energy surface.
+
+The finial step in our procedure is a variational calculation over the
+nuclear Hamiltonian utilizing our potential function from step 2. The
+variation calculation will be carried out using a symmetry projected basis
+of explicitly correlated gaussians with harmonic polynomial pre multipliers
+to generate vibration-rotation eigenstates $\phi _k=\mathcal{P}\exp
+[-r\left( A\otimes I_n\right) r]\theta _{LM_L}\left( r\right) $. This basis
+should produce excellent results since it correlates all n-body
+interactions. Notoriously difficult problems such as computing energy levels
+for the highly excited vibrational states of H$_2$O and the vibration
+rotation levels of the very floppy molecule H$_4^{+}$ should be easily
+handled. All of the steps involved in this procedure are tractable. Elegant
+and easily implementable mathematical forms for all of the required
+integrals and derivatives can be obtained using the powerful matrix
+differential calculus described by Kinghorn\cite{Kinghorn95}.
+
+This project will culminate in the development of efficient, easy to use
+computer code for performing \emph{ab initio} vibration-rotation energy
+level calculations for molecular systems much larger than anything that has
+been done to date. This work will mark a significant advance in the
+interpretation and prediction of molecular spectra and should be of great
+interest to many researchers in a wide variety of fields.
+
+\begin{thebibliography}{9}
+\bibitem{Eckart35}  C. Eckart, Phys. Rev. 47, 552 (1953)
+
+\bibitem{WilsonHoward36}  E. B. Wilson and J. B. Howard, J. Chem. Phys. 4,
+260 (1936)
+
+\bibitem{Watson68}  J. K. G. Watson, Mol. Phys. 15,479 (1968)
+
+\bibitem{SutcliffeTennyson87}  B. T. Sutcliffe and J. Tennyson, J. Chem.
+Soc. Faraday Tran. 83(9), 1663 (1987)
+
+\bibitem{Jenson88}  P. Jenson, J. Mol. Spec. 128, 478 (1988)
+
+\bibitem{Searles93}  D. J. Searles and E. I. von Nagy-Felsobuki, Ab Inito
+Variational Calculations of Molecular Vibrational-Rotational Spectra,
+Springer-Verlag, Berlin (1993)
+
+\bibitem{Kinghorn95}  D. B. Kinghorn, Int. J. Quant. Chem. (in press)
+\end{thebibliography}
+
+\end{document}

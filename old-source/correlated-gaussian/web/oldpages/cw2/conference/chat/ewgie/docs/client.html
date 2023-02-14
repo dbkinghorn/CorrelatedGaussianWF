@@ -1,0 +1,147 @@
+<html>
+<META HTTP-EQUIV="Expires" CONTENT="Mon, 13 Sep 1971 13:00:00 GMT">
+<head>
+<title>Ewgie Documentation: Using EwgieClient</title>
+</head>
+<body bgcolor="#FFFFFF" vlink="#68675F" link="#E31818">
+
+<center>
+<table width=95%>
+
+<tr>
+<td><font size=+3><b>EWGIE</b></font><br>
+<font size=+1><b><font color="#FF0000">E</font>asy <font color="#FF0000">W</font>eb <font color="#FF0000">G</font>roup <font color="#FF0000">I</font>nteraction <font color="#FF0000">E</font>nabler</b></font></td>
+<td><img src="ewgie.gif" alt="" align=right width=138 height=60></td>
+
+</tr>
+</table>
+</center>
+<p>
+
+<center>
+<font size=+2><b>Using EwgieClient</b></font>
+<p>
+
+<table width=95%>
+<tr>
+<td>
+
+<img src="ewgie.client.gif" alt="" width=480 height=210>
+<blockquote>
+<p>
+When you go to a page with a EwgieClient on it, you'll see a blank chat text area as pictured above. Above this area is a place to type the name you want to use in chat, and above that is a status bar that shows you the current time and what's going on. If you click on the time in the status bar, the display will toggle between the local time, the local date, and how long you've been within chat.
+<p>
+On the left-hand side of the status bar text indicating how many total people are connected to the server, how many people are in the particular room you're in, and the name of the room you're in.
+<p>
+
+To begin, simply type a nickname that you wish to call yourself in the name entry field. There are only a few rules to names:
+<p>
+
+<ul>
+<li> Names must be one word (they cannot contain tabs or spaces).
+<li> Names cannot contain commas (commas are used for separating a list of names in some commands).
+<li> Names can contain any other mixture of characters, uppercase and lowercase, but you should keep it simple so it's easy for others to type.
+</ul>
+<p>
+
+If you wish to change the font size of the text on the screen at any time, use the font size option menu to the right of the name entry field.
+<p>
+
+At this point, you can select the "Enter" button on the screen and connect to the server. After connecting, the server may display a short welcome message. You are now in the chat area!
+<p>
+
+The Ewgie client can also be started as a login dialog, which looks like this:
+</blockquote>
+<p>
+
+<center><img src="ewgie.login.gif" alt="" width=211 height=143></center>
+<p>
+
+<blockquote>
+To enter chat, type your nickname into the "Name" field, press the return or enter key, type your password (if it is required on the server), press the return or enter key, then select the "Connect" button with your mouse or by pressing return or enter again.
+<p>
+A chat window will then appear that you can move around and resize outside of the browser. You can change the page the browser is currently in and you will not be disconnected. If the chat text area is embedded within the page, however, you will be disconnected if you leave the page.
+<p>
+Below the chat text area are a few buttons: an enter/leave button, which you can use to enter and leave chat, a "People/Rooms" button, which shows a control panel that you can use to get information on people and rooms, and a "Whiteboard" button that displays the whiteboard.
+<p>
+
+<br>
+<a name="1"><h3>Basic Commands</h3></a>
+
+Below the main text screen is an entry field which you use to talk to other people and send commands to the client and server. To talk to everyone else currently online, simply type in what you want to say and press the return or enter key.
+<p>
+
+The text you see on the screen that begins with asterisks ("<code>***</code>") indicates that this message is coming from the client or the server - it is machine-generated. Messages you see from other people start with their name, a greater-than sign, and a space, such as:
+
+<pre>
+     John> Hi there
+</pre>
+This is a message from John, who typed "Hi there" to everyone. If you see a message starting with a name surrounded by asterisks, such as this:
+
+<pre>
+     *John*> Hi there
+</pre>
+This indicates that you have been sent a private message - a message that nobody else can see but you.
+<p>
+
+Commands are preceded with a forward slash ("/") character. To use these commands, type them in the entry field and press the return or enter key. Here are some of the basic commands you should know first:
+<p>
+
+<ul>
+<li> <b>/quit</b>
+<p>
+Typing <code>/quit</code> will take you out of the chat area and disconnect you from the server. You can also press the "Leave" button to leave chat.
+<p>
+<li> <b>/help</b>
+<p>
+If you need help, this command will show a concise summary of all the commands that are available to you.
+<p>
+<li> <b>/who</b> <i>(name)</i>
+<p>
+This will list who's currently online. These are all the people that you can chat with. When you type <code>/who</code>, you will see how many people are online, how many maximum people can be online at any one time, each person's nickname, and the Internet address that they are connected from.
+<p>
+When you type a name as an argument to this command, you can get information on this person. Note that when you type names in commands it does not matter what case you type them in.
+<p>
+<li> <b>/nick</b> <i>(name)</i>
+<p>
+You can rename yourself by using this command. Type <code>/nick</code>, a space, and the new name you want to call yourself. Hit return or enter and you will be renamed (if nobody else is using that name).
+<p>
+<li> <b>/msg</b> <i>name</i> <i>text</i>
+<p>
+This is how you send private messages to people. Type the name of the person you want to send the message to followed by a space followed by the message you want to send. Only you two will see this message. Note that chat should not be considered a secure form of communication, any more than you would trust your email to be secure.
+<p>
+<li> <b>/away</b>
+<p>
+When you use this command, you will be marked as being away. This is like turning your answering machine on - when other people try to send you a private message or get information on you, they will be send an automatic message in return indicating that you are away. When you are away the status bar will turn gray.
+<p>
+<li> <b>/return</b>
+<p>
+This commands returns you from being away. Clicking on the left-hand side of the status bar will toggle you between being away and not being away.
+<p>
+<li> <b>/ring</b> <i>name</i>
+<p>
+Sometimes if someone you want to get in touch with is away, or you want them to notice you, you can ring them. When somebody rings you, your status bar will flash red, and alert sound will be played, and Ewgie will tell you who is ringing you.
+</ul>
+<p>
+
+Ewgie saves a history of what commands you've previously typed to save you from having to retype common commands. To use this history, make sure the cursor is in the message entry field, and press the up or down arrow keys on your keyboard. These keys go backwards and forwards in your command history, respectively.
+<p>
+
+This concludes the very brief tutorial on using the client. For more information on commands, you can read the section <a href="commands.html">All the Commands</a>.
+</blockquote>
+<p>
+
+</td>
+</tr>
+<tr>
+<td align=center>
+<a href="what.html">[ Back: What is Ewgie? ]</a>
+<a href="index.html">[ Index ]</a>
+<a href="control.html">[ Next: Using the Control Panel ]</a>
+</td>
+</tr>
+</table>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+98.04.09 16:31 A c:\kinghorn\projects\lyp\src\testlyp.f <-- uafchempc1 /home1/kinghorn/lyp testlyp.f
+98.04.09 16:31 A c:\kinghorn\projects\lyp\src\ulyp.f <-- uafchempc1 /home1/kinghorn/lyp ulyp.f
+98.04.09 16:31 A c:\kinghorn\projects\lyp\src\ulypmma.f <-- uafchempc1 /home1/kinghorn/lyp ulypmma.f
+98.04.09 18:33 A c:\kinghorn\projects\lyp\src\ulypmma.f --> uafchem4.uark.edu /home1/baker/TXPARA ulypmma.f
+98.04.10 18:07 A c:\kinghorn\projects\lyp\src\testlyp.f --> uafchempc1.uark.edu /home1/kinghorn/lyp testlyp.f
+98.04.10 18:07 A c:\kinghorn\projects\lyp\src\ulypmmax.f --> uafchempc1.uark.edu /home1/kinghorn/lyp ulypmmax.f
+98.04.10 19:02 A c:\kinghorn\projects\lyp\src\ulypmmax.f --> uafchempc1.uark.edu /home1/kinghorn/lyp ulypmmax.f
+98.04.14 18:30 A c:\kinghorn\projects\lyp\src\ulypmmax.f --> uafchempc1.uark.edu /home1/kinghorn/lyp ulypmmax.f
+98.04.15 17:53 A c:\kinghorn\projects\lyp\src\ulypmmax.f --> uafchem4.uark.edu /home1/baker ulypmmax.f

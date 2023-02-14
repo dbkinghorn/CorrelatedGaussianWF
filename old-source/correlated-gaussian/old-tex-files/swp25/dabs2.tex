@@ -1,0 +1,54 @@
+%% This document created by Scientific Word (R) Version 2.0
+
+
+\documentclass[12pt,thmsa]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{sw20jart}
+
+%TCIDATA{TCIstyle=Article/art4.lat,jart,sw20jart}
+
+\input tcilatex
+
+\begin{document}
+
+
+\begin{center}
+{EXPLICITLY CORRELATED GAUSSIAN BASIS FUNCTIONS:\\ DERIVATION AND
+IMPLEMENTATION OF MATRIX \\ ELEMENTS AND GRADIENT FORMULAS USING \\ MATRIX
+DIFFERENTIAL CALCULUS}
+
+\textbf{Abstract} \\\ \\by Donald B. Kinghorn, Ph.D. \\Washington
+State University \\August 1995
+\end{center}
+
+\ \newline
+{\noindent Chair: R.D. Poshusta} \ \newline
+
+The matrix differential calculus is introduced to the quantum chemistry
+community via new matrix derivations of integral formulas and gradients for
+Hamiltonian matrix elements in a basis of correlated Gaussian functions.
+Requisite mathematical background material on Kronecker products, Hadamard
+products, the vec and vech operators, linear structures, and matrix
+differential calculus is presented. New matrix forms for the kinetic and
+potential energy operators are presented. Integrals for overlap, kinetic
+energy and potential energy matrix elements are derived in matrix form using
+matrix calculus. The gradient of the energy functional with respect to the
+correlated Gaussian exponent matrices is derived. Burdensome summation
+notation is entirely replaced with a compact matrix notation that is both
+theoretically and computationally insightful.
+
+These new formulas in the basis of explicitly correlated Gaussian basis
+functions, are implemented and applied to find variational upper bounds for
+non-relativistic ground states of $^4$He, $^\infty $He, Ps$_2$, $^9$Be, and $%
+^\infty $Be. Analytic gradients of the energy are included to speed
+optimization of the exponential variational parameters. Five different
+nonlinear optimization subroutines (algorithms) are compared: TN, truncated
+Newton; DUMING, quasi-Newton; DUMIDH, modified Newton; DUMCGG, conjugate
+gradient; POWELL, direction set (non-gradient). The new analytic gradient
+formulas are found to significantly accelerate optimizations that require
+gradients. The truncated Newton algorithm is found to outperform the other
+optimizers for the selected test cases. Computer timings and energy bounds
+are reported. The new TN bounds surpass previously reported bounds with the
+same basis size.
+
+\end{document}

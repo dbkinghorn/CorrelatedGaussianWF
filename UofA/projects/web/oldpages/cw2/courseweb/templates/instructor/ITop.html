@@ -1,0 +1,125 @@
+<! DOCTYPE HTML PUBLIC "-/ /W3C/ /DTD HTML 3.2/ /EN">
+
+<HTML>
+
+<!-- ******************************************************-->
+<!-- Donald B. Kinghorn                                              -->
+<!-- University of Arizona Dept. of Chemistry        -->
+<!-- Tucson AZ  85721                                                 -->
+<!-- e-mail: kinghorn@u.arizona.edu                        -->
+<!-- Updated 9:13 PM on 4/15/97                              -->
+<!-- *******************************************************-->
+
+<HEAD>
+
+<TITLE>Intructor Interface Top frame</TITLE>
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- // Begin hiding Script from old Shouser Browsers
+
+// openAnnounce() opens the add announcement window
+function openAnnounce() {
+              announceWindow = window.open("cntrlAnnounce.html", "addAnnouncement", "width=600,height=460 ")
+}
+
+// openLink() opens the add menu link window
+function openLink() {
+	linkWindow = window.open("cntrlLink.html", "addLink", "width=560,height=340")
+}
+// openPage() opens the add menu page window **NOT USED**
+//function openPage() {
+//	pageWindow = window.open("cntrlPage.html", "addPage", "width=620,height=360")
+//}
+// openUpload() opens the add files window
+function openUpload() {
+	uploadWindow = window.open("cntrlUpload.html", "addFiles", "width=620,height=380")
+}
+// openFreebes() opens the add freebes window **NOT USED**
+//function openFreebes() {
+//	freebesWindow = window.open("cntrlFreebes.html", "addFiles", "width=500,height=460,scrollbars=yes")
+//}
+// openDelAnnounce() opens the delete announcement window
+function openDelAnnounce() {
+	delAnnounceWindow = window.open("delAnnounce.html", "delAnnounce", "width=500,height=300")
+}
+// openDelMenu() opens the delete menu item window
+function openDelMenu() {
+	delMenuWindow = window.open("getDelMenu.html", "delMenu", "width=500,height=300")
+}
+// openDelUpload() opens the delete uploaded file window
+function openDelUpload() {
+	delUploadWindow = window.open("getDelUpload.html", "delUpload", "width=500,height=300")
+}
+
+//
+//
+function openControl(optionVal) {
+	if( optionVal == "m1") {
+		openAnnounce()
+	} else if( optionVal=="m2"){
+		openLink()
+	} else if( optionVal=="m3"){
+		openPage()
+	} else if( optionVal=="m4"){
+		openUpload()
+	} else if(optionVal=="m5"){
+		openFreebes()
+	} else if(optionVal=="m6"){
+		openDelAnnounce()
+	} else if(optionVal=="m7"){
+		openDelMenu()
+	} else if(optionVal=="m8"){
+		openDelUpload()
+	} else  { alert('Hummm, somethings not right')
+	}
+}
+//
+// Generate a mailto: for help
+//
+function helpMsg() {
+	if( confirm("I haven't installed the help system yet but you can help me by telling me what you would like help on.\n I will use your comments as a guide for constructing the help system. \n\nWOULD YOU LIKE TO SEND ME E-MAIL?") ) {
+	 window.location='mailto:kinghorn@dakotacom.net' 
+	}
+}
+// 
+// End Hiding Script -->
+</SCRIPT>
+
+
+</HEAD>
+
+<BODY BGCOLOR="#CAE4FF" TOPMARGIN="0">
+
+
+<TABLE BORDER="0" CELLSPACING="0" WIDTH="100%">
+    <TR>
+        <TD><H4><FONT FACE="Arial"  COLOR=#800000> Instructor Interface</FONT></H4></TD>
+        <TD ALIGN="LEFT"><FORM NAME="menu">
+            <SELECT NAME="menu_select" SIZE="1"
+	onChange = "openControl(menu.menu_select.options[menu.menu_select.selectedIndex].value);document.menu.menu_select[0].selected='1' ">
+                <OPTION SELECTED>Menu and File Modification Controls</OPTION>
+	  <OPTION VALUE="m1">New Announcement</OPTION>
+	  <OPTION VALUE="m6">Delete Announcement</OPTION>
+                <OPTION VALUE="m2">Add Link To Menu</OPTION>
+	  <OPTION VALUE="m7">Delete Menu Item</OPTION>
+                <OPTION VALUE="m4">Upload  File</OPTION>
+	  <OPTION VALUE="m8">Delete Uploaded File</OPTION>
+            </SELECT> 
+        </FORM>
+        </TD>
+        <TD ALIGN="center">
+	<FORM NAME="help">
+		<INPUT TYPE="BUTTON" VALUE="HELP" onClick = 'helpMsg()'>
+	<!--	<INPUT TYPE="BUTTON" VALUE="CLOSE" onClick = 'parent.close()'> -->
+	</FORM>
+        </TD>
+    </TR>
+</TABLE>
+
+
+</BODY>
+</HTML>
+

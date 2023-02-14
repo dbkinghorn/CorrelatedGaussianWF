@@ -1,0 +1,47 @@
+% my letter template ( haven't done this in awhile )
+
+\documentclass{letter}
+
+% my address and name
+\address{University of Arizona\\
+	 Dept. of Chemistry\\
+	 1306 E. University\\
+	 Tucson, AZ 85721}
+
+\signature{Dr. Donald B. Kinghorn}
+
+\begin{document}
+
+% the recipient
+\begin{letter}{}
+
+% the opening greeting
+\opening{Hi Jeff}
+
+Greetings from sunny Tucson \ldots we have meet a couple of times \ldots
+I received my PhD. from WSU in 95 \ldots Ron Poshusta was my advisor.
+Hope everything is going well for you in Richland. Looks like 
+you all have been busy \ldots
+
+I'm at the University of Arizona working with Ludwik Adamowicz
+in the theoretical and computational chemistry group. I'm still 
+working mostly on non-adiabatic calculations with correlated basis
+sets \ldots fun calculations \ldots 
+
+I've just put together a prototype Linux ``Beowulf'' cluster for the group
+and am working on parallel versions,(MPI and PVM) of my energy 
+optimization codes.
+I'll probably work on a parallel version of our multi-reference coupled
+cluster code too.
+ 
+We are planning on building a 48+ processor cluster and would like to
+try NWChem. I would like a copy of the source tree if possible. I'll 
+see if I can optimize some of the code for this architecture. 
+  
+
+\closing{My warmest regards}
+
+\end{letter}
+
+\end{document}
+ 
